@@ -474,8 +474,8 @@
         border-radius: 10px; padding: 16px; transition: all 0.3s;
       }
       .glossary-item:hover { border-color: var(--accent3); }
-      .glossary-term { font-family: 'DM Mono', monospace; font-size: 14px; color: var(--accent3); font-weight: 700; margin-bottom: 6px; }
-      .glossary-def  { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
+      .glossary-term { font-family: 'DM Mono', monospace; font-size: 20px; color: var(--wood); font-weight: 700; margin-bottom: 6px; }
+      .glossary-def  { font-size: 16px; color: var(--text-dim); line-height: 1.6; }
 
       /* ═══════════════════════════════════════════════════
          QUIZ SECTION
@@ -561,6 +561,20 @@
       .git-purple .msg-badge { background: rgba(188,140,255,0.1); color: #bc8cff; }
       .msg-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink); }
       .msg-desc  { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
+      /* Novas variações */
+.msg-card.git-cyan   { border-left-color: #22d3ee; }
+.msg-card.git-indigo { border-left-color: #818cf8; }
+
+/* Badge */
+.git-cyan .msg-badge {
+  background: rgba(34,211,238,0.1);
+  color: #22d3ee;
+}
+
+.git-indigo .msg-badge {
+  background: rgba(129,140,248,0.1);
+  color: #818cf8;
+}
 
       /* ═══════════════════════════════════════════════════
          INLINE CODE
@@ -799,7 +813,7 @@
         <!-- Painel direito visual — ASCII art / grid tecnológico -->
         <div class="nc-right">
           <img
-            src="git01A.png"
+            src="img/git01A.png"
             alt="Diagrama de Classes"
             onerror="this.style.display='none';"
             style="width: 640px; height: 700px; object-fit: cover; object-position: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(88,166,255,0.2); border: 1px solid rgba(88,166,255,0.3); transition: transform 0.3s ease;"
@@ -878,7 +892,7 @@
     <div class="nc-right">
 
       <img
-        src="git03A.png"
+        src="img/git03A.png"
         alt="Git"
         onerror="this.style.display='none';"
         style="
@@ -1056,7 +1070,7 @@
           </div>
           <div class="nc-right">
             <img
-              src="git02A.png"
+              src="img/git02A.png"
               alt="Git Hub"
               onerror="this.style.display='none';"
               style="width: 640px; height: 700px; object-fit: cover; object-position: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(88,166,255,0.2); border: 1px solid rgba(88,166,255,0.3); transition: transform 0.3s ease;"
@@ -1196,7 +1210,7 @@
     <div class="nc-right">
 
       <img
-        src="git04.png"
+        src="img/git04.png"
         alt="Git vs GitHub"
         onerror="this.style.display='none';"
         style="
@@ -1448,322 +1462,389 @@
       ══════════════════════════════════════════════════ -->
 <section class="content-section" id="section-fluxo" style="background:var(--bg);">
 
-<div
-class="cover"
-style="
-  padding:0;
-  min-height:auto;
-  background:transparent;
-  margin-bottom:40px;
-  box-shadow:none;
-"
->
+  <div class="cover" style="padding:0; min-height:auto; background:transparent; margin-bottom:40px; box-shadow:none;">
+    <div class="cover-text">
+      <div class="section-tag">Seção 04</div>
+      <h2 style="font-size:clamp(2.5rem,4vw,3.5rem); line-height:1.1; margin-bottom:1rem; color:var(--ink); font-family:'Fraunces',serif;">
+        O Fluxo<br />
+        <span style="color:var(--wood);">Básico</span>
+      </h2>
+      <p class="cover-subtitle" style="font-size:1.1rem; line-height:1.6;">
+        Todo projeto utilizando <strong>Git + GitHub</strong> segue um fluxo
+        relativamente simples. Aprender essas etapas é o primeiro passo para
+        entender como desenvolvedores organizam alterações, salvam versões
+        e compartilham código profissionalmente.
+      </p>
+    </div>
 
-<!-- Texto -->
-<div class="cover-text">
-
-  <div class="section-tag">
-    Seção 04
+    <div class="nc-right">
+      <img src="img/git05.png" alt="Fluxo Git e GitHub" onerror="this.style.display='none';" style="width: 640px; height: 700px; object-fit: cover; object-position: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(56,189,248,0.18); border: 1px solid rgba(56,189,248,0.25); transition: transform 0.3s ease;" />
+    </div>
   </div>
 
-  <h2
-    style="
-      font-size:clamp(2.5rem,4vw,3.5rem);
-      line-height:1.1;
-      margin-bottom:1rem;
-      color:var(--ink);
-      font-family:'Fraunces',serif;
-    "
-  >
-    O Fluxo<br />
-    <span style="color:var(--wood);">
-      Básico
-    </span>
-  </h2>
+  <h3 class="subtitle">
+    Entendendo o <span style="color:var(--wood);">Fluxo Básico</span>
+  </h3>
 
-  <p
-    class="cover-subtitle"
-    style="
-      font-size:1.1rem;
-      line-height:1.6;
-    "
-  >
-    Todo projeto utilizando <strong>Git + GitHub</strong> segue um fluxo
-    relativamente simples. Aprender essas etapas é o primeiro passo para
-    entender como desenvolvedores organizam alterações, salvam versões
-    e compartilham código profissionalmente.
+  <p class="text">
+    O fluxo de trabalho com Git e GitHub segue uma sequência lógica:
+    criar arquivos, registrar alterações, salvar versões e enviar o projeto
+    para a nuvem. Esse processo permite acompanhar toda a evolução do sistema,
+    organizar o desenvolvimento e colaborar com outros programadores de forma segura.
   </p>
 
-</div>
+  <div style="padding:0 2%;">
+    <div class="steps-list" id="steps-fluxo">
 
-<!-- Imagem -->
-<div class="nc-right">
-
-  <img
-    src="git05.png"
-    alt="Fluxo Git e GitHub"
-    onerror="this.style.display='none';"
-    style="
-      width: 640px;
-      height: 700px;
-
-      object-fit: cover;
-      object-position: center;
-
-      box-shadow:
-        0 10px 30px rgba(0,0,0,0.5),
-        0 0 20px rgba(56,189,248,0.18);
-
-      border: 1px solid rgba(56,189,248,0.25);
-
-      transition: transform 0.3s ease;
-    "
-  />
-
-</div>
-
-</div>
-<h3 class="subtitle">
-  Entendendo o <span style="color:var(--wood);">Fluxo Básico</span>
-</h3>
-
-<p class="text">
-  O fluxo de trabalho com Git e GitHub segue uma sequência lógica:
-  criar arquivos, registrar alterações, salvar versões e enviar o projeto
-  para a nuvem. Esse processo permite acompanhar toda a evolução do sistema,
-  organizar o desenvolvimento e colaborar com outros programadores de forma segura.
-</p>
-
-        <!-- Steps numerados com linha conectora -->
-        <div style="padding:0 2%;">
-          <div class="steps-list" id="steps-fluxo">
-
-            <div class="step-item reveal-step">
-              <div class="step-num-wrap">
-                <div class="step-num">01</div>
-                <div class="step-line"></div>
-              </div>
-              <div class="step-content">
-                <div class="step-title">📁 Criar Repositório</div>
-                <div class="step-desc">Um repositório (ou <em>repo</em>) é a pasta do seu projeto gerenciada pelo Git. Você pode criar pelo GitHub.com ou transformar uma pasta local com <code>git init</code>.</div>
-                <div class="code-block">
-                  <div class="code-block-header">
-                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-                    <span class="code-block-label">bash — criar repositório local</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-                  </div>
-                  <div class="code-block-body">
-                    <pre><span class="c-comment"># Criar uma pasta e inicializar o Git</span>
-<span class="c-cmd">mkdir</span> meu-projeto
-<span class="c-cmd">cd</span> meu-projeto
-<span class="c-cmd">git init</span>
-<span class="c-green">Initialized empty Git repository in /meu-projeto/.git/</span></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-item reveal-step">
-              <div class="step-num-wrap">
-                <div class="step-num">02</div>
-                <div class="step-line"></div>
-              </div>
-              <div class="step-content">
-                <div class="step-title">📥 Clonar um Repositório</div>
-                <div class="step-desc">Se o projeto já existe no GitHub, você baixa uma cópia completa com <code>git clone</code>. Isso traz todo o histórico de commits junto.</div>
-                <div class="code-block">
-                  <div class="code-block-header">
-                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-                    <span class="code-block-label">bash — clonar repositório</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-                  </div>
-                  <div class="code-block-body">
-                    <pre><span class="c-comment"># Clonar um repositório do GitHub</span>
-<span class="c-cmd">git clone</span> <span class="c-str">https://github.com/usuario/repositorio.git</span>
-<span class="c-comment"># Entrar na pasta clonada</span>
-<span class="c-cmd">cd</span> repositorio</pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-item reveal-step">
-              <div class="step-num-wrap">
-                <div class="step-num">03</div>
-                <div class="step-line"></div>
-              </div>
-              <div class="step-content">
-                <div class="step-title">✏️ Editar Arquivos</div>
-                <div class="step-desc">Abra os arquivos no seu editor preferido (VS Code, por exemplo) e faça as alterações. O Git rastreia automaticamente qualquer mudança.</div>
-                <div class="alert alert-tip">
-                  <span class="alert-icon">💡</span>
-                  <span>Use <code>git status</code> a qualquer momento para ver quais arquivos foram modificados, adicionados ou removidos.</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-item reveal-step">
-              <div class="step-num-wrap">
-                <div class="step-num">04</div>
-                <div class="step-line"></div>
-              </div>
-              <div class="step-content">
-                <div class="step-title">📸 Commit — "Tirar a Foto"</div>
-                <div class="step-desc">Um commit é uma fotografia do seu projeto naquele momento. Antes de commitar, você precisa escolher quais arquivos entram na foto com <code>git add</code>.</div>
-                <div class="code-block">
-                  <div class="code-block-header">
-                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-                    <span class="code-block-label">bash — adicionar e commitar</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-                  </div>
-                  <div class="code-block-body">
-                    <pre><span class="c-comment"># Ver o que mudou</span>
-<span class="c-cmd">git status</span>
-
-<span class="c-comment"># Adicionar TODOS os arquivos modificados</span>
-<span class="c-cmd">git add</span> <span class="c-flag">.</span>
-
-<span class="c-comment"># Ou adicionar um arquivo específico</span>
-<span class="c-cmd">git add</span> <span class="c-str">index.html</span>
-
-<span class="c-comment"># Criar o commit com mensagem descritiva</span>
-<span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"feat: adiciona página inicial"</span></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-item reveal-step">
-              <div class="step-num-wrap">
-                <div class="step-num">05</div>
-                <div class="step-line"></div>
-              </div>
-              <div class="step-content">
-                <div class="step-title">🚀 Push — "Enviar para o GitHub"</div>
-                <div class="step-desc">Após commitar localmente, você <strong>envia</strong> os commits para o GitHub com <code>git push</code>. Agora o código está na nuvem e acessível para o time.</div>
-                <div class="code-block">
-                  <div class="code-block-header">
-                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-                    <span class="code-block-label">bash — enviar commits</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-                  </div>
-                  <div class="code-block-body">
-                    <pre><span class="c-comment"># Enviar commits para o repositório remoto</span>
-<span class="c-cmd">git push</span> <span class="c-str">origin main</span>
-
-<span class="c-comment"># Na primeira vez, pode ser necessário:</span>
-<span class="c-cmd">git push</span> <span class="c-flag">--set-upstream</span> <span class="c-str">origin main</span></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-item reveal-step">
-              <div class="step-num-wrap">
-                <div class="step-num">06</div>
-                <div class="step-line"></div>
-              </div>
-              <div class="step-content">
-                <div class="step-title">⬇️ Pull — "Receber do GitHub"</div>
-                <div class="step-desc">Se um colega fez push de novas alterações, você usa <code>git pull</code> para baixar e integrar essas mudanças no seu repositório local.</div>
-                <div class="code-block">
-                  <div class="code-block-header">
-                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-                    <span class="code-block-label">bash — baixar atualizações</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-                  </div>
-                  <div class="code-block-body">
-                    <pre><span class="c-comment"># Baixar e integrar mudanças do repositório remoto</span>
-<span class="c-cmd">git pull</span> <span class="c-str">origin main</span>
-
-<span class="c-comment"># Ver o histórico de commits</span>
-<span class="c-cmd">git log</span> <span class="c-flag">--oneline</span></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap">
+          <div class="step-num">01</div>
+          <div class="step-line"></div>
         </div>
-
-        <!-- Fluxo resumido — bloco de código completo -->
-        <div style="padding:0 2%;margin-top:16px;">
-          <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:16px;">
-            🔁 O Fluxo Completo em um Bloco
-          </div>
-          <p class="text">
-            Esse é o fluxo básico utilizado na maioria dos projetos com Git e GitHub.
-            Primeiro, o Git é inicializado no projeto. Em seguida, os arquivos são adicionados
-            à área de stage e registrados através de um commit. Depois disso, o repositório local
-            é conectado ao GitHub e, por fim, as alterações são enviadas para a nuvem com o
-            comando <code>git push</code>. Esse ciclo será repetido constantemente durante o
-            desenvolvimento de software.
-          </p>
+        <div class="step-content">
+          <div class="step-title">📁 Criar Projeto Local</div>
+          <div class="step-desc">O primeiro passo é criar uma pasta no seu computador para organizar os arquivos do seu novo projeto e navegar até ela pelo terminal.</div>
           <div class="code-block">
             <div class="code-block-header">
               <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-              <span class="code-block-label">bash — fluxo básico completo</span>
+              <span class="code-block-label">criar pasta do projeto</span>
               <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
             </div>
             <div class="code-block-body">
-              <pre><span class="c-comment"># 1. Inicializar repositório</span>
-<span class="c-cmd">git init</span>
-
-<span class="c-comment"># 2. Adicionar arquivos à área de stage</span>
-<span class="c-cmd">git add</span> <span class="c-flag">.</span>
-
-<span class="c-comment"># 3. Fazer o commit com mensagem</span>
-<span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"Primeiro commit"</span>
-
-<span class="c-comment"># 4. Conectar ao repositório remoto do GitHub</span>
-<span class="c-cmd">git remote add origin</span> <span class="c-str">https://github.com/usuario/repo.git</span>
-
-<span class="c-comment"># 5. Enviar para o GitHub</span>
-<span class="c-cmd">git push</span> <span class="c-str">origin main</span></pre>
+              <pre><span class="c-comment"># Criar uma nova pasta</span>
+<span class="c-cmd">mkdir</span> meu-projeto
+<span class="c-comment"># Entrar na pasta criada</span>
+<span class="c-cmd">cd</span> meu-projeto</pre>
             </div>
           </div>
         </div>
-        <!-- Fechamento da seção -->
-<div style="padding:0 2%;margin-top:32px;">
+      </div>
 
-  <div class="summary-box">
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap">
+          <div class="step-num">02</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">⚙️ Inicializar Git</div>
+          <div class="step-desc">Para que o Git comece a rastrear as mudanças nessa pasta, você precisa transformá-la em um repositório local.</div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">inicializar o repositório</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body">
+              <pre><span class="c-comment"># Inicializar o Git na pasta atual</span>
+<span class="c-cmd">git init</span>
+<span class="c-green">Initialized empty Git repository in /meu-projeto/.git/</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="sum-label">
-      💡 Resumindo
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap">
+          <div class="step-num">03</div>
+          <div class="step-line"></div>
+        </div>
+      
+        <div class="step-content">
+          <div class="step-title">🌐 Criar Repositório no GitHub</div>
+          <p class="step-desc">
+            Agora vamos preparar a "nuvem" para receber seu código. Siga a sequência abaixo diretamente no seu perfil do GitHub:
+          </p>
+      
+          <div style="margin-top: 25px;">
+            <div style="font-weight: 700; color: var(--ink); margin-bottom: 8px;">1. Inicie um novo repositório</div>
+            <p class="text" style="font-size: 0.95rem; margin-bottom: 12px;">
+              No seu painel do GitHub ou na aba "Repositories", localize e clique no botão verde <strong style="color:var(--wood);">New</strong>.
+            </p>
+            <div style="background: #0d1117; padding: 10px; border-radius: 8px; border: 1px solid #30363d; display: inline-block;">
+              <img src="img/git06.png" alt="Botão New do GitHub" style="max-width: 100%; border-radius: 4px;">
+            </div>
+          </div>
+      
+          <div style="margin-top: 35px;">
+            <div style="font-weight: 700; color: var(--ink); margin-bottom: 8px;">2. Configure as informações básicas</div>
+            <p class="text" style="font-size: 0.95rem; margin-bottom: 12px;">
+              No campo <strong>Repository name</strong>, digite o nome do seu projeto (sem espaços ou acentos). 
+              Certifique-se de que a opção <strong style="color:var(--wood);">Public</strong> está marcada e role até o final para clicar em <strong style="color:var(--wood);">Create repository</strong>.
+            </p>
+            <div style="background: #0d1117; padding: 15px; border-radius: 8px; border: 1px solid #30363d;">
+              <img src="img/git07.png" alt="Configurações do repositório" style="max-width: 100%; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+            </div>
+          </div>
+      
+          <div style="margin-top: 35px;">
+            <div style="font-weight: 700; color: var(--ink); margin-bottom: 8px;">3. Tela de Quick Setup</div>
+            <p class="text" style="font-size: 0.95rem; margin-bottom: 12px;">
+              O GitHub criará o repositório e te mostrará a página de instruções. 
+              Note que ele já te oferece os comandos de <strong style="color:var(--wood);">git remote add</strong> e <strong style="color:var(--wood);">git push</strong> que usaremos a seguir. Copie a URL (o link que termina em .git).
+            </p>
+            <div style="background: #0d1117; padding: 15px; border-radius: 8px; border: 1px solid #30363d;">
+              <img src="img/git08.png" alt="Tela de comandos do GitHub" style="max-width: 100%; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+            </div>
+          </div>
+      
+          <div class="alert alert-tip" style="margin-top: 30px; border-left: 4px solid #eab308; background: rgba(234, 179, 8, 0.05);">
+            <span class="alert-icon">⚠️</span>
+            <span style="font-size: 0.95rem; line-height: 1.5;">
+              <strong>Atenção:</strong> Nesta etapa, prefira <strong>não</strong> inicializar com README, .gitignore ou Licença. Isso garante que o repositório comece vazio e evita conflitos quando você for conectar seu projeto local que já possui arquivos.
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap">
+          <div class="step-num">04</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">🔗 Conectar Projeto ao GitHub</div>
+          <div class="step-desc">Agora você precisa dizer ao seu Git local para onde ele deve enviar o código na internet. Vamos vincular a URL copiada ao apelido padrão de <code>origin</code>.</div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">vincular repositório remoto</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body">
+              <pre><span class="c-comment"># Conectar o repositório local ao GitHub</span>
+<span class="c-cmd">git remote add origin</span> <span class="c-str">https://github.com/usuario/meu-projeto.git</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap">
+          <div class="step-num">05</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">✏️ Editar Arquivos</div>
+          <div class="step-desc">Abra os arquivos no seu editor preferido (como o VS Code) e faça as alterações necessárias. O Git rastreia automaticamente qualquer nova linha ou arquivo adicionado.</div>
+          <div class="alert alert-tip">
+            <span class="alert-icon">💡</span>
+            <span>Use <code>git status</code> a qualquer momento no terminal para ver quais arquivos foram modificados ou criados.</span>
+          </div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">verificar status do repositório</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body">
+              <pre><span class="c-comment"># Verificar o estado atual dos seus arquivos</span>
+<span class="c-cmd">git status</span>
+
+<span class="c-comment"># Retorno do terminal mostrando arquivos modificados e não rastreados:</span>
+On branch main
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  <span style="color: #f85149;">modified:   index.html</span>
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+  <span style="color: #f85149;">styles.css</span>
+
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap">
+          <div class="step-num">06</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">📸 Adicionar e Commitar (Tirar a Foto)</div>
+          <div class="step-desc">Antes de salvar, você prepara os arquivos com <code>git add</code>. O commit funciona como uma fotografia oficial do estado do seu projeto naquele momento.</div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">preparar e salvar</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body">
+              <pre><span class="c-comment"># Adicionar todos os arquivos modificados ao stage</span>
+<span class="c-cmd">git add</span> <span class="c-flag">.</span>
+
+<span class="c-comment"># Salvar a versão com uma mensagem descritiva</span>
+<span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"feat: estrutura inicial do projeto"</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap">
+          <div class="step-num">07</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">🚀 Push — Enviar para o GitHub</div>
+          <div class="step-desc">Com as versões salvas localmente, você realiza o <code>push</code> para carregar os seus commits na nuvem do GitHub.</div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">enviar alterações</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body">
+              <pre><span class="c-comment"># Enviar para o servidor remoto (na branch principal main)</span>
+<span class="c-cmd">git push</span> <span class="c-str">origin main</span>
+
+<span class="c-comment"># Nota: Na primeira vez, pode ser necessário usar:</span>
+<span class="c-cmd">git push</span> <span class="c-flag">--set-upstream</span> <span class="c-str">origin main</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap">
+          <div class="step-num">08</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">📥 Git Clone — Baixar Repositório Existente</div>
+          <div class="step-desc">Se o projeto já existe no GitHub (criado por você ou por um colega de equipe), você usa o <code>git clone</code> para baixar uma cópia de trabalho idêntica no seu computador.</div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">clonar projeto</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body">
+              <pre><span class="c-comment"># Clonar o repositório remoto para a sua máquina</span>
+<span class="c-cmd">git clone</span> <span class="c-str">https://github.com/usuario/repositorio.git</span>
+<span class="c-comment"># Acessar a pasta que foi criada automaticamente</span>
+<span class="c-cmd">cd</span> repositorio</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap">
+          <div class="step-num">09</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">⬇️ Pull — Atualizar e Colaborar</div>
+          <div class="step-desc">Quando outras pessoas da equipe fazem alterações e enviam para o GitHub, você utiliza o comando <code>git pull</code> para trazer e mesclar essas novidades ao seu código local.</div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">buscar atualizações</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body">
+              <pre><span class="c-comment"># Puxar atualizações da nuvem para o seu PC</span>
+<span class="c-cmd">git pull</span> <span class="c-str">origin main</span>
+
+<span class="c-comment"># Exibir o histórico atualizado de commits</span>
+<span class="c-cmd">git log</span> <span class="c-flag">--oneline</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <p style="margin-top:0;margin-bottom:10px;">
-      O fluxo com Git e GitHub segue sempre a mesma lógica:
-      criar ou clonar um projeto, modificar arquivos, registrar alterações
-      com commits e sincronizar tudo com o GitHub através de
-      <code>push</code> e <code>pull</code>.
-    </p>
-
-    <p style="margin-bottom:0;">
-      Pode parecer muito comando no começo, mas esse ciclo rapidamente
-      se torna parte natural da rotina de desenvolvimento. Entender esse
-      fluxo é essencial para trabalhar profissionalmente com projetos,
-      equipes e versionamento de código.
-    </p>
-
   </div>
 
-</div>
+  <div style="padding:0 2%; margin-top:16px;">
+    <div style="font-family:'Fraunces',serif; font-size:22px; font-weight:800; color:var(--ink); margin-bottom:16px;">
+      🔁 O Fluxo Completo em um <span style="color: var(--wood);">Bloco</span>
+    </div>
+    <p class="text">
+      Este é o ciclo essencial que se repete ao longo do desenvolvimento de qualquer software. Configuramos a pasta local, conectamos com a nuvem e mantemos o ciclo de modificação, salvamento local (add/commit) e sincronização (push/pull).
+    </p>
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <span class="code-block-label">do zero ao deploy remoto</span>
+        <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-block-body">
+        <pre><span class="c-comment"># 1. Preparar ambiente local</span>
+<span class="c-cmd">mkdir</span> meu-projeto && <span class="c-cmd">cd</span> meu-projeto
+<span class="c-cmd">git init</span>
+
+<span class="c-comment"># 2. Conectar com o GitHub criado</span>
+<span class="c-cmd">git remote add origin</span> <span class="c-str">https://github.com/usuario/meu-projeto.git</span>
+
+<span class="c-comment"># 3. Ciclo de trabalho: salvar mudanças locais</span>
+<span class="c-cmd">git add</span> <span class="c-flag">.</span>
+<span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"feat: Setup do projeto"</span>
+
+<span class="c-comment"># 4. Enviar e sincronizar</span>
+<span class="c-cmd">git push</span> <span class="c-str">origin main</span>
+<span class="c-cmd">git pull</span> <span class="c-str">origin main</span></pre>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 2%; margin-top:32px;">
+    <div class="summary-box">
+      <div class="sum-label">💡 Resumindo</div>
+      <p style="margin-top:0; margin-bottom:10px;">
+        O fluxo com Git e GitHub segue sempre a mesma lógica cronológica:
+        estruturar e iniciar seu ambiente, conectar os repositórios, produzir as alterações
+        com segurança através de commits e, por fim, colaborar ativamente por meio de
+        <code>push</code> e <code>pull</code>.
+      </p>
+      <p style="margin-bottom:0;">
+        Pode parecer muito comando no começo, mas esse ciclo rapidamente
+        se torna parte natural da rotina de desenvolvimento. Entender esse
+        fluxo é essencial para trabalhar profissionalmente com projetos,
+        equipes e versionamento de código.
+      </p>
+    </div>
+  </div>
+
 </section>
+ 
 
       <!-- ══════════════════════════════════════════════════
            SEÇÃO 05 — Comandos Git Essenciais
       ══════════════════════════════════════════════════ -->
-      <section class="content-section" id="section-codigos">
-        <div style="padding:0 2%;margin-bottom:32px;">
-          <div class="section-tag">Seção 04</div>
-          <h2 class="section-title">Comandos <span style="color:var(--accent2);">Essenciais</span></h2>
-          <p class="section-lead">
-            Esses são os comandos que você vai usar todo dia. Memorize-os!
-          </p>
+      <section class="content-section" id="section-codigos" style="background:var(--bg);">
+
+        <div class="cover" style="padding:0; min-height:auto; background:transparent; margin-bottom:40px; box-shadow:none;">
+          <div class="cover-text">
+            <div class="section-tag">Seção 05</div>
+            <h2 style="font-size:clamp(2.5rem,4vw,3.5rem); line-height:1.1; margin-bottom:1rem; color:var(--ink); font-family:'Fraunces',serif;">
+              Comandos<br />
+              <span style="color:var(--wood);">Essenciais</span>
+            </h2>
+            <p class="cover-subtitle" style="font-size:1.1rem; line-height:1.6;">
+              Dominar o Git não exige decorar centenas de códigos. Na verdade, cerca de 
+              <strong>80% do trabalho</strong> de um desenvolvedor profissional é feito com 
+              apenas alguns comandos fundamentais que garantem a integridade do código.
+            </p>
+          </div>
+
+          <div class="nc-right">
+            <img src="img/git09.png" alt="Comandos Git Essenciais" onerror="this.style.display='none';" style="width: 640px; height: 700px; object-fit: cover; object-position: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(56,189,248,0.18); border: 1px solid rgba(56,189,248,0.25); transition: transform 0.3s ease;" />
+          </div>
         </div>
 
-        <!-- Cards de comandos -->
+        <h3 class="subtitle">
+          Dicionário de <span style="color:var(--wood);">Sobrevivência</span>
+        </h3>
+
+        <p class="text">
+          Estes são os comandos que farão parte do seu dia a dia. Eles formam a base 
+          para inicializar projetos, salvar seu progresso, navegar pelo histórico e, 
+          principalmente, sincronizar seu trabalho com o time através do GitHub.
+        </p>
+
         <div style="padding:0 2%;">
           <div class="msg-grid">
             <div class="msg-card git-green">
@@ -1806,14 +1887,41 @@ style="
               <div class="msg-title">Ver histórico</div>
               <div class="msg-desc">Exibe o histórico de commits do projeto. Use <code>git log --oneline</code> para uma visualização compacta e legível.</div>
             </div>
+            <div class="msg-card git-cyan">
+              <div class="msg-badge">git remote -v</div>
+              <div class="msg-title">Ver repositórios remotos</div>
+              <div class="msg-desc">
+                Mostra quais repositórios do GitHub estão conectados ao projeto local.
+                Muito útil para verificar se o <code>origin</code> foi configurado corretamente.
+              </div>
+            </div>
+            <div class="msg-card git-indigo">
+              <div class="msg-badge">git branch</div>
+              <div class="msg-title">Gerenciar branches</div>
+              <div class="msg-desc">
+                Exibe ou cria branches do projeto. A branch principal normalmente se chama
+                <code>main</code>.
+              </div>
+            </div>
+            <div class="msg-card git-indigo">
+              <div class="msg-badge">git checkout</div>
+              <div class="msg-title">Trocar versões ou branches</div>
+              <div class="msg-desc">
+                Permite navegar entre branches e versões anteriores do projeto.
+                É muito utilizado em fluxos profissionais mais avançados.
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Código: configuração inicial do Git -->
-        <div style="padding:0 2%;margin-top:32px;">
+        <div style="padding:0 2%;margin-top:40px;">
           <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:16px;">
-            ⚙️ Configuração Inicial do Git
+            ⚙️ Configuração Inicial do <span style="color:var(--wood);">Git</span>
           </div>
+          <p class="text">
+            Antes de começar a registrar suas alterações, você precisa se identificar para o Git. 
+            Isso garante que cada commit tenha o seu nome e e-mail vinculados.
+          </p>
           <div class="code-block">
             <div class="code-block-header">
               <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
@@ -1832,78 +1940,125 @@ style="
             </div>
           </div>
 
-          <div class="alert alert-warn" style="margin-top:8px;">
+          <div class="alert alert-warn" style="margin-top:16px; border-left: 4px solid #f59e0b; background: rgba(245, 158, 11, 0.05);">
             <span class="alert-icon">⚠️</span>
-            <span><strong>Importante:</strong> Configure o Git antes de fazer qualquer commit. O e-mail deve ser o mesmo cadastrado na sua conta GitHub para que os commits apareçam corretamente no seu perfil.</span>
+            <span style="font-size: 0.95rem; line-height: 1.5;">
+              <strong>Importante:</strong> O e-mail deve ser exatamente o mesmo cadastrado na sua conta GitHub. Caso contrário, o GitHub não conseguirá atribuir os commits ao seu perfil e você perderá os "quadradinhos verdes" de atividade.
+            </span>
           </div>
         </div>
+
       </section>
 
       <!-- ══════════════════════════════════════════════════
-           SEÇÃO 05 — Branches
+           SEÇÃO 06 — Branches
       ══════════════════════════════════════════════════ -->
       <section class="content-section" id="section-branches" style="background:var(--bg);">
-        <div style="padding:0 2%;margin-bottom:32px;">
-          <div class="section-tag">Seção 05</div>
-          <h2 class="section-title">🌿 <span style="color:var(--wood);">Branches</span></h2>
-          <p class="section-lead">
-            Uma branch (ramificação) é como uma cópia paralela do projeto onde você pode trabalhar sem afetar o código principal. É a base do trabalho em equipe no Git.
-          </p>
+
+        <div class="cover" style="padding:0; min-height:auto; background:transparent; margin-bottom:40px; box-shadow:none;">
+          <div class="cover-text">
+            <div class="section-tag">Seção 06</div>
+            <h2 style="font-size:clamp(2.5rem,4vw,3.5rem); line-height:1.1; margin-bottom:1rem; color:var(--ink); font-family:'Fraunces',serif;">
+              Trabalhando com<br />
+              <span style="color:var(--wood);">Branches</span>
+            </h2>
+            <p class="cover-subtitle" style="font-size:1.1rem; line-height:1.6;">
+              Uma branch (ramificação) é como uma cópia paralela do projeto onde você pode trabalhar 
+              em total isolamento, testando ideias e criando recursos sem afetar o código principal que já está funcionando.
+            </p>
+          </div>
+
+          <div class="nc-right">
+            <img src="img/git10.png" alt="Fluxo de Branches no Git" onerror="this.style.display='none';" style="width: 640px; height: 700px; object-fit: cover; object-position: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(56,189,248,0.18); border: 1px solid rgba(56,189,248,0.25); transition: transform 0.3s ease;" />
+          </div>
         </div>
 
-        <!-- Analogia de branches -->
-        <div style="padding:0 2%;">
+        <h3 class="subtitle">
+          A Árvore de <span style="color:var(--wood);">Código</span>
+        </h3>
+
+        <p class="text">
+          Imagine o desenvolvimento de software como o crescimento de uma grande árvore. Compreender esse ecossistema de ramificações é a chave para o verdadeiro trabalho colaborativo em equipe.
+        </p>
+
+        <div style="padding:0 2%; margin-bottom:32px;">
           <div class="analogy-box">
             <div class="analogy-label">🌳 Analogia</div>
             <p>
-              Imagine uma <strong>árvore de código</strong>. O tronco é a branch principal (<code>main</code>) — o código que está em produção, funcionando. Cada <strong>galho</strong> é uma branch onde um desenvolvedor trabalha numa nova funcionalidade sem mexer no tronco.
+              O tronco é a branch principal (<code>main</code>) — o código que está em produção, redondo e funcionando. Cada <strong>galho</strong> é uma branch onde um desenvolvedor trabalha numa nova funcionalidade de forma independente.
             </p>
             <p>
-              Quando o galho estiver pronto e testado, ele é <strong>mesclado de volta ao tronco</strong> com um <code>git merge</code> ou Pull Request. É assim que times de dezenas de devs trabalham juntos sem bagunçar o código um do outro. 🌱
+              Quando o galho está maduro e testado, ele é <strong>mesclado de volta ao tronco</strong> com um <code>git merge</code> ou através de um Pull Request. Assim, dezenas de desenvolvedores constroem o mesmo app simultaneamente sem gerar caos mútuo. 🌱
             </p>
           </div>
         </div>
 
-        <!-- Linha visual de branches em SVG -->
-        <div style="padding:0 2%;margin-top:16px;">
-          <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:16px;">Visualizando o Fluxo de Branches</div>
-          <div class="branch-flow">
-            <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
-              <!-- Branch main -->
-              <text x="10" y="40" font-family="monospace" font-size="11" fill="rgba(63,185,80,0.7)">main</text>
-              <line x1="10" y1="60" x2="650" y2="60" stroke="rgba(63,185,80,0.5)" stroke-width="2.5"/>
-              <!-- Commits na main -->
-              <circle cx="60"  cy="60" r="8" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
-              <circle cx="160" cy="60" r="8" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
-              <circle cx="420" cy="60" r="8" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
-              <circle cx="540" cy="60" r="8" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
-              <circle cx="630" cy="60" r="8" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
-              <!-- Labels commits main -->
-              <text x="45"  y="90" font-family="monospace" font-size="9" fill="rgba(63,185,80,0.6)">c1</text>
-              <text x="148" y="90" font-family="monospace" font-size="9" fill="rgba(63,185,80,0.6)">c2</text>
-              <text x="408" y="90" font-family="monospace" font-size="9" fill="rgba(63,185,80,0.6)">c5</text>
-              <text x="528" y="90" font-family="monospace" font-size="9" fill="rgba(63,185,80,0.6)">c6</text>
-              <text x="618" y="90" font-family="monospace" font-size="9" fill="rgba(63,185,80,0.6)">c7</text>
-              <!-- Branch feature -->
-              <text x="170" y="118" font-family="monospace" font-size="11" fill="rgba(88,166,255,0.7)">feature/login</text>
-              <line x1="160" y1="60" x2="230" y2="140" stroke="rgba(88,166,255,0.5)" stroke-width="2" stroke-dasharray="4,3"/>
-              <line x1="230" y1="140" x2="390" y2="140" stroke="rgba(88,166,255,0.5)" stroke-width="2.5"/>
-              <line x1="390" y1="140" x2="420" y2="60" stroke="rgba(88,166,255,0.5)" stroke-width="2" stroke-dasharray="4,3"/>
-              <!-- Commits feature -->
-              <circle cx="260" cy="140" r="7" fill="#58a6ff" stroke="#0d1117" stroke-width="2"/>
-              <circle cx="330" cy="140" r="7" fill="#58a6ff" stroke="#0d1117" stroke-width="2"/>
-              <text x="248" y="163" font-family="monospace" font-size="9" fill="rgba(88,166,255,0.6)">c3</text>
-              <text x="318" y="163" font-family="monospace" font-size="9" fill="rgba(88,166,255,0.6)">c4</text>
-              <!-- Seta merge -->
-              <text x="400" y="40" font-family="monospace" font-size="10" fill="rgba(227,179,65,0.8)">merge</text>
-              <!-- HEAD label -->
-              <text x="615" y="45" font-family="monospace" font-size="10" fill="rgba(63,185,80,0.9)">HEAD</text>
-            </svg>
+        <div style="padding:0 2%; margin-top:32px;">
+
+          <div
+            style="
+              font-family:'Fraunces',serif;
+              font-size:22px;
+              font-weight:800;
+              color:var(--ink);
+              margin-bottom:16px;
+            "
+          >
+            Visualizando o <span style="color:var(--wood);">Fluxo de Desenvolvimento</span>
           </div>
+        
+          <p class="text">
+            Veja abaixo como as linhas de desenvolvimento se separam para a criação
+            de uma funcionalidade e se unem novamente após a aprovação das alterações.
+          </p>
+        
+          <!-- IMAGEM -->
+          <div
+            class="branch-flow"
+            style="
+              margin-top:24px;
+              display:flex;
+              justify-content:center;
+              align-items:center;
+            "
+          >
+        
+            <img
+              src="img/git11.png"
+              alt="Fluxo visual de branches no Git"
+              onerror="this.style.display='none';"
+              style="
+                width:100%;
+                max-width:1100px;
+        
+                border-radius:16px;
+        
+                object-fit:cover;
+                object-position:center;
+        
+                border:1px solid rgba(255,255,255,0.08);
+        
+                box-shadow:
+                  0 10px 30px rgba(0,0,0,0.45),
+                  0 0 20px rgba(56,189,248,0.08);
+        
+                background:rgba(255,255,255,0.02);
+        
+                transition:transform .3s ease;
+              "
+            />
+        
+          </div>
+        
         </div>
 
-        <!-- Comandos de branches -->
-        <div style="padding:0 2%;margin-top:24px;">
+        <div style="padding:0 2%; margin-top:32px;">
+          <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:16px;">
+            Terminal — Controlando os <span style="color:var(--wood);">Ramos</span>
+          </div>
+          <p class="text">
+            Estes são os comandos práticos para listar, criar, alternar e realizar a fusão histórica das suas ramificações de desenvolvimento.
+          </p>
           <div class="code-block">
             <div class="code-block-header">
               <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
@@ -1911,367 +2066,928 @@ style="
               <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
             </div>
             <div class="code-block-body">
-              <pre><span class="c-comment"># Ver todas as branches</span>
+              <pre><span class="c-comment"># Ver todas as branches locais e identificar onde você está</span>
 <span class="c-cmd">git branch</span>
 
-<span class="c-comment"># Criar nova branch</span>
+<span class="c-comment"># Criar uma nova branch a partir do ponto atual</span>
 <span class="c-cmd">git branch</span> <span class="c-str">feature/minha-funcionalidade</span>
 
-<span class="c-comment"># Mudar para outra branch</span>
+<span class="c-comment"># Mudar o seu ambiente para trabalhar na branch desejada</span>
 <span class="c-cmd">git checkout</span> <span class="c-str">feature/minha-funcionalidade</span>
 
-<span class="c-comment"># Criar e já mudar para ela (atalho)</span>
+<span class="c-comment"># Atalho: Cria e já muda para a nova branch imediatamente</span>
 <span class="c-cmd">git checkout</span> <span class="c-flag">-b</span> <span class="c-str">feature/nova</span>
 
-<span class="c-comment"># Mesclar uma branch na main</span>
+<span class="c-comment"># Para mesclar: vá para a branch que vai receber o código (ex: main) e execute o merge</span>
 <span class="c-cmd">git checkout</span> <span class="c-str">main</span>
 <span class="c-cmd">git merge</span> <span class="c-str">feature/minha-funcionalidade</span></pre>
             </div>
           </div>
         </div>
 
-        <!-- Cards de tipos de branch -->
-        <div style="padding:0 2%;margin-top:24px;">
-          <div class="practices-grid">
+        <div style="padding:0 2%; margin-top:40px; margin-bottom:16px;">
+          <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:16px;">
+            Convenções de <span style="color:var(--wood);">Nomenclatura</span> no Mercado
+          </div>
+          <p class="text">
+            Manter as ramificações organizadas por categorias ajuda o time a entender o propósito de cada isolamento de código logo de cara. Veja o padrão profissional:
+          </p>
+          <div class="practices-grid" style="margin-top:20px;">
             <div class="practice-card reveal">
               <div class="practice-icon">🌳</div>
               <div class="practice-title">main / master</div>
-              <div class="practice-desc">A branch principal. Contém o código estável, em produção. Geralmente protegida — ninguém commita diretamente nela sem review.</div>
+              <div class="practice-desc">A linha central de produção. Contém o código estável e auditado. Prática padrão: é protegida contra commits diretos, dependendo sempre de aprovações (Code Review).</div>
             </div>
             <div class="practice-card reveal">
               <div class="practice-icon">🌿</div>
               <div class="practice-title">feature/nome</div>
-              <div class="practice-desc">Branch criada para desenvolver uma nova funcionalidade. Ex: <code>feature/login</code>, <code>feature/pagamento</code>. É criada a partir da main.</div>
+              <div class="practice-desc">Ramificações focadas na construção de novas funcionalidades isoladas. Exemplos: <code>feature/login</code>, <code>feature/checkout-cart</code>.</div>
             </div>
             <div class="practice-card reveal">
               <div class="practice-icon">🐛</div>
               <div class="practice-title">fix/nome</div>
-              <div class="practice-desc">Branch dedicada à correção de bugs. Ex: <code>fix/botao-nao-funciona</code>. Após corrigir, faz merge de volta na main.</div>
+              <div class="practice-desc">Branches cirúrgicas dedicadas exclusivamente à correção de bugs. Exemplos: <code>fix/error-login</code>, <code>fix/broken-button</code>.</div>
             </div>
             <div class="practice-card reveal">
               <div class="practice-icon">🚀</div>
               <div class="practice-title">release/versão</div>
-              <div class="practice-desc">Branch para preparar uma versão estável para lançamento. Ex: <code>release/v1.0.0</code>. Usada em projetos maiores.</div>
+              <div class="practice-desc">Espaço de homologação preparado para consolidações finais de pacotes de entrega estruturados. Exemplo: <code>release/v1.0.0</code>.</div>
             </div>
           </div>
         </div>
+        <!-- FECHAMENTO -->
+  <div style="padding:0 2%;margin-top:40px;">
+
+    <div class="summary-box">
+
+      <div class="sum-label">
+        💡 Resumindo
+      </div>
+
+      <p style="margin-top:0;margin-bottom:10px;">
+        Branches permitem trabalhar em funcionalidades separadas
+        sem comprometer o código principal do projeto.
+      </p>
+
+      <p style="margin-bottom:0;">
+        Esse modelo torna possível o trabalho colaborativo em equipes,
+        facilita testes e reduz conflitos durante o desenvolvimento.
+      </p>
+
+    </div>
+
+  </div>
       </section>
 
-      <!-- ══════════════════════════════════════════════════
-           SEÇÃO 06 — Erros Comuns
-      ══════════════════════════════════════════════════ -->
-      <section class="content-section" id="section-erros">
-        <div style="padding:0 2%;margin-bottom:32px;">
-          <div class="section-tag">Seção 06</div>
-          <h2 class="section-title">⚠️ Erros <span style="color:var(--red-soft);">Comuns</span></h2>
-          <p class="section-lead">
-            Todo mundo erra no começo! Aqui estão os erros mais frequentes e como resolvê-los rapidinho.
-          </p>
+
+       <!-- ══════════════════════════════════════════════════
+     SEÇÃO 07 — Erros Comuns
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-erros" style="background:var(--bg);">
+
+  <!-- HERO -->
+  <div
+    class="cover"
+    style="
+      padding:0;
+      min-height:auto;
+      background:transparent;
+      margin-bottom:40px;
+      box-shadow:none;
+    "
+  >
+
+    <!-- Texto -->
+    <div class="cover-text">
+
+      <div class="section-tag">
+        Seção 07
+      </div>
+
+      <h2
+        style="
+          font-size:clamp(2.5rem,4vw,3.5rem);
+          line-height:1.1;
+          margin-bottom:1rem;
+          color:var(--ink);
+          font-family:'Fraunces',serif;
+        "
+      >
+      Erros ❌<br />
+        <span style="color:var(--red-soft);">
+          Comuns
+        </span>
+      </h2>
+
+      <p
+        class="cover-subtitle"
+        style="
+          font-size:1.1rem;
+          line-height:1.6;
+        "
+      >
+        Todo desenvolvedor já passou por erros no Git.
+        A diferença entre iniciantes e profissionais não é errar menos —
+        é saber identificar rapidamente o problema e resolver sem pânico.
+      </p>
+
+    </div>
+
+    <!-- Imagem -->
+    <div class="nc-right">
+
+      <img
+        src="img/git12.png"
+        alt="Erros comuns no Git"
+        onerror="this.style.display='none';"
+        style="
+          width: 640px;
+          height: 700px;
+
+          object-fit: cover;
+          object-position: center;
+
+          box-shadow:
+            0 10px 30px rgba(0,0,0,0.5),
+            0 0 20px rgba(239,68,68,0.18);
+
+          border: 1px solid rgba(239,68,68,0.20);
+
+          transition: transform 0.3s ease;
+        "
+      />
+
+    </div>
+
+  </div>
+
+  <!-- INTRO -->
+  <h3 class="subtitle">
+    Problemas do Dia a Dia no <span style="color:var(--wood);">Git</span>
+  </h3>
+
+  <p class="text">
+    Durante o desenvolvimento é normal enfrentar conflitos, commits incorretos,
+    problemas de sincronização e erros de configuração.
+    Entender essas mensagens faz parte da rotina profissional de qualquer desenvolvedor.
+  </p>
+
+  <!-- ACCORDION -->
+  <div style="padding:0 2%;margin-top:32px;">
+
+    <!-- ERRO 01 -->
+    <div class="acc-item">
+
+      <div class="acc-header" onclick="toggleAcc(this)">
+
+        <div class="acc-header-left">
+          <span class="acc-emoji">❌</span>
+          <span class="acc-title">
+            git: command not found — Git não instalado
+          </span>
         </div>
 
-        <div style="padding:0 2%;">
+        <span class="acc-arrow">▼</span>
 
-          <!-- Erro 1: Git não instalado -->
-          <div class="acc-item">
-            <div class="acc-header" onclick="toggleAcc(this)">
-              <div class="acc-header-left">
-                <span class="acc-emoji">❌</span>
-                <span class="acc-title">git: command not found — Git não está instalado</span>
+      </div>
+
+      <div class="acc-body">
+
+        <div class="acc-body-inner">
+
+          <p>
+            <strong>Causa:</strong>
+            O Git não está instalado no sistema operacional ou não foi adicionado ao PATH.
+          </p>
+
+          <p>
+            <strong>Solução:</strong>
+          </p>
+
+          <div class="code-block" style="margin-top:12px;">
+
+            <div class="code-block-header">
+
+              <div class="code-block-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
               </div>
-              <span class="acc-arrow">▼</span>
+
+              <span class="code-block-label">
+                bash — instalar git
+              </span>
+
+              <button class="code-block-copy" onclick="copyCode(this)">
+                Copiar
+              </button>
+
             </div>
-            <div class="acc-body">
-              <div class="acc-body-inner">
-                <p><strong>Causa:</strong> O Git não foi instalado no sistema operacional ou não está no PATH.</p>
-                <p><strong>Solução:</strong></p>
-                <div class="code-block" style="margin-top:12px;">
-                  <div class="code-block-header">
-                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-                    <span class="code-block-label">bash — instalar git</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-                  </div>
-                  <div class="code-block-body">
-                    <pre><span class="c-comment"># Linux (Ubuntu/Debian)</span>
+
+            <div class="code-block-body">
+
+<pre><span class="c-comment"># Ubuntu / Debian</span>
 <span class="c-cmd">sudo apt install git</span>
 
-<span class="c-comment"># macOS (via Homebrew)</span>
+<span class="c-comment"># macOS</span>
 <span class="c-cmd">brew install git</span>
 
-<span class="c-comment"># Windows: baixar em git-scm.com/download/win</span>
 <span class="c-comment"># Verificar instalação</span>
-<span class="c-cmd">git</span> <span class="c-flag">--version</span>
-<span class="c-green">git version 2.44.0</span></pre>
-                  </div>
-                </div>
-              </div>
+<span class="c-cmd">git</span> <span class="c-flag">--version</span></pre>
+
             </div>
+
           </div>
 
-          <!-- Erro 2: Conflito de merge -->
-          <div class="acc-item">
-            <div class="acc-header" onclick="toggleAcc(this)">
-              <div class="acc-header-left">
-                <span class="acc-emoji">💥</span>
-                <span class="acc-title">Merge conflict — Conflito ao mesclar branches</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ERRO 02 -->
+    <div class="acc-item">
+
+      <div class="acc-header" onclick="toggleAcc(this)">
+
+        <div class="acc-header-left">
+          <span class="acc-emoji">💥</span>
+          <span class="acc-title">
+            Merge conflict — Conflito entre branches
+          </span>
+        </div>
+
+        <span class="acc-arrow">▼</span>
+
+      </div>
+
+      <div class="acc-body">
+
+        <div class="acc-body-inner">
+
+          <p>
+            <strong>Causa:</strong>
+            Dois desenvolvedores alteraram a mesma parte do arquivo
+            em branches diferentes.
+          </p>
+
+          <p>
+            <strong>Como resolver:</strong>
+          </p>
+
+          <div class="code-block" style="margin-top:12px;">
+
+            <div class="code-block-header">
+
+              <div class="code-block-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
               </div>
-              <span class="acc-arrow">▼</span>
+
+              <span class="code-block-label">
+                bash + html — resolver conflito
+              </span>
+
+              <button class="code-block-copy" onclick="copyCode(this)">
+                Copiar
+              </button>
+
             </div>
-            <div class="acc-body">
-              <div class="acc-body-inner">
-                <p><strong>Causa:</strong> Duas pessoas editaram a <em>mesma linha</em> do mesmo arquivo em branches diferentes. O Git não sabe qual versão manter.</p>
-                <p><strong>Como resolver:</strong></p>
-                <div class="code-block" style="margin-top:12px;">
-                  <div class="code-block-header">
-                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-                    <span class="code-block-label">bash + html — resolver conflito</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-                  </div>
-                  <div class="code-block-body">
-                    <pre><span class="c-comment"># O arquivo conflitante terá marcadores como:</span>
-<span class="c-red"><<<<<<< HEAD</span>
-<span class="c-str">&lt;h1&gt;Minha versão local&lt;/h1&gt;</span>
+
+            <div class="code-block-body">
+
+<pre><span class="c-red"><<<<<<< HEAD</span>
+<span class="c-str">&lt;h1&gt;Minha versão&lt;/h1&gt;</span>
+
 <span class="c-red">=======</span>
+
 <span class="c-str">&lt;h1&gt;Versão do colega&lt;/h1&gt;</span>
+
 <span class="c-red">>>>>>>> feature/login</span>
 
-<span class="c-comment"># Edite o arquivo, escolha qual versão manter</span>
-<span class="c-comment"># Remova os marcadores <<<, ===, >>></span>
-<span class="c-comment"># Depois:</span>
+<span class="c-comment"># Resolver manualmente</span>
+<span class="c-comment"># Remover os marcadores</span>
+
 <span class="c-cmd">git add</span> <span class="c-flag">.</span>
-<span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"fix: resolve conflito de merge"</span></pre>
-                  </div>
-                </div>
-                <div class="alert alert-tip" style="margin-top:12px;">
-                  <span class="alert-icon">💡</span>
-                  <span>O VS Code tem uma interface visual para resolver conflitos — você vê as duas versões lado a lado e clica em "Accept Current" ou "Accept Incoming".</span>
-                </div>
-              </div>
+
+<span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"fix: resolve conflito"</span></pre>
+
             </div>
+
           </div>
 
-          <!-- Erro 3: Commit sem add -->
-          <div class="acc-item">
-            <div class="acc-header" onclick="toggleAcc(this)">
-              <div class="acc-header-left">
-                <span class="acc-emoji">🤦</span>
-                <span class="acc-title">nothing to commit — Esqueceu o git add</span>
+          <div class="alert alert-tip" style="margin-top:12px;">
+
+            <span class="alert-icon">💡</span>
+
+            <span>
+              O VS Code possui uma interface visual para resolver conflitos
+              sem editar os marcadores manualmente.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ERRO 03 -->
+    <div class="acc-item">
+
+      <div class="acc-header" onclick="toggleAcc(this)">
+
+        <div class="acc-header-left">
+          <span class="acc-emoji">🤦</span>
+          <span class="acc-title">
+            nothing to commit — Esqueceu o git add
+          </span>
+        </div>
+
+        <span class="acc-arrow">▼</span>
+
+      </div>
+
+      <div class="acc-body">
+
+        <div class="acc-body-inner">
+
+          <p>
+            <strong>Causa:</strong>
+            O commit foi executado sem adicionar os arquivos na área de stage.
+          </p>
+
+          <div class="code-block" style="margin-top:12px;">
+
+            <div class="code-block-header">
+
+              <div class="code-block-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
               </div>
-              <span class="acc-arrow">▼</span>
+
+              <span class="code-block-label">
+                bash — adicionar antes do commit
+              </span>
+
+              <button class="code-block-copy" onclick="copyCode(this)">
+                Copiar
+              </button>
+
             </div>
-            <div class="acc-body">
-              <div class="acc-body-inner">
-                <p><strong>Causa:</strong> Você tentou fazer <code>git commit</code> sem antes usar <code>git add</code>. Os arquivos modificados existem, mas nenhum foi adicionado à área de stage.</p>
-                <div class="code-block" style="margin-top:12px;">
-                  <div class="code-block-header">
-                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-                    <span class="code-block-label">bash — solução</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-                  </div>
-                  <div class="code-block-body">
-                    <pre><span class="c-comment"># Verificar o que está modificado mas não staged</span>
+
+            <div class="code-block-body">
+
+<pre><span class="c-comment"># Verificar alterações</span>
 <span class="c-cmd">git status</span>
-<span class="c-red">Changes not staged for commit:</span>
-<span class="c-red">  modified: index.html</span>
 
-<span class="c-comment"># Solução: adicionar primeiro, depois commitar</span>
+<span class="c-comment"># Adicionar arquivos</span>
 <span class="c-cmd">git add</span> <span class="c-flag">.</span>
+
+<span class="c-comment"># Criar commit</span>
 <span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"minha mensagem"</span></pre>
-                  </div>
-                </div>
-              </div>
+
             </div>
+
           </div>
 
-          <!-- Erro 4: push rejeitado -->
-          <div class="acc-item">
-            <div class="acc-header" onclick="toggleAcc(this)">
-              <div class="acc-header-left">
-                <span class="acc-emoji">🚫</span>
-                <span class="acc-title">rejected — Push rejeitado pelo GitHub</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ERRO 04 -->
+    <div class="acc-item">
+
+      <div class="acc-header" onclick="toggleAcc(this)">
+
+        <div class="acc-header-left">
+          <span class="acc-emoji">🚫</span>
+          <span class="acc-title">
+            rejected — Push rejeitado pelo GitHub
+          </span>
+        </div>
+
+        <span class="acc-arrow">▼</span>
+
+      </div>
+
+      <div class="acc-body">
+
+        <div class="acc-body-inner">
+
+          <p>
+            <strong>Causa:</strong>
+            O repositório remoto possui commits que ainda não existem localmente.
+          </p>
+
+          <div class="code-block" style="margin-top:12px;">
+
+            <div class="code-block-header">
+
+              <div class="code-block-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
               </div>
-              <span class="acc-arrow">▼</span>
+
+              <span class="code-block-label">
+                bash — sincronizar antes do push
+              </span>
+
+              <button class="code-block-copy" onclick="copyCode(this)">
+                Copiar
+              </button>
+
             </div>
-            <div class="acc-body">
-              <div class="acc-body-inner">
-                <p><strong>Causa:</strong> O repositório remoto tem commits que você não tem localmente (seu colega fez push antes de você).</p>
-                <div class="code-block" style="margin-top:12px;">
-                  <div class="code-block-header">
-                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-                    <span class="code-block-label">bash — pull antes de push</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-                  </div>
-                  <div class="code-block-body">
-                    <pre><span class="c-comment"># Primeiro baixe as alterações remotas</span>
+
+            <div class="code-block-body">
+
+<pre><span class="c-comment"># Baixar alterações do GitHub</span>
 <span class="c-cmd">git pull</span> <span class="c-str">origin main</span>
 
-<span class="c-comment"># Resolva conflitos se existirem</span>
-<span class="c-comment"># Depois envie novamente</span>
+<span class="c-comment"># Resolver conflitos se necessário</span>
+
+<span class="c-comment"># Enviar novamente</span>
 <span class="c-cmd">git push</span> <span class="c-str">origin main</span></pre>
-                  </div>
-                </div>
-                <div class="alert alert-info" style="margin-top:12px;">
-                  <span class="alert-icon">📌</span>
-                  <span><strong>Regra de ouro:</strong> Sempre faça <code>git pull</code> antes de começar a trabalhar e antes de fazer <code>git push</code>.</span>
-                </div>
-              </div>
+
             </div>
+
+          </div>
+
+          <div
+            class="alert alert-info"
+            style="margin-top:12px;"
+          >
+
+            <span class="alert-icon">📌</span>
+
+            <span>
+              Sempre faça <code>git pull</code> antes de começar a trabalhar
+              e antes de executar um novo <code>git push</code>.
+            </span>
+
           </div>
 
         </div>
-      </section>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FECHAMENTO -->
+  <div style="padding:0 2%;margin-top:40px;">
+
+    <div class="summary-box">
+
+      <div class="sum-label">
+        💡 Resumindo
+      </div>
+
+      <p style="margin-top:0;margin-bottom:10px;">
+        Erros fazem parte do processo de aprendizagem e também da rotina profissional.
+      </p>
+
+      <p style="margin-bottom:0;">
+        Aprender a interpretar mensagens do Git é uma habilidade essencial
+        para trabalhar com versionamento, colaboração e desenvolvimento moderno.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+       <!-- ══════════════════════════════════════════════════
+     SEÇÃO 08 — DESAFIO PRÁTICO
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-desafio" style="background:var(--bg);">
+
+  <!-- COVER -->
+  <div
+    class="cover"
+    style="
+      padding:0;
+      min-height:auto;
+      background:transparent;
+      margin-bottom:40px;
+      box-shadow:none;
+    "
+  >
+
+    <!-- Texto -->
+    <div class="cover-text">
+
+      <div class="section-tag">
+        Seção 08
+      </div>
+
+      <h2
+        style="
+          font-size:clamp(2.5rem,4vw,3.5rem);
+          line-height:1.1;
+          margin-bottom:1rem;
+          color:var(--ink);
+          font-family:'Fraunces',serif;
+        "
+      >
+        Desafio<br />
+        <span style="color:var(--wood);">
+          Prático
+        </span>
+      </h2>
+
+      <p
+        class="cover-subtitle"
+        style="
+          font-size:1.1rem;
+          line-height:1.6;
+        "
+      >
+        Agora é hora de aplicar na prática os conceitos aprendidos sobre
+        <strong>Git</strong>, <strong>GitHub</strong> e versionamento.
+        Você irá criar seu primeiro projeto, conectar ao GitHub e publicar
+        seu código na nuvem como um desenvolvedor profissional.
+      </p>
+
+    </div>
+
+    <!-- Imagem -->
+    <div class="nc-right">
+
+      <img
+        src="img/git13.png"
+        alt="Desafio Git e GitHub"
+        onerror="this.style.display='none';"
+        style="
+          width: 640px;
+          height: 700px;
+
+          object-fit: cover;
+          object-position: center;
+
+          box-shadow:
+            0 10px 30px rgba(0,0,0,0.5),
+            0 0 20px rgba(227,179,65,0.18);
+
+          border: 1px solid rgba(227,179,65,0.25);
+
+          transition: transform 0.3s ease;
+        "
+      />
+
+    </div>
+
+  </div>
+
+  <!-- INTRO -->
+  <h3 class="subtitle">
+    Seu Primeiro Projeto no <span style="color:var(--wood);">GitHub</span>
+  </h3>
+
+  <p class="text">
+    Nesta atividade, você irá criar um pequeno projeto HTML,
+    inicializar um repositório Git, registrar commits e publicar
+    tudo no GitHub. O objetivo é reproduzir o fluxo real utilizado
+    por desenvolvedores em ambientes profissionais.
+  </p>
+
+  <!-- CONTEXTO -->
+  <div style="padding:0 2%; margin-top:32px;">
+
+    <div class="challenge-step">
+
+      <h3
+        style="
+          font-size:22px;
+          margin-bottom:12px;
+          display:flex;
+          align-items:center;
+          gap:10px;
+          color:var(--ink);
+          font-family:'Fraunces',serif;
+        "
+      >
+        🧩 Contexto
+      </h3>
+
+      <p style="font-size:18px; line-height:1.8; color:var(--text);">
+        Você acabou de entrar em uma equipe de desenvolvimento web e precisa
+        preparar seu ambiente de versionamento. Seu desafio será criar um
+        projeto simples em HTML, versionar os arquivos com Git e publicar
+        tudo no GitHub para que outros desenvolvedores possam acessar
+        e acompanhar suas alterações.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- COMANDO -->
+  <div style="padding:0 2%; margin-top:24px;">
+
+    <div class="challenge-step">
+
+      <h3
+        style="
+          font-size:22px;
+          margin-bottom:12px;
+          display:flex;
+          align-items:center;
+          gap:10px;
+          color:var(--ink);
+          font-family:'Fraunces',serif;
+        "
+      >
+        🚀 Comando
+      </h3>
+
+      <p style="font-size:18px; line-height:1.8; color:var(--text);">
+        Crie um projeto chamado <code>meu-primeiro-site</code>,
+        contendo um arquivo <code>index.html</code>.
+        Inicialize o Git no projeto, faça pelo menos um commit
+        e publique o repositório no GitHub utilizando os comandos
+        aprendidos durante a aula.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- COMANDOS -->
+  <div style="padding:0 2%; margin-top:32px;">
+
+    <div
+      style="
+        font-family:'Fraunces',serif;
+        font-size:22px;
+        font-weight:800;
+        color:var(--ink);
+        margin-bottom:16px;
+      "
+    >
+      ⚙️ Fluxo Esperado
+    </div>
+
+    <div class="code-block">
+
+      <div class="code-block-header">
+
+        <div class="code-block-dots">
+          <span class="dot-red"></span>
+          <span class="dot-yellow"></span>
+          <span class="dot-green"></span>
+        </div>
+
+        <span class="code-block-label">
+          bash — fluxo completo do desafio
+        </span>
+
+        <button class="code-block-copy" onclick="copyCode(this)">
+          Copiar
+        </button>
+
+      </div>
+
+      <div class="code-block-body">
+
+<pre><span class="c-comment"># Criar pasta do projeto</span>
+<span class="c-cmd">mkdir</span> meu-primeiro-site
+
+<span class="c-cmd">cd</span> meu-primeiro-site
+
+<span class="c-comment"># Inicializar Git</span>
+<span class="c-cmd">git init</span>
+
+<span class="c-comment"># Criar arquivo HTML</span>
+<span class="c-cmd">touch</span> index.html
+
+<span class="c-comment"># Adicionar arquivos</span>
+<span class="c-cmd">git add</span> <span class="c-flag">.</span>
+
+<span class="c-comment"># Criar commit</span>
+<span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"feat: cria página inicial"</span>
+
+<span class="c-comment"># Conectar ao GitHub</span>
+<span class="c-cmd">git remote add origin</span> <span class="c-str">https://github.com/SEU-USUARIO/meu-primeiro-site.git</span>
+
+<span class="c-comment"># Enviar projeto</span>
+<span class="c-cmd">git push</span> <span class="c-str">origin main</span></pre>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- REQUISITOS -->
+  <div
+    style="
+      padding:0 2%;
+      margin-top:32px;
+    "
+  >
+
+    <div
+      style="
+        background:rgba(0,0,0,0.07);
+        padding:24px;
+        border-radius:12px;
+        border-left:4px solid var(--accent3);
+      "
+    >
+
+      <h3
+        style="
+          color:var(--accent3);
+          font-size:22px;
+          margin-bottom:18px;
+          display:flex;
+          align-items:center;
+          gap:10px;
+          font-family:'Fraunces',serif;
+        "
+      >
+        🎯 Requisitos da Atividade
+      </h3>
+
+      <ul
+        style="
+          list-style:none;
+          padding:0;
+          margin:0;
+          font-size:17px;
+        "
+      >
+
+        <li
+          style="
+            margin-bottom:14px;
+            display:flex;
+            align-items:flex-start;
+            gap:10px;
+          "
+        >
+          <span style="color:var(--accent3);">•</span>
+
+          <span>
+            O projeto deve possuir um arquivo
+            <code>index.html</code>.
+          </span>
+        </li>
+
+        <li
+          style="
+            margin-bottom:14px;
+            display:flex;
+            align-items:flex-start;
+            gap:10px;
+          "
+        >
+          <span style="color:var(--accent3);">•</span>
+
+          <span>
+            O repositório precisa estar versionado com Git
+            utilizando <code>git init</code>.
+          </span>
+        </li>
+
+        <li
+          style="
+            margin-bottom:14px;
+            display:flex;
+            align-items:flex-start;
+            gap:10px;
+          "
+        >
+          <span style="color:var(--accent3);">•</span>
+
+          <span>
+            Deve existir pelo menos
+            <strong>1 commit com mensagem descritiva</strong>.
+          </span>
+        </li>
+
+        <li
+          style="
+            margin-bottom:14px;
+            display:flex;
+            align-items:flex-start;
+            gap:10px;
+          "
+        >
+          <span style="color:var(--accent3);">•</span>
+
+          <span>
+            O projeto precisa ser enviado para um repositório
+            no GitHub utilizando <code>git push</code>.
+          </span>
+        </li>
+
+        <li
+          style="
+            display:flex;
+            align-items:flex-start;
+            gap:10px;
+          "
+        >
+          <span style="color:var(--accent3);">•</span>
+
+          <span>
+            O repositório deve estar público e acessível
+            através do link do GitHub.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <!-- ENTREGA -->
+  <div style="padding:0 2%; margin-top:32px;">
+
+    <h3
+      style="
+        font-size:22px;
+        margin-bottom:18px;
+        display:flex;
+        align-items:center;
+        gap:10px;
+        font-family:'Fraunces',serif;
+      "
+    >
+      📦 O que Entregar
+    </h3>
+
+    <div style="display:flex; flex-direction:column; gap:12px;">
+
+      <div class="alert alert-tip">
+
+        <span class="alert-icon">1</span>
+
+        <div>
+          Link público do seu repositório no
+          <strong>GitHub</strong>.
+        </div>
+
+      </div>
+
+      <div class="alert alert-tip">
+
+        <span class="alert-icon">2</span>
+
+        <div>
+          Projeto contendo o arquivo
+          <code>index.html</code> versionado corretamente.
+        </div>
+
+      </div>
+
+      <div class="alert alert-tip">
+
+        <span class="alert-icon">3</span>
+
+        <div>
+          Histórico de commits visível no GitHub.
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="alert alert-tip" style="margin-top:16px;">
+
+      <span class="alert-icon">⏰</span>
+
+      <div>
+        <strong>Entrega via plataforma da disciplina.</strong>
+        Verifique o prazo definido pelo professor.
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
       <!-- ══════════════════════════════════════════════════
-           SEÇÃO 07 — Desafio Prático
-      ══════════════════════════════════════════════════ -->
-      <section class="content-section" id="section-desafio" style="background:var(--bg);">
-        <div style="padding:0 2%;margin-bottom:32px;">
-          <div class="section-tag">Seção 07</div>
-          <h2 class="section-title">🏆 Desafio <span style="color:var(--accent3);">Prático</span></h2>
-          <p class="section-lead">
-            Chegou a hora de colocar a mão na massa! Siga os passos abaixo para completar o desafio da aula.
-          </p>
-        </div>
-
-        <div style="padding:0 2%;">
-
-          <div class="challenge-box">
-            <h3>🎯 Missão: Publicar seu primeiro projeto no GitHub</h3>
-            <p>Você vai criar uma conta no GitHub, criar um repositório e publicar um arquivo HTML. Ao final, terá seu primeiro projeto online!</p>
-          </div>
-
-          <!-- Passos do desafio -->
-          <div class="steps-list" style="margin-top:24px;" id="steps-desafio">
-
-            <div class="step-item reveal-step">
-              <div class="step-num-wrap">
-                <div class="step-num">1</div>
-                <div class="step-line"></div>
-              </div>
-              <div class="step-content">
-                <div class="step-title">Criar conta no GitHub</div>
-                <div class="step-desc">Acesse <strong>github.com</strong>, clique em "Sign up" e crie sua conta gratuita. Use seu e-mail pessoal ou escolar. Escolha um username profissional (vai aparecer no seu portfólio!).</div>
-                <div class="alert alert-tip">
-                  <span class="alert-icon">💡</span>
-                  <span>Dica de username: use seu nome real (ex: <code>joao-silva-dev</code>) ou algo memorável. Evite underscores e números aleatórios.</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-item reveal-step">
-              <div class="step-num-wrap">
-                <div class="step-num">2</div>
-                <div class="step-line"></div>
-              </div>
-              <div class="step-content">
-                <div class="step-title">Criar um repositório</div>
-                <div class="step-desc">No GitHub, clique em <strong>"New repository"</strong>. Nomeie como <code>meu-primeiro-projeto</code>. Marque "Add README file". Clique em "Create repository".</div>
-              </div>
-            </div>
-
-            <div class="step-item reveal-step">
-              <div class="step-num-wrap">
-                <div class="step-num">3</div>
-                <div class="step-line"></div>
-              </div>
-              <div class="step-content">
-                <div class="step-title">Clonar o repositório localmente</div>
-                <div class="step-desc">Copie a URL do repositório e clone no seu computador.</div>
-                <div class="code-block">
-                  <div class="code-block-header">
-                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-                    <span class="code-block-label">bash</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-                  </div>
-                  <div class="code-block-body">
-                    <pre><span class="c-cmd">git clone</span> <span class="c-str">https://github.com/SEU-USUARIO/meu-primeiro-projeto.git</span>
-<span class="c-cmd">cd</span> meu-primeiro-projeto</pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-item reveal-step">
-              <div class="step-num-wrap">
-                <div class="step-num">4</div>
-                <div class="step-line"></div>
-              </div>
-              <div class="step-content">
-                <div class="step-title">Criar um arquivo HTML</div>
-                <div class="step-desc">Crie um arquivo <code>index.html</code> na pasta do projeto com o conteúdo abaixo:</div>
-                <div class="code-block">
-                  <div class="code-block-header">
-                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-                    <span class="code-block-label">html — index.html</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-                  </div>
-                  <div class="code-block-body">
-                    <pre><span class="c-comment">&lt;!-- Meu primeiro projeto no GitHub! --&gt;</span>
-&lt;!DOCTYPE html&gt;
-&lt;html lang=<span class="c-str">"pt-BR"</span>&gt;
-  &lt;head&gt;
-    &lt;meta charset=<span class="c-str">"UTF-8"</span>&gt;
-    &lt;title&gt;<span class="c-green">Meu Projeto</span>&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;🚀 Olá, GitHub!&lt;/h1&gt;
-    &lt;p&gt;Meu primeiro projeto publicado!&lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-item reveal-step">
-              <div class="step-num-wrap">
-                <div class="step-num">5</div>
-                <div class="step-line"></div>
-              </div>
-              <div class="step-content">
-                <div class="step-title">Commitar e fazer Push</div>
-                <div class="step-desc">Adicione, commite e envie para o GitHub:</div>
-                <div class="code-block">
-                  <div class="code-block-header">
-                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-                    <span class="code-block-label">bash — commit e push</span>
-                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-                  </div>
-                  <div class="code-block-body">
-                    <pre><span class="c-cmd">git add</span> <span class="c-flag">.</span>
-<span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"feat: adiciona index.html"</span>
-<span class="c-cmd">git push</span> <span class="c-str">origin main</span></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-item reveal-step">
-              <div class="step-num-wrap">
-                <div class="step-num">6</div>
-                <div class="step-line"></div>
-              </div>
-              <div class="step-content">
-                <div class="step-title">🌐 (Bônus) Publicar com GitHub Pages</div>
-                <div class="step-desc">Vá em <strong>Settings → Pages</strong> no seu repositório. Em "Source", selecione "main branch". Clique em Save. Seu site estará online em: <code>https://SEU-USUARIO.github.io/meu-primeiro-projeto</code> 🎉</div>
-                <div class="alert alert-wood">
-                  <span class="alert-icon">🏆</span>
-                  <span><strong>Desafio concluído!</strong> Você criou sua conta, repositório e publicou seu primeiro projeto HTML no GitHub. Isso vai no portfólio! ⭐</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- ══════════════════════════════════════════════════
-           SEÇÃO 08 — Glossário
+           SEÇÃO 09 — Glossário
       ══════════════════════════════════════════════════ -->
       <section class="content-section" id="section-glossary">
         <div style="padding:0 2%;margin-bottom:24px;">
-          <div class="section-tag">Seção 08</div>
-          <h2 class="section-title">📖 <span style="color:var(--accent3);">Glossário</span></h2>
-          <p class="section-lead">Os termos técnicos que você vai ouvir todo dia no mundo do Git e GitHub.</p>
+          <div class="section-tag">Seção 09</div>
+          <h2 class="section-title">📖 <span>Glossário</span></h2>
+          <p class="text">Os termos técnicos que você vai ouvir todo dia no mundo do Git e GitHub.</p>
         </div>
 
         <div style="padding:0 2%;">
@@ -2444,7 +3160,7 @@ style="
         <div class="nc-wrapper">
           <div class="nc-left">
             <div class="nc-tag">Próxima Aula</div>
-            <h2 class="nc-title">Introdução ao HTML</h2>
+            <h2 class="nc-title">Introdução ao <span style="color: var(--wood);">HTML</span></h2>
             <ul class="nc-list">
               <li class="nc-item">
                 <span class="nc-bullet">•</span>
@@ -2467,19 +3183,26 @@ style="
 
           <div class="nc-right">
             <div class="nc-glow"></div>
-            <!-- SVG visual HTML para "próxima aula" -->
-            <div class="nc-commit-wrap" style="z-index:2;position:relative;">
-              <svg viewBox="0 0 300 300" width="300" height="300">
-                <rect x="30" y="30" width="240" height="240" rx="20" fill="none" stroke="rgba(247,129,102,0.3)" stroke-width="1.5"/>
-                <text x="150" y="80"  text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(247,129,102,0.5)">&lt;!DOCTYPE html&gt;</text>
-                <text x="150" y="108" text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(88,166,255,0.6)">&lt;html lang="pt-BR"&gt;</text>
-                <text x="150" y="136" text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(88,166,255,0.5)">  &lt;head&gt; ... &lt;/head&gt;</text>
-                <text x="150" y="164" text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(63,185,80,0.7)">  &lt;body&gt;</text>
-                <text x="150" y="192" text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(63,185,80,0.5)">    &lt;h1&gt;🚀&lt;/h1&gt;</text>
-                <text x="150" y="220" text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(63,185,80,0.7)">  &lt;/body&gt;</text>
-                <text x="150" y="248" text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(88,166,255,0.6)">&lt;/html&gt;</text>
-              </svg>
-            </div>
+          
+            <img
+              src="img/git14.png"
+              alt="Introdução ao HTML"
+              onerror="this.style.display='none';"
+              style="
+                width: 640px;
+                height: 700px;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 18px;
+                position: relative;
+                z-index: 2;
+                box-shadow:
+                  0 10px 30px rgba(0,0,0,0.5),
+                  0 0 20px rgba(247,129,102,0.18);
+                border: 1px solid rgba(247,129,102,0.25);
+                transition: transform 0.3s ease;
+              "
+            />
           </div>
         </div>
       </section>
@@ -2499,13 +3222,12 @@ style="
             <h4>Anderson Raulino Dutra</h4>
             <p>Desenvolvedor Web Fullstack &amp; Professor</p>
             <div class="teacher-skills">
-              <span class="skill-tag">Git</span>
-              <span class="skill-tag">GitHub</span>
               <span class="skill-tag">HTML</span>
               <span class="skill-tag">CSS</span>
               <span class="skill-tag">JavaScript</span>
               <span class="skill-tag">React</span>
               <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">PostgreSQL</span>
             </div>
           </div>
         </div>
