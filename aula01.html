@@ -1,0 +1,2631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 01 — Introdução ao GitHub</title>
+
+    <!-- ═══════════════════════════════════════════════════
+         FONTES GOOGLE — mesmo padrão da Aula 07
+    ═══════════════════════════════════════════════════ -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ═══════════════════════════════════════════════════
+         VARIÁVEIS DE DESIGN — Paleta GitHub-inspired
+         Verde, Preto, Cinza, Azul (GitHub colors)
+      ═══════════════════════════════════════════════════ */
+      :root {
+  /* ═══════════════════════════════
+     PALETA MODERNA — ESTILO GITHUB
+     Mais elegante para slides/aulas
+  ═══════════════════════════════ */
+
+  /* — Backgrounds — */
+  --bg:  #0f172a;   /* azul escuro profundo */
+  --bg2: #111827;   /* slate */
+  --bg3: #1e293b;   /* cards */
+
+  /* — Cor principal (cyan/github tech) — */
+  --wood:      #38bdf8;
+  --wood-dim:  #7dd3fc;
+  --wood-pale: #bae6fd;
+
+  /* — Texto — */
+  --ink:      #f8fafc;
+  --ink-dim:  #cbd5e1;
+
+  /* — Bordas e superfícies — */
+  --border:   #334155;
+  --border2:  rgba(255,255,255,0.08);
+
+  --card:     #1e293b;
+  --surface:  #273449;
+
+  /* — Acentos secundários — */
+  --accent1: #f43f5e;  /* rosa/vermelho moderno */
+  --accent2: #818cf8;  /* indigo */
+  --accent3: #facc15;  /* amarelo destaque */
+
+  /* — Utilitários — */
+  --gold:      #facc15;
+  --red-soft:  #fb7185;
+
+  /* — Tipografia auxiliar — */
+  --text:      #f8fafc;
+  --text-dim:  #94a3b8;
+
+  --ink2:      #cbd5e1;
+  --ink3:      #64748b;
+
+  /* — Componentes — */
+  --summary-bg:     #111827;
+  --summary-ink:    #f8fafc;
+  --summary-accent: #38bdf8;
+
+  --tag-bg:   #334155;
+  --tag-ink:  #f8fafc;
+
+  --card-h:   #ffffff;
+  --card-p:   #94a3b8;
+
+  --analogy-bg: #1a2438;
+
+  /* — Alertas — */
+  --alert-bg:     rgba(56, 189, 248, 0.10);
+  --alert-border: rgba(56, 189, 248, 0.30);
+  --alert-ink:    #7dd3fc;
+}
+
+      /* ═══════════════════════════════════════════════════
+         RESET E BASE
+      ═══════════════════════════════════════════════════ */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        overflow-x: hidden;
+      }
+
+      .subtitle {
+          font-family: 'Fraunces', serif;
+          font-size: 24px;
+          font-weight: 800;
+          color: var(--ink);
+          margin-bottom: 16px;
+      }
+
+      .text{
+          font-size: 20px;
+          color: var(--text-dim);
+          line-height: 1.7;
+          margin-bottom: 20px;
+      }
+
+      /* ═══════════════════════════════════════════════════
+         PROGRESS BAR — topo fixo
+      ═══════════════════════════════════════════════════ */
+      #progress-bar {
+        position: fixed; top: 0; left: 0; height: 3px;
+        background: linear-gradient(90deg, var(--wood), var(--accent2));
+        width: 0%; z-index: 1000; transition: width 0.2s ease;
+        box-shadow: 0 0 8px rgba(63, 185, 80, 0.5);
+      }
+
+      /* ═══════════════════════════════════════════════════
+         SIDEBAR — navegação fixa lateral
+      ═══════════════════════════════════════════════════ */
+      #sidebar {
+        position: fixed; left: 0; top: 0; width: 270px; height: 100vh;
+        background: var(--bg2); border-right: 1px solid var(--border);
+        padding: 24px 0; overflow-y: auto; z-index: 100;
+        transform: translateX(-100%); transition: transform 0.3s ease;
+      }
+      #sidebar.open { transform: translateX(0); }
+
+      .sidebar-logo {
+        padding: 0 20px 20px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 16px;
+      }
+      .sidebar-logo .course-tag {
+        margin-top: 3.5rem; font-size: 10px; color: var(--wood);
+        text-transform: uppercase; letter-spacing: 2px;
+        font-family: 'DM Mono', monospace;
+      }
+      .sidebar-logo h3 {
+        font-size: 13px; color: var(--ink); font-weight: 700;
+        margin-top: 4px; line-height: 1.4; font-family: 'Fraunces', serif;
+      }
+
+      .nav-section { padding: 0 12px; margin-bottom: 8px; }
+      .nav-section-title {
+        font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px;
+        color: var(--text-dim); padding: 0 8px; margin-bottom: 4px;
+        font-family: 'DM Mono', monospace;
+      }
+      .nav-item {
+        display: flex; align-items: center; gap: 10px;
+        padding: 8px 12px; border-radius: 8px; cursor: pointer;
+        font-size: 13px; color: var(--text-dim); transition: all 0.2s;
+        text-decoration: none;
+      }
+      .nav-item:hover,
+      .nav-item.active { background: var(--bg3); color: var(--ink); }
+      .nav-item.active  { color: var(--wood); }
+      .nav-item .nav-icon { font-size: 14px; width: 20px; text-align: center; }
+      .nav-item .nav-num {
+        font-family: 'DM Mono', monospace; font-size: 10px;
+        color: var(--text-dim); margin-left: auto;
+      }
+
+      /* ═══════════════════════════════════════════════════
+         BOTÃO DE MENU TOGGLE
+      ═══════════════════════════════════════════════════ */
+      #menu-toggle {
+        position: fixed; left: 16px; top: 16px; z-index: 200;
+        background: var(--bg2); border: 1px solid var(--border);
+        color: var(--ink); width: 40px; height: 40px; border-radius: 10px;
+        cursor: pointer; font-size: 20px; display: flex;
+        align-items: center; justify-content: center; transition: all 0.2s;
+      }
+      #menu-toggle:hover { background: var(--bg3); border-color: var(--wood); }
+
+      /* ═══════════════════════════════════════════════════
+         OVERLAY do menu mobile
+      ═══════════════════════════════════════════════════ */
+      #overlay {
+        display: none; position: fixed; inset: 0;
+        background: rgba(0, 0, 0, 0.5); z-index: 99;
+      }
+      #overlay.show { display: block; }
+
+      /* ═══════════════════════════════════════════════════
+         MAIN CONTENT
+      ═══════════════════════════════════════════════════ */
+      main { margin: 0 auto; padding: 0 24px 80px; }
+
+      /* ═══════════════════════════════════════════════════
+         COVER PAGE — fullscreen hero
+      ═══════════════════════════════════════════════════ */
+      .cover {
+        min-height: 100vh; display: flex; flex-direction: row;
+        align-items: stretch; justify-content: space-between;
+        padding: 0; position: relative; overflow: hidden; gap: 0;
+      }
+      .cover::before {
+        content: ''; position: absolute; top: -150px; right: -150px;
+        width: 500px; height: 500px;
+        background: radial-gradient(circle, rgba(63,185,80,0.08) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .cover::after {
+        content: ''; position: absolute; bottom: -80px; left: -80px;
+        width: 350px; height: 350px;
+        background: radial-gradient(circle, rgba(88,166,255,0.06) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .cover-tag {
+        font-family: 'DM Mono', monospace; font-size: 12px; color: var(--wood);
+        text-transform: uppercase; letter-spacing: 3px;
+        border: 1px solid rgba(63,185,80,0.3); background: rgba(63,185,80,0.08);
+        padding: 6px 14px; border-radius: 6px; margin-bottom: 28px;
+        align-self: flex-start; display: inline-block;
+        animation: fadeUp 0.6s ease both;
+      }
+      .cover h1 {
+        font-family: 'Fraunces', serif; font-weight: 800;
+        font-size: clamp(36px, 6vw, 64px); line-height: 1.1;
+        margin-bottom: 16px; animation: fadeUp 0.6s ease 0.1s both; color: var(--ink);
+      }
+      .cover h1 span { color: var(--wood); }
+      .cover-subtitle {
+        font-size: 20px; color: var(--text-dim); margin-bottom: 10px;
+        margin-left: 4px; font-weight: 600; animation: fadeUp 0.6s ease 0.2s both;
+      }
+      .cover-text {
+        flex: 1.2; padding: 80px 5% 80px 8%; display: flex;
+        flex-direction: column; justify-content: center; background: var(--bg);
+      }
+      @media (max-width: 992px) {
+        .cover { flex-direction: column; }
+        .cover-text { padding: 60px 5%; text-align: center; align-items: center; }
+      }
+
+      /* ═══════════════════════════════════════════════════
+         PAINEL DIREITO DO COVER (visual tech)
+      ═══════════════════════════════════════════════════ */
+      .nc-right {
+        flex: 0.85; position: relative; display: flex;
+        align-items: center; justify-content: center;
+        border-left: 1px solid var(--border); overflow: hidden;
+        background: linear-gradient(135deg, var(--bg3) 0%, var(--bg2) 100%);
+      }
+      .nc-glow {
+        position: absolute; width: 380px; height: 380px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(63,185,80,0.10) 0%, rgba(88,166,255,0.05) 40%, transparent 70%);
+      }
+      .nc-commit-wrap {
+        position: relative; z-index: 3; display: flex;
+        flex-direction: column; align-items: center;
+      }
+
+      /* ═══════════════════════════════════════════════════
+         TRANSITION BANNER
+      ═══════════════════════════════════════════════════ */
+      .transition-banner {
+        width: 100%; height: 220px; background: var(--bg2); overflow: hidden;
+        display: flex; justify-content: center; align-items: center;
+        position: relative; border-bottom: 1px solid var(--border);
+        border-top: 1px solid var(--border);
+      }
+      .transition-banner-inner {
+        display: flex; align-items: center; justify-content: center;
+        gap: 40px; width: 100%; padding: 0 5%;
+      }
+      .banner-express-logo {
+        font-family: 'Fraunces', serif; font-size: clamp(48px, 8vw, 80px);
+        font-weight: 800; color: rgba(63,185,80,0.08); letter-spacing: -2px;
+        user-select: none;
+      }
+      .banner-divider { width: 1px; height: 80px; background: var(--border); }
+      .banner-text-block { text-align: center; }
+      .banner-text-block .bt-label {
+        font-family: 'DM Mono', monospace; font-size: 11px; color: var(--wood);
+        text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px;
+      }
+      .banner-text-block .bt-title {
+        font-size: clamp(18px, 3vw, 28px); font-weight: 800; color: var(--ink);
+        font-family: 'Fraunces', serif;
+      }
+
+      /* ═══════════════════════════════════════════════════
+         OBJECTIVES SECTION
+      ═══════════════════════════════════════════════════ */
+      .objectives-section {
+        padding: 80px 10%; background-color: var(--bg2); color: var(--text);
+      }
+      .section-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+      .section-header h2 {
+        font-family: 'Fraunces', serif; font-size: clamp(32px, 4vw, 48px);
+        font-weight: 800; display: flex; align-items: center; gap: 15px; color: var(--ink);
+      }
+      .objectives-list { display: flex; flex-direction: column; gap: 5px; }
+      .obj-item { display: flex; align-items: center; gap: 12px; padding: 5px 0; }
+      .obj-item::before {
+        content: '•'; color: var(--wood); font-size: 28px; flex-shrink: 0; line-height: 1;
+      }
+      .obj-item p { font-size: 20px; line-height: 1.6; margin: 0; }
+      .obj-item p strong { color: var(--ink); }
+
+      /* ═══════════════════════════════════════════════════
+         CONTENT SECTIONS genéricas
+      ═══════════════════════════════════════════════════ */
+      .content-section {
+        padding: 40px 2%; border-top: 1px solid var(--border); background: var(--bg2);
+      }
+
+      /* ═══════════════════════════════════════════════════
+         ANALOGY BOX — destaque citação/analogia
+      ═══════════════════════════════════════════════════ */
+      .analogy-box {
+        background: linear-gradient(135deg, rgba(63,185,80,0.06), rgba(88,166,255,0.04));
+        border: 1px solid rgba(63,185,80,0.2); border-radius: 16px;
+        padding: 32px; margin: 32px 0; position: relative; overflow: hidden;
+      }
+      .analogy-box::before {
+        content: '"'; position: absolute; top: -20px; left: 20px; font-size: 120px;
+        color: var(--wood); opacity: 0.06; font-family: 'Fraunces', serif; line-height: 1;
+      }
+      .analogy-box p { font-size: 20px; line-height: 1.8; color: var(--text); }
+      .analogy-box p + p { margin-top: 12px; }
+      .analogy-box .analogy-label {
+        font-family: 'DM Mono', monospace; font-size: 13px; color: var(--wood);
+        text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+      }
+
+      /* ═══════════════════════════════════════════════════
+         ACCORDION — perguntas expansíveis
+      ═══════════════════════════════════════════════════ */
+      .acc-item {
+        background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
+        margin-bottom: 8px; overflow: hidden; transition: border-color 0.3s;
+      }
+      .acc-item:hover { border-color: rgba(63,185,80,0.4); }
+      .acc-item.open   { border-color: var(--wood); }
+      .acc-header {
+        padding: 18px 20px; cursor: pointer; display: flex;
+        align-items: center; justify-content: space-between; gap: 12px; user-select: none;
+      }
+      .acc-header-left { display: flex; align-items: center; gap: 14px; }
+      .acc-emoji  { font-size: 18px; }
+      .acc-title  { font-size: 18px; font-weight: 700; color: var(--ink); }
+      .acc-arrow  { color: var(--text-dim); transition: transform 0.3s; font-size: 18px; }
+      .acc-item.open .acc-arrow { transform: rotate(180deg); color: var(--wood); }
+      .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+      .acc-body-inner {
+        padding: 0 20px 20px; font-size: 18px; line-height: 1.8; color: var(--text-dim);
+      }
+      .acc-body-inner strong { color: var(--ink); }
+      .acc-body-inner p + p  { margin-top: 12px; }
+
+      /* ═══════════════════════════════════════════════════
+         TABELA ESTILIZADA
+      ═══════════════════════════════════════════════════ */
+      .styled-table {
+        width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 17px;
+        border-radius: 12px; overflow: hidden; border: 1px solid var(--border);
+      }
+      .styled-table th {
+        background: var(--bg3); padding: 12px 16px; text-align: left;
+        font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase;
+        letter-spacing: 1px; color: var(--text-dim); border-bottom: 1px solid var(--border);
+      }
+      .styled-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text); }
+      .styled-table tr:last-child td { border-bottom: none; }
+      .styled-table tr:hover td { background: rgba(63,185,80,0.04); }
+
+      /* ═══════════════════════════════════════════════════
+         BLOCOS DE CÓDIGO — estilizados com header colorido
+      ═══════════════════════════════════════════════════ */
+      .code-block {
+        background: #010409;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 24px 0;
+        font-family: 'DM Mono', monospace;
+      }
+      .code-block-header {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 10px 18px;
+        background: var(--bg3);
+        border-bottom: 1px solid var(--border);
+      }
+      .code-block-dots { display: flex; gap: 6px; }
+      .code-block-dots span {
+        width: 12px; height: 12px; border-radius: 50%; display: block;
+      }
+      .dot-red   { background: #ff5f57; }
+      .dot-yellow{ background: #febc2e; }
+      .dot-green { background: #28c840; }
+      .code-block-label {
+        font-size: 12px; color: var(--text-dim);
+        text-transform: uppercase; letter-spacing: 1.5px;
+      }
+      .code-block-copy {
+        background: transparent; border: 1px solid var(--border);
+        color: var(--text-dim); font-size: 12px; padding: 4px 10px;
+        border-radius: 6px; cursor: pointer; font-family: 'DM Mono', monospace;
+        transition: all 0.2s;
+      }
+      .code-block-copy:hover { border-color: var(--wood); color: var(--wood); }
+      .code-block-body { padding: 20px 24px; overflow-x: auto; }
+      .code-block-body pre {
+        font-size: 15px; line-height: 1.8; color: #e6edf3; white-space: pre; margin: 0;
+      }
+      /* Syntax highlight classes */
+      .c-cmd    { color: #79c0ff; }   /* comandos git */
+      .c-flag   { color: #e3b341; }   /* flags --flag */
+      .c-str    { color: #a5d6ff; }   /* strings "texto" */
+      .c-comment{ color: #6e7681; font-style: italic; } /* comentários */
+      .c-green  { color: #7ee787; }   /* saída positiva */
+      .c-dir    { color: #f0883e; }   /* diretórios/paths */
+
+      /* ═══════════════════════════════════════════════════
+         STEP CARDS — passos numerados
+      ═══════════════════════════════════════════════════ */
+      .steps-list { margin: 32px 0; }
+      .step-item {
+        display: flex; gap: 20px; margin-bottom: 32px;
+        opacity: 0; transform: translateX(-20px); transition: all 0.5s ease;
+      }
+      .step-item.visible { opacity: 1; transform: translateX(0); }
+      .step-num-wrap { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+      .step-num {
+        width: 40px; height: 40px; background: rgba(63,185,80,0.1);
+        border: 1px solid rgba(63,185,80,0.4); border-radius: 10px;
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'DM Mono', monospace; font-size: 16px; font-weight: 700;
+        color: var(--wood); flex-shrink: 0;
+      }
+      .step-line {
+        width: 1px; flex: 1;
+        background: linear-gradient(to bottom, rgba(63,185,80,0.4), transparent);
+        margin-top: 8px; min-height: 20px;
+      }
+      .step-item:last-child .step-line { display: none; }
+      .step-content { flex: 1; padding-bottom: 8px; }
+      .step-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--ink); }
+      .step-desc  { font-size: 17px; color: var(--text-dim); line-height: 1.7; margin-bottom: 12px; }
+
+      /* ═══════════════════════════════════════════════════
+         PRACTICE / INFO CARDS — grade de cards com hover
+      ═══════════════════════════════════════════════════ */
+      .practices-grid {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0;
+      }
+      .practice-card {
+        background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
+        padding: 20px; transition: all 0.3s;
+        opacity: 0; transform: translateY(20px);
+      }
+      .practice-card.visible { opacity: 1; transform: translateY(0); }
+      .practice-card:hover {
+        border-color: var(--wood);
+        box-shadow: 0 4px 24px rgba(63,185,80,0.08);
+        transform: translateY(-2px);
+      }
+      .practice-icon  { font-size: 24px; margin-bottom: 12px; }
+      .practice-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink); }
+      .practice-desc  { font-size: 16px; color: var(--text-dim); line-height: 1.7; }
+
+      /* ═══════════════════════════════════════════════════
+         GLOSSARY GRID — termos técnicos
+      ═══════════════════════════════════════════════════ */
+      .glossary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+      .glossary-item {
+        background: var(--bg); border: 1px solid var(--border);
+        border-radius: 10px; padding: 16px; transition: all 0.3s;
+      }
+      .glossary-item:hover { border-color: var(--accent3); }
+      .glossary-term { font-family: 'DM Mono', monospace; font-size: 14px; color: var(--accent3); font-weight: 700; margin-bottom: 6px; }
+      .glossary-def  { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
+
+      /* ═══════════════════════════════════════════════════
+         QUIZ SECTION
+      ═══════════════════════════════════════════════════ */
+      .quiz-section { padding: 80px 10%; border-top: 1px solid var(--border); background: var(--bg2); }
+      .quiz-card {
+        background: var(--bg); border: 1px solid var(--border);
+        border-radius: 16px; padding: 32px; margin-bottom: 24px;
+      }
+      .quiz-question { font-size: 19px; font-weight: 700; margin-bottom: 20px; line-height: 1.5; color: var(--ink); }
+      .quiz-num { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--wood); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+      .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+      .quiz-opt {
+        background: var(--bg2); border: 1px solid var(--border);
+        border-radius: 10px; padding: 14px 18px; cursor: pointer; font-size: 17px;
+        transition: all 0.2s; display: flex; align-items: center; gap: 12px; color: var(--text);
+      }
+      .quiz-opt:hover:not(.disabled) { border-color: var(--wood); }
+      .quiz-opt.correct { background: rgba(63,185,80,0.1); border-color: var(--wood); color: var(--wood); }
+      .quiz-opt.wrong   { background: rgba(255,123,114,0.1); border-color: var(--red-soft); color: var(--red-soft); }
+      .quiz-opt.disabled { cursor: not-allowed; }
+      .opt-letter {
+        width: 26px; height: 26px; background: var(--bg3); border: 1px solid var(--border);
+        border-radius: 6px; font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 700;
+        display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      }
+      .quiz-feedback { margin-top: 14px; padding: 12px 16px; border-radius: 8px; font-size: 16px; line-height: 1.6; display: none; }
+      .quiz-feedback.show { display: block; }
+      .quiz-feedback.ok   { background: rgba(63,185,80,0.1); border: 1px solid rgba(63,185,80,0.3); color: var(--wood); }
+      .quiz-feedback.fail { background: rgba(255,123,114,0.1); border: 1px solid rgba(255,123,114,0.3); color: var(--red-soft); }
+
+      /* ═══════════════════════════════════════════════════
+         ALERT BOXES — informativos, dicas, avisos
+      ═══════════════════════════════════════════════════ */
+      .alert {
+        border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+        display: flex; align-items: flex-start; gap: 12px;
+        font-size: 17px; line-height: 1.7;
+      }
+      .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+      .alert-warn { background: rgba(227,179,65,0.08); border: 1px solid rgba(227,179,65,0.3); color: var(--gold); }
+      .alert-info { background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.3); color: var(--accent2); }
+      .alert-tip  { background: rgba(63,185,80,0.08); border: 1px solid rgba(63,185,80,0.3); color: var(--wood); }
+      .alert-red  { background: rgba(255,123,114,0.06); border: 1px solid rgba(255,123,114,0.3); color: var(--red-soft); }
+      .alert-wood { background: rgba(63,185,80,0.08); border: 1px solid rgba(63,185,80,0.3); color: var(--wood); }
+
+      /* ═══════════════════════════════════════════════════
+         CHALLENGE BOX — desafio prático
+      ═══════════════════════════════════════════════════ */
+      .challenge-box {
+        background: linear-gradient(135deg, rgba(63,185,80,0.06), rgba(88,166,255,0.04));
+        border: 1px solid rgba(63,185,80,0.25); border-radius: 16px;
+        padding: 32px; margin: 24px 0;
+      }
+      .challenge-box h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: var(--ink); font-family: 'Fraunces', serif; }
+      .challenge-box p  { color: var(--text-dim); font-size: 17px; line-height: 1.7; }
+
+      /* ═══════════════════════════════════════════════════
+         TYPE/MSG BADGE CARDS
+      ═══════════════════════════════════════════════════ */
+      .msg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+      .msg-card {
+        background: var(--bg); border: 1px solid var(--border); border-radius: 14px;
+        padding: 24px; transition: all 0.3s; border-left: 4px solid transparent;
+      }
+      .msg-card.git-green  { border-left-color: var(--wood); }
+      .msg-card.git-blue   { border-left-color: var(--accent2); }
+      .msg-card.git-gold   { border-left-color: var(--accent3); }
+      .msg-card.git-red    { border-left-color: var(--red-soft); }
+      .msg-card.git-orange { border-left-color: var(--accent1); }
+      .msg-card.git-purple { border-left-color: #bc8cff; }
+      .msg-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+      .msg-badge {
+        display: inline-block; font-family: 'DM Mono', monospace;
+        font-size: 13px; font-weight: 700; padding: 3px 10px;
+        border-radius: 6px; margin-bottom: 12px;
+      }
+      .git-green  .msg-badge { background: rgba(63,185,80,0.1); color: var(--wood); }
+      .git-blue   .msg-badge { background: rgba(88,166,255,0.1); color: var(--accent2); }
+      .git-gold   .msg-badge { background: rgba(227,179,65,0.1); color: var(--accent3); }
+      .git-red    .msg-badge { background: rgba(255,123,114,0.1); color: var(--red-soft); }
+      .git-orange .msg-badge { background: rgba(247,129,102,0.1); color: var(--accent1); }
+      .git-purple .msg-badge { background: rgba(188,140,255,0.1); color: #bc8cff; }
+      .msg-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink); }
+      .msg-desc  { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
+
+      /* ═══════════════════════════════════════════════════
+         INLINE CODE
+      ═══════════════════════════════════════════════════ */
+      code {
+        font-family: 'DM Mono', monospace;
+        background: rgba(63,185,80,0.1);
+        color: var(--wood);
+        padding: 1px 6px; border-radius: 4px; font-size: 0.92em;
+      }
+
+      /* ═══════════════════════════════════════════════════
+         SECTION TAG + TITLE + LEAD
+      ═══════════════════════════════════════════════════ */
+      .section-tag {
+        font-size: 11px; color: var(--wood); font-family: 'DM Mono', monospace;
+        text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;
+      }
+      .section-title {
+        font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 800;
+        margin-bottom: 8px; color: var(--ink); font-family: 'Fraunces', serif;
+      }
+      .section-lead {
+        font-size: 18px; color: var(--text-dim); margin-bottom: 32px;
+        line-height: 1.7; max-width: 700px;
+      }
+
+      /* ═══════════════════════════════════════════════════
+         SUMMARY BOX — resumo da seção
+      ═══════════════════════════════════════════════════ */
+      .summary-box {
+        background: var(--summary-bg);
+        color: var(--summary-ink);
+        border-radius: 12px;
+        padding: 2rem;
+        font-size: 1rem;
+        line-height: 1.7;
+        border: 1px solid var(--border);
+      }
+      .summary-box .sum-label {
+        font-size: .72rem; font-weight: 500;
+        letter-spacing: .12em; text-transform: uppercase;
+        color: var(--summary-accent); margin-bottom: .5rem;
+      }
+      .summary-box strong { color: var(--summary-accent); font-weight: 500; }
+
+      hr.divider { border: none; border-top: 1px solid var(--border2); margin: 2.5rem 0; }
+
+      /* ═══════════════════════════════════════════════════
+         NEXT CLASS SECTION — fullscreen
+      ═══════════════════════════════════════════════════ */
+      .nc-section {
+        min-height: 100vh; display: flex; flex-direction: column;
+        position: relative; overflow: hidden;
+        background: radial-gradient(ellipse at 60% 40%, rgba(63,185,80,0.06) 0%, transparent 60%),
+          radial-gradient(ellipse at 10% 80%, rgba(88,166,255,0.05) 0%, transparent 50%), var(--bg2);
+      }
+      .nc-wrapper { flex: 1; display: flex; min-height: 0; }
+      .nc-left {
+        flex: 1.3; padding: 80px 8%;
+        display: flex; flex-direction: column; justify-content: center;
+      }
+      .nc-tag {
+        font-family: 'DM Mono', monospace; font-size: 12px; color: var(--wood);
+        text-transform: uppercase; letter-spacing: 3px;
+        border: 1px solid rgba(63,185,80,0.3); background: rgba(63,185,80,0.08);
+        padding: 6px 14px; border-radius: 6px; margin-bottom: 28px;
+        align-self: flex-start; font-weight: 700;
+      }
+      .nc-title {
+        font-size: clamp(28px, 4vw, 48px); font-weight: 800; color: var(--ink);
+        line-height: 1.15; margin: 0 0 32px 0; font-family: 'Fraunces', serif;
+      }
+      .nc-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; }
+      .nc-item { display: flex; align-items: flex-start; gap: 12px; font-size: 17px; color: var(--text-dim); line-height: 1.6; }
+      .nc-bullet { color: var(--wood); font-size: 20px; line-height: 1.4; flex-shrink: 0; }
+
+      /* ═══════════════════════════════════════════════════
+         TEACHER SECTION
+      ═══════════════════════════════════════════════════ */
+      .teacher-section {
+        min-height: 100vh; display: flex; align-items: center; justify-content: center;
+        position: relative; overflow: hidden;
+        background: radial-gradient(ellipse at 30% 50%, rgba(63,185,80,0.06) 0%, transparent 55%),
+          radial-gradient(ellipse at 80% 20%, rgba(88,166,255,0.04) 0%, transparent 50%), var(--bg);
+        padding: 80px 8%;
+      }
+      .teacher-section::before {
+        content: ''; position: absolute; inset: 0;
+        background-image: radial-gradient(circle, rgba(63,185,80,0.04) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+      .teacher-inner { display: flex; align-items: center; gap: 64px; position: relative; z-index: 1; max-width: 900px; }
+      .teacher-avatar-wrap { flex-shrink: 0; }
+      .teacher-avatar {
+        width: 260px; height: 260px; border-radius: 24px;
+        border: 2px solid rgba(63,185,80,0.4); padding: 3px;
+        background: linear-gradient(135deg, rgba(63,185,80,0.1), rgba(88,166,255,0.1));
+        box-shadow: 0 0 40px rgba(63,185,80,0.12);
+      }
+      .teacher-avatar img { width: 100%; height: 100%; border-radius: 24px; object-fit: cover; }
+      .teacher-label {
+        font-family: 'DM Mono', monospace; font-size: 11px; color: var(--wood);
+        text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;
+      }
+      .teacher-info h4 { font-size: 28px; font-weight: 800; margin-bottom: 6px; color: var(--ink); font-family: 'Fraunces', serif; }
+      .teacher-info p  { font-size: 16px; color: var(--text-dim); margin-bottom: 20px; }
+      .teacher-skills  { display: flex; flex-wrap: wrap; gap: 8px; }
+      .skill-tag {
+        background: var(--bg2); border: 1px solid var(--border);
+        border-radius: 6px; padding: 4px 12px;
+        font-size: 13px; font-family: 'DM Mono', monospace; color: var(--text-dim);
+      }
+
+      /* ═══════════════════════════════════════════════════
+         TYPE BADGE — etiquetas coloridas
+      ═══════════════════════════════════════════════════ */
+      .type-badge {
+        display: inline-block; padding: 3px 10px; border-radius: 6px;
+        font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+      }
+      .type-badge.green  { background: rgba(63,185,80,0.1); color: var(--wood); }
+      .type-badge.blue   { background: rgba(88,166,255,0.1); color: var(--accent2); }
+      .type-badge.gold   { background: rgba(227,179,65,0.1); color: var(--accent3); }
+      .type-badge.red    { background: rgba(255,123,114,0.1); color: var(--red-soft); }
+      .type-badge.terra  { background: rgba(247,129,102,0.1); color: var(--accent1); }
+
+      /* ═══════════════════════════════════════════════════
+         BRANCH FLOW — linha visual de branches
+      ═══════════════════════════════════════════════════ */
+      .branch-flow {
+        background: #010409; border: 1px solid var(--border);
+        border-radius: 14px; padding: 32px; margin: 24px 0; overflow-x: auto;
+      }
+      .branch-flow svg { display: block; min-width: 500px; width: 100%; max-width: 700px; margin: 0 auto; }
+
+      /* ═══════════════════════════════════════════════════
+         COMPARE GRID — comparação dois lados
+      ═══════════════════════════════════════════════════ */
+      .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+      .compare-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+      .compare-card.bad     { border-color: rgba(255,123,114,0.3); }
+      .compare-card.good    { border-color: rgba(63,185,80,0.3); }
+      .compare-card.neutral { border-color: rgba(88,166,255,0.3); }
+      .compare-header { padding: 12px 16px; font-size: 13px; font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+      .bad     .compare-header { background: rgba(255,123,114,0.08); color: var(--red-soft); }
+      .good    .compare-header { background: rgba(63,185,80,0.08); color: var(--wood); }
+      .neutral .compare-header { background: rgba(88,166,255,0.08); color: var(--accent2); }
+      .compare-body { padding: 16px; }
+      .compare-item { display: flex; align-items: flex-start; gap: 8px; font-size: 17px; line-height: 1.6; margin-bottom: 10px; color: var(--text-dim); }
+      .compare-item:last-child { margin-bottom: 0; }
+      .compare-item .bullet { flex-shrink: 0; margin-top: 3px; }
+
+      /* ═══════════════════════════════════════════════════
+         ANIMAÇÕES
+      ═══════════════════════════════════════════════════ */
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(16px); }
+        to   { opacity: 1; transform: none; }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50%       { opacity: 0.6; }
+      }
+
+      /* ═══════════════════════════════════════════════════
+         RESPONSIVO
+      ═══════════════════════════════════════════════════ */
+      @media (max-width: 768px) {
+        .practices-grid { grid-template-columns: 1fr; }
+        .glossary-grid  { grid-template-columns: 1fr; }
+        .compare-grid   { grid-template-columns: 1fr; }
+        .msg-grid       { grid-template-columns: 1fr; }
+        main { padding: 0 12px 60px; }
+        .objectives-section { padding: 60px 5%; }
+        .quiz-section { padding: 60px 5%; }
+        .teacher-inner { flex-direction: column; gap: 32px; }
+        .teacher-avatar { width: 180px; height: 180px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ── PROGRESS BAR ── -->
+    <div id="progress-bar"></div>
+
+    <!-- ── MENU TOGGLE ── -->
+    <button id="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <!-- ── OVERLAY ── -->
+    <div id="overlay" onclick="toggleMenu()"></div>
+
+    <!-- ══════════════════════════════════════════════════
+         SIDEBAR — Navegação lateral fixa
+    ══════════════════════════════════════════════════ -->
+    <nav id="sidebar">
+      <div class="sidebar-logo">
+        <div class="course-tag">Desenvolvimento Web — Ensino Médio Técnico</div>
+        <h3>Aula 01 — Introdução ao GitHub</h3>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Conteúdo</div>
+        <a class="nav-item" href="#cover"             onclick="toggleMenu()"><span class="nav-icon">🏠</span> Início</a>
+        <a class="nav-item" href="#objectives"        onclick="toggleMenu()"><span class="nav-icon">🎯</span> Objetivos</a>
+        <a class="nav-item" href="#section-git"  onclick="toggleMenu()"><span class="nav-icon">🐙</span> O que é Git <span class="nav-num">01</span></a>
+        <a class="nav-item" href="#section-o-que-e"  onclick="toggleMenu()"><span class="nav-icon">🐙</span> O que é GitHub <span class="nav-num">01</span></a>
+        <a class="nav-item" href="#section-gitvsgit"  onclick="toggleMenu()"><span class="nav-icon">⚖️</span> Git vs GitHub <span class="nav-num">02</span></a>
+        <a class="nav-item" href="#section-fluxo"     onclick="toggleMenu()"><span class="nav-icon">🔄</span> Fluxo Básico <span class="nav-num">03</span></a>
+        <a class="nav-item" href="#section-codigos"   onclick="toggleMenu()"><span class="nav-icon">💻</span> Comandos Git <span class="nav-num">04</span></a>
+        <a class="nav-item" href="#section-branches"  onclick="toggleMenu()"><span class="nav-icon">🌿</span> Branches <span class="nav-num">05</span></a>
+        <a class="nav-item" href="#section-erros"     onclick="toggleMenu()"><span class="nav-icon">⚠️</span> Erros Comuns <span class="nav-num">06</span></a>
+        <a class="nav-item" href="#section-desafio"   onclick="toggleMenu()"><span class="nav-icon">🏆</span> Desafio Prático <span class="nav-num">07</span></a>
+        <a class="nav-item" href="#section-glossary"  onclick="toggleMenu()"><span class="nav-icon">📖</span> Glossário <span class="nav-num">08</span></a>
+        <a class="nav-item" href="#section-quiz"      onclick="toggleMenu()"><span class="nav-icon">🧠</span> Quiz</a>
+        <a class="nav-item" href="#section-next"      onclick="toggleMenu()"><span class="nav-icon">▶️</span> Próxima Aula</a>
+        <a class="nav-item" href="#section-teacher"   onclick="toggleMenu()"><span class="nav-icon">👤</span> Professor</a>
+      </div>
+    </nav>
+
+    <main>
+
+      <!-- ══════════════════════════════════════════════════
+           COVER — Página inicial impactante
+      ══════════════════════════════════════════════════ -->
+      <section class="cover" id="cover">
+        <div class="cover-text">
+          <div class="cover-tag">Aula 01</div>
+          <h1>Introdução ao<br /><span>Git & GitHub</span></h1>
+          <p class="cover-subtitle"><strong>Curso:</strong> Desenvolvimento Web</p>
+          <p class="cover-subtitle"><strong>Módulo 1:</strong> Ferramentas e Versionamento</p>
+          <p class="cover-subtitle"><strong>Carga Horária Estimada:</strong> 3:30h</p>
+          <p class="cover-subtitle"><strong>Professor:</strong> Anderson Dutra</p>
+        </div>
+
+        <!-- Painel direito visual — ASCII art / grid tecnológico -->
+        <div class="nc-right">
+          <img
+            src="git01A.png"
+            alt="Diagrama de Classes"
+            onerror="this.style.display='none';"
+            style="width: 640px; height: 700px; object-fit: cover; object-position: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(88,166,255,0.2); border: 1px solid rgba(88,166,255,0.3); transition: transform 0.3s ease;"
+          />
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           TRANSITION BANNER
+      ══════════════════════════════════════════════════ -->
+      <div class="transition-banner">
+        <div class="transition-banner-inner">
+          <div class="banner-express-logo">GIT</div>
+          <div class="banner-divider"></div>
+          <div class="banner-text-block">
+            <div class="bt-label">Módulo I — Ferramentas e Versionamento</div>
+            <div class="bt-title">Aula 01 — Introdução ao GitHub</div>
+          </div>
+          <div class="banner-divider"></div>
+          <div class="banner-express-logo">HUB</div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════
+           OBJECTIVES — Objetivos da Aula
+      ══════════════════════════════════════════════════ -->
+      <section class="objectives-section" id="objectives">
+        <div class="section-header">
+          <h2>🎯 Objetivos da Aula</h2>
+        </div>
+        <div class="objectives-list">
+          <div class="obj-item">
+            <p><strong>Compreender o que é o GitHub</strong> — entender por que ele é a plataforma mais usada no mundo para guardar e compartilhar código entre desenvolvedores.</p>
+          </div>
+          <div class="obj-item">
+            <p><strong>Diferenciar Git e GitHub</strong> — entender que são ferramentas distintas: o <em>Git</em> é o sistema de versionamento local e o <em>GitHub</em> é a plataforma online.</p>
+          </div>
+          <div class="obj-item">
+            <p><strong>Criar um repositório no GitHub</strong> — aprender a criar seu primeiro repo, seja pela interface web ou pela linha de comando.</p>
+          </div>
+          <div class="obj-item">
+            <p><strong>Realizar commit e push</strong> — dominar o fluxo básico: <code>git add</code>, <code>git commit</code> e <code>git push</code> para enviar código ao GitHub.</p>
+          </div>
+          <div class="obj-item">
+            <p><strong>Entender Pull e trabalho em equipe</strong> — aprender como trazer alterações remotas com <code>git pull</code> e como o GitHub facilita a colaboração.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           SEÇÃO 01 — O que é GitHub?
+      ══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-git" style="background: var(--bg2);">
+
+  <!-- Cabeçalho -->
+  <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
+
+    <div class="cover-text">
+
+      <div class="section-tag">Seção 01</div>
+
+      <h2 style="font-size:clamp(2.5rem,4vw,3.5rem);line-height:1.1;margin-bottom:1rem;color:var(--ink);font-family:'Fraunces',serif;">
+        O que é o<br />
+        <span style="color:var(--wood);">Git?</span>
+      </h2>
+
+      <p class="cover-subtitle" style="font-size:1.1rem;line-height:1.6;">
+        Imagine criar um jogo, um site ou um aplicativo e, depois de algumas alterações,
+        perceber que algo parou de funcionar. Você tenta voltar atrás… mas já não lembra
+        exatamente o que mudou. O <strong>Git resolve exatamente esse problema</strong>,
+        registrando cada etapa da evolução do projeto como um histórico de versões.
+      </p>
+
+    </div>
+
+    <div class="nc-right">
+
+      <img
+        src="git03A.png"
+        alt="Git"
+        onerror="this.style.display='none';"
+        style="
+          width: 640px;
+          height: 700px;
+          object-fit: cover;
+          object-position: center;
+          box-shadow:
+            0 10px 30px rgba(0,0,0,0.5),
+            0 0 20px rgba(56,189,248,0.15);
+          border: 1px solid rgba(56,189,248,0.25);
+          transition: transform 0.3s ease;
+        "
+      />
+
+    </div>
+
+  </div>
+
+  <!-- Introdução -->
+  <h3 class="subtitle">
+    Entendendo o <span style="color:var(--wood);">Git</span>
+  </h3>
+
+  <p class="text">
+    O Git é um <strong>sistema de controle de versão distribuído</strong>.
+    Ele permite registrar alterações em arquivos, acompanhar o histórico
+    do projeto e recuperar versões anteriores sempre que necessário.
+
+    Em vez de sobrescrever arquivos manualmente, o Git salva "fotografias"
+    do projeto chamadas de <strong>commits</strong>, criando uma linha do tempo
+    completa do desenvolvimento.
+  </p>
+
+  <!-- Analogia -->
+  <div style="padding:0 2%;">
+
+    <div class="analogy-box">
+
+      <div class="analogy-label">🧠 Analogia</div>
+
+      <p>
+        Imagine um jogo que salva automaticamente seu progresso em vários pontos.
+        Se algo der errado, você pode voltar para qualquer save anterior.
+      </p>
+
+      <p>
+        O <strong>Git funciona exatamente assim</strong>, mas para projetos de software.
+        Cada commit representa um ponto de salvamento da aplicação.
+      </p>
+
+      <p>
+        Isso significa que você pode experimentar mudanças sem medo,
+        porque sempre será possível retornar para uma versão estável do projeto.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- Cards -->
+  <h3 class="subtitle">
+    Para que serve o <span style="color:var(--wood);">Git</span>?
+  </h3>
+
+  <p class="text">
+    O Git é utilizado para controlar alterações no código-fonte, organizar o fluxo
+    de desenvolvimento e permitir que múltiplos programadores trabalhem no mesmo projeto
+    sem perder informações importantes. Hoje ele é o padrão da indústria para versionamento.
+  </p>
+
+  <div style="padding:0 2%;margin-top:32px;">
+
+    <div class="practices-grid">
+
+      <div class="practice-card reveal">
+
+        <div class="practice-icon">💾</div>
+
+        <div class="practice-title">
+          Salvar versões do projeto
+        </div>
+
+        <div class="practice-desc">
+          Cada commit registra um novo estado da aplicação, permitindo acompanhar toda a evolução do código.
+        </div>
+
+      </div>
+
+      <div class="practice-card reveal">
+
+        <div class="practice-icon">⏪</div>
+
+        <div class="practice-title">
+          Voltar versões anteriores
+        </div>
+
+        <div class="practice-desc">
+          Se algo quebrar, o Git permite retornar rapidamente para uma versão estável do projeto.
+        </div>
+
+      </div>
+
+      <div class="practice-card reveal">
+
+        <div class="practice-icon">🌿</div>
+
+        <div class="practice-title">
+          Trabalhar com branches
+        </div>
+
+        <div class="practice-desc">
+          Branches permitem criar funcionalidades isoladas sem afetar a versão principal do sistema.
+        </div>
+
+      </div>
+
+      <div class="practice-card reveal">
+
+        <div class="practice-icon">👨‍💻</div>
+
+        <div class="practice-title">
+          Colaboração em equipe
+        </div>
+
+        <div class="practice-desc">
+          Vários desenvolvedores podem trabalhar simultaneamente no mesmo projeto com segurança.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Resumo -->
+  <div style="padding:0 2%;margin-top:32px;">
+
+    <div class="summary-box">
+
+      <div class="sum-label">💡 Resumindo</div>
+
+      <p style="margin-top:0;margin-bottom:10px;">
+        O <strong>Git</strong> é a ferramenta responsável pelo controle de versões
+        de um projeto. Ele registra alterações, organiza o histórico do código
+        e permite recuperar qualquer versão anterior.
+      </p>
+
+      <p style="margin-bottom:0;">
+        Enquanto o <strong>GitHub</strong> é uma plataforma online de hospedagem,
+        o <strong>Git</strong> é o motor que faz todo o versionamento funcionar.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════
+           SEÇÃO 02 — O que é GitHub?
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" id="section-o-que-e" style="background: var(--bg);">
+
+        <!-- Cabeçalho-->
+        <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
+          <div class="cover-text">
+            <div class="section-tag">Seção 02</div>
+            <h2 style="font-size:clamp(2.5rem,4vw,3.5rem);line-height:1.1;margin-bottom:1rem;color:var(--ink);font-family:'Fraunces',serif;">
+              O que é o<br /><span style="color:var(--wood);">GitHub?</span>
+            </h2>
+            <p class="cover-subtitle" style="font-size:1.1rem;line-height:1.6;">
+              Imagine que você está escrevendo um trabalho escolar em grupo. Cada pessoa edita uma cópia diferente do documento — e no final ninguém sabe qual é a versão certa. O <strong>GitHub resolve exatamente esse problema</strong>, mas para código.
+            </p>
+          </div>
+          <div class="nc-right">
+            <img
+              src="git02A.png"
+              alt="Git Hub"
+              onerror="this.style.display='none';"
+              style="width: 640px; height: 700px; object-fit: cover; object-position: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(88,166,255,0.2); border: 1px solid rgba(88,166,255,0.3); transition: transform 0.3s ease;"
+            />
+          </div>
+        </div>
+        <h3 class="subtitle"
+      >
+        Entendendo o <span style="color: var(--wood);">GitHub</span>
+      </h3>
+  
+      <p class="text">
+        O GitHub é uma plataforma baseada em nuvem utilizada para hospedar
+        repositórios Git. Ele permite armazenar código online, acompanhar
+        alterações, colaborar em equipe e manter um histórico completo do projeto.
+      </p>
+
+        <!-- Analogia — caixa destacada -->
+        <div style="padding:0 2%;">
+          <div class="analogy-box">
+            <div class="analogy-label">📦 Analogia</div>
+            <p>
+              Pense no <strong>GitHub como um Google Drive para código</strong>, mas com superpoderes. Além de guardar seus arquivos online, ele <strong>guarda um histórico completo de todas as alterações</strong> — quem mudou o quê, quando e por quê. É como ter um "Ctrl+Z" infinito para todo o seu projeto.
+            </p>
+            <p>
+              Se o <strong>Google Drive</strong> salva versões automáticas de um documento, o <strong>GitHub</strong> deixa você criar versões <em>intencionais</em> — cada "save" é chamado de <strong>commit</strong>, e você escolhe o que salvar e escreve uma mensagem explicando a mudança.
+            </p>
+            <p>
+              Além disso, o GitHub permite que <strong>várias pessoas trabalhem no mesmo projeto ao mesmo tempo</strong>, sem sobrescrever o trabalho umas das outras — como um Google Docs, mas para programadores do mundo todo. 🌍
+            </p>
+          </div>
+        </div>
+
+        <!-- Cards visuais — o que o GitHub faz -->
+        <h3 class="subtitle">
+          Para que serve o <span style="color:var(--wood);">GitHub</span>?
+        </h3>
+        <p class="text">
+          O GitHub vai muito além de apenas armazenar código online. Ele é utilizado para
+          controlar versões de projetos, colaborar em equipe, registrar alterações,
+          compartilhar soluções com outros desenvolvedores e até publicar aplicações na web.
+          Atualmente, empresas do mundo inteiro utilizam o GitHub como parte fundamental
+          do fluxo de desenvolvimento de software.
+        </p>
+        <div style="padding:0 2%;margin-top:32px;">
+          <div class="practices-grid" id="cards-uso">
+            <div class="practice-card reveal">
+              <div class="practice-icon">🗂️</div>
+              <div class="practice-title">Guardar seu código online</div>
+              <div class="practice-desc">Seu projeto fica salvo na nuvem. Se seu computador queimar, você não perde nada — é só acessar sua conta e baixar tudo de volta.</div>
+            </div>
+            <div class="practice-card reveal">
+              <div class="practice-icon">📜</div>
+              <div class="practice-title">Histórico de versões</div>
+              <div class="practice-desc">Cada commit é como uma foto do projeto naquele momento. Você pode voltar a qualquer versão anterior com um único comando.</div>
+            </div>
+            <div class="practice-card reveal">
+              <div class="practice-icon">👥</div>
+              <div class="practice-title">Trabalho em equipe</div>
+              <div class="practice-desc">Vários devs podem trabalhar no mesmo repositório ao mesmo tempo, em paralelo, sem conflito — usando branches.</div>
+            </div>
+            <div class="practice-card reveal">
+              <div class="practice-icon">🌐</div>
+              <div class="practice-title">Portfólio público</div>
+              <div class="practice-desc">Seus repositórios ficam visíveis para o mundo. Empresas usam o GitHub como currículo técnico de candidatos. ⭐</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resumo da seção -->
+        <div style="padding:0 2%;margin-top:32px;">
+          <div class="summary-box">
+            <div class="sum-label">💡 Resumindo</div>
+            <p style="margin-top:0;margin-bottom:10px;">
+              O <strong>GitHub</strong> é uma plataforma web que hospeda repositórios Git. Ele adiciona uma camada social e colaborativa ao Git — pull requests, issues, Actions (CI/CD), Pages (hospedagem), e muito mais.
+            </p>
+            <p style="margin-bottom:0;">
+              Hoje, mais de <strong>100 milhões de desenvolvedores</strong> usam o GitHub. É a maior rede social de código do mundo — e saber usá-lo é uma habilidade fundamental para qualquer programador.
+            </p>
+          </div>
+        </div>
+      </section>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 03 — Git vs GitHub
+══════════════════════════════════════════════════ -->
+
+<section class="content-section" id="section-gitvsgithub" style="background: var(--bg);">
+
+  <!-- Cabeçalho -->
+  <div
+    class="cover"
+    style="
+      padding:0;
+      min-height:auto;
+      background:transparent;
+      margin-bottom:40px;
+      box-shadow:none;
+    "
+  >
+
+    <div class="cover-text">
+
+      <div class="section-tag">
+        Seção 03
+      </div>
+
+      <h2
+        style="
+          font-size:clamp(2.5rem,4vw,3.5rem);
+          line-height:1.1;
+          margin-bottom:1rem;
+          color:var(--ink);
+          font-family:'Fraunces',serif;
+        "
+      >
+        Git <span style="color:var(--accent2);">vs</span><br />
+        <span style="color:var(--wood);">
+          GitHub
+        </span>
+      </h2>
+
+      <p
+        class="cover-subtitle"
+        style="
+          font-size:1.1rem;
+          line-height:1.6;
+        "
+      >
+        Essa é uma das maiores dúvidas de quem está começando.
+        Apesar de trabalharem juntos, <strong>Git e GitHub não são a mesma coisa</strong>.
+        Um é a ferramenta de versionamento. O outro é a plataforma online que utiliza essa ferramenta.
+      </p>
+
+    </div>
+
+    <div class="nc-right">
+
+      <img
+        src="git04.png"
+        alt="Git vs GitHub"
+        onerror="this.style.display='none';"
+        style="
+          width: 640px;
+          height: 700px;
+          object-fit: cover;
+          object-position: center;
+          box-shadow:
+            0 10px 30px rgba(0,0,0,0.5),
+            0 0 20px rgba(56,189,248,0.18);
+          border: 1px solid rgba(56,189,248,0.25);
+          transition: transform 0.3s ease;
+        "
+      />
+
+    </div>
+
+  </div>
+
+  <!-- Introdução -->
+  <h3 class="subtitle">
+    A diferença entre
+    <span style="color:var(--wood);">Git</span>
+    e
+    <span style="color:var(--accent2);">GitHub</span>
+  </h3>
+
+  <p class="text">
+    O Git é responsável por controlar versões e registrar alterações no projeto.
+    Já o GitHub funciona como uma plataforma online para armazenar, compartilhar
+    e colaborar em repositórios Git.
+
+    Em outras palavras: o <strong>Git é o motor</strong> do versionamento,
+    enquanto o <strong>GitHub é a plataforma</strong> onde esses projetos podem
+    ser publicados e acessados pela internet.
+  </p>
+
+  <!-- Analogia -->
+  <div style="padding:0 2%;">
+
+    <div class="analogy-box">
+
+      <div class="analogy-label">
+        🚗 Analogia
+      </div>
+
+      <p>
+        Pense no <strong>Git como o motor de um carro</strong>.
+        Ele faz toda a parte técnica funcionar: registra versões,
+        acompanha mudanças e organiza o histórico do projeto.
+      </p>
+
+      <p>
+        Já o <strong>GitHub seria uma garagem inteligente na nuvem</strong>,
+        onde você guarda, compartilha e mostra seus projetos para outras pessoas.
+      </p>
+
+      <p>
+        Você pode usar o Git sem GitHub — mas o GitHub existe justamente
+        para potencializar o uso do Git em equipe e na internet.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- Tabela -->
+  <h3 class="subtitle">
+    Comparando <span style="color:var(--wood);">Git</span> e
+    <span style="color:var(--accent2);">GitHub</span>
+  </h3>
+
+  <p class="text">
+    Embora estejam diretamente relacionados, Git e GitHub possuem papéis diferentes
+    dentro do fluxo de desenvolvimento de software. A tabela abaixo resume as principais diferenças.
+  </p>
+
+  <!-- Tabela comparativa estilizada -->
+  <div style="padding:0 2%;">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Aspecto</th>
+          <th>🛠️ Git</th>
+          <th>🐙 GitHub</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>O que é</strong></td>
+          <td>Software de controle de versão</td>
+          <td>Plataforma web para hospedar repositórios Git</td>
+        </tr>
+        <tr>
+          <td><strong>Onde roda</strong></td>
+          <td>No seu computador (local)</td>
+          <td>Na nuvem (online)</td>
+        </tr>
+        <tr>
+          <td><strong>Quem criou</strong></td>
+          <td>Linus Torvalds (criador do Linux) em 2005</td>
+          <td>Tom Preston-Werner, em 2008</td>
+        </tr>
+        <tr>
+          <td><strong>Precisa de internet?</strong></td>
+          <td>❌ Não — funciona offline</td>
+          <td>✅ Sim — é uma aplicação web</td>
+        </tr>
+        <tr>
+          <td><strong>Interface</strong></td>
+          <td>Linha de comando (terminal)</td>
+          <td>Interface gráfica web + terminal</td>
+        </tr>
+        <tr>
+          <td><strong>Gratuito?</strong></td>
+          <td>✅ Sim, open source</td>
+          <td>✅ Plano básico gratuito</td>
+        </tr>
+        <tr>
+          <td><strong>Função principal</strong></td>
+          <td>Versionar código</td>
+          <td>Compartilhar e colaborar</td>
+        </tr>
+        <tr>
+          <td><strong>Analogia</strong></td>
+          <td>Motor do carro 🚗</td>
+          <td>Garagem compartilhada na nuvem ☁️</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert alert-info" style="margin-top:16px;">
+
+      <span class="alert-icon">
+        💡
+      </span>
+
+      <span>
+        <strong>Git</strong> é a tecnologia de versionamento instalada no computador.
+        <strong>GitHub</strong> é a plataforma online que utiliza Git para armazenar
+        e compartilhar projetos.
+      </span>
+
+    </div>
+
+  <!-- Cards comparativos visuais -->
+  <div style="padding:0 2%;margin-top:32px;">
+    <div class="compare-grid">
+      <div class="compare-card neutral" style="border-color:rgba(63,185,80,0.3);">
+        <div class="compare-header" style="background:rgba(63,185,80,0.08);color:var(--wood);">🛠️ Git — Linha de Comando</div>
+        <div class="compare-body">
+          <div class="compare-item"><span class="bullet">→</span><span>Você instala no seu PC com <code>apt install git</code> ou pelo site git-scm.com</span></div>
+          <div class="compare-item"><span class="bullet">→</span><span>Controla versões <em>localmente</em> — sem precisar de internet</span></div>
+          <div class="compare-item"><span class="bullet">→</span><span>Comandos: <code>git init</code>, <code>git add</code>, <code>git commit</code>, <code>git log</code>...</span></div>
+          <div class="compare-item"><span class="bullet">→</span><span>Todo o histórico fica na pasta oculta <code>.git/</code> do seu projeto</span></div>
+        </div>
+      </div>
+      <div class="compare-card neutral" style="border-color:rgba(88,166,255,0.3);">
+        <div class="compare-header" style="background:rgba(88,166,255,0.08);color:var(--accent2);">🐙 GitHub — Plataforma Web</div>
+        <div class="compare-body">
+          <div class="compare-item"><span class="bullet">→</span><span>Você acessa em <strong>github.com</strong> — cria uma conta gratuita</span></div>
+          <div class="compare-item"><span class="bullet">→</span><span>Guarda repositórios na nuvem — acessíveis de qualquer lugar</span></div>
+          <div class="compare-item"><span class="bullet">→</span><span>Recursos extras: Pull Requests, Issues, GitHub Pages, Actions...</span></div>
+          <div class="compare-item"><span class="bullet">→</span><span>Funciona como portfólio e rede social de devs 🌎</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accordion — dúvidas frequentes -->
+  <div style="padding:0 2%;margin-top:32px;">
+    <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:16px;">🙋 Dúvidas Frequentes</div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-header-left">
+          <span class="acc-emoji">🤔</span>
+          <span class="acc-title">Preciso instalar o Git para usar o GitHub?</span>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p><strong>Para usar a interface web do GitHub, não.</strong> Você pode criar repositórios, editar arquivos e até fazer commits diretamente pelo navegador, sem instalar nada.</p>
+          <p>Porém, para usar o Git via terminal (linha de comando) — que é o jeito profissional — você precisa instalar o Git no seu computador. Acesse <strong>git-scm.com</strong> e baixe para o seu sistema.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-header-left">
+          <span class="acc-emoji">🔧</span>
+          <span class="acc-title">Existem alternativas ao GitHub?</span>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>Sim! O Git pode ser usado com outras plataformas de hospedagem, como <strong>GitLab</strong> (muito usado em empresas, com CI/CD embutido) e <strong>Bitbucket</strong> (integrado ao ecossistema Atlassian — Jira, Confluence). O GitHub é o mais popular, especialmente para projetos open source.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-header-left">
+          <span class="acc-emoji">💰</span>
+          <span class="acc-title">GitHub é pago?</span>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>O plano <strong>Free do GitHub é gratuito e suficiente</strong> para a maioria dos estudantes e projetos pessoais. Com ele você tem repositórios públicos e privados ilimitados, GitHub Pages (hospedagem de sites estáticos), GitHub Actions (2.000 minutos/mês de automação) e muito mais.</p>
+          <p>Os planos pagos (Pro, Team, Enterprise) adicionam recursos avançados para times e empresas.</p>
+        </div>
+      </div>
+    </div>
+
+  <!-- Resumo -->
+  <div style="padding:0 2%;margin-top:32px;">
+
+    <div class="summary-box">
+
+      <div class="sum-label">
+        💡 Resumindo
+      </div>
+
+      <p style="margin-top:0;margin-bottom:10px;">
+        O <strong>Git</strong> é a ferramenta responsável pelo controle de versões.
+        O <strong>GitHub</strong> é a plataforma online que utiliza Git
+        para armazenar e compartilhar projetos.
+      </p>
+
+      <p style="margin-bottom:0;">
+        Eles trabalham juntos — e dominar essa dupla é um dos primeiros passos
+        para atuar profissionalmente no desenvolvimento de software.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+      <!-- ══════════════════════════════════════════════════
+           SEÇÃO 04 — Fluxo Básico do GitHub
+      ══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-fluxo" style="background:var(--bg);">
+
+<div
+class="cover"
+style="
+  padding:0;
+  min-height:auto;
+  background:transparent;
+  margin-bottom:40px;
+  box-shadow:none;
+"
+>
+
+<!-- Texto -->
+<div class="cover-text">
+
+  <div class="section-tag">
+    Seção 04
+  </div>
+
+  <h2
+    style="
+      font-size:clamp(2.5rem,4vw,3.5rem);
+      line-height:1.1;
+      margin-bottom:1rem;
+      color:var(--ink);
+      font-family:'Fraunces',serif;
+    "
+  >
+    O Fluxo<br />
+    <span style="color:var(--wood);">
+      Básico
+    </span>
+  </h2>
+
+  <p
+    class="cover-subtitle"
+    style="
+      font-size:1.1rem;
+      line-height:1.6;
+    "
+  >
+    Todo projeto utilizando <strong>Git + GitHub</strong> segue um fluxo
+    relativamente simples. Aprender essas etapas é o primeiro passo para
+    entender como desenvolvedores organizam alterações, salvam versões
+    e compartilham código profissionalmente.
+  </p>
+
+</div>
+
+<!-- Imagem -->
+<div class="nc-right">
+
+  <img
+    src="git05.png"
+    alt="Fluxo Git e GitHub"
+    onerror="this.style.display='none';"
+    style="
+      width: 640px;
+      height: 700px;
+
+      object-fit: cover;
+      object-position: center;
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.5),
+        0 0 20px rgba(56,189,248,0.18);
+
+      border: 1px solid rgba(56,189,248,0.25);
+
+      transition: transform 0.3s ease;
+    "
+  />
+
+</div>
+
+</div>
+<h3 class="subtitle">
+  Entendendo o <span style="color:var(--wood);">Fluxo Básico</span>
+</h3>
+
+<p class="text">
+  O fluxo de trabalho com Git e GitHub segue uma sequência lógica:
+  criar arquivos, registrar alterações, salvar versões e enviar o projeto
+  para a nuvem. Esse processo permite acompanhar toda a evolução do sistema,
+  organizar o desenvolvimento e colaborar com outros programadores de forma segura.
+</p>
+
+        <!-- Steps numerados com linha conectora -->
+        <div style="padding:0 2%;">
+          <div class="steps-list" id="steps-fluxo">
+
+            <div class="step-item reveal-step">
+              <div class="step-num-wrap">
+                <div class="step-num">01</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-content">
+                <div class="step-title">📁 Criar Repositório</div>
+                <div class="step-desc">Um repositório (ou <em>repo</em>) é a pasta do seu projeto gerenciada pelo Git. Você pode criar pelo GitHub.com ou transformar uma pasta local com <code>git init</code>.</div>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                    <span class="code-block-label">bash — criar repositório local</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+                  </div>
+                  <div class="code-block-body">
+                    <pre><span class="c-comment"># Criar uma pasta e inicializar o Git</span>
+<span class="c-cmd">mkdir</span> meu-projeto
+<span class="c-cmd">cd</span> meu-projeto
+<span class="c-cmd">git init</span>
+<span class="c-green">Initialized empty Git repository in /meu-projeto/.git/</span></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item reveal-step">
+              <div class="step-num-wrap">
+                <div class="step-num">02</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-content">
+                <div class="step-title">📥 Clonar um Repositório</div>
+                <div class="step-desc">Se o projeto já existe no GitHub, você baixa uma cópia completa com <code>git clone</code>. Isso traz todo o histórico de commits junto.</div>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                    <span class="code-block-label">bash — clonar repositório</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+                  </div>
+                  <div class="code-block-body">
+                    <pre><span class="c-comment"># Clonar um repositório do GitHub</span>
+<span class="c-cmd">git clone</span> <span class="c-str">https://github.com/usuario/repositorio.git</span>
+<span class="c-comment"># Entrar na pasta clonada</span>
+<span class="c-cmd">cd</span> repositorio</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item reveal-step">
+              <div class="step-num-wrap">
+                <div class="step-num">03</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-content">
+                <div class="step-title">✏️ Editar Arquivos</div>
+                <div class="step-desc">Abra os arquivos no seu editor preferido (VS Code, por exemplo) e faça as alterações. O Git rastreia automaticamente qualquer mudança.</div>
+                <div class="alert alert-tip">
+                  <span class="alert-icon">💡</span>
+                  <span>Use <code>git status</code> a qualquer momento para ver quais arquivos foram modificados, adicionados ou removidos.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item reveal-step">
+              <div class="step-num-wrap">
+                <div class="step-num">04</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-content">
+                <div class="step-title">📸 Commit — "Tirar a Foto"</div>
+                <div class="step-desc">Um commit é uma fotografia do seu projeto naquele momento. Antes de commitar, você precisa escolher quais arquivos entram na foto com <code>git add</code>.</div>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                    <span class="code-block-label">bash — adicionar e commitar</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+                  </div>
+                  <div class="code-block-body">
+                    <pre><span class="c-comment"># Ver o que mudou</span>
+<span class="c-cmd">git status</span>
+
+<span class="c-comment"># Adicionar TODOS os arquivos modificados</span>
+<span class="c-cmd">git add</span> <span class="c-flag">.</span>
+
+<span class="c-comment"># Ou adicionar um arquivo específico</span>
+<span class="c-cmd">git add</span> <span class="c-str">index.html</span>
+
+<span class="c-comment"># Criar o commit com mensagem descritiva</span>
+<span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"feat: adiciona página inicial"</span></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item reveal-step">
+              <div class="step-num-wrap">
+                <div class="step-num">05</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-content">
+                <div class="step-title">🚀 Push — "Enviar para o GitHub"</div>
+                <div class="step-desc">Após commitar localmente, você <strong>envia</strong> os commits para o GitHub com <code>git push</code>. Agora o código está na nuvem e acessível para o time.</div>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                    <span class="code-block-label">bash — enviar commits</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+                  </div>
+                  <div class="code-block-body">
+                    <pre><span class="c-comment"># Enviar commits para o repositório remoto</span>
+<span class="c-cmd">git push</span> <span class="c-str">origin main</span>
+
+<span class="c-comment"># Na primeira vez, pode ser necessário:</span>
+<span class="c-cmd">git push</span> <span class="c-flag">--set-upstream</span> <span class="c-str">origin main</span></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item reveal-step">
+              <div class="step-num-wrap">
+                <div class="step-num">06</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-content">
+                <div class="step-title">⬇️ Pull — "Receber do GitHub"</div>
+                <div class="step-desc">Se um colega fez push de novas alterações, você usa <code>git pull</code> para baixar e integrar essas mudanças no seu repositório local.</div>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                    <span class="code-block-label">bash — baixar atualizações</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+                  </div>
+                  <div class="code-block-body">
+                    <pre><span class="c-comment"># Baixar e integrar mudanças do repositório remoto</span>
+<span class="c-cmd">git pull</span> <span class="c-str">origin main</span>
+
+<span class="c-comment"># Ver o histórico de commits</span>
+<span class="c-cmd">git log</span> <span class="c-flag">--oneline</span></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Fluxo resumido — bloco de código completo -->
+        <div style="padding:0 2%;margin-top:16px;">
+          <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:16px;">
+            🔁 O Fluxo Completo em um Bloco
+          </div>
+          <p class="text">
+            Esse é o fluxo básico utilizado na maioria dos projetos com Git e GitHub.
+            Primeiro, o Git é inicializado no projeto. Em seguida, os arquivos são adicionados
+            à área de stage e registrados através de um commit. Depois disso, o repositório local
+            é conectado ao GitHub e, por fim, as alterações são enviadas para a nuvem com o
+            comando <code>git push</code>. Esse ciclo será repetido constantemente durante o
+            desenvolvimento de software.
+          </p>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">bash — fluxo básico completo</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body">
+              <pre><span class="c-comment"># 1. Inicializar repositório</span>
+<span class="c-cmd">git init</span>
+
+<span class="c-comment"># 2. Adicionar arquivos à área de stage</span>
+<span class="c-cmd">git add</span> <span class="c-flag">.</span>
+
+<span class="c-comment"># 3. Fazer o commit com mensagem</span>
+<span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"Primeiro commit"</span>
+
+<span class="c-comment"># 4. Conectar ao repositório remoto do GitHub</span>
+<span class="c-cmd">git remote add origin</span> <span class="c-str">https://github.com/usuario/repo.git</span>
+
+<span class="c-comment"># 5. Enviar para o GitHub</span>
+<span class="c-cmd">git push</span> <span class="c-str">origin main</span></pre>
+            </div>
+          </div>
+        </div>
+        <!-- Fechamento da seção -->
+<div style="padding:0 2%;margin-top:32px;">
+
+  <div class="summary-box">
+
+    <div class="sum-label">
+      💡 Resumindo
+    </div>
+
+    <p style="margin-top:0;margin-bottom:10px;">
+      O fluxo com Git e GitHub segue sempre a mesma lógica:
+      criar ou clonar um projeto, modificar arquivos, registrar alterações
+      com commits e sincronizar tudo com o GitHub através de
+      <code>push</code> e <code>pull</code>.
+    </p>
+
+    <p style="margin-bottom:0;">
+      Pode parecer muito comando no começo, mas esse ciclo rapidamente
+      se torna parte natural da rotina de desenvolvimento. Entender esse
+      fluxo é essencial para trabalhar profissionalmente com projetos,
+      equipes e versionamento de código.
+    </p>
+
+  </div>
+
+</div>
+</section>
+
+      <!-- ══════════════════════════════════════════════════
+           SEÇÃO 05 — Comandos Git Essenciais
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" id="section-codigos">
+        <div style="padding:0 2%;margin-bottom:32px;">
+          <div class="section-tag">Seção 04</div>
+          <h2 class="section-title">Comandos <span style="color:var(--accent2);">Essenciais</span></h2>
+          <p class="section-lead">
+            Esses são os comandos que você vai usar todo dia. Memorize-os!
+          </p>
+        </div>
+
+        <!-- Cards de comandos -->
+        <div style="padding:0 2%;">
+          <div class="msg-grid">
+            <div class="msg-card git-green">
+              <div class="msg-badge">git init</div>
+              <div class="msg-title">Inicializar repositório</div>
+              <div class="msg-desc">Cria um repositório Git vazio na pasta atual. Gera a pasta oculta <code>.git/</code> que rastreia todas as mudanças do projeto.</div>
+            </div>
+            <div class="msg-card git-blue">
+              <div class="msg-badge">git clone</div>
+              <div class="msg-title">Clonar repositório</div>
+              <div class="msg-desc">Baixa uma cópia completa de um repositório remoto (GitHub) para o seu computador, incluindo todo o histórico de commits.</div>
+            </div>
+            <div class="msg-card git-gold">
+              <div class="msg-badge">git add</div>
+              <div class="msg-title">Adicionar ao stage</div>
+              <div class="msg-desc">Prepara arquivos para o próximo commit. Use <code>git add .</code> para todos os arquivos ou <code>git add arquivo.html</code> para um específico.</div>
+            </div>
+            <div class="msg-card git-green">
+              <div class="msg-badge">git commit</div>
+              <div class="msg-title">Salvar versão</div>
+              <div class="msg-desc">Cria um snapshot do projeto com os arquivos em stage. Sempre use uma mensagem clara: <code>git commit -m "descrição"</code>.</div>
+            </div>
+            <div class="msg-card git-blue">
+              <div class="msg-badge">git push</div>
+              <div class="msg-title">Enviar para o GitHub</div>
+              <div class="msg-desc">Envia seus commits locais para o repositório remoto no GitHub. Outros colaboradores poderão ver suas alterações.</div>
+            </div>
+            <div class="msg-card git-orange">
+              <div class="msg-badge">git pull</div>
+              <div class="msg-title">Receber do GitHub</div>
+              <div class="msg-desc">Baixa e integra as alterações feitas por outros colaboradores no repositório remoto para o seu ambiente local.</div>
+            </div>
+            <div class="msg-card git-red">
+              <div class="msg-badge">git status</div>
+              <div class="msg-title">Ver situação atual</div>
+              <div class="msg-desc">Mostra quais arquivos foram modificados, adicionados ou removidos desde o último commit. Use sempre antes de <code>git add</code>.</div>
+            </div>
+            <div class="msg-card git-purple">
+              <div class="msg-badge">git log</div>
+              <div class="msg-title">Ver histórico</div>
+              <div class="msg-desc">Exibe o histórico de commits do projeto. Use <code>git log --oneline</code> para uma visualização compacta e legível.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Código: configuração inicial do Git -->
+        <div style="padding:0 2%;margin-top:32px;">
+          <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:16px;">
+            ⚙️ Configuração Inicial do Git
+          </div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">bash — configurar identidade</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body">
+              <pre><span class="c-comment"># Configure seu nome (aparece nos commits)</span>
+<span class="c-cmd">git config</span> <span class="c-flag">--global</span> user.name <span class="c-str">"Seu Nome Aqui"</span>
+
+<span class="c-comment"># Configure seu e-mail (use o mesmo do GitHub!)</span>
+<span class="c-cmd">git config</span> <span class="c-flag">--global</span> user.email <span class="c-str">"seu@email.com"</span>
+
+<span class="c-comment"># Verificar a configuração atual</span>
+<span class="c-cmd">git config</span> <span class="c-flag">--list</span></pre>
+            </div>
+          </div>
+
+          <div class="alert alert-warn" style="margin-top:8px;">
+            <span class="alert-icon">⚠️</span>
+            <span><strong>Importante:</strong> Configure o Git antes de fazer qualquer commit. O e-mail deve ser o mesmo cadastrado na sua conta GitHub para que os commits apareçam corretamente no seu perfil.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           SEÇÃO 05 — Branches
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" id="section-branches" style="background:var(--bg);">
+        <div style="padding:0 2%;margin-bottom:32px;">
+          <div class="section-tag">Seção 05</div>
+          <h2 class="section-title">🌿 <span style="color:var(--wood);">Branches</span></h2>
+          <p class="section-lead">
+            Uma branch (ramificação) é como uma cópia paralela do projeto onde você pode trabalhar sem afetar o código principal. É a base do trabalho em equipe no Git.
+          </p>
+        </div>
+
+        <!-- Analogia de branches -->
+        <div style="padding:0 2%;">
+          <div class="analogy-box">
+            <div class="analogy-label">🌳 Analogia</div>
+            <p>
+              Imagine uma <strong>árvore de código</strong>. O tronco é a branch principal (<code>main</code>) — o código que está em produção, funcionando. Cada <strong>galho</strong> é uma branch onde um desenvolvedor trabalha numa nova funcionalidade sem mexer no tronco.
+            </p>
+            <p>
+              Quando o galho estiver pronto e testado, ele é <strong>mesclado de volta ao tronco</strong> com um <code>git merge</code> ou Pull Request. É assim que times de dezenas de devs trabalham juntos sem bagunçar o código um do outro. 🌱
+            </p>
+          </div>
+        </div>
+
+        <!-- Linha visual de branches em SVG -->
+        <div style="padding:0 2%;margin-top:16px;">
+          <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:16px;">Visualizando o Fluxo de Branches</div>
+          <div class="branch-flow">
+            <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+              <!-- Branch main -->
+              <text x="10" y="40" font-family="monospace" font-size="11" fill="rgba(63,185,80,0.7)">main</text>
+              <line x1="10" y1="60" x2="650" y2="60" stroke="rgba(63,185,80,0.5)" stroke-width="2.5"/>
+              <!-- Commits na main -->
+              <circle cx="60"  cy="60" r="8" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
+              <circle cx="160" cy="60" r="8" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
+              <circle cx="420" cy="60" r="8" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
+              <circle cx="540" cy="60" r="8" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
+              <circle cx="630" cy="60" r="8" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
+              <!-- Labels commits main -->
+              <text x="45"  y="90" font-family="monospace" font-size="9" fill="rgba(63,185,80,0.6)">c1</text>
+              <text x="148" y="90" font-family="monospace" font-size="9" fill="rgba(63,185,80,0.6)">c2</text>
+              <text x="408" y="90" font-family="monospace" font-size="9" fill="rgba(63,185,80,0.6)">c5</text>
+              <text x="528" y="90" font-family="monospace" font-size="9" fill="rgba(63,185,80,0.6)">c6</text>
+              <text x="618" y="90" font-family="monospace" font-size="9" fill="rgba(63,185,80,0.6)">c7</text>
+              <!-- Branch feature -->
+              <text x="170" y="118" font-family="monospace" font-size="11" fill="rgba(88,166,255,0.7)">feature/login</text>
+              <line x1="160" y1="60" x2="230" y2="140" stroke="rgba(88,166,255,0.5)" stroke-width="2" stroke-dasharray="4,3"/>
+              <line x1="230" y1="140" x2="390" y2="140" stroke="rgba(88,166,255,0.5)" stroke-width="2.5"/>
+              <line x1="390" y1="140" x2="420" y2="60" stroke="rgba(88,166,255,0.5)" stroke-width="2" stroke-dasharray="4,3"/>
+              <!-- Commits feature -->
+              <circle cx="260" cy="140" r="7" fill="#58a6ff" stroke="#0d1117" stroke-width="2"/>
+              <circle cx="330" cy="140" r="7" fill="#58a6ff" stroke="#0d1117" stroke-width="2"/>
+              <text x="248" y="163" font-family="monospace" font-size="9" fill="rgba(88,166,255,0.6)">c3</text>
+              <text x="318" y="163" font-family="monospace" font-size="9" fill="rgba(88,166,255,0.6)">c4</text>
+              <!-- Seta merge -->
+              <text x="400" y="40" font-family="monospace" font-size="10" fill="rgba(227,179,65,0.8)">merge</text>
+              <!-- HEAD label -->
+              <text x="615" y="45" font-family="monospace" font-size="10" fill="rgba(63,185,80,0.9)">HEAD</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Comandos de branches -->
+        <div style="padding:0 2%;margin-top:24px;">
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">bash — trabalhando com branches</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body">
+              <pre><span class="c-comment"># Ver todas as branches</span>
+<span class="c-cmd">git branch</span>
+
+<span class="c-comment"># Criar nova branch</span>
+<span class="c-cmd">git branch</span> <span class="c-str">feature/minha-funcionalidade</span>
+
+<span class="c-comment"># Mudar para outra branch</span>
+<span class="c-cmd">git checkout</span> <span class="c-str">feature/minha-funcionalidade</span>
+
+<span class="c-comment"># Criar e já mudar para ela (atalho)</span>
+<span class="c-cmd">git checkout</span> <span class="c-flag">-b</span> <span class="c-str">feature/nova</span>
+
+<span class="c-comment"># Mesclar uma branch na main</span>
+<span class="c-cmd">git checkout</span> <span class="c-str">main</span>
+<span class="c-cmd">git merge</span> <span class="c-str">feature/minha-funcionalidade</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards de tipos de branch -->
+        <div style="padding:0 2%;margin-top:24px;">
+          <div class="practices-grid">
+            <div class="practice-card reveal">
+              <div class="practice-icon">🌳</div>
+              <div class="practice-title">main / master</div>
+              <div class="practice-desc">A branch principal. Contém o código estável, em produção. Geralmente protegida — ninguém commita diretamente nela sem review.</div>
+            </div>
+            <div class="practice-card reveal">
+              <div class="practice-icon">🌿</div>
+              <div class="practice-title">feature/nome</div>
+              <div class="practice-desc">Branch criada para desenvolver uma nova funcionalidade. Ex: <code>feature/login</code>, <code>feature/pagamento</code>. É criada a partir da main.</div>
+            </div>
+            <div class="practice-card reveal">
+              <div class="practice-icon">🐛</div>
+              <div class="practice-title">fix/nome</div>
+              <div class="practice-desc">Branch dedicada à correção de bugs. Ex: <code>fix/botao-nao-funciona</code>. Após corrigir, faz merge de volta na main.</div>
+            </div>
+            <div class="practice-card reveal">
+              <div class="practice-icon">🚀</div>
+              <div class="practice-title">release/versão</div>
+              <div class="practice-desc">Branch para preparar uma versão estável para lançamento. Ex: <code>release/v1.0.0</code>. Usada em projetos maiores.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           SEÇÃO 06 — Erros Comuns
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" id="section-erros">
+        <div style="padding:0 2%;margin-bottom:32px;">
+          <div class="section-tag">Seção 06</div>
+          <h2 class="section-title">⚠️ Erros <span style="color:var(--red-soft);">Comuns</span></h2>
+          <p class="section-lead">
+            Todo mundo erra no começo! Aqui estão os erros mais frequentes e como resolvê-los rapidinho.
+          </p>
+        </div>
+
+        <div style="padding:0 2%;">
+
+          <!-- Erro 1: Git não instalado -->
+          <div class="acc-item">
+            <div class="acc-header" onclick="toggleAcc(this)">
+              <div class="acc-header-left">
+                <span class="acc-emoji">❌</span>
+                <span class="acc-title">git: command not found — Git não está instalado</span>
+              </div>
+              <span class="acc-arrow">▼</span>
+            </div>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <p><strong>Causa:</strong> O Git não foi instalado no sistema operacional ou não está no PATH.</p>
+                <p><strong>Solução:</strong></p>
+                <div class="code-block" style="margin-top:12px;">
+                  <div class="code-block-header">
+                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                    <span class="code-block-label">bash — instalar git</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+                  </div>
+                  <div class="code-block-body">
+                    <pre><span class="c-comment"># Linux (Ubuntu/Debian)</span>
+<span class="c-cmd">sudo apt install git</span>
+
+<span class="c-comment"># macOS (via Homebrew)</span>
+<span class="c-cmd">brew install git</span>
+
+<span class="c-comment"># Windows: baixar em git-scm.com/download/win</span>
+<span class="c-comment"># Verificar instalação</span>
+<span class="c-cmd">git</span> <span class="c-flag">--version</span>
+<span class="c-green">git version 2.44.0</span></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Erro 2: Conflito de merge -->
+          <div class="acc-item">
+            <div class="acc-header" onclick="toggleAcc(this)">
+              <div class="acc-header-left">
+                <span class="acc-emoji">💥</span>
+                <span class="acc-title">Merge conflict — Conflito ao mesclar branches</span>
+              </div>
+              <span class="acc-arrow">▼</span>
+            </div>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <p><strong>Causa:</strong> Duas pessoas editaram a <em>mesma linha</em> do mesmo arquivo em branches diferentes. O Git não sabe qual versão manter.</p>
+                <p><strong>Como resolver:</strong></p>
+                <div class="code-block" style="margin-top:12px;">
+                  <div class="code-block-header">
+                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                    <span class="code-block-label">bash + html — resolver conflito</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+                  </div>
+                  <div class="code-block-body">
+                    <pre><span class="c-comment"># O arquivo conflitante terá marcadores como:</span>
+<span class="c-red"><<<<<<< HEAD</span>
+<span class="c-str">&lt;h1&gt;Minha versão local&lt;/h1&gt;</span>
+<span class="c-red">=======</span>
+<span class="c-str">&lt;h1&gt;Versão do colega&lt;/h1&gt;</span>
+<span class="c-red">>>>>>>> feature/login</span>
+
+<span class="c-comment"># Edite o arquivo, escolha qual versão manter</span>
+<span class="c-comment"># Remova os marcadores <<<, ===, >>></span>
+<span class="c-comment"># Depois:</span>
+<span class="c-cmd">git add</span> <span class="c-flag">.</span>
+<span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"fix: resolve conflito de merge"</span></pre>
+                  </div>
+                </div>
+                <div class="alert alert-tip" style="margin-top:12px;">
+                  <span class="alert-icon">💡</span>
+                  <span>O VS Code tem uma interface visual para resolver conflitos — você vê as duas versões lado a lado e clica em "Accept Current" ou "Accept Incoming".</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Erro 3: Commit sem add -->
+          <div class="acc-item">
+            <div class="acc-header" onclick="toggleAcc(this)">
+              <div class="acc-header-left">
+                <span class="acc-emoji">🤦</span>
+                <span class="acc-title">nothing to commit — Esqueceu o git add</span>
+              </div>
+              <span class="acc-arrow">▼</span>
+            </div>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <p><strong>Causa:</strong> Você tentou fazer <code>git commit</code> sem antes usar <code>git add</code>. Os arquivos modificados existem, mas nenhum foi adicionado à área de stage.</p>
+                <div class="code-block" style="margin-top:12px;">
+                  <div class="code-block-header">
+                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                    <span class="code-block-label">bash — solução</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+                  </div>
+                  <div class="code-block-body">
+                    <pre><span class="c-comment"># Verificar o que está modificado mas não staged</span>
+<span class="c-cmd">git status</span>
+<span class="c-red">Changes not staged for commit:</span>
+<span class="c-red">  modified: index.html</span>
+
+<span class="c-comment"># Solução: adicionar primeiro, depois commitar</span>
+<span class="c-cmd">git add</span> <span class="c-flag">.</span>
+<span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"minha mensagem"</span></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Erro 4: push rejeitado -->
+          <div class="acc-item">
+            <div class="acc-header" onclick="toggleAcc(this)">
+              <div class="acc-header-left">
+                <span class="acc-emoji">🚫</span>
+                <span class="acc-title">rejected — Push rejeitado pelo GitHub</span>
+              </div>
+              <span class="acc-arrow">▼</span>
+            </div>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <p><strong>Causa:</strong> O repositório remoto tem commits que você não tem localmente (seu colega fez push antes de você).</p>
+                <div class="code-block" style="margin-top:12px;">
+                  <div class="code-block-header">
+                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                    <span class="code-block-label">bash — pull antes de push</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+                  </div>
+                  <div class="code-block-body">
+                    <pre><span class="c-comment"># Primeiro baixe as alterações remotas</span>
+<span class="c-cmd">git pull</span> <span class="c-str">origin main</span>
+
+<span class="c-comment"># Resolva conflitos se existirem</span>
+<span class="c-comment"># Depois envie novamente</span>
+<span class="c-cmd">git push</span> <span class="c-str">origin main</span></pre>
+                  </div>
+                </div>
+                <div class="alert alert-info" style="margin-top:12px;">
+                  <span class="alert-icon">📌</span>
+                  <span><strong>Regra de ouro:</strong> Sempre faça <code>git pull</code> antes de começar a trabalhar e antes de fazer <code>git push</code>.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           SEÇÃO 07 — Desafio Prático
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" id="section-desafio" style="background:var(--bg);">
+        <div style="padding:0 2%;margin-bottom:32px;">
+          <div class="section-tag">Seção 07</div>
+          <h2 class="section-title">🏆 Desafio <span style="color:var(--accent3);">Prático</span></h2>
+          <p class="section-lead">
+            Chegou a hora de colocar a mão na massa! Siga os passos abaixo para completar o desafio da aula.
+          </p>
+        </div>
+
+        <div style="padding:0 2%;">
+
+          <div class="challenge-box">
+            <h3>🎯 Missão: Publicar seu primeiro projeto no GitHub</h3>
+            <p>Você vai criar uma conta no GitHub, criar um repositório e publicar um arquivo HTML. Ao final, terá seu primeiro projeto online!</p>
+          </div>
+
+          <!-- Passos do desafio -->
+          <div class="steps-list" style="margin-top:24px;" id="steps-desafio">
+
+            <div class="step-item reveal-step">
+              <div class="step-num-wrap">
+                <div class="step-num">1</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-content">
+                <div class="step-title">Criar conta no GitHub</div>
+                <div class="step-desc">Acesse <strong>github.com</strong>, clique em "Sign up" e crie sua conta gratuita. Use seu e-mail pessoal ou escolar. Escolha um username profissional (vai aparecer no seu portfólio!).</div>
+                <div class="alert alert-tip">
+                  <span class="alert-icon">💡</span>
+                  <span>Dica de username: use seu nome real (ex: <code>joao-silva-dev</code>) ou algo memorável. Evite underscores e números aleatórios.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item reveal-step">
+              <div class="step-num-wrap">
+                <div class="step-num">2</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-content">
+                <div class="step-title">Criar um repositório</div>
+                <div class="step-desc">No GitHub, clique em <strong>"New repository"</strong>. Nomeie como <code>meu-primeiro-projeto</code>. Marque "Add README file". Clique em "Create repository".</div>
+              </div>
+            </div>
+
+            <div class="step-item reveal-step">
+              <div class="step-num-wrap">
+                <div class="step-num">3</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-content">
+                <div class="step-title">Clonar o repositório localmente</div>
+                <div class="step-desc">Copie a URL do repositório e clone no seu computador.</div>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                    <span class="code-block-label">bash</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+                  </div>
+                  <div class="code-block-body">
+                    <pre><span class="c-cmd">git clone</span> <span class="c-str">https://github.com/SEU-USUARIO/meu-primeiro-projeto.git</span>
+<span class="c-cmd">cd</span> meu-primeiro-projeto</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item reveal-step">
+              <div class="step-num-wrap">
+                <div class="step-num">4</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-content">
+                <div class="step-title">Criar um arquivo HTML</div>
+                <div class="step-desc">Crie um arquivo <code>index.html</code> na pasta do projeto com o conteúdo abaixo:</div>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                    <span class="code-block-label">html — index.html</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+                  </div>
+                  <div class="code-block-body">
+                    <pre><span class="c-comment">&lt;!-- Meu primeiro projeto no GitHub! --&gt;</span>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=<span class="c-str">"pt-BR"</span>&gt;
+  &lt;head&gt;
+    &lt;meta charset=<span class="c-str">"UTF-8"</span>&gt;
+    &lt;title&gt;<span class="c-green">Meu Projeto</span>&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;🚀 Olá, GitHub!&lt;/h1&gt;
+    &lt;p&gt;Meu primeiro projeto publicado!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item reveal-step">
+              <div class="step-num-wrap">
+                <div class="step-num">5</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-content">
+                <div class="step-title">Commitar e fazer Push</div>
+                <div class="step-desc">Adicione, commite e envie para o GitHub:</div>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                    <span class="code-block-label">bash — commit e push</span>
+                    <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+                  </div>
+                  <div class="code-block-body">
+                    <pre><span class="c-cmd">git add</span> <span class="c-flag">.</span>
+<span class="c-cmd">git commit</span> <span class="c-flag">-m</span> <span class="c-str">"feat: adiciona index.html"</span>
+<span class="c-cmd">git push</span> <span class="c-str">origin main</span></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item reveal-step">
+              <div class="step-num-wrap">
+                <div class="step-num">6</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-content">
+                <div class="step-title">🌐 (Bônus) Publicar com GitHub Pages</div>
+                <div class="step-desc">Vá em <strong>Settings → Pages</strong> no seu repositório. Em "Source", selecione "main branch". Clique em Save. Seu site estará online em: <code>https://SEU-USUARIO.github.io/meu-primeiro-projeto</code> 🎉</div>
+                <div class="alert alert-wood">
+                  <span class="alert-icon">🏆</span>
+                  <span><strong>Desafio concluído!</strong> Você criou sua conta, repositório e publicou seu primeiro projeto HTML no GitHub. Isso vai no portfólio! ⭐</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           SEÇÃO 08 — Glossário
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" id="section-glossary">
+        <div style="padding:0 2%;margin-bottom:24px;">
+          <div class="section-tag">Seção 08</div>
+          <h2 class="section-title">📖 <span style="color:var(--accent3);">Glossário</span></h2>
+          <p class="section-lead">Os termos técnicos que você vai ouvir todo dia no mundo do Git e GitHub.</p>
+        </div>
+
+        <div style="padding:0 2%;">
+          <div class="glossary-grid">
+            <div class="glossary-item">
+              <div class="glossary-term">Repository (Repo)</div>
+              <div class="glossary-def">A pasta do projeto gerenciada pelo Git. Contém todos os arquivos, histórico de versões e configurações. Pode ser local (no seu PC) ou remoto (no GitHub).</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">Commit</div>
+              <div class="glossary-def">Um snapshot (foto) do estado do projeto em um momento específico. Cada commit tem um ID único, um autor, uma data e uma mensagem descritiva.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">Push</div>
+              <div class="glossary-def">Enviar commits locais para o repositório remoto (GitHub). É o "upload" do seu trabalho para a nuvem.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">Pull</div>
+              <div class="glossary-def">Baixar e integrar commits do repositório remoto para o local. É o "download + merge" das alterações do time.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">Branch</div>
+              <div class="glossary-def">Uma ramificação independente do código. Permite desenvolver funcionalidades em paralelo sem afetar a branch principal (main).</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">Merge</div>
+              <div class="glossary-def">Unir duas branches. Os commits de uma branch são integrados à outra. Se houver edições no mesmo ponto, ocorre um "merge conflict" que precisa ser resolvido manualmente.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">Clone</div>
+              <div class="glossary-def">Cópia completa de um repositório remoto para o computador local, incluindo todo o histórico de commits e branches.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">Pull Request (PR)</div>
+              <div class="glossary-def">Pedido para integrar uma branch ao código principal. Permite revisão de código por outros membros da equipe antes do merge.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">Stage / Index</div>
+              <div class="glossary-def">Área intermediária entre os arquivos modificados e o commit. Você escolhe quais mudanças incluir no próximo commit com <code>git add</code>.</div>
+            </div>
+            <div class="glossary-item">
+              <div class="glossary-term">Remote</div>
+              <div class="glossary-def">Repositório hospedado em um servidor (ex: GitHub). O nome padrão do remote principal é <code>origin</code>.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           QUIZ — 5 perguntas interativas
+      ══════════════════════════════════════════════════ -->
+      <section class="quiz-section" id="section-quiz">
+        <div class="section-header" style="margin-bottom:32px;">
+          <h2 style="font-family:'Fraunces',serif;font-size:clamp(32px,4vw,48px);font-weight:800;color:var(--ink);display:flex;align-items:center;gap:15px;">
+            🧠 Quiz — Teste seus Conhecimentos
+          </h2>
+        </div>
+
+        <!-- Q1 -->
+        <div class="quiz-card" id="q1">
+          <div class="quiz-num">Questão 01 / 05</div>
+          <div class="quiz-question">Qual a principal diferença entre Git e GitHub?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="answer(this,'q1',false,'Incorreto. O Git é uma ferramenta de linha de comando instalada localmente, não apenas uma interface visual.')">
+              <span class="opt-letter">A</span> Git é a interface visual e GitHub é o software de terminal.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q1',true,'Correto! Git é o sistema de controle de versão que roda localmente no seu computador. GitHub é a plataforma web que hospeda repositórios Git na nuvem, adicionando recursos de colaboração.')">
+              <span class="opt-letter">B</span> Git é o sistema de controle de versão local; GitHub é a plataforma online para hospedar repositórios.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q1',false,'Incorreto. Git não é um editor de código. É um sistema de controle de versão.')">
+              <span class="opt-letter">C</span> Git é um editor de código; GitHub é onde você armazena os projetos.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q1',false,'Incorreto. São ferramentas diferentes — uma não substitui a outra. O GitHub usa o Git por baixo dos panos.')">
+              <span class="opt-letter">D</span> São a mesma coisa, apenas com nomes diferentes.
+            </div>
+          </div>
+          <div class="quiz-feedback" id="q1-fb"></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-card" id="q2">
+          <div class="quiz-num">Questão 02 / 05</div>
+          <div class="quiz-question">Qual comando cria um novo repositório Git vazio na pasta atual?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="answer(this,'q2',false,'Incorreto. git clone baixa uma cópia de um repositório existente — ele não cria um repositório novo.')">
+              <span class="opt-letter">A</span> <code>git clone</code>
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q2',false,'Incorreto. git start não é um comando do Git.')">
+              <span class="opt-letter">B</span> <code>git start</code>
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q2',true,'Correto! git init inicializa um repositório Git vazio na pasta atual, criando a pasta oculta .git/ que rastreará todas as alterações do projeto.')">
+              <span class="opt-letter">C</span> <code>git init</code>
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q2',false,'Incorreto. git new não é um comando do Git.')">
+              <span class="opt-letter">D</span> <code>git new</code>
+            </div>
+          </div>
+          <div class="quiz-feedback" id="q2-fb"></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-card" id="q3">
+          <div class="quiz-num">Questão 03 / 05</div>
+          <div class="quiz-question">Um aluno modificou o arquivo <code>index.html</code> e quer salvar essa versão no histórico do Git. Qual a sequência correta de comandos?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="answer(this,'q3',false,'Incorreto. git push envia commits para o repositório remoto — ele não cria commits. Sem git add e git commit antes, não há nada para enviar.')">
+              <span class="opt-letter">A</span> Apenas <code>git push</code>
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q3',false,'Incorreto. git commit sem git add antes não incluirá as alterações do arquivo — elas não estarão na área de stage.')">
+              <span class="opt-letter">B</span> <code>git commit -m "mensagem"</code> → <code>git push</code>
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q3',true,'Correto! O fluxo obrigatório é: git add (adiciona à área de stage) → git commit (cria o snapshot) → git push (envia para o remoto). Sem o git add, as alterações não entram no commit.')">
+              <span class="opt-letter">C</span> <code>git add .</code> → <code>git commit -m "mensagem"</code> → <code>git push</code>
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q3',false,'Incorreto. git save não existe no Git. O comando correto para "salvar" uma versão é git commit.')">
+              <span class="opt-letter">D</span> <code>git save index.html</code>
+            </div>
+          </div>
+          <div class="quiz-feedback" id="q3-fb"></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-card" id="q4">
+          <div class="quiz-num">Questão 04 / 05</div>
+          <div class="quiz-question">O que é uma Branch no Git e para que serve?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="answer(this,'q4',false,'Incorreto. Branch não tem relação com fazer backup — para isso você usaria git stash ou simplesmente commits regulares.')">
+              <span class="opt-letter">A</span> É um comando para fazer backup dos arquivos antes de editá-los.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q4',true,'Correto! Uma branch é uma ramificação paralela do código. Permite que múltiplos devs trabalhem em funcionalidades diferentes ao mesmo tempo, sem interferir uns com os outros no código principal (main).')">
+              <span class="opt-letter">B</span> É uma ramificação paralela do projeto, que permite desenvolver funcionalidades isoladas sem afetar o código principal.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q4',false,'Incorreto. Branch não é um tipo de commit especial — é uma linha independente de desenvolvimento.')">
+              <span class="opt-letter">C</span> É um tipo especial de commit que marca versões importantes do projeto.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q4',false,'Incorreto. Branch é um conceito do Git local, não uma URL do GitHub para compartilhar arquivos.')">
+              <span class="opt-letter">D</span> É uma URL do GitHub que permite compartilhar arquivos com outras pessoas.
+            </div>
+          </div>
+          <div class="quiz-feedback" id="q4-fb"></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-card" id="q5">
+          <div class="quiz-num">Questão 05 / 05</div>
+          <div class="quiz-question">Você precisa trazer as alterações que seu colega enviou para o GitHub para o seu computador. Qual comando usar?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="answer(this,'q5',false,'Incorreto. git push envia dados do seu computador para o GitHub — é o caminho inverso do que você precisa.')">
+              <span class="opt-letter">A</span> <code>git push origin main</code>
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q5',false,'Incorreto. git fetch baixa as informações sobre mudanças remotas, mas não as integra automaticamente na sua branch local. Você precisaria de um git merge depois.')">
+              <span class="opt-letter">B</span> <code>git fetch</code>
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q5',false,'Incorreto. git clone cria uma cópia completa de um repositório — você já tem o repositório, só precisa das atualizações.')">
+              <span class="opt-letter">C</span> <code>git clone</code>
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q5',true,'Correto! git pull baixa e integra automaticamente as alterações do repositório remoto na sua branch local. É o equivalente de um git fetch + git merge em um só comando.')">
+              <span class="opt-letter">D</span> <code>git pull origin main</code>
+            </div>
+          </div>
+          <div class="quiz-feedback" id="q5-fb"></div>
+        </div>
+
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           PRÓXIMA AULA — fullscreen
+      ══════════════════════════════════════════════════ -->
+      <section class="nc-section" id="section-next">
+        <div class="nc-wrapper">
+          <div class="nc-left">
+            <div class="nc-tag">Próxima Aula</div>
+            <h2 class="nc-title">Introdução ao HTML</h2>
+            <ul class="nc-list">
+              <li class="nc-item">
+                <span class="nc-bullet">•</span>
+                <span><strong>O que é HTML</strong> — a linguagem de marcação que estrutura toda página web. Você vai entender por que todo site começa com um <code>&lt;!DOCTYPE html&gt;</code>.</span>
+              </li>
+              <li class="nc-item">
+                <span class="nc-bullet">•</span>
+                <span><strong>Tags essenciais</strong> — <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;span&gt;</code> e muito mais. A anatomia de um elemento HTML.</span>
+              </li>
+              <li class="nc-item">
+                <span class="nc-bullet">•</span>
+                <span><strong>Estrutura de um documento HTML</strong> — <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code> e como o navegador interpreta o código que você escreve.</span>
+              </li>
+              <li class="nc-item">
+                <span class="nc-bullet">•</span>
+                <span><strong>Publicar no GitHub Pages</strong> — unir o que você aprendeu de Git + GitHub para publicar sua primeira página HTML online de graça. 🌐</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nc-right">
+            <div class="nc-glow"></div>
+            <!-- SVG visual HTML para "próxima aula" -->
+            <div class="nc-commit-wrap" style="z-index:2;position:relative;">
+              <svg viewBox="0 0 300 300" width="300" height="300">
+                <rect x="30" y="30" width="240" height="240" rx="20" fill="none" stroke="rgba(247,129,102,0.3)" stroke-width="1.5"/>
+                <text x="150" y="80"  text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(247,129,102,0.5)">&lt;!DOCTYPE html&gt;</text>
+                <text x="150" y="108" text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(88,166,255,0.6)">&lt;html lang="pt-BR"&gt;</text>
+                <text x="150" y="136" text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(88,166,255,0.5)">  &lt;head&gt; ... &lt;/head&gt;</text>
+                <text x="150" y="164" text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(63,185,80,0.7)">  &lt;body&gt;</text>
+                <text x="150" y="192" text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(63,185,80,0.5)">    &lt;h1&gt;🚀&lt;/h1&gt;</text>
+                <text x="150" y="220" text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(63,185,80,0.7)">  &lt;/body&gt;</text>
+                <text x="150" y="248" text-anchor="middle" font-family="monospace" font-size="13" fill="rgba(88,166,255,0.6)">&lt;/html&gt;</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           PROFESSOR
+      ══════════════════════════════════════════════════ -->
+      <section class="teacher-section" id="section-teacher">
+        <div class="teacher-inner">
+          <div class="teacher-avatar-wrap">
+            <div class="teacher-avatar">
+              <img src="https://andersondutra7.github.io/Projetos-WEB/imagens/slide.png" alt="Anderson Dutra" />
+            </div>
+          </div>
+          <div class="teacher-info">
+            <div class="teacher-label">Professor</div>
+            <h4>Anderson Raulino Dutra</h4>
+            <p>Desenvolvedor Web Fullstack &amp; Professor</p>
+            <div class="teacher-skills">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Node.js</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════════════════════
+         JAVASCRIPT — tudo inline conforme template
+    ══════════════════════════════════════════════════ -->
+    <script>
+      // ── PROGRESS BAR ──
+      window.addEventListener('scroll', () => {
+        const total = document.body.scrollHeight - window.innerHeight;
+        const pct   = (window.scrollY / total) * 100;
+        document.getElementById('progress-bar').style.width = pct + '%';
+      });
+
+      // ── MENU TOGGLE (sidebar) ──
+      function toggleMenu() {
+        document.getElementById('sidebar').classList.toggle('open');
+        document.getElementById('overlay').classList.toggle('show');
+      }
+
+      // ── ACCORDION — expande/contrai itens ──
+      function toggleAcc(header) {
+        const item   = header.parentElement;
+        const body   = item.querySelector('.acc-body');
+        const isOpen = item.classList.contains('open');
+
+        // Fecha todos os outros
+        document.querySelectorAll('.acc-item.open').forEach((el) => {
+          el.classList.remove('open');
+          el.querySelector('.acc-body').style.maxHeight = '0';
+        });
+
+        // Abre o clicado (se estava fechado)
+        if (!isOpen) {
+          item.classList.add('open');
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
+      }
+
+      // ── QUIZ — resposta com feedback automático ──
+      function answer(btn, qid, correct, explanation) {
+        const container = document.getElementById(qid);
+        const fb        = document.getElementById(qid + '-fb');
+
+        // Impede resposta dupla
+        if (container.querySelector('.correct, .wrong')) return;
+
+        // Desabilita todas as opções
+        container.querySelectorAll('.quiz-opt').forEach((o) => o.classList.add('disabled'));
+
+        // Marca resposta certa ou errada
+        btn.classList.add(correct ? 'correct' : 'wrong');
+
+        // Se errou, revela a correta
+        if (!correct) {
+          container.querySelectorAll('.quiz-opt').forEach((o) => {
+            if (o.getAttribute('onclick').includes('true')) o.classList.add('correct');
+          });
+        }
+
+        // Exibe feedback
+        fb.textContent = (correct ? '✅ ' : '❌ ') + explanation;
+        fb.className   = 'quiz-feedback show ' + (correct ? 'ok' : 'fail');
+      }
+
+      // ── COPY CODE — copia bloco de código ──
+      function copyCode(btn) {
+        const pre  = btn.closest('.code-block').querySelector('pre');
+        const text = pre.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          const original = btn.textContent;
+          btn.textContent = 'Copiado!';
+          btn.style.color = '#3fb950';
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.style.color = '';
+          }, 1500);
+        });
+      }
+
+      // ── SCROLL REVEAL — animação de entrada ──
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        }),
+        { threshold: 0.12 }
+      );
+
+      // Observa cards de práticas
+      document.querySelectorAll('.practice-card.reveal').forEach((el, i) => {
+        el.style.transitionDelay = i * 0.07 + 's';
+        io.observe(el);
+      });
+
+      // Observa steps
+      document.querySelectorAll('.step-item.reveal-step').forEach((el, i) => {
+        el.style.transitionDelay = i * 0.1 + 's';
+        io.observe(el);
+      });
+
+      // ── ACTIVE NAV ITEM — destaca link ativo ao scrollar ──
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-item');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach((s) => {
+          if (window.scrollY >= s.offsetTop - 200) current = s.id;
+        });
+        navLinks.forEach((l) =>
+          l.classList.toggle('active', l.getAttribute('href') === '#' + current)
+        );
+      });
+    </script>
+  </body>
+</html>
