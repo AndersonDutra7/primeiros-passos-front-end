@@ -1,0 +1,1125 @@
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 05 — Tipografia e Hierarquia
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-tags" style="background: var(--bg2);">
+
+  <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
+    <div class="cover-text">
+      <div class="section-tag">Seção 05</div>
+      <h2 style="font-size:clamp(2.5rem,4vw,3.5rem);line-height:1.1;margin-bottom:1rem;color:var(--ink);font-family:'Fraunces',serif;">
+        Tipografia e<br />
+        <span style="color:var(--wood);">Hierarquia</span>
+      </h2>
+      <p class="cover-subtitle" style="font-size:1.1rem;line-height:1.6;">
+        O conteúdo de uma página é comunicado através de texto. HTML oferece um conjunto
+        de tags que não apenas formata o texto, mas define sua <strong>importância, ênfase
+        e estrutura lógica</strong> — dando voz e ordem ao que o usuário lê.
+      </p>
+    </div>
+    <div class="nc-right">
+      <div class="nc-glow"></div>
+      <div style="padding:40px;width:100%;font-family:'DM Mono',monospace;font-size:13px;line-height:2;">
+        <div style="color:var(--wood);font-size:clamp(22px,3vw,32px);font-family:'Fraunces',serif;font-weight:800;margin-bottom:4px;">&lt;h1&gt; Título Principal &lt;/h1&gt;</div>
+        <div style="color:var(--ink);font-size:clamp(16px,2vw,22px);font-family:'Fraunces',serif;font-weight:700;margin-bottom:4px;opacity:.85;">&lt;h2&gt; Subtítulo &lt;/h2&gt;</div>
+        <div style="color:var(--ink);font-size:clamp(13px,1.5vw,18px);font-family:'Fraunces',serif;font-weight:600;margin-bottom:4px;opacity:.7;">&lt;h3&gt; Seção &lt;/h3&gt;</div>
+        <div style="color:var(--text-dim);font-size:13px;margin-bottom:12px;opacity:.6;">&lt;h4&gt; ... &lt;h6&gt;</div>
+        <div style="color:var(--text-dim);font-size:14px;line-height:1.7;">&lt;p&gt; Parágrafo de texto com <span style="color:var(--wood);">&lt;strong&gt;</span>ênfase forte<span style="color:var(--wood);">&lt;/strong&gt;</span> e <span style="color:var(--accent2);">&lt;em&gt;</span><em>ênfase sutil</em><span style="color:var(--accent2);">&lt;/em&gt;</span>. &lt;/p&gt;</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Headings -->
+  <h3 class="subtitle">Tags de <span style="color:var(--wood);">Títulos</span> — <code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code></h3>
+  <p class="text">
+    O HTML oferece seis níveis de título. O <code>&lt;h1&gt;</code> é o mais importante da página —
+    deve existir apenas <strong>um por página</strong> e descrever o tema principal.
+    Os demais criam uma hierarquia de subtítulos, como capítulos e seções de um livro.
+  </p>
+
+  <div class="alert alert-warn" style="margin:0 0 24px;">
+    <span class="alert-icon">⚠️</span>
+    <span>
+      Não pule níveis de heading por questões visuais. Se precisar de um texto menor,
+      use CSS. Pular de <code>&lt;h1&gt;</code> para <code>&lt;h4&gt;</code> prejudica
+      acessibilidade e SEO.
+    </span>
+  </div>
+
+  <div style="padding:0 2%;">
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <span class="code-block-label">headings — h1 a h6</span>
+        <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-block-body"><pre><span class="c-tag">&lt;h1&gt;</span>Pearl Jam — Ten Club Tribute<span class="c-tag">&lt;/h1&gt;</span>   <span class="c-comment">&lt;!-- título principal da página --&gt;</span>
+<span class="c-tag">&lt;h2&gt;</span>Discografia<span class="c-tag">&lt;/h2&gt;</span>                     <span class="c-comment">&lt;!-- seção de nível 2 --&gt;</span>
+<span class="c-tag">&lt;h3&gt;</span>Álbuns dos anos 90<span class="c-tag">&lt;/h3&gt;</span>               <span class="c-comment">&lt;!-- subseção de nível 3 --&gt;</span>
+<span class="c-tag">&lt;h4&gt;</span>Ten (1991)<span class="c-tag">&lt;/h4&gt;</span>                       <span class="c-comment">&lt;!-- agrupamento menor --&gt;</span>
+<span class="c-tag">&lt;h5&gt;</span>Faixas principais<span class="c-tag">&lt;/h5&gt;</span>
+<span class="c-tag">&lt;h6&gt;</span>Curiosidades<span class="c-tag">&lt;/h6&gt;</span></pre></div>
+    </div>
+  </div>
+
+  <!-- Parágrafo e inline -->
+  <h3 class="subtitle" style="margin-top:40px;">Parágrafos e Texto <span style="color:var(--wood);">Inline</span></h3>
+  <p class="text">
+    O <code>&lt;p&gt;</code> cria blocos de texto (elementos de bloco). Já <code>&lt;strong&gt;</code>,
+    <code>&lt;em&gt;</code> e <code>&lt;span&gt;</code> são elementos inline — funcionam dentro de
+    um parágrafo sem quebrá-lo, adicionando ênfase ou marcação semântica.
+  </p>
+
+  <div style="padding:0 2%;">
+    <div class="compare-grid">
+      <div class="compare-card neutral">
+        <div class="compare-header" style="background:rgba(129,140,248,0.08);color:var(--accent2);">📋 Tag</div>
+        <div class="compare-body">
+          <div class="compare-item"><span class="bullet" style="color:var(--wood);">→</span><span><code>&lt;p&gt;</code> — parágrafo de texto</span></div>
+          <div class="compare-item"><span class="bullet" style="color:var(--wood);">→</span><span><code>&lt;strong&gt;</code> — importância semântica (negrito)</span></div>
+          <div class="compare-item"><span class="bullet" style="color:var(--wood);">→</span><span><code>&lt;em&gt;</code> — ênfase sutil (itálico)</span></div>
+          <div class="compare-item"><span class="bullet" style="color:var(--wood);">→</span><span><code>&lt;span&gt;</code> — marcação sem semântica própria</span></div>
+          <div class="compare-item"><span class="bullet" style="color:var(--wood);">→</span><span><code>&lt;br&gt;</code> — quebra de linha</span></div>
+          <div class="compare-item"><span class="bullet" style="color:var(--wood);">→</span><span><code>&lt;hr&gt;</code> — linha divisória temática</span></div>
+        </div>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-header" style="background:rgba(46,160,67,0.12);color:#3fb950;">✅ Exemplo real</div>
+        <div class="compare-body">
+          <div class="code-block" style="margin:0;">
+            <div class="code-block-body"><pre><span class="c-tag">&lt;p&gt;</span>
+  O álbum <span class="c-tag">&lt;strong&gt;</span>Ten<span class="c-tag">&lt;/strong&gt;</span> foi lançado
+  em <span class="c-tag">&lt;em&gt;</span>27 de agosto de 1991<span class="c-tag">&lt;/em&gt;</span>
+  e é considerado um dos maiores
+  discos do grunge.
+  Vendeu mais de
+  <span class="c-tag">&lt;span</span> <span class="c-attr">class</span>=<span class="c-val">"destaque"</span><span class="c-tag">&gt;</span>
+    13 milhões de cópias
+  <span class="c-tag">&lt;/span&gt;</span>
+  nos Estados Unidos.
+<span class="c-tag">&lt;/p&gt;</span></pre></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Listas -->
+  <h3 class="subtitle" style="margin-top:40px;">Listas: <span style="color:var(--wood);">&lt;ul&gt;</span>, <span style="color:var(--wood);">&lt;ol&gt;</span> e <span style="color:var(--wood);">&lt;li&gt;</span></h3>
+  <p class="text">
+    Listas organizam itens relacionados. A diferença fundamental:
+    <code>&lt;ul&gt;</code> é para itens <strong>sem ordem específica</strong> (como ingredientes),
+    enquanto <code>&lt;ol&gt;</code> é para itens <strong>com ordem importa</strong> (como passos de instalação).
+    Todo item de lista usa <code>&lt;li&gt;</code>.
+  </p>
+
+  <div style="padding:0 2%;">
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <span class="code-block-label">ul, ol e li</span>
+        <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-block-body"><pre><span class="c-comment">&lt;!-- Lista não ordenada: membros da banda --&gt;</span>
+<span class="c-tag">&lt;ul&gt;</span>
+  <span class="c-tag">&lt;li&gt;</span>Eddie Vedder — vocal<span class="c-tag">&lt;/li&gt;</span>
+  <span class="c-tag">&lt;li&gt;</span>Mike McCready — guitarra<span class="c-tag">&lt;/li&gt;</span>
+  <span class="c-tag">&lt;li&gt;</span>Stone Gossard — guitarra<span class="c-tag">&lt;/li&gt;</span>
+  <span class="c-tag">&lt;li&gt;</span>Jeff Ament — baixo<span class="c-tag">&lt;/li&gt;</span>
+<span class="c-tag">&lt;/ul&gt;</span>
+
+<span class="c-comment">&lt;!-- Lista ordenada: passo a passo --&gt;</span>
+<span class="c-tag">&lt;ol&gt;</span>
+  <span class="c-tag">&lt;li&gt;</span>Clone o repositório<span class="c-tag">&lt;/li&gt;</span>
+  <span class="c-tag">&lt;li&gt;</span>Crie o arquivo index.html<span class="c-tag">&lt;/li&gt;</span>
+  <span class="c-tag">&lt;li&gt;</span>Publique no GitHub Pages<span class="c-tag">&lt;/li&gt;</span>
+<span class="c-tag">&lt;/ol&gt;</span></pre></div>
+    </div>
+  </div>
+
+  <div class="analogy-box" style="margin-top:32px;">
+    <div class="analogy-label">🗂️ Regra de ouro</div>
+    <p>
+      Use <code>&lt;strong&gt;</code> quando o conteúdo tiver importância semântica real
+      (como um alerta ou nome de produto). Use CSS <code>font-weight: bold</code> quando
+      for apenas estilo visual. O mesmo vale para <code>&lt;em&gt;</code> vs CSS <code>font-style: italic</code>.
+    </p>
+    <p>
+      <code>&lt;span&gt;</code> é o "canivete suíço" inline — sem semântica própria,
+      serve apenas para aplicar classes CSS ou selecionar partes do texto com JavaScript.
+    </p>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 06 — Links e Navegação
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-listas" style="background: var(--bg);">
+
+  <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
+    <div class="cover-text">
+      <div class="section-tag">Seção 06</div>
+      <h2 style="font-size:clamp(2.5rem,4vw,3.5rem);line-height:1.1;margin-bottom:1rem;color:var(--ink);font-family:'Fraunces',serif;">
+        Links e<br />
+        <span style="color:var(--wood);">Navegação</span>
+      </h2>
+      <p class="cover-subtitle" style="font-size:1.1rem;line-height:1.6;">
+        A tag <code>&lt;a&gt;</code> (âncora) é o que torna a web uma <em>teia de conexões</em>.
+        Com ela conectamos páginas, seções, arquivos e endereços externos —
+        criando a navegação que o usuário percorre ao explorar um site.
+      </p>
+    </div>
+    <div class="nc-right">
+      <div class="nc-glow"></div>
+      <div style="padding:48px 32px;width:100%;display:flex;flex-direction:column;gap:16px;font-family:'DM Mono',monospace;font-size:13px;">
+        <div style="background:rgba(228,77,38,0.08);border:1px solid rgba(228,77,38,0.3);border-radius:10px;padding:16px;">
+          <div style="color:var(--wood);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Link Externo</div>
+          <code style="color:var(--ink);font-size:13px;">&lt;a href="https://pearljam.com" target="_blank" rel="noopener"&gt;Site oficial&lt;/a&gt;</code>
+        </div>
+        <div style="background:rgba(129,140,248,0.06);border:1px solid rgba(129,140,248,0.2);border-radius:10px;padding:16px;">
+          <div style="color:var(--accent2);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Âncora Interna</div>
+          <code style="color:var(--ink);font-size:13px;">&lt;a href="#discografia"&gt;Ir para Discografia&lt;/a&gt;</code>
+        </div>
+        <div style="background:rgba(250,204,21,0.06);border:1px solid rgba(250,204,21,0.2);border-radius:10px;padding:16px;">
+          <div style="color:var(--gold);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Link de E-mail</div>
+          <code style="color:var(--ink);font-size:13px;">&lt;a href="mailto:contato@exemplo.com"&gt;Enviar e-mail&lt;/a&gt;</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="subtitle">A tag <span style="color:var(--wood);">&lt;a&gt;</span> e seus atributos</h3>
+  <p class="text">
+    O elemento âncora tem um atributo essencial — o <code>href</code> (Hypertext REFerence) —
+    que define o destino do link. Mas existem outros atributos que controlam
+    o comportamento da navegação e a segurança do link.
+  </p>
+
+  <div style="padding:0 2%;overflow-x:auto;">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Atributo</th>
+          <th>Valor(es) comuns</th>
+          <th>Função</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>href</code></td>
+          <td><code>"https://..."</code>, <code>"#id"</code>, <code>"pagina.html"</code></td>
+          <td>Define o destino do link — obrigatório para navegação funcionar</td>
+        </tr>
+        <tr>
+          <td><code>target</code></td>
+          <td><code>"_blank"</code>, <code>"_self"</code></td>
+          <td><code>_blank</code> abre em nova aba; <code>_self</code> abre na mesma aba (padrão)</td>
+        </tr>
+        <tr>
+          <td><code>rel</code></td>
+          <td><code>"noopener"</code>, <code>"noreferrer"</code></td>
+          <td>Segurança: evita que a nova aba acesse a janela original via JavaScript</td>
+        </tr>
+        <tr>
+          <td><code>download</code></td>
+          <td><code>"arquivo.pdf"</code></td>
+          <td>Força o download do arquivo ao invés de abri-lo</td>
+        </tr>
+        <tr>
+          <td><code>title</code></td>
+          <td><code>"Descrição do link"</code></td>
+          <td>Tooltip exibido ao passar o mouse; útil para acessibilidade</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subtitle" style="margin-top:40px;">Tipos de <span style="color:var(--wood);">links</span></h3>
+
+  <div style="padding:0 2%;">
+    <div class="steps-list">
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap">
+          <div class="step-num">01</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">Link Externo</div>
+          <div class="step-desc">Aponta para outra URL na internet. Sempre use <code>target="_blank"</code> com <code>rel="noopener noreferrer"</code> por segurança — sem isso, a nova aba pode manipular a página original.</div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">link externo</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body"><pre><span class="c-tag">&lt;a</span>
+  <span class="c-attr">href</span>=<span class="c-val">"https://pearljam.com"</span>
+  <span class="c-attr">target</span>=<span class="c-val">"_blank"</span>
+  <span class="c-attr">rel</span>=<span class="c-val">"noopener noreferrer"</span>
+<span class="c-tag">&gt;</span>
+  Site oficial do Pearl Jam
+<span class="c-tag">&lt;/a&gt;</span></pre></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap">
+          <div class="step-num">02</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">Âncora Interna</div>
+          <div class="step-desc">O <code>href</code> com <code>#id</code> leva o usuário para uma seção específica da mesma página — útil em menus de navegação como o do nosso projeto Pearl Jam.</div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">âncora interna</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body"><pre><span class="c-comment">&lt;!-- Link no menu --&gt;</span>
+<span class="c-tag">&lt;a</span> <span class="c-attr">href</span>=<span class="c-val">"#discografia"</span><span class="c-tag">&gt;</span>Discografia<span class="c-tag">&lt;/a&gt;</span>
+
+<span class="c-comment">&lt;!-- Seção de destino (mais abaixo na página) --&gt;</span>
+<span class="c-tag">&lt;section</span> <span class="c-attr">id</span>=<span class="c-val">"discografia"</span><span class="c-tag">&gt;</span>
+  <span class="c-tag">&lt;h2&gt;</span>Discografia<span class="c-tag">&lt;/h2&gt;</span>
+<span class="c-tag">&lt;/section&gt;</span></pre></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap">
+          <div class="step-num">03</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">Links Especiais</div>
+          <div class="step-desc">O <code>href</code> aceita protocolos especiais: <code>mailto:</code> para abrir o cliente de e-mail, <code>tel:</code> para discagem no celular, e caminhos relativos para arquivos locais do projeto.</div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">links especiais</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body"><pre><span class="c-comment">&lt;!-- Abre cliente de e-mail --&gt;</span>
+<span class="c-tag">&lt;a</span> <span class="c-attr">href</span>=<span class="c-val">"mailto:contato@pearljam.com"</span><span class="c-tag">&gt;</span>Enviar e-mail<span class="c-tag">&lt;/a&gt;</span>
+
+<span class="c-comment">&lt;!-- Discagem direta no celular --&gt;</span>
+<span class="c-tag">&lt;a</span> <span class="c-attr">href</span>=<span class="c-val">"tel:+5548999990000"</span><span class="c-tag">&gt;</span>Ligar agora<span class="c-tag">&lt;/a&gt;</span>
+
+<span class="c-comment">&lt;!-- Download de arquivo --&gt;</span>
+<span class="c-tag">&lt;a</span> <span class="c-attr">href</span>=<span class="c-val">"setlist.pdf"</span> <span class="c-attr">download</span><span class="c-tag">&gt;</span>Baixar Setlist<span class="c-tag">&lt;/a&gt;</span></pre></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="alert alert-tip" style="margin-top:8px;">
+    <span class="alert-icon">💡</span>
+    <span>
+      Um link com <code>href="#"</code> não leva a lugar nenhum — rola a página para o topo.
+      Para links sem destino definido ainda, prefira <code>href="javascript:void(0)"</code>
+      ou use um <code>&lt;button&gt;</code> com CSS, que é semanticamente mais correto para ações.
+    </span>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 07 — Imagens e Mídia
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-classesids" style="background: var(--bg2);">
+
+  <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
+    <div class="cover-text">
+      <div class="section-tag">Seção 07</div>
+      <h2 style="font-size:clamp(2.5rem,4vw,3.5rem);line-height:1.1;margin-bottom:1rem;color:var(--ink);font-family:'Fraunces',serif;">
+        Imagens e<br />
+        <span style="color:var(--wood);">Mídia</span>
+      </h2>
+      <p class="cover-subtitle" style="font-size:1.1rem;line-height:1.6;">
+        Imagens, vídeos e áudios enriquecem o conteúdo visual de uma página.
+        Mas além de inserir mídia, o HTML exige atenção à <strong>acessibilidade</strong> —
+        garantindo que todos os usuários, incluindo os que usam leitores de tela,
+        tenham uma experiência completa.
+      </p>
+    </div>
+    <div class="nc-right">
+      <div class="nc-glow"></div>
+      <div style="padding:40px;width:100%;display:flex;flex-direction:column;gap:20px;">
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+          <div style="height:100px;background:linear-gradient(135deg,rgba(228,77,38,0.15),rgba(56,189,248,0.1));display:flex;align-items:center;justify-content:center;font-size:32px;">🖼️</div>
+          <div style="padding:12px 14px;font-family:'DM Mono',monospace;font-size:12px;color:var(--text-dim);">&lt;img src="show.jpg" <span style="color:var(--wood);">alt="Show do Pearl Jam"</span> /&gt;</div>
+        </div>
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+          <div style="height:60px;background:linear-gradient(135deg,rgba(129,140,248,0.1),rgba(56,189,248,0.06));display:flex;align-items:center;justify-content:center;gap:12px;font-family:'DM Mono',monospace;font-size:12px;color:var(--text-dim);">
+            <span style="font-size:22px;">🎬</span>&lt;video controls&gt;
+          </div>
+          <div style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:11px;color:var(--text-dim);">&lt;source src="show.mp4" type="video/mp4"&gt;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- img -->
+  <h3 class="subtitle">A tag <span style="color:var(--wood);">&lt;img&gt;</span> e o atributo <span style="color:var(--wood);">alt</span></h3>
+  <p class="text">
+    A tag <code>&lt;img&gt;</code> é um elemento <strong>vazio</strong> (sem tag de fechamento separada).
+    O atributo <code>src</code> define o caminho da imagem e o <code>alt</code> fornece
+    uma descrição textual — obrigatória para leitores de tela e exibida quando a imagem falha ao carregar.
+  </p>
+
+  <div class="alert alert-red" style="margin: 0 0 24px;">
+    <span class="alert-icon">🚫</span>
+    <span>
+      Nunca omita o atributo <code>alt</code>. Para imagens decorativas sem significado semântico,
+      use <code>alt=""</code> (string vazia) — isso instrui o leitor de tela a ignorá-la.
+      Mas para imagens de conteúdo, sempre descreva o que está sendo exibido.
+    </span>
+  </div>
+
+  <div style="padding:0 2%;">
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <span class="code-block-label">img — atributos essenciais</span>
+        <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-block-body"><pre><span class="c-comment">&lt;!-- Imagem com alt descritivo (conteúdo) --&gt;</span>
+<span class="c-tag">&lt;img</span>
+  <span class="c-attr">src</span>=<span class="c-val">"eddie-vedder.jpg"</span>
+  <span class="c-attr">alt</span>=<span class="c-val">"Eddie Vedder durante show do Pearl Jam em Seattle, 1992"</span>
+  <span class="c-attr">width</span>=<span class="c-val">"800"</span>
+  <span class="c-attr">height</span>=<span class="c-val">"600"</span>
+  <span class="c-attr">loading</span>=<span class="c-val">"lazy"</span>
+/&gt;
+
+<span class="c-comment">&lt;!-- Imagem decorativa (alt vazio) --&gt;</span>
+<span class="c-tag">&lt;img</span> <span class="c-attr">src</span>=<span class="c-val">"textura-fundo.png"</span> <span class="c-attr">alt</span>=<span class="c-val">""</span> /&gt;</pre></div>
+    </div>
+  </div>
+
+  <!-- figure + figcaption -->
+  <h3 class="subtitle" style="margin-top:40px;"><span style="color:var(--wood);">&lt;figure&gt;</span> e <span style="color:var(--wood);">&lt;figcaption&gt;</span></h3>
+  <p class="text">
+    Quando uma imagem precisa de legenda, o HTML semântico recomenda envolver tudo em
+    <code>&lt;figure&gt;</code> e usar <code>&lt;figcaption&gt;</code> para a legenda.
+    Isso cria uma relação explícita entre imagem e texto, compreendida por buscadores e leitores de tela.
+  </p>
+
+  <div style="padding:0 2%;">
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <span class="code-block-label">figure e figcaption</span>
+        <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-block-body"><pre><span class="c-tag">&lt;figure&gt;</span>
+  <span class="c-tag">&lt;img</span>
+    <span class="c-attr">src</span>=<span class="c-val">"ten-album.jpg"</span>
+    <span class="c-attr">alt</span>=<span class="c-val">"Capa do álbum Ten do Pearl Jam"</span>
+  /&gt;
+  <span class="c-tag">&lt;figcaption&gt;</span>
+    Ten (1991) — álbum de estreia que vendeu mais de 13 milhões de cópias.
+  <span class="c-tag">&lt;/figcaption&gt;</span>
+<span class="c-tag">&lt;/figure&gt;</span></pre></div>
+    </div>
+  </div>
+
+  <!-- video + audio -->
+  <h3 class="subtitle" style="margin-top:40px;">Vídeo e Áudio Nativos</h3>
+  <p class="text">
+    O HTML5 trouxe suporte nativo a <code>&lt;video&gt;</code> e <code>&lt;audio&gt;</code>
+    sem precisar de plugins externos. O atributo <code>controls</code> exibe os controles padrão
+    do navegador; <code>autoplay</code> inicia automaticamente (use com cuidado);
+    e múltiplos <code>&lt;source&gt;</code> garantem compatibilidade entre navegadores.
+  </p>
+
+  <div style="padding:0 2%;">
+    <div class="compare-grid">
+      <div class="compare-card neutral">
+        <div class="compare-header" style="background:rgba(129,140,248,0.08);color:var(--accent2);">🎬 Vídeo</div>
+        <div class="compare-body">
+          <div class="code-block" style="margin:0;">
+            <div class="code-block-body"><pre><span class="c-tag">&lt;video</span>
+  <span class="c-attr">controls</span>
+  <span class="c-attr">width</span>=<span class="c-val">"100%"</span>
+  <span class="c-attr">poster</span>=<span class="c-val">"capa-video.jpg"</span>
+<span class="c-tag">&gt;</span>
+  <span class="c-tag">&lt;source</span>
+    <span class="c-attr">src</span>=<span class="c-val">"show.mp4"</span>
+    <span class="c-attr">type</span>=<span class="c-val">"video/mp4"</span>
+  /&gt;
+  <span class="c-tag">&lt;source</span>
+    <span class="c-attr">src</span>=<span class="c-val">"show.webm"</span>
+    <span class="c-attr">type</span>=<span class="c-val">"video/webm"</span>
+  /&gt;
+  Seu navegador não suporta vídeo.
+<span class="c-tag">&lt;/video&gt;</span></pre></div>
+          </div>
+        </div>
+      </div>
+      <div class="compare-card neutral">
+        <div class="compare-header" style="background:rgba(129,140,248,0.08);color:var(--accent2);">🎵 Áudio</div>
+        <div class="compare-body">
+          <div class="code-block" style="margin:0;">
+            <div class="code-block-body"><pre><span class="c-tag">&lt;audio</span> <span class="c-attr">controls</span><span class="c-tag">&gt;</span>
+  <span class="c-tag">&lt;source</span>
+    <span class="c-attr">src</span>=<span class="c-val">"even-flow.mp3"</span>
+    <span class="c-attr">type</span>=<span class="c-val">"audio/mpeg"</span>
+  /&gt;
+  <span class="c-tag">&lt;source</span>
+    <span class="c-attr">src</span>=<span class="c-val">"even-flow.ogg"</span>
+    <span class="c-attr">type</span>=<span class="c-val">"audio/ogg"</span>
+  /&gt;
+  Seu navegador não suporta áudio.
+<span class="c-tag">&lt;/audio&gt;</span></pre></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-tip" style="margin-top:24px;">
+    <span class="alert-icon">📌</span>
+    <span>
+      O atributo <code>loading="lazy"</code> em imagens adia o carregamento até que a imagem
+      se aproxime da viewport — melhora significativamente o desempenho em páginas com muitas imagens.
+      Sempre informe <code>width</code> e <code>height</code> para evitar layout shift durante o carregamento.
+    </span>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 08 — Gráficos Vetoriais (SVG)
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-anatomia" style="background: var(--bg);">
+
+  <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
+    <div class="cover-text">
+      <div class="section-tag">Seção 08</div>
+      <h2 style="font-size:clamp(2.5rem,4vw,3.5rem);line-height:1.1;margin-bottom:1rem;color:var(--ink);font-family:'Fraunces',serif;">
+        Gráficos<br />
+        <span style="color:var(--wood);">Vetoriais — SVG</span>
+      </h2>
+      <p class="cover-subtitle" style="font-size:1.1rem;line-height:1.6;">
+        SVG (<em>Scalable Vector Graphics</em>) é uma linguagem de marcação para descrever
+        gráficos vetoriais diretamente no HTML. Diferente de imagens rasterizadas (JPG, PNG),
+        gráficos SVG <strong>nunca perdem qualidade</strong> ao ser ampliados — são matematicamente perfeitos
+        em qualquer resolução.
+      </p>
+    </div>
+    <div class="nc-right">
+      <div class="nc-glow"></div>
+      <div style="padding:48px;display:flex;align-items:center;justify-content:center;">
+        <svg viewBox="0 0 220 220" width="220" height="220" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="90" height="90" rx="12" fill="none" stroke="rgba(228,77,38,0.7)" stroke-width="2"/>
+          <circle cx="160" cy="55" r="45" fill="none" stroke="rgba(56,189,248,0.5)" stroke-width="2"/>
+          <polygon points="55,130 100,210 10,210" fill="none" stroke="rgba(250,204,21,0.6)" stroke-width="2"/>
+          <line x1="120" y1="130" x2="210" y2="210" stroke="rgba(129,140,248,0.5)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M120,140 Q165,160 210,140" fill="none" stroke="rgba(228,77,38,0.4)" stroke-width="2" stroke-dasharray="5,3"/>
+          <circle cx="55" cy="55" r="4" fill="var(--wood)"/>
+          <circle cx="160" cy="55" r="4" fill="rgba(56,189,248,0.8)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="subtitle">Por que usar <span style="color:var(--wood);">SVG</span>?</h3>
+  <p class="text">
+    Ícones, logotipos, ilustrações e gráficos em SVG têm tamanho de arquivo reduzido,
+    podem ser estilizados com CSS, animados com JavaScript e são acessíveis por leitores de tela.
+    São a escolha certa para qualquer elemento gráfico que precise ser responsivo.
+  </p>
+
+  <div style="padding:0 2%;">
+    <div class="practices-grid">
+      <div class="practice-card reveal">
+        <div class="practice-icon">📐</div>
+        <div class="practice-title">Escalável</div>
+        <div class="practice-desc">Define formas com coordenadas matemáticas. Amplie para qualquer tamanho sem perda de qualidade — ideal para telas retina e 4K.</div>
+      </div>
+      <div class="practice-card reveal">
+        <div class="practice-icon">🎨</div>
+        <div class="practice-title">Estilizável com CSS</div>
+        <div class="practice-desc">Atributos como <code>fill</code>, <code>stroke</code> e <code>opacity</code> podem ser sobrescritos por CSS, permitindo temas dinâmicos como dark/light mode.</div>
+      </div>
+      <div class="practice-card reveal">
+        <div class="practice-icon">⚡</div>
+        <div class="practice-title">Leve e performático</div>
+        <div class="practice-desc">Um ícone SVG simples pode ter menos de 1KB. PNG equivalente pode ter 20KB. Em páginas com muitos ícones, a diferença é significativa.</div>
+      </div>
+      <div class="practice-card reveal">
+        <div class="practice-icon">♿</div>
+        <div class="practice-title">Acessível</div>
+        <div class="practice-desc">Com <code>&lt;title&gt;</code> e <code>aria-label</code> dentro do SVG, leitores de tela conseguem interpretar e anunciar o conteúdo gráfico.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="subtitle" style="margin-top:40px;">Tags e atributos <span style="color:var(--wood);">essenciais</span></h3>
+
+  <div style="padding:0 2%;">
+    <div class="steps-list">
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap"><div class="step-num">01</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title"><code>&lt;svg&gt;</code> — o contêiner</div>
+          <div class="step-desc">Todo SVG começa aqui. O <code>viewBox</code> define o sistema de coordenadas interno; <code>width</code> e <code>height</code> definem o tamanho no layout. Definir apenas <code>viewBox</code> e controlar o tamanho via CSS é a abordagem mais responsiva.</div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">svg container</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body"><pre><span class="c-tag">&lt;svg</span>
+  <span class="c-attr">viewBox</span>=<span class="c-val">"0 0 100 100"</span>
+  <span class="c-attr">xmlns</span>=<span class="c-val">"http://www.w3.org/2000/svg"</span>
+  <span class="c-attr">width</span>=<span class="c-val">"200"</span>
+  <span class="c-attr">height</span>=<span class="c-val">"200"</span>
+<span class="c-tag">&gt;</span>
+  <span class="c-comment">&lt;!-- formas aqui --&gt;</span>
+<span class="c-tag">&lt;/svg&gt;</span></pre></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap"><div class="step-num">02</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title">Formas básicas: <code>&lt;circle&gt;</code>, <code>&lt;rect&gt;</code>, <code>&lt;line&gt;</code></div>
+          <div class="step-desc">As formas primitivas do SVG. Coordenadas referem-se ao sistema interno do <code>viewBox</code>.</div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">circle, rect, line</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body"><pre><span class="c-comment">&lt;!-- Círculo: cx, cy = centro; r = raio --&gt;</span>
+<span class="c-tag">&lt;circle</span> <span class="c-attr">cx</span>=<span class="c-val">"50"</span> <span class="c-attr">cy</span>=<span class="c-val">"50"</span> <span class="c-attr">r</span>=<span class="c-val">"40"</span> <span class="c-attr">fill</span>=<span class="c-val">"#e44d26"</span> /&gt;
+
+<span class="c-comment">&lt;!-- Retângulo: x, y = canto superior-esquerdo --&gt;</span>
+<span class="c-tag">&lt;rect</span> <span class="c-attr">x</span>=<span class="c-val">"10"</span> <span class="c-attr">y</span>=<span class="c-val">"10"</span> <span class="c-attr">width</span>=<span class="c-val">"80"</span> <span class="c-attr">height</span>=<span class="c-val">"80"</span> <span class="c-attr">rx</span>=<span class="c-val">"8"</span> <span class="c-attr">fill</span>=<span class="c-val">"none"</span> <span class="c-attr">stroke</span>=<span class="c-val">"#38bdf8"</span> <span class="c-attr">stroke-width</span>=<span class="c-val">"2"</span> /&gt;
+
+<span class="c-comment">&lt;!-- Linha: coordenadas de início e fim --&gt;</span>
+<span class="c-tag">&lt;line</span> <span class="c-attr">x1</span>=<span class="c-val">"0"</span> <span class="c-attr">y1</span>=<span class="c-val">"0"</span> <span class="c-attr">x2</span>=<span class="c-val">"100"</span> <span class="c-attr">y2</span>=<span class="c-val">"100"</span> <span class="c-attr">stroke</span>=<span class="c-val">"#facc15"</span> <span class="c-attr">stroke-width</span>=<span class="c-val">"2"</span> /&gt;</pre></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap"><div class="step-num">03</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title"><code>&lt;polygon&gt;</code> e <code>&lt;path&gt;</code></div>
+          <div class="step-desc"><code>&lt;polygon&gt;</code> conecta uma lista de pontos formando um polígono fechado. <code>&lt;path&gt;</code> é o mais poderoso — permite desenhar qualquer forma com comandos como M (mover), L (linha), C (curva bezier) e Z (fechar).</div>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+              <span class="code-block-label">polygon e path</span>
+              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <div class="code-block-body"><pre><span class="c-comment">&lt;!-- Triângulo com polygon --&gt;</span>
+<span class="c-tag">&lt;polygon</span>
+  <span class="c-attr">points</span>=<span class="c-val">"50,10 90,90 10,90"</span>
+  <span class="c-attr">fill</span>=<span class="c-val">"rgba(228,77,38,0.3)"</span>
+  <span class="c-attr">stroke</span>=<span class="c-val">"#e44d26"</span>
+  <span class="c-attr">stroke-width</span>=<span class="c-val">"2"</span>
+/&gt;
+
+<span class="c-comment">&lt;!-- Curva com path --&gt;</span>
+<span class="c-comment">&lt;!-- M = move to | Q = quadratic bezier | Z = close --&gt;</span>
+<span class="c-tag">&lt;path</span>
+  <span class="c-attr">d</span>=<span class="c-val">"M 10,50 Q 50,10 90,50 Z"</span>
+  <span class="c-attr">fill</span>=<span class="c-val">"none"</span>
+  <span class="c-attr">stroke</span>=<span class="c-val">"#38bdf8"</span>
+  <span class="c-attr">stroke-width</span>=<span class="c-val">"2"</span>
+/&gt;</pre></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="analogy-box" style="margin-top:16px;">
+    <div class="analogy-label">🎯 SVG inline vs arquivo externo</div>
+    <p>
+      SVG pode ser usado de duas formas: <strong>inline</strong> (colado diretamente no HTML, dentro de <code>&lt;svg&gt;&lt;/svg&gt;</code>) ou como arquivo externo via <code>&lt;img src="icone.svg"&gt;</code>.
+    </p>
+    <p>
+      SVG inline permite controle total via CSS e JavaScript — ideal para ícones interativos e animações.
+      SVG externo via <code>&lt;img&gt;</code> é mais simples, mas perde a capacidade de ser estilizado dinamicamente.
+    </p>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 09 — Tabelas de Dados
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-fluxo" style="background: var(--bg2);">
+
+  <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
+    <div class="cover-text">
+      <div class="section-tag">Seção 09</div>
+      <h2 style="font-size:clamp(2.5rem,4vw,3.5rem);line-height:1.1;margin-bottom:1rem;color:var(--ink);font-family:'Fraunces',serif;">
+        Tabelas de<br />
+        <span style="color:var(--wood);">Dados</span>
+      </h2>
+      <p class="cover-subtitle" style="font-size:1.1rem;line-height:1.6;">
+        Tabelas HTML são para <strong>dados tabulares</strong> — informações que fazem sentido
+        em linhas e colunas, como planilhas. Não foram feitas para layout visual.
+        Usadas corretamente, tornam dados complexos legíveis e acessíveis.
+      </p>
+    </div>
+    <div class="nc-right">
+      <div class="nc-glow"></div>
+      <div style="padding:32px;width:100%;overflow:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:13px;font-family:'DM Mono',monospace;">
+          <thead>
+            <tr>
+              <th style="padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);color:var(--wood);font-size:11px;text-transform:uppercase;letter-spacing:1px;">Álbum</th>
+              <th style="padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);color:var(--wood);font-size:11px;text-transform:uppercase;letter-spacing:1px;">Ano</th>
+              <th style="padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);color:var(--wood);font-size:11px;text-transform:uppercase;letter-spacing:1px;">Cópias</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:8px 14px;border-bottom:1px solid var(--border);color:var(--ink);">Ten</td><td style="padding:8px 14px;border-bottom:1px solid var(--border);color:var(--text-dim);">1991</td><td style="padding:8px 14px;border-bottom:1px solid var(--border);color:var(--text-dim);">13M</td></tr>
+            <tr><td style="padding:8px 14px;border-bottom:1px solid var(--border);color:var(--ink);">Vs.</td><td style="padding:8px 14px;border-bottom:1px solid var(--border);color:var(--text-dim);">1993</td><td style="padding:8px 14px;border-bottom:1px solid var(--border);color:var(--text-dim);">7M</td></tr>
+            <tr><td style="padding:8px 14px;color:var(--ink);">Vitalogy</td><td style="padding:8px 14px;color:var(--text-dim);">1994</td><td style="padding:8px 14px;color:var(--text-dim);">6M</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="subtitle">Anatomia de uma <span style="color:var(--wood);">tabela HTML</span></h3>
+  <p class="text">
+    Uma tabela bem estruturada usa elementos semânticos para separar cabeçalho, corpo e rodapé.
+    Isso melhora a acessibilidade e permite que navegadores e leitores de tela interpretem
+    corretamente a relação entre dados e seus rótulos.
+  </p>
+
+  <div style="padding:0 2%;">
+    <div class="steps-list">
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap"><div class="step-num">01</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title"><code>&lt;table&gt;</code> — o contêiner</div>
+          <div class="step-desc">Envolve toda a tabela. Internamente, organiza-se em <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> e opcionalmente <code>&lt;tfoot&gt;</code>. Essa separação é semântica — o visual é controlado por CSS.</div>
+        </div>
+      </div>
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap"><div class="step-num">02</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title"><code>&lt;thead&gt;</code> e <code>&lt;th&gt;</code> — cabeçalhos</div>
+          <div class="step-desc"><code>&lt;thead&gt;</code> agrupa as linhas de cabeçalho. Dentro dele, <code>&lt;th&gt;</code> (table header) representa uma célula de cabeçalho — semanticamente diferente de <code>&lt;td&gt;</code>. Leitores de tela anunciam o <code>&lt;th&gt;</code> antes de cada célula de dado correspondente.</div>
+        </div>
+      </div>
+
+      <div class="step-item reveal-step">
+        <div class="step-num-wrap"><div class="step-num">03</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <div class="step-title"><code>&lt;tbody&gt;</code>, <code>&lt;tr&gt;</code> e <code>&lt;td&gt;</code> — dados</div>
+          <div class="step-desc"><code>&lt;tbody&gt;</code> agrupa as linhas de dados. Cada linha é um <code>&lt;tr&gt;</code> (table row). Cada célula é um <code>&lt;td&gt;</code> (table data). Para mesclar células, use <code>colspan</code> (colunas) ou <code>rowspan</code> (linhas).</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="padding:0 2%;">
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <span class="code-block-label">tabela completa — discografia Pearl Jam</span>
+        <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-block-body"><pre><span class="c-tag">&lt;table&gt;</span>
+  <span class="c-tag">&lt;thead&gt;</span>
+    <span class="c-tag">&lt;tr&gt;</span>
+      <span class="c-tag">&lt;th&gt;</span>Álbum<span class="c-tag">&lt;/th&gt;</span>
+      <span class="c-tag">&lt;th&gt;</span>Ano<span class="c-tag">&lt;/th&gt;</span>
+      <span class="c-tag">&lt;th&gt;</span>Produtora<span class="c-tag">&lt;/th&gt;</span>
+      <span class="c-tag">&lt;th&gt;</span>Cópias vendidas<span class="c-tag">&lt;/th&gt;</span>
+    <span class="c-tag">&lt;/tr&gt;</span>
+  <span class="c-tag">&lt;/thead&gt;</span>
+
+  <span class="c-tag">&lt;tbody&gt;</span>
+    <span class="c-tag">&lt;tr&gt;</span>
+      <span class="c-tag">&lt;td&gt;</span>Ten<span class="c-tag">&lt;/td&gt;</span>
+      <span class="c-tag">&lt;td&gt;</span>1991<span class="c-tag">&lt;/td&gt;</span>
+      <span class="c-tag">&lt;td&gt;</span>Epic Records<span class="c-tag">&lt;/td&gt;</span>
+      <span class="c-tag">&lt;td&gt;</span>13 milhões<span class="c-tag">&lt;/td&gt;</span>
+    <span class="c-tag">&lt;/tr&gt;</span>
+    <span class="c-tag">&lt;tr&gt;</span>
+      <span class="c-tag">&lt;td&gt;</span>Vs.<span class="c-tag">&lt;/td&gt;</span>
+      <span class="c-tag">&lt;td&gt;</span>1993<span class="c-tag">&lt;/td&gt;</span>
+      <span class="c-tag">&lt;td&gt;</span>Epic Records<span class="c-tag">&lt;/td&gt;</span>
+      <span class="c-tag">&lt;td&gt;</span>7 milhões<span class="c-tag">&lt;/td&gt;</span>
+    <span class="c-tag">&lt;/tr&gt;</span>
+  <span class="c-tag">&lt;/tbody&gt;</span>
+
+  <span class="c-tag">&lt;tfoot&gt;</span>
+    <span class="c-tag">&lt;tr&gt;</span>
+      <span class="c-tag">&lt;td</span> <span class="c-attr">colspan</span>=<span class="c-val">"3"</span><span class="c-tag">&gt;</span>Total estimado<span class="c-tag">&lt;/td&gt;</span>
+      <span class="c-tag">&lt;td&gt;</span>85 milhões<span class="c-tag">&lt;/td&gt;</span>
+    <span class="c-tag">&lt;/tr&gt;</span>
+  <span class="c-tag">&lt;/tfoot&gt;</span>
+
+<span class="c-tag">&lt;/table&gt;</span></pre></div>
+    </div>
+  </div>
+
+  <div class="alert alert-red" style="margin-top:24px;">
+    <span class="alert-icon">🚫</span>
+    <span>
+      <strong>Nunca use tabelas para layout visual.</strong> Antes do CSS, era comum usar
+      <code>&lt;table&gt;</code> para organizar colunas e sidebars. Hoje isso é má prática grave:
+      quebra acessibilidade, dificulta responsividade e aumenta a complexidade desnecessariamente.
+      Para layouts, use CSS Flexbox ou Grid.
+    </span>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 10 — Formulários e Interatividade
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-ghpages" style="background: var(--bg);">
+
+  <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
+    <div class="cover-text">
+      <div class="section-tag">Seção 10</div>
+      <h2 style="font-size:clamp(2.5rem,4vw,3.5rem);line-height:1.1;margin-bottom:1rem;color:var(--ink);font-family:'Fraunces',serif;">
+        Formulários e<br />
+        <span style="color:var(--wood);">Interatividade</span>
+      </h2>
+      <p class="cover-subtitle" style="font-size:1.1rem;line-height:1.6;">
+        Formulários são a principal forma de <strong>coletar informações do usuário</strong>.
+        Login, cadastro, busca, contato, compra — tudo passa por um <code>&lt;form&gt;</code>.
+        Construí-los corretamente envolve semântica, acessibilidade e usabilidade juntos.
+      </p>
+    </div>
+    <div class="nc-right">
+      <div class="nc-glow"></div>
+      <div style="padding:32px;width:100%;">
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:14px;">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--wood);text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">Formulário de Contato</div>
+          <div>
+            <div style="font-size:12px;color:var(--text-dim);margin-bottom:6px;font-family:'DM Mono',monospace;">&lt;label&gt; Nome &lt;/label&gt;</div>
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--text-dim);font-family:'DM Mono',monospace;">&lt;input type="text" /&gt;</div>
+          </div>
+          <div>
+            <div style="font-size:12px;color:var(--text-dim);margin-bottom:6px;font-family:'DM Mono',monospace;">&lt;label&gt; Mensagem &lt;/label&gt;</div>
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--text-dim);font-family:'DM Mono',monospace;height:60px;">&lt;textarea&gt;&lt;/textarea&gt;</div>
+          </div>
+          <div style="background:rgba(228,77,38,0.15);border:1px solid rgba(228,77,38,0.4);border-radius:8px;padding:10px 14px;text-align:center;font-family:'DM Mono',monospace;font-size:13px;color:var(--wood);">&lt;button type="submit"&gt; Enviar &lt;/button&gt;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="subtitle">A estrutura de um <span style="color:var(--wood);">&lt;form&gt;</span></h3>
+  <p class="text">
+    O elemento <code>&lt;form&gt;</code> agrupa todos os campos. Os atributos <code>action</code>
+    (para onde enviar) e <code>method</code> (<code>GET</code> ou <code>POST</code>) definem
+    o comportamento do envio. Sem <code>action</code>, o formulário envia para a própria URL.
+  </p>
+
+  <div style="padding:0 2%;">
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <span class="code-block-label">form — estrutura base</span>
+        <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-block-body"><pre><span class="c-tag">&lt;form</span> <span class="c-attr">action</span>=<span class="c-val">"/enviar"</span> <span class="c-attr">method</span>=<span class="c-val">"POST"</span><span class="c-tag">&gt;</span>
+
+  <span class="c-comment">&lt;!-- Label + Input: sempre associados pelo atributo for/id --&gt;</span>
+  <span class="c-tag">&lt;label</span> <span class="c-attr">for</span>=<span class="c-val">"nome"</span><span class="c-tag">&gt;</span>Nome completo<span class="c-tag">&lt;/label&gt;</span>
+  <span class="c-tag">&lt;input</span>
+    <span class="c-attr">type</span>=<span class="c-val">"text"</span>
+    <span class="c-attr">id</span>=<span class="c-val">"nome"</span>
+    <span class="c-attr">name</span>=<span class="c-val">"nome"</span>
+    <span class="c-attr">placeholder</span>=<span class="c-val">"Ex: Eddie Vedder"</span>
+    <span class="c-attr">required</span>
+  /&gt;
+
+  <span class="c-tag">&lt;label</span> <span class="c-attr">for</span>=<span class="c-val">"email"</span><span class="c-tag">&gt;</span>E-mail<span class="c-tag">&lt;/label&gt;</span>
+  <span class="c-tag">&lt;input</span> <span class="c-attr">type</span>=<span class="c-val">"email"</span> <span class="c-attr">id</span>=<span class="c-val">"email"</span> <span class="c-attr">name</span>=<span class="c-val">"email"</span> <span class="c-attr">required</span> /&gt;
+
+  <span class="c-tag">&lt;label</span> <span class="c-attr">for</span>=<span class="c-val">"mensagem"</span><span class="c-tag">&gt;</span>Mensagem<span class="c-tag">&lt;/label&gt;</span>
+  <span class="c-tag">&lt;textarea</span> <span class="c-attr">id</span>=<span class="c-val">"mensagem"</span> <span class="c-attr">name</span>=<span class="c-val">"mensagem"</span> <span class="c-attr">rows</span>=<span class="c-val">"5"</span><span class="c-tag">&gt;&lt;/textarea&gt;</span>
+
+  <span class="c-tag">&lt;button</span> <span class="c-attr">type</span>=<span class="c-val">"submit"</span><span class="c-tag">&gt;</span>Enviar mensagem<span class="c-tag">&lt;/button&gt;</span>
+
+<span class="c-tag">&lt;/form&gt;</span></pre></div>
+    </div>
+  </div>
+
+  <h3 class="subtitle" style="margin-top:40px;">Tipos de <span style="color:var(--wood);">&lt;input&gt;</span></h3>
+  <p class="text">
+    O atributo <code>type</code> do input define o comportamento e a validação automática do campo.
+    Usar o tipo correto melhora a experiência no mobile (abre teclado numérico, de e-mail, etc.)
+    e ativa validação nativa do navegador sem JavaScript.
+  </p>
+
+  <div style="padding:0 2%;overflow-x:auto;">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>type</th>
+          <th>Uso</th>
+          <th>Comportamento especial</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>text</code></td><td>Texto livre</td><td>Padrão; sem restrições</td></tr>
+        <tr><td><code>email</code></td><td>Endereço de e-mail</td><td>Valida formato automaticamente; abre teclado de e-mail no mobile</td></tr>
+        <tr><td><code>password</code></td><td>Senha</td><td>Oculta os caracteres digitados</td></tr>
+        <tr><td><code>number</code></td><td>Número</td><td>Abre teclado numérico; aceita <code>min</code>, <code>max</code>, <code>step</code></td></tr>
+        <tr><td><code>checkbox</code></td><td>Opção de marcar</td><td>Múltiplas seleções; retorna "on" quando marcado</td></tr>
+        <tr><td><code>radio</code></td><td>Opção única em grupo</td><td>Itens com mesmo <code>name</code> formam o grupo</td></tr>
+        <tr><td><code>file</code></td><td>Upload de arquivo</td><td>Filtra tipos com <code>accept=".jpg,.pdf"</code></td></tr>
+        <tr><td><code>date</code></td><td>Data</td><td>Abre seletor de calendário nativo</td></tr>
+        <tr><td><code>hidden</code></td><td>Campo invisível</td><td>Envia dados sem exibir ao usuário; útil para tokens</td></tr>
+        <tr><td><code>submit</code></td><td>Botão de envio</td><td>Envia o formulário ao clicar; prefira <code>&lt;button type="submit"&gt;</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subtitle" style="margin-top:40px;"><span style="color:var(--wood);">&lt;select&gt;</span> — Menu de seleção</h3>
+  <div style="padding:0 2%;">
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <span class="code-block-label">select e option</span>
+        <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-block-body"><pre><span class="c-tag">&lt;label</span> <span class="c-attr">for</span>=<span class="c-val">"album"</span><span class="c-tag">&gt;</span>Álbum favorito<span class="c-tag">&lt;/label&gt;</span>
+<span class="c-tag">&lt;select</span> <span class="c-attr">id</span>=<span class="c-val">"album"</span> <span class="c-attr">name</span>=<span class="c-val">"album"</span><span class="c-tag">&gt;</span>
+  <span class="c-tag">&lt;option</span> <span class="c-attr">value</span>=<span class="c-val">""</span><span class="c-tag">&gt;</span>Selecione um álbum<span class="c-tag">&lt;/option&gt;</span>
+  <span class="c-tag">&lt;option</span> <span class="c-attr">value</span>=<span class="c-val">"ten"</span><span class="c-tag">&gt;</span>Ten (1991)<span class="c-tag">&lt;/option&gt;</span>
+  <span class="c-tag">&lt;option</span> <span class="c-attr">value</span>=<span class="c-val">"vs"</span><span class="c-tag">&gt;</span>Vs. (1993)<span class="c-tag">&lt;/option&gt;</span>
+  <span class="c-tag">&lt;option</span> <span class="c-attr">value</span>=<span class="c-val">"vitalogy"</span> <span class="c-attr">selected</span><span class="c-tag">&gt;</span>Vitalogy (1994)<span class="c-tag">&lt;/option&gt;</span>
+<span class="c-tag">&lt;/select&gt;</span></pre></div>
+    </div>
+  </div>
+
+  <div class="alert alert-tip" style="margin-top:24px;">
+    <span class="alert-icon">♿</span>
+    <span>
+      Sempre associe um <code>&lt;label&gt;</code> a cada campo usando <code>for</code> no label
+      e <code>id</code> no input com o mesmo valor. Isso permite que ao clicar no label,
+      o campo receba foco — e é essencial para leitores de tela anunciarem o campo corretamente.
+    </span>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 11 — SEO e Meta Tags
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-boasprat" style="background: var(--bg2);">
+
+  <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
+    <div class="cover-text">
+      <div class="section-tag">Seção 11</div>
+      <h2 style="font-size:clamp(2.5rem,4vw,3.5rem);line-height:1.1;margin-bottom:1rem;color:var(--ink);font-family:'Fraunces',serif;">
+        SEO e<br />
+        <span style="color:var(--wood);">Identidade da Página</span>
+      </h2>
+      <p class="cover-subtitle" style="font-size:1.1rem;line-height:1.6;">
+        Como a sua página é <strong>vista pelo Google</strong>, compartilhada no WhatsApp
+        e reconhecida pelo navegador — tudo isso é configurado dentro do <code>&lt;head&gt;</code>
+        com meta tags. Ignorar essa parte significa ser invisível para buscadores e parecer
+        sem identidade nas redes sociais.
+      </p>
+    </div>
+    <div class="nc-right">
+      <div class="nc-glow"></div>
+      <div style="padding:32px;width:100%;display:flex;flex-direction:column;gap:16px;">
+        <!-- Google snippet mockup -->
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:18px;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">Resultado no Google</div>
+          <div style="color:#4d90fe;font-size:16px;font-weight:600;margin-bottom:4px;">Pearl Jam — Ten Club Tribute</div>
+          <div style="color:#006621;font-size:12px;font-family:'DM Mono',monospace;margin-bottom:6px;">andersondutra7.github.io/pearl-jam</div>
+          <div style="color:var(--text-dim);font-size:13px;line-height:1.5;">Site tributo ao Pearl Jam com discografia completa, letras e história da banda de Seattle fundada em 1990.</div>
+        </div>
+        <!-- OG card mockup -->
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+          <div style="height:60px;background:linear-gradient(135deg,rgba(228,77,38,0.2),rgba(56,189,248,0.1));"></div>
+          <div style="padding:12px 14px;">
+            <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Compartilhamento nas redes</div>
+            <div style="font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;">Pearl Jam — Ten Club Tribute</div>
+            <div style="font-size:12px;color:var(--text-dim);">Site tributo · andersondutra7.github.io</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meta description -->
+  <h3 class="subtitle"><span style="color:var(--wood);">meta description</span> — A descrição no Google</h3>
+  <p class="text">
+    A meta description é o texto exibido abaixo do título nos resultados de busca.
+    Não é um fator de ranking direto, mas influencia a taxa de clique (CTR).
+    Deve ter entre <strong>150 e 160 caracteres</strong> e descrever o conteúdo de forma atraente.
+  </p>
+
+  <div style="padding:0 2%;">
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <span class="code-block-label">meta description e keywords</span>
+        <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-block-body"><pre><span class="c-tag">&lt;head&gt;</span>
+  <span class="c-tag">&lt;title&gt;</span>Pearl Jam — Ten Club Tribute<span class="c-tag">&lt;/title&gt;</span>
+
+  <span class="c-comment">&lt;!-- Descrição exibida nos resultados do Google --&gt;</span>
+  <span class="c-tag">&lt;meta</span>
+    <span class="c-attr">name</span>=<span class="c-val">"description"</span>
+    <span class="c-attr">content</span>=<span class="c-val">"Site tributo ao Pearl Jam com discografia completa, letras e história da banda de Seattle fundada em 1990."</span>
+  /&gt;
+
+  <span class="c-comment">&lt;!-- Autor da página --&gt;</span>
+  <span class="c-tag">&lt;meta</span> <span class="c-attr">name</span>=<span class="c-val">"author"</span> <span class="c-attr">content</span>=<span class="c-val">"Anderson Dutra"</span> /&gt;
+
+<span class="c-tag">&lt;/head&gt;</span></pre></div>
+    </div>
+  </div>
+
+  <!-- OG Tags -->
+  <h3 class="subtitle" style="margin-top:40px;"><span style="color:var(--wood);">Open Graph</span> — Como aparecer nas redes sociais</h3>
+  <p class="text">
+    Quando alguém cola um link no WhatsApp, Instagram ou Twitter, a plataforma busca as
+    <strong>OG tags</strong> (Open Graph) para montar o card de visualização — imagem, título e descrição.
+    Sem elas, o compartilhamento aparece genérico ou sem imagem.
+  </p>
+
+  <div style="padding:0 2%;">
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <span class="code-block-label">open graph tags</span>
+        <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-block-body"><pre><span class="c-comment">&lt;!-- Open Graph: controla como a página aparece ao ser compartilhada --&gt;</span>
+<span class="c-tag">&lt;meta</span> <span class="c-attr">property</span>=<span class="c-val">"og:title"</span>       <span class="c-attr">content</span>=<span class="c-val">"Pearl Jam — Ten Club Tribute"</span> /&gt;
+<span class="c-tag">&lt;meta</span> <span class="c-attr">property</span>=<span class="c-val">"og:description"</span> <span class="c-attr">content</span>=<span class="c-val">"Discografia, letras e história do Pearl Jam."</span> /&gt;
+<span class="c-tag">&lt;meta</span> <span class="c-attr">property</span>=<span class="c-val">"og:image"</span>       <span class="c-attr">content</span>=<span class="c-val">"https://seusite.com/og-cover.jpg"</span> /&gt;
+<span class="c-tag">&lt;meta</span> <span class="c-attr">property</span>=<span class="c-val">"og:url"</span>         <span class="c-attr">content</span>=<span class="c-val">"https://seusite.com"</span> /&gt;
+<span class="c-tag">&lt;meta</span> <span class="c-attr">property</span>=<span class="c-val">"og:type"</span>        <span class="c-attr">content</span>=<span class="c-val">"website"</span> /&gt;
+
+<span class="c-comment">&lt;!-- Twitter Card (mesmo conceito, prefixo diferente) --&gt;</span>
+<span class="c-tag">&lt;meta</span> <span class="c-attr">name</span>=<span class="c-val">"twitter:card"</span>        <span class="c-attr">content</span>=<span class="c-val">"summary_large_image"</span> /&gt;
+<span class="c-tag">&lt;meta</span> <span class="c-attr">name</span>=<span class="c-val">"twitter:title"</span>       <span class="c-attr">content</span>=<span class="c-val">"Pearl Jam — Ten Club Tribute"</span> /&gt;
+<span class="c-tag">&lt;meta</span> <span class="c-attr">name</span>=<span class="c-val">"twitter:description"</span> <span class="c-attr">content</span>=<span class="c-val">"Discografia, letras e história do Pearl Jam."</span> /&gt;
+<span class="c-tag">&lt;meta</span> <span class="c-attr">name</span>=<span class="c-val">"twitter:image"</span>       <span class="c-attr">content</span>=<span class="c-val">"https://seusite.com/og-cover.jpg"</span> /&gt;</pre></div>
+    </div>
+  </div>
+
+  <!-- Favicon -->
+  <h3 class="subtitle" style="margin-top:40px;"><span style="color:var(--wood);">Favicon</span> — O ícone da aba</h3>
+  <p class="text">
+    O favicon é o ícone exibido na aba do navegador, nos favoritos e na tela inicial do celular quando
+    o usuário salva o site. Hoje o padrão é fornecer múltiplos formatos para diferentes contextos.
+  </p>
+
+  <div style="padding:0 2%;">
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <span class="code-block-label">favicon — configuração completa</span>
+        <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-block-body"><pre><span class="c-comment">&lt;!-- Favicon padrão (ICO — compatibilidade máxima) --&gt;</span>
+<span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-val">"icon"</span> <span class="c-attr">href</span>=<span class="c-val">"favicon.ico"</span> /&gt;
+
+<span class="c-comment">&lt;!-- PNG para navegadores modernos --&gt;</span>
+<span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-val">"icon"</span> <span class="c-attr">type</span>=<span class="c-val">"image/png"</span> <span class="c-attr">sizes</span>=<span class="c-val">"32x32"</span>   <span class="c-attr">href</span>=<span class="c-val">"favicon-32.png"</span> /&gt;
+<span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-val">"icon"</span> <span class="c-attr">type</span>=<span class="c-val">"image/png"</span> <span class="c-attr">sizes</span>=<span class="c-val">"16x16"</span>   <span class="c-attr">href</span>=<span class="c-val">"favicon-16.png"</span> /&gt;
+
+<span class="c-comment">&lt;!-- Ícone para iPhone ao adicionar à tela inicial --&gt;</span>
+<span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-val">"apple-touch-icon"</span> <span class="c-attr">sizes</span>=<span class="c-val">"180x180"</span> <span class="c-attr">href</span>=<span class="c-val">"apple-icon.png"</span> /&gt;
+
+<span class="c-comment">&lt;!-- SVG moderno (escalável, suporte crescente) --&gt;</span>
+<span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-val">"icon"</span> <span class="c-attr">type</span>=<span class="c-val">"image/svg+xml"</span> <span class="c-attr">href</span>=<span class="c-val">"favicon.svg"</span> /&gt;
+
+<span class="c-comment">&lt;!-- Web App Manifest (PWA: nome, cor, ícone) --&gt;</span>
+<span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-val">"manifest"</span> <span class="c-attr">href</span>=<span class="c-val">"site.webmanifest"</span> /&gt;</pre></div>
+    </div>
+  </div>
+
+  <div style="padding:0 2%;margin-top:32px;">
+    <div class="challenge-box">
+      <h3>🎯 Head completo do projeto Pearl Jam</h3>
+      <p>
+        Agora que você conhece todas as meta tags, veja como fica o <code>&lt;head&gt;</code>
+        completo do projeto — com charset, viewport, title, favicon, OG tags e o link do CSS.
+        Esse é o padrão profissional que você vai usar em todos os seus projetos a partir de agora.
+      </p>
+    </div>
+  </div>
+
+  <div style="padding:0 2%;margin-top:16px;">
+    <div class="code-block">
+      <div class="code-block-header">
+        <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <span class="code-block-label">head completo — padrão profissional</span>
+        <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+      </div>
+      <div class="code-block-body"><pre><span class="c-tag">&lt;head&gt;</span>
+  <span class="c-comment">&lt;!-- 1. Charset e Viewport (sempre primeiro) --&gt;</span>
+  <span class="c-tag">&lt;meta</span> <span class="c-attr">charset</span>=<span class="c-val">"UTF-8"</span> /&gt;
+  <span class="c-tag">&lt;meta</span> <span class="c-attr">name</span>=<span class="c-val">"viewport"</span> <span class="c-attr">content</span>=<span class="c-val">"width=device-width, initial-scale=1.0"</span> /&gt;
+
+  <span class="c-comment">&lt;!-- 2. Título da página --&gt;</span>
+  <span class="c-tag">&lt;title&gt;</span>Pearl Jam — Ten Club Tribute<span class="c-tag">&lt;/title&gt;</span>
+
+  <span class="c-comment">&lt;!-- 3. SEO --&gt;</span>
+  <span class="c-tag">&lt;meta</span> <span class="c-attr">name</span>=<span class="c-val">"description"</span> <span class="c-attr">content</span>=<span class="c-val">"Discografia, letras e história do Pearl Jam."</span> /&gt;
+  <span class="c-tag">&lt;meta</span> <span class="c-attr">name</span>=<span class="c-val">"author"</span> <span class="c-attr">content</span>=<span class="c-val">"Anderson Dutra"</span> /&gt;
+
+  <span class="c-comment">&lt;!-- 4. Open Graph --&gt;</span>
+  <span class="c-tag">&lt;meta</span> <span class="c-attr">property</span>=<span class="c-val">"og:title"</span>       <span class="c-attr">content</span>=<span class="c-val">"Pearl Jam — Ten Club Tribute"</span> /&gt;
+  <span class="c-tag">&lt;meta</span> <span class="c-attr">property</span>=<span class="c-val">"og:description"</span> <span class="c-attr">content</span>=<span class="c-val">"Discografia, letras e história do Pearl Jam."</span> /&gt;
+  <span class="c-tag">&lt;meta</span> <span class="c-attr">property</span>=<span class="c-val">"og:image"</span>       <span class="c-attr">content</span>=<span class="c-val">"https://seusite.com/og-cover.jpg"</span> /&gt;
+  <span class="c-tag">&lt;meta</span> <span class="c-attr">property</span>=<span class="c-val">"og:type"</span>        <span class="c-attr">content</span>=<span class="c-val">"website"</span> /&gt;
+
+  <span class="c-comment">&lt;!-- 5. Favicon --&gt;</span>
+  <span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-val">"icon"</span>             <span class="c-attr">href</span>=<span class="c-val">"favicon.ico"</span> /&gt;
+  <span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-val">"apple-touch-icon"</span> <span class="c-attr">href</span>=<span class="c-val">"apple-icon.png"</span> /&gt;
+
+  <span class="c-comment">&lt;!-- 6. Fontes e CSS --&gt;</span>
+  <span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-val">"stylesheet"</span> <span class="c-attr">href</span>=<span class="c-val">"style.css"</span> /&gt;
+  <span class="c-tag">&lt;script</span> <span class="c-attr">src</span>=<span class="c-val">"script.js"</span> <span class="c-attr">defer</span><span class="c-tag">&gt;&lt;/script&gt;</span>
+
+<span class="c-tag">&lt;/head&gt;</span></pre></div>
+    </div>
+  </div>
+
+  <div class="analogy-box" style="margin-top:32px;">
+    <div class="analogy-label">🧠 Resumindo</div>
+    <p>
+      O <code>&lt;head&gt;</code> é a <strong>identidade invisível</strong> da sua página.
+      Ninguém vê diretamente, mas ele controla como o Google te encontra, como o WhatsApp
+      exibe seu link, qual ícone aparece na aba e como o site se comporta no celular.
+    </p>
+    <p>
+      Trate o <code>&lt;head&gt;</code> com o mesmo cuidado que trata o conteúdo visível —
+      ele é a diferença entre um site amador e um projeto profissional.
+    </p>
+  </div>
+
+</section>
