@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 03 — Introdução ao CSS</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ═══════════════════════════════════════════════════
+         VARIÁVEIS DE DESIGN — Paleta CSS-inspired
+         Azul, Preto, Cinza, Roxo (CSS/style colors)
+      ═══════════════════════════════════════════════════ */
+      :root {
+        --bg:  #0d1117;
+        --bg2: #161b22;
+        --bg3: #21262d;
+
+        /* — Accent principal: CSS Blue — */
+        --wood:      #58a6ff;
+        --wood-dim:  #79c0ff;
+        --wood-pale: #cae8ff;
+
+        /* — Texto — */
+        --ink:     #f0f6fc;
+        --ink-dim: #c9d1d9;
+
+        /* — Bordas e cards — */
+        --border:  #30363d;
+        --card:    #161b22;
+
+        /* — Acentos secundários — */
+        --accent1: #bc8cff;
+        --accent2: #f97316;
+        --accent3: #e3b341;
+
+        --gold:      #e3b341;
+        --red-soft:  #ff7b72;
+
+        --text:     #f0f6fc;
+        --text-dim: #8b949e;
+
+        --summary-bg:     #0d1117;
+        --summary-ink:    #f0f6fc;
+        --summary-accent: #58a6ff;
+
+        --surface:  #21262d;
+        --ink2:     #c9d1d9;
+        --ink3:     #6e7681;
+
+        --border2:  rgba(255, 255, 255, 0.06);
+
+        --tag-bg:  #21262d;
+        --tag-ink: #f0f6fc;
+
+        --card-h:  #ffffff;
+        --card-p:  #8b949e;
+
+        --analogy-bg: #161b22;
+
+        --alert-bg:     rgba(88, 166, 255, 0.10);
+        --alert-border: rgba(88, 166, 255, 0.30);
+        --alert-ink:    #79c0ff;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* ── PROGRESS BAR ── */
+      #progress-bar {
+        position: fixed; top: 0; left: 0; height: 3px;
+        background: linear-gradient(90deg, var(--wood), var(--accent1));
+        width: 0%; z-index: 1000; transition: width 0.2s ease;
+        box-shadow: 0 0 8px rgba(88,166,255,0.5);
+      }
+
+      /* ── SIDEBAR ── */
+      #sidebar {
+        position: fixed; left: 0; top: 0; width: 270px; height: 100vh;
+        background: var(--bg2); border-right: 1px solid var(--border);
+        padding: 24px 0; overflow-y: auto; z-index: 100;
+        transform: translateX(-100%); transition: transform 0.3s ease;
+      }
+      #sidebar.open { transform: translateX(0); }
+
+      .sidebar-logo {
+        padding: 0 20px 20px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 16px;
+      }
+      .sidebar-logo .course-tag {
+        margin-top: 3.5rem; font-size: 10px; color: var(--wood);
+        text-transform: uppercase; letter-spacing: 2px;
+        font-family: 'DM Mono', monospace;
+      }
+      .sidebar-logo h3 {
+        font-size: 13px; color: var(--ink); font-weight: 700;
+        margin-top: 4px; line-height: 1.4; font-family: 'Fraunces', serif;
+      }
+
+      .nav-section { padding: 0 12px; margin-bottom: 8px; }
+      .nav-section-title {
+        font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px;
+        color: var(--text-dim); padding: 0 8px; margin-bottom: 4px;
+        font-family: 'DM Mono', monospace;
+      }
+      .nav-item {
+        display: flex; align-items: center; gap: 10px;
+        padding: 8px 12px; border-radius: 8px; cursor: pointer;
+        font-size: 13px; color: var(--text-dim); transition: all 0.2s;
+        text-decoration: none;
+      }
+      .nav-item:hover,
+      .nav-item.active { background: var(--bg3); color: var(--ink); }
+      .nav-item.active  { color: var(--wood); }
+      .nav-item .nav-icon { font-size: 14px; width: 20px; text-align: center; }
+      .nav-item .nav-num {
+        font-family: 'DM Mono', monospace; font-size: 10px;
+        color: var(--text-dim); margin-left: auto;
+      }
+
+      /* ── MENU TOGGLE ── */
+      #menu-toggle {
+        position: fixed; left: 16px; top: 16px; z-index: 200;
+        background: var(--bg2); border: 1px solid var(--border);
+        color: var(--ink); width: 40px; height: 40px; border-radius: 10px;
+        cursor: pointer; font-size: 20px; display: flex;
+        align-items: center; justify-content: center; transition: all 0.2s;
+      }
+      #menu-toggle:hover { background: var(--bg3); border-color: var(--wood); }
+
+      /* ── OVERLAY ── */
+      #overlay {
+        display: none; position: fixed; inset: 0;
+        background: rgba(0, 0, 0, 0.5); z-index: 99;
+      }
+      #overlay.show { display: block; }
+
+      /* ── MAIN ── */
+      main { margin: 0 auto; padding: 0 24px 80px; }
+
+      /* ── COVER ── */
+      .cover {
+        min-height: 100vh; display: flex; flex-direction: row;
+        align-items: stretch; justify-content: space-between;
+        padding: 0; position: relative; overflow: hidden; gap: 0;
+      }
+      .cover::before {
+        content: ''; position: absolute; top: -150px; right: -150px;
+        width: 500px; height: 500px;
+        background: radial-gradient(circle, rgba(88,166,255,0.08) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .cover::after {
+        content: ''; position: absolute; bottom: -80px; left: -80px;
+        width: 350px; height: 350px;
+        background: radial-gradient(circle, rgba(188,140,255,0.06) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .cover-tag {
+        font-family: 'DM Mono', monospace; font-size: 12px; color: var(--wood);
+        text-transform: uppercase; letter-spacing: 3px;
+        border: 1px solid rgba(88,166,255,0.3); background: rgba(88,166,255,0.08);
+        padding: 6px 14px; border-radius: 6px; margin-bottom: 28px;
+        align-self: flex-start; display: inline-block;
+        animation: fadeUp 0.6s ease both;
+      }
+      .cover h1 {
+        font-family: 'Fraunces', serif; font-weight: 800;
+        font-size: clamp(36px, 6vw, 64px); line-height: 1.1;
+        margin-bottom: 16px; animation: fadeUp 0.6s ease 0.1s both; color: var(--ink);
+      }
+      .cover h1 span { color: var(--wood); }
+      .cover-subtitle {
+        font-size: 20px; color: var(--text-dim); margin-bottom: 10px;
+        margin-left: 4px; font-weight: 600; animation: fadeUp 0.6s ease 0.2s both;
+      }
+      .cover-text {
+        flex: 1.2; padding: 80px 5% 80px 8%; display: flex;
+        flex-direction: column; justify-content: center; background: var(--bg);
+      }
+      @media (max-width: 992px) {
+        .cover { flex-direction: column; }
+        .cover-text { padding: 60px 5%; text-align: center; align-items: center; }
+      }
+
+      /* ── PAINEL DIREITO ── */
+      .nc-right {
+        flex: 0.85; position: relative; display: flex;
+        align-items: center; justify-content: center;
+        border-left: 1px solid var(--border); overflow: hidden;
+        background: linear-gradient(135deg, var(--bg3) 0%, var(--bg2) 100%);
+      }
+      .nc-glow {
+        position: absolute; width: 380px; height: 380px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(88,166,255,0.10) 0%, rgba(188,140,255,0.05) 40%, transparent 70%);
+      }
+      .nc-commit-wrap {
+        position: relative; z-index: 3; display: flex;
+        flex-direction: column; align-items: center;
+      }
+
+      /* ── TRANSITION BANNER ── */
+      .transition-banner {
+        width: 100%; height: 220px; background: var(--bg2); overflow: hidden;
+        display: flex; justify-content: center; align-items: center;
+        position: relative; border-bottom: 1px solid var(--border);
+        border-top: 1px solid var(--border);
+      }
+      .transition-banner-inner {
+        display: flex; align-items: center; justify-content: center;
+        gap: 40px; width: 100%; padding: 0 5%;
+      }
+      .banner-express-logo {
+        font-family: 'Fraunces', serif; font-size: clamp(48px, 8vw, 80px);
+        font-weight: 800; color: rgba(88,166,255,0.08); letter-spacing: -2px;
+        user-select: none;
+      }
+      .banner-divider { width: 1px; height: 80px; background: var(--border); }
+      .banner-text-block { text-align: center; }
+      .banner-text-block .bt-label {
+        font-family: 'DM Mono', monospace; font-size: 11px; color: var(--wood);
+        text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px;
+      }
+      .banner-text-block .bt-title {
+        font-size: clamp(18px, 3vw, 28px); font-weight: 800; color: var(--ink);
+        font-family: 'Fraunces', serif;
+      }
+
+      /* ── OBJECTIVES ── */
+      .objectives-section {
+        padding: 80px 10%; background-color: var(--bg2); color: var(--text);
+      }
+      .section-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+      .section-header h2 {
+        font-family: 'Fraunces', serif; font-size: clamp(32px, 4vw, 48px);
+        font-weight: 800; display: flex; align-items: center; gap: 15px; color: var(--ink);
+      }
+      .objectives-list { display: flex; flex-direction: column; gap: 5px; }
+      .obj-item { display: flex; align-items: center; gap: 12px; padding: 5px 0; }
+      .obj-item::before {
+        content: '•'; color: var(--wood); font-size: 28px; flex-shrink: 0; line-height: 1;
+      }
+      .obj-item p { font-size: 20px; line-height: 1.6; margin: 0; }
+      .obj-item p strong { color: var(--ink); }
+
+      /* ── CONTENT SECTIONS ── */
+      .content-section {
+        padding: 40px 2%; border-top: 1px solid var(--border); background: var(--bg2);
+      }
+
+      /* ── ANALOGY BOX ── */
+      .analogy-box {
+        background: linear-gradient(135deg, rgba(88,166,255,0.06), rgba(188,140,255,0.04));
+        border: 1px solid rgba(88,166,255,0.2); border-radius: 16px;
+        padding: 32px; margin: 32px 0; position: relative; overflow: hidden;
+      }
+      .analogy-box::before {
+        content: '"'; position: absolute; top: -20px; left: 20px; font-size: 120px;
+        color: var(--wood); opacity: 0.06; font-family: 'Fraunces', serif; line-height: 1;
+      }
+      .analogy-box p { font-size: 20px; line-height: 1.8; color: var(--text); }
+      .analogy-box p + p { margin-top: 12px; }
+      .analogy-box .analogy-label {
+        font-family: 'DM Mono', monospace; font-size: 13px; color: var(--wood);
+        text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+      }
+
+      /* ── STYLED TABLE ── */
+      .styled-table {
+        width: 100%; border-collapse: collapse; margin: 24px 0;
+        border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+        font-size: 16px;
+      }
+      .styled-table th {
+        background: var(--bg3); padding: 12px 16px; text-align: left;
+        font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase;
+        letter-spacing: 1px; color: var(--text-dim); border-bottom: 1px solid var(--border);
+      }
+      .styled-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text); }
+      .styled-table tr:last-child td { border-bottom: none; }
+      .styled-table tr:hover td { background: rgba(88,166,255,0.04); }
+
+      /* ── CODE BLOCKS ── */
+      .code-block {
+        background: #010409;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 24px 0;
+        font-family: 'DM Mono', monospace;
+      }
+      .code-block-header {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 10px 18px;
+        background: var(--bg3);
+        border-bottom: 1px solid var(--border);
+      }
+      .code-block-dots { display: flex; gap: 6px; }
+      .code-block-dots span {
+        width: 12px; height: 12px; border-radius: 50%; display: block;
+      }
+      .dot-red   { background: #ff5f57; }
+      .dot-yellow{ background: #febc2e; }
+      .dot-green { background: #28c840; }
+      .code-block-label {
+        font-size: 12px; color: var(--text-dim);
+        text-transform: uppercase; letter-spacing: 1.5px;
+      }
+      .code-block-copy {
+        background: transparent; border: 1px solid var(--border);
+        color: var(--text-dim); font-size: 12px; padding: 4px 10px;
+        border-radius: 6px; cursor: pointer; font-family: 'DM Mono', monospace;
+        transition: all 0.2s;
+      }
+      .code-block-copy:hover { border-color: var(--wood); color: var(--wood); }
+      .code-block-body { padding: 20px 24px; overflow-x: auto; }
+      .code-block-body pre {
+        font-size: 15px; line-height: 1.8; color: #e6edf3; white-space: pre; margin: 0;
+      }
+      /* Syntax highlight CSS */
+      .c-sel     { color: #f97316; }
+      .c-prop    { color: #79c0ff; }
+      .c-val     { color: #a5d6ff; }
+      .c-var     { color: #bc8cff; }
+      .c-comment { color: #6e7681; font-style: italic; }
+      .c-green   { color: #7ee787; }
+      .c-text    { color: #e6edf3; }
+      .c-num     { color: #e3b341; }
+      .c-at      { color: #f78166; }
+
+      /* ── STEP CARDS ── */
+      .steps-list { margin: 32px 0; }
+      .step-item {
+        display: flex; gap: 20px; margin-bottom: 32px;
+        opacity: 0; transform: translateX(-20px); transition: all 0.5s ease;
+      }
+      .step-item.visible { opacity: 1; transform: translateX(0); }
+      .step-num-wrap { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+      .step-num {
+        width: 40px; height: 40px; background: rgba(88,166,255,0.1);
+        border: 1px solid rgba(88,166,255,0.4); border-radius: 10px;
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'DM Mono', monospace; font-size: 16px; font-weight: 700;
+        color: var(--wood); flex-shrink: 0;
+      }
+      .step-line {
+        width: 1px; flex: 1;
+        background: linear-gradient(to bottom, rgba(88,166,255,0.4), transparent);
+        margin-top: 8px; min-height: 20px;
+      }
+      .step-item:last-child .step-line { display: none; }
+      .step-content { flex: 1; padding-bottom: 8px; }
+      .step-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--ink); }
+      .step-desc  { font-size: 17px; color: var(--text-dim); line-height: 1.7; margin-bottom: 12px; }
+
+      /* ── PRACTICE CARDS ── */
+      .practices-grid {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0;
+      }
+      .practice-card {
+        background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
+        padding: 20px; transition: all 0.3s;
+        opacity: 0; transform: translateY(20px);
+      }
+      .practice-card.visible { opacity: 1; transform: translateY(0); }
+      .practice-card:hover {
+        border-color: var(--wood);
+        box-shadow: 0 4px 24px rgba(88,166,255,0.08);
+        transform: translateY(-2px);
+      }
+      .practice-icon  { font-size: 24px; margin-bottom: 12px; }
+      .practice-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink); }
+      .practice-desc  { font-size: 16px; color: var(--text-dim); line-height: 1.7; }
+
+      /* ── GLOSSARY ── */
+      .glossary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+      .glossary-item {
+        background: var(--bg); border: 1px solid var(--border);
+        border-radius: 10px; padding: 16px; transition: all 0.3s;
+      }
+      .glossary-item:hover { border-color: var(--accent3); }
+      .glossary-term { font-family: 'DM Mono', monospace; font-size: 14px; color: var(--accent3); font-weight: 700; margin-bottom: 6px; }
+      .glossary-def  { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
+
+      /* ── QUIZ ── */
+      .quiz-section { padding: 80px 10%; border-top: 1px solid var(--border); background: var(--bg2); }
+      .quiz-card {
+        background: var(--bg); border: 1px solid var(--border);
+        border-radius: 16px; padding: 32px; margin-bottom: 24px;
+      }
+      .quiz-question { font-size: 19px; font-weight: 700; margin-bottom: 20px; line-height: 1.5; color: var(--ink); }
+      .quiz-num { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--wood); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+      .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+      .quiz-opt {
+        background: var(--bg2); border: 1px solid var(--border);
+        border-radius: 10px; padding: 14px 18px; cursor: pointer; font-size: 17px;
+        transition: all 0.2s; display: flex; align-items: center; gap: 12px; color: var(--text);
+      }
+      .quiz-opt:hover:not(.disabled) { border-color: var(--wood); }
+      .quiz-opt.correct { background: rgba(63,185,80,0.1); border-color: #3fb950; color: #3fb950; }
+      .quiz-opt.wrong   { background: rgba(255,123,114,0.1); border-color: var(--red-soft); color: var(--red-soft); }
+      .quiz-opt.disabled { cursor: not-allowed; }
+      .opt-letter {
+        width: 26px; height: 26px; background: var(--bg3); border: 1px solid var(--border);
+        border-radius: 6px; font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 700;
+        display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      }
+      .quiz-feedback { margin-top: 14px; padding: 12px 16px; border-radius: 8px; font-size: 16px; line-height: 1.6; display: none; }
+      .quiz-feedback.show { display: block; }
+      .quiz-feedback.ok   { background: rgba(63,185,80,0.1); border: 1px solid rgba(63,185,80,0.3); color: #7ee787; }
+      .quiz-feedback.fail { background: rgba(255,123,114,0.1); border: 1px solid rgba(255,123,114,0.3); color: var(--red-soft); }
+
+      /* ── ALERTS ── */
+      .alert {
+        border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+        display: flex; align-items: flex-start; gap: 12px;
+        font-size: 17px; line-height: 1.7;
+      }
+      .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+      .alert-warn { background: rgba(227,179,65,0.08); border: 1px solid rgba(227,179,65,0.3); color: var(--gold); }
+      .alert-info { background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.3); color: var(--wood); }
+      .alert-tip  { background: rgba(188,140,255,0.08); border: 1px solid rgba(188,140,255,0.3); color: var(--accent1); }
+      .alert-red  { background: rgba(255,123,114,0.06); border: 1px solid rgba(255,123,114,0.3); color: var(--red-soft); }
+      .alert-wood { background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.3); color: var(--wood); }
+
+      /* ── CHALLENGE BOX ── */
+      .challenge-box {
+        background: linear-gradient(135deg, rgba(88,166,255,0.06), rgba(188,140,255,0.04));
+        border: 1px solid rgba(88,166,255,0.25); border-radius: 16px;
+        padding: 32px; margin: 24px 0;
+      }
+      .challenge-box h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: var(--ink); font-family: 'Fraunces', serif; }
+      .challenge-box p  { color: var(--text-dim); font-size: 17px; line-height: 1.7; }
+
+      /* ── MSG CARDS ── */
+      .msg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+      .msg-card {
+        background: var(--bg); border: 1px solid var(--border); border-radius: 14px;
+        padding: 24px; transition: all 0.3s; border-left: 4px solid transparent;
+      }
+      .msg-card.css-blue   { border-left-color: var(--wood); }
+      .msg-card.css-purple { border-left-color: var(--accent1); }
+      .msg-card.css-gold   { border-left-color: var(--accent3); }
+      .msg-card.css-orange { border-left-color: var(--accent2); }
+      .msg-card.css-green  { border-left-color: #3fb950; }
+      .msg-card.css-red    { border-left-color: var(--red-soft); }
+      .msg-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+      .msg-badge {
+        display: inline-block; font-family: 'DM Mono', monospace;
+        font-size: 13px; font-weight: 700; padding: 3px 10px;
+        border-radius: 6px; margin-bottom: 12px;
+      }
+      .css-blue   .msg-badge { background: rgba(88,166,255,0.1); color: var(--wood); }
+      .css-purple .msg-badge { background: rgba(188,140,255,0.1); color: var(--accent1); }
+      .css-gold   .msg-badge { background: rgba(227,179,65,0.1); color: var(--accent3); }
+      .css-orange .msg-badge { background: rgba(249,115,22,0.1); color: var(--accent2); }
+      .css-green  .msg-badge { background: rgba(63,185,80,0.1); color: #7ee787; }
+      .css-red    .msg-badge { background: rgba(255,123,114,0.1); color: var(--red-soft); }
+      .msg-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink); }
+      .msg-desc  { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
+
+      /* ── INLINE CODE ── */
+      code {
+        font-family: 'DM Mono', monospace;
+        background: rgba(88,166,255,0.1);
+        color: var(--wood);
+        padding: 1px 6px; border-radius: 4px; font-size: 0.92em;
+      }
+
+      /* ── SECTION TAG + TITLE ── */
+      .section-tag {
+        font-size: 11px; color: var(--wood); font-family: 'DM Mono', monospace;
+        text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;
+      }
+      .section-title {
+        font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 800;
+        margin-bottom: 8px; color: var(--ink); font-family: 'Fraunces', serif;
+      }
+      .section-lead {
+        font-size: 18px; color: var(--text-dim); margin-bottom: 32px;
+        line-height: 1.7; max-width: 700px;
+      }
+
+      /* ── SUMMARY BOX ── */
+      .summary-box {
+        background: var(--summary-bg);
+        color: var(--summary-ink);
+        border-radius: 12px;
+        padding: 2rem;
+        font-size: 1rem;
+        line-height: 1.7;
+        border: 1px solid var(--border);
+      }
+      .summary-box .sum-label {
+        font-size: .72rem; font-weight: 500;
+        letter-spacing: .12em; text-transform: uppercase;
+        color: var(--summary-accent); margin-bottom: .5rem;
+      }
+      .summary-box strong { color: var(--summary-accent); font-weight: 500; }
+
+      hr.divider { border: none; border-top: 1px solid var(--border2); margin: 2.5rem 0; }
+
+      /* ── NEXT CLASS SECTION ── */
+      .nc-section {
+        min-height: 100vh; display: flex; flex-direction: column;
+        position: relative; overflow: hidden;
+        background: radial-gradient(ellipse at 60% 40%, rgba(88,166,255,0.06) 0%, transparent 60%),
+          radial-gradient(ellipse at 10% 80%, rgba(188,140,255,0.05) 0%, transparent 50%), var(--bg2);
+      }
+      .nc-wrapper { flex: 1; display: flex; min-height: 0; }
+      .nc-left {
+        flex: 1.3; padding: 80px 8%;
+        display: flex; flex-direction: column; justify-content: center;
+      }
+      .nc-tag {
+        font-family: 'DM Mono', monospace; font-size: 12px; color: var(--wood);
+        text-transform: uppercase; letter-spacing: 3px;
+        border: 1px solid rgba(88,166,255,0.3); background: rgba(88,166,255,0.08);
+        padding: 6px 14px; border-radius: 6px; margin-bottom: 28px;
+        align-self: flex-start; font-weight: 700;
+      }
+      .nc-title {
+        font-size: clamp(28px, 4vw, 48px); font-weight: 800; color: var(--ink);
+        line-height: 1.15; margin: 0 0 32px 0; font-family: 'Fraunces', serif;
+      }
+      .nc-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; }
+      .nc-item { display: flex; align-items: flex-start; gap: 12px; font-size: 17px; color: var(--text-dim); line-height: 1.6; }
+      .nc-bullet { color: var(--wood); font-size: 20px; line-height: 1.4; flex-shrink: 0; }
+
+      /* ── TEACHER SECTION ── */
+      .teacher-section {
+        min-height: 100vh; display: flex; align-items: center; justify-content: center;
+        position: relative; overflow: hidden;
+        background: radial-gradient(ellipse at 30% 50%, rgba(88,166,255,0.06) 0%, transparent 55%),
+          radial-gradient(ellipse at 80% 20%, rgba(188,140,255,0.04) 0%, transparent 50%), var(--bg);
+        padding: 80px 8%;
+      }
+      .teacher-section::before {
+        content: ''; position: absolute; inset: 0;
+        background-image: radial-gradient(circle, rgba(88,166,255,0.04) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+      .teacher-inner { display: flex; align-items: center; gap: 64px; position: relative; z-index: 1; max-width: 900px; }
+      .teacher-avatar-wrap { flex-shrink: 0; }
+      .teacher-avatar {
+        width: 160px; height: 160px; border-radius: 50%;
+        border: 2px solid rgba(88,166,255,0.3);
+        background: var(--bg3); overflow: hidden;
+        box-shadow: 0 0 40px rgba(88,166,255,0.1);
+      }
+      .teacher-avatar img { width: 100%; height: 100%; object-fit: cover; }
+      .teacher-info { flex: 1; }
+      .teacher-label {
+        font-family: 'DM Mono', monospace; font-size: 11px; color: var(--wood);
+        text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px;
+      }
+      .teacher-info h4 { font-size: 28px; font-weight: 800; color: var(--ink); margin-bottom: 6px; font-family: 'Fraunces', serif; }
+      .teacher-info p  { font-size: 17px; color: var(--text-dim); margin-bottom: 20px; }
+      .teacher-skills  { display: flex; flex-wrap: wrap; gap: 8px; }
+      .skill-tag {
+        background: var(--bg3); border: 1px solid var(--border);
+        border-radius: 8px; padding: 4px 12px; font-size: 13px;
+        font-family: 'DM Mono', monospace; color: var(--text-dim); transition: all 0.2s;
+      }
+      .skill-tag:hover { border-color: var(--wood); color: var(--wood); }
+
+      /* ── CSS ANATOMY ── */
+      .css-anatomy {
+        background: #010409; border: 1px solid var(--border);
+        border-radius: 16px; padding: 32px; margin: 24px 0;
+        text-align: center; font-family: 'DM Mono', monospace;
+      }
+      .css-anatomy .anatomy-row {
+        display: flex; align-items: center; justify-content: center;
+        gap: 0; flex-wrap: wrap; font-size: clamp(18px, 3vw, 28px);
+        line-height: 2;
+      }
+      .anatomy-sel     { color: #f97316; }
+      .anatomy-brace   { color: #e6edf3; }
+      .anatomy-prop    { color: #79c0ff; }
+      .anatomy-colon   { color: #e6edf3; }
+      .anatomy-cssval  { color: #a5d6ff; }
+      .anatomy-semi    { color: #e6edf3; }
+      .anatomy-label {
+        font-size: 11px; color: var(--text-dim); text-transform: uppercase;
+        letter-spacing: 2px; margin-top: 20px;
+        display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+      }
+      .anatomy-label span { position: relative; }
+
+      /* ── SPECIFICITY CHART ── */
+      .specificity-chart {
+        display: flex; flex-direction: column; gap: 12px; margin: 24px 0;
+      }
+      .spec-row {
+        display: flex; align-items: center; gap: 16px;
+      }
+      .spec-label {
+        font-family: 'DM Mono', monospace; font-size: 13px;
+        color: var(--text-dim); min-width: 160px;
+      }
+      .spec-bar-wrap {
+        flex: 1; background: var(--bg3); border-radius: 4px;
+        height: 28px; overflow: hidden; position: relative;
+      }
+      .spec-bar {
+        height: 100%; border-radius: 4px; display: flex;
+        align-items: center; padding-left: 12px;
+        font-family: 'DM Mono', monospace; font-size: 12px;
+        transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        width: 0%;
+      }
+      .spec-bar.animated { }
+      .spec-bar-1 { background: rgba(88,166,255,0.25); color: var(--wood); }
+      .spec-bar-2 { background: rgba(188,140,255,0.3); color: var(--accent1); }
+      .spec-bar-3 { background: rgba(232,150,58,0.3); color: var(--accent3); }
+      .spec-bar-4 { background: rgba(249,115,22,0.35); color: var(--accent2); }
+      .spec-bar-5 { background: rgba(255,123,114,0.35); color: var(--red-soft); }
+
+      /* ── BOX MODEL DIAGRAM ── */
+      .box-model {
+        background: #010409; border: 1px solid var(--border);
+        border-radius: 16px; padding: 32px; margin: 24px 0;
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'DM Mono', monospace;
+      }
+      .bm-margin {
+        background: rgba(227,179,65,0.07); border: 2px dashed rgba(227,179,65,0.4);
+        padding: 24px; border-radius: 8px; text-align: center; position: relative;
+      }
+      .bm-border {
+        background: rgba(188,140,255,0.07); border: 2px solid rgba(188,140,255,0.5);
+        padding: 20px; border-radius: 6px; position: relative;
+      }
+      .bm-padding {
+        background: rgba(88,166,255,0.07); border: 2px dashed rgba(88,166,255,0.4);
+        padding: 20px; border-radius: 4px; position: relative;
+      }
+      .bm-content {
+        background: rgba(63,185,80,0.1); border: 2px solid rgba(63,185,80,0.4);
+        padding: 16px 32px; border-radius: 4px; font-size: 14px; color: #7ee787;
+        font-weight: 700;
+      }
+      .bm-label {
+        position: absolute; top: 4px; left: 8px; font-size: 10px;
+        text-transform: uppercase; letter-spacing: 1px;
+      }
+      .bm-margin  > .bm-label { color: var(--accent3); }
+      .bm-border  > .bm-label { color: var(--accent1); }
+      .bm-padding > .bm-label { color: var(--wood); }
+
+      /* ── FLEXBOX / GRID DEMOS ── */
+      .demo-box {
+        background: #010409; border: 1px solid var(--border);
+        border-radius: 12px; padding: 24px; margin: 16px 0;
+      }
+      .demo-title {
+        font-family: 'DM Mono', monospace; font-size: 11px; color: var(--wood);
+        text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;
+      }
+      .flex-demo {
+        display: flex; gap: 8px; flex-wrap: wrap;
+      }
+      .flex-item {
+        background: rgba(88,166,255,0.12); border: 1px solid rgba(88,166,255,0.3);
+        border-radius: 6px; padding: 12px 18px;
+        font-family: 'DM Mono', monospace; font-size: 13px; color: var(--wood);
+      }
+      .grid-demo {
+        display: grid; grid-template-columns: repeat(3,1fr); gap: 8px;
+      }
+      .grid-item {
+        background: rgba(188,140,255,0.1); border: 1px solid rgba(188,140,255,0.3);
+        border-radius: 6px; padding: 12px;
+        font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent1);
+        text-align: center;
+      }
+
+      /* ── TIMELINE ── */
+      .timeline { margin: 32px 0; }
+      .timeline-item {
+        display: flex; gap: 20px; margin-bottom: 24px; align-items: flex-start;
+      }
+      .timeline-year {
+        font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 700;
+        color: var(--wood); min-width: 60px; padding-top: 2px;
+      }
+      .timeline-dot {
+        width: 10px; height: 10px; border-radius: 50%;
+        background: var(--wood); flex-shrink: 0; margin-top: 6px;
+        box-shadow: 0 0 8px rgba(88,166,255,0.4);
+      }
+      .timeline-content { flex: 1; }
+      .timeline-content strong { color: var(--ink); font-size: 16px; }
+      .timeline-content p { font-size: 15px; color: var(--text-dim); line-height: 1.6; margin-top: 2px; }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      /* ── REVEAL ── */
+      .reveal { opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+
+      @media (max-width: 768px) {
+        .practices-grid, .msg-grid, .glossary-grid { grid-template-columns: 1fr; }
+        .grid-demo { grid-template-columns: repeat(2,1fr); }
+        .spec-label { min-width: 100px; font-size: 11px; }
+        .teacher-inner { flex-direction: column; gap: 32px; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ── PROGRESS BAR ── -->
+    <div id="progress-bar"></div>
+
+    <!-- ── SIDEBAR ── -->
+    <nav id="sidebar">
+      <div class="sidebar-logo">
+        <div class="course-tag">Desenvolvimento Web</div>
+        <h3>Aula 03 — Introdução ao CSS</h3>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">Navegação</div>
+        <a class="nav-item" href="#cover">           <span class="nav-icon">🏠</span> Capa             <span class="nav-num">00</span></a>
+        <a class="nav-item" href="#objectives">      <span class="nav-icon">🎯</span> Objetivos        <span class="nav-num">01</span></a>
+        <a class="nav-item" href="#section-oque">    <span class="nav-icon">🎨</span> O que é CSS      <span class="nav-num">02</span></a>
+        <a class="nav-item" href="#section-sintaxe"> <span class="nav-icon">✏️</span> Sintaxe          <span class="nav-num">03</span></a>
+        <a class="nav-item" href="#section-seletores"><span class="nav-icon">🎯</span> Seletores        <span class="nav-num">04</span></a>
+        <a class="nav-item" href="#section-variaveis"><span class="nav-icon">📦</span> Variáveis CSS   <span class="nav-num">05</span></a>
+        <a class="nav-item" href="#section-boxmodel"><span class="nav-icon">📐</span> Box Model        <span class="nav-num">06</span></a>
+        <a class="nav-item" href="#section-layout">  <span class="nav-icon">🏗️</span> Flexbox & Grid   <span class="nav-num">07</span></a>
+        <a class="nav-item" href="#section-responsive"><span class="nav-icon">📱</span> Responsividade  <span class="nav-num">08</span></a>
+        <a class="nav-item" href="#quiz-section">    <span class="nav-icon">🧠</span> Quiz             <span class="nav-num">09</span></a>
+        <a class="nav-item" href="#section-next">    <span class="nav-icon">⏭️</span> Próxima Aula     <span class="nav-num">10</span></a>
+      </div>
+    </nav>
+
+    <!-- ── MENU TOGGLE ── -->
+    <button id="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <!-- ── OVERLAY ── -->
+    <div id="overlay" onclick="toggleMenu()"></div>
+
+    <main>
+
+      <!-- ══════════════════════════════════════════════════
+           COVER
+      ══════════════════════════════════════════════════ -->
+      <section class="cover" id="cover">
+        <div class="cover-text">
+          <div class="cover-tag">Aula 03</div>
+          <h1>Introdução ao<br /><span>CSS</span></h1>
+          <p class="cover-subtitle"><strong>Curso:</strong> Desenvolvimento Web</p>
+          <p class="cover-subtitle"><strong>Módulo 3:</strong> Estilos e Visual</p>
+          <p class="cover-subtitle"><strong>Carga Horária Estimada:</strong> 2:00h</p>
+          <p class="cover-subtitle"><strong>Professor:</strong> Anderson Dutra</p>
+        </div>
+
+        <div class="nc-right">
+          <div class="nc-glow"></div>
+
+          <svg style="position:absolute;inset:0;opacity:0.10;width:100%;height:100%;z-index:1;" viewBox="0 0 400 400">
+            <defs>
+              <pattern id="hexgrid-cover" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
+                <polygon points="30,2 58,17 58,47 30,62 2,47 2,17" fill="none" stroke="rgba(88,166,255,0.8)" stroke-width="0.8"/>
+              </pattern>
+            </defs>
+            <rect width="400" height="400" fill="url(#hexgrid-cover)"/>
+          </svg>
+
+          <div class="nc-commit-wrap" style="z-index:2;position:relative;">
+            <svg viewBox="0 0 320 320" width="320" height="320">
+              <rect x="30" y="30" width="260" height="260" rx="20" fill="none" stroke="rgba(88,166,255,0.3)" stroke-width="1.5"/>
+              <text x="160" y="80"  text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(249,115,22,0.7)">.hero-title {</text>
+              <text x="160" y="108" text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(88,166,255,0.6)">  color: var(--cream);</text>
+              <text x="160" y="136" text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(88,166,255,0.5)">  font-size: 12rem;</text>
+              <text x="160" y="164" text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(188,140,255,0.6)">  display: flex;</text>
+              <text x="160" y="192" text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(88,166,255,0.5)">}</text>
+              <text x="160" y="228" text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(249,115,22,0.6)">@media (max-width:</text>
+              <text x="160" y="252" text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(249,115,22,0.6)">  768px) { ... }</text>
+              <text x="160" y="288" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="rgba(88,166,255,0.8)" letter-spacing="4">CSS</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           TRANSITION BANNER
+      ══════════════════════════════════════════════════ -->
+      <div class="transition-banner">
+        <div class="transition-banner-inner">
+          <div class="banner-express-logo">CSS</div>
+          <div class="banner-divider"></div>
+          <div class="banner-text-block">
+            <div class="bt-label">Nesta aula</div>
+            <div class="bt-title">A linguagem que transforma HTML em arte</div>
+          </div>
+          <div class="banner-divider"></div>
+          <div class="banner-express-logo">🎨</div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════
+           OBJETIVOS
+      ══════════════════════════════════════════════════ -->
+      <section class="objectives-section" id="objectives">
+        <div class="section-header">
+          <h2>🎯 Objetivos da Aula</h2>
+        </div>
+        <div class="objectives-list">
+          <div class="obj-item"><p>Entender <strong>o que é CSS</strong> e como ele se conecta ao HTML para criar páginas bonitas.</p></div>
+          <div class="obj-item"><p>Aprender a <strong>sintaxe do CSS</strong>: seletor, propriedade e valor.</p></div>
+          <div class="obj-item"><p>Dominar <strong>seletores e especificidade</strong> — por que uma regra prevalece sobre outra.</p></div>
+          <div class="obj-item"><p>Criar e usar <strong>Variáveis CSS (Custom Properties)</strong> como fez a página do Pearl Jam.</p></div>
+          <div class="obj-item"><p>Entender o <strong>Box Model</strong> — margin, border, padding e content.</p></div>
+          <div class="obj-item"><p>Aplicar <strong>Flexbox e Grid</strong> para montar layouts modernos.</p></div>
+          <div class="obj-item"><p>Tornar o site <strong>responsivo com Media Queries</strong>.</p></div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           O QUE É CSS
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" id="section-oque" style="padding: 80px 10%;">
+        <div class="section-tag">02 — Conceito</div>
+        <h2 class="section-title">O que é CSS?</h2>
+        <p class="section-lead">
+          CSS (<strong>Cascading Style Sheets</strong>) é a linguagem que define a <em>aparência</em> do HTML. Enquanto o HTML diz <em>"o que existe"</em>, o CSS diz <em>"como parece"</em>.
+        </p>
+
+        <div class="analogy-box reveal">
+          <div class="analogy-label">🎸 Analogia Pearl Jam</div>
+          <p>Pense no HTML como o <strong>palco e os instrumentos</strong> de um show do Pearl Jam: está tudo lá, estruturado. Mas o CSS é a <strong>iluminação, o figurino, o cenário e a mixagem de som</strong>. Sem CSS, o site existe — mas sem personalidade. Com CSS, o show tem <em>alma</em>.</p>
+        </div>
+
+        <div class="steps-list">
+          <div class="step-item reveal-step">
+            <div class="step-num-wrap">
+              <div class="step-num">1</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">HTML + CSS trabalham juntos</div>
+              <div class="step-desc">O HTML cria a estrutura (tags, conteúdo) e o CSS estiliza essa estrutura (cores, fontes, espaçamentos, layouts). Eles são arquivos separados mas se comunicam através do <code>&lt;link&gt;</code> no <code>&lt;head&gt;</code>.</div>
+            </div>
+          </div>
+          <div class="step-item reveal-step">
+            <div class="step-num-wrap">
+              <div class="step-num">2</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">Cascata — o que isso significa?</div>
+              <div class="step-desc">O "C" de CSS significa "Cascading" (cascata). As regras fluem em cascata: estilos do navegador → estilos do autor → estilos inline. Regras mais específicas ou mais tarde no arquivo sobrescrevem as anteriores.</div>
+            </div>
+          </div>
+          <div class="step-item reveal-step">
+            <div class="step-num-wrap">
+              <div class="step-num">3</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">Três formas de aplicar CSS</div>
+              <div class="step-desc">
+                <strong>Inline</strong> — direto no atributo <code>style=""</code> da tag. <br>
+                <strong>Interno</strong> — dentro de <code>&lt;style&gt;</code> no <code>&lt;head&gt;</code>. <br>
+                <strong>Externo</strong> — arquivo <code>.css</code> separado, linkado com <code>&lt;link&gt;</code>. Esta é a forma profissional.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block reveal">
+          <div class="code-block-header">
+            <div class="code-block-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+            </div>
+            <div class="code-block-label">index.html — linkando o CSS externo</div>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <div class="code-block-body"><pre><span class="c-comment">&lt;!-- No &lt;head&gt; do seu HTML --&gt;</span>
+<span class="c-tag">&lt;link</span> <span class="c-prop">rel</span>=<span class="c-val">"stylesheet"</span> <span class="c-prop">href</span>=<span class="c-val">"style.css"</span> <span class="c-tag">/&gt;</span>
+
+<span class="c-comment">&lt;!-- Assim o Pearl Jam conecta o style.css ao HTML --&gt;</span>
+<span class="c-comment">&lt;!-- Tudo que estiver no style.css estiliza o HTML --&gt;</span></pre></div>
+        </div>
+
+        <div class="alert alert-info reveal">
+          <span class="alert-icon">💡</span>
+          <span>A página tributo do Pearl Jam usa <strong>arquivo CSS externo</strong> (<code>style.css</code>) — a forma mais organizada e profissional. Toda a aula de hoje vai explorar esse arquivo real!</span>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           SINTAXE CSS
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" id="section-sintaxe" style="padding: 80px 10%;">
+        <div class="section-tag">03 — Sintaxe</div>
+        <h2 class="section-title">Sintaxe do CSS</h2>
+        <p class="section-lead">Toda regra CSS tem a mesma estrutura: um <strong>seletor</strong> que aponta o elemento, e um <strong>bloco de declarações</strong> com propriedades e valores.</p>
+
+        <!-- Anatomy diagram -->
+        <div class="css-anatomy reveal">
+          <div class="anatomy-row">
+            <span class="anatomy-sel">.hero-title</span>
+            <span class="anatomy-brace">&nbsp;{</span>
+          </div>
+          <div class="anatomy-row" style="padding-left: 2em;">
+            <span class="anatomy-prop">color</span>
+            <span class="anatomy-colon">:&nbsp;</span>
+            <span class="anatomy-cssval">var(--cream-light)</span>
+            <span class="anatomy-semi">;</span>
+          </div>
+          <div class="anatomy-row" style="padding-left: 2em;">
+            <span class="anatomy-prop">font-size</span>
+            <span class="anatomy-colon">:&nbsp;</span>
+            <span class="anatomy-cssval">clamp(5rem, 15vw, 12rem)</span>
+            <span class="anatomy-semi">;</span>
+          </div>
+          <div class="anatomy-row">
+            <span class="anatomy-brace">}</span>
+          </div>
+          <div class="anatomy-label">
+            <span style="color:var(--accent2)">▲ Seletor</span>
+            <span style="color:var(--wood)">▲ Propriedade</span>
+            <span style="color:var(--accent1)">▲ Valor</span>
+          </div>
+        </div>
+
+        <div class="code-block reveal">
+          <div class="code-block-header">
+            <div class="code-block-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+            </div>
+            <div class="code-block-label">style.css — anatomia de uma regra real do Pearl Jam</div>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <div class="code-block-body"><pre><span class="c-comment">/* SELETOR → o que vou estilizar */</span>
+<span class="c-sel">.nav-logo</span> {
+  <span class="c-comment">/* PROPRIEDADE: VALOR; */</span>
+  <span class="c-prop">font-family</span>: <span class="c-val">'Bebas Neue', sans-serif</span>;
+  <span class="c-prop">font-size</span>: <span class="c-num">1.8rem</span>;
+  <span class="c-prop">letter-spacing</span>: <span class="c-num">0.15em</span>;
+  <span class="c-prop">color</span>: <span class="c-var">var(--amber-bright)</span>;
+  <span class="c-prop">text-decoration</span>: <span class="c-val">none</span>;
+}</pre></div>
+        </div>
+
+        <div class="msg-grid reveal">
+          <div class="msg-card css-blue">
+            <div class="msg-badge">Seletor</div>
+            <div class="msg-title">O "alvo" do estilo</div>
+            <div class="msg-desc">Indica <em>qual elemento</em> será estilizado. Pode ser uma tag (<code>nav</code>), uma classe (<code>.nav-logo</code>), um ID (<code>#hero</code>), ou combinações.</div>
+          </div>
+          <div class="msg-card css-purple">
+            <div class="msg-badge">Propriedade</div>
+            <div class="msg-title">O "aspecto" que muda</div>
+            <div class="msg-desc">Define <em>o que</em> será alterado: <code>color</code>, <code>font-size</code>, <code>background</code>, <code>display</code>, <code>padding</code>, entre centenas de opções.</div>
+          </div>
+          <div class="msg-card css-gold">
+            <div class="msg-badge">Valor</div>
+            <div class="msg-title">O "resultado" esperado</div>
+            <div class="msg-desc">Define <em>como</em> será o aspecto: <code>#1a0f07</code>, <code>1.8rem</code>, <code>'Bebas Neue'</code>, <code>flex</code>. Cada propriedade aceita tipos específicos de valores.</div>
+          </div>
+          <div class="msg-card css-orange">
+            <div class="msg-badge">Comentário</div>
+            <div class="msg-title">Notas no código</div>
+            <div class="msg-desc">Comentários em CSS ficam entre <code>/* */</code>. São ignorados pelo navegador mas essenciais para organizar o código. O Pearl Jam usa muito: <code>/* ─── NAV ─── */</code>.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           SELETORES E ESPECIFICIDADE
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" id="section-seletores" style="padding: 80px 10%;">
+        <div class="section-tag">04 — Seletores</div>
+        <h2 class="section-title">Seletores e Especificidade</h2>
+        <p class="section-lead">Seletores são o coração do CSS. Eles determinam <em>quais elementos</em> recebem um estilo. A <strong>especificidade</strong> determina qual regra ganha quando há conflito.</p>
+
+        <table class="styled-table reveal">
+          <thead>
+            <tr>
+              <th>Tipo de Seletor</th>
+              <th>Exemplo do Pearl Jam</th>
+              <th>O que seleciona</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>tag</code></td>
+              <td><code>nav</code>, <code>section</code>, <code>footer</code></td>
+              <td>Todos os elementos com aquela tag HTML</td>
+            </tr>
+            <tr>
+              <td><code>.classe</code></td>
+              <td><code>.hero-title</code>, <code>.album-card</code></td>
+              <td>Todos os elementos com aquela classe</td>
+            </tr>
+            <tr>
+              <td><code>#id</code></td>
+              <td><code>#hero</code>, <code>#discography</code></td>
+              <td>O elemento único com aquele ID</td>
+            </tr>
+            <tr>
+              <td><code>pai filho</code></td>
+              <td><code>.nav-links a</code></td>
+              <td>Links dentro de <code>.nav-links</code></td>
+            </tr>
+            <tr>
+              <td><code>elemento:estado</code></td>
+              <td><code>.nav-links a:hover</code></td>
+              <td>Estado especial (hover, focus, active)</td>
+            </tr>
+            <tr>
+              <td><code>elemento::pseudo</code></td>
+              <td><code>.nav-links a::after</code></td>
+              <td>Conteúdo virtual gerado por CSS</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:22px; font-weight:800; color:var(--ink); margin: 32px 0 8px; font-family:'Fraunces',serif;">Especificidade — quem ganha?</h3>
+        <p style="font-size:17px; color:var(--text-dim); margin-bottom:24px; line-height:1.7;">Quando duas regras conflitam, o seletor com <strong>maior especificidade</strong> vence. Pense como pontos em uma competição:</p>
+
+        <div class="specificity-chart reveal" id="spec-chart">
+          <div class="spec-row">
+            <div class="spec-label">tag (nav)</div>
+            <div class="spec-bar-wrap"><div class="spec-bar spec-bar-1" data-width="10%">0-0-1</div></div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">.classe</div>
+            <div class="spec-bar-wrap"><div class="spec-bar spec-bar-2" data-width="30%">0-1-0</div></div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">.classe tag</div>
+            <div class="spec-bar-wrap"><div class="spec-bar spec-bar-3" data-width="40%">0-1-1</div></div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">#id</div>
+            <div class="spec-bar-wrap"><div class="spec-bar spec-bar-4" data-width="60%">1-0-0</div></div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">style="" (inline)</div>
+            <div class="spec-bar-wrap"><div class="spec-bar spec-bar-5" data-width="90%">1-0-0-0</div></div>
+          </div>
+        </div>
+
+        <div class="code-block reveal">
+          <div class="code-block-header">
+            <div class="code-block-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+            </div>
+            <div class="code-block-label">style.css — pseudo-classes e pseudo-elementos do Pearl Jam</div>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <div class="code-block-body"><pre><span class="c-comment">/* Pseudo-classe: estado hover */</span>
+<span class="c-sel">.nav-links a:hover</span> {
+  <span class="c-prop">color</span>: <span class="c-var">var(--amber-bright)</span>;
+}
+
+<span class="c-comment">/* Pseudo-elemento: linha animada embaixo do link */</span>
+<span class="c-sel">.nav-links a::after</span> {
+  <span class="c-prop">content</span>: <span class="c-val">''</span>;         <span class="c-comment">/* conteúdo vazio mas necessário */</span>
+  <span class="c-prop">position</span>: <span class="c-val">absolute</span>;
+  <span class="c-prop">bottom</span>: <span class="c-num">-4px</span>;
+  <span class="c-prop">width</span>: <span class="c-num">0</span>;            <span class="c-comment">/* começa invisível */</span>
+  <span class="c-prop">height</span>: <span class="c-num">1px</span>;
+  <span class="c-prop">background</span>: <span class="c-var">var(--amber-bright)</span>;
+  <span class="c-prop">transition</span>: <span class="c-val">width 0.3s</span>; <span class="c-comment">/* animação suave */</span>
+}
+
+<span class="c-sel">.nav-links a:hover::after</span> {
+  <span class="c-prop">width</span>: <span class="c-num">100%</span>;          <span class="c-comment">/* no hover, a linha aparece */</span>
+}</pre></div>
+        </div>
+
+        <div class="alert alert-tip reveal">
+          <span class="alert-icon">✨</span>
+          <span>O efeito de <strong>sublinhado animado</strong> nos links do Pearl Jam usa <code>::after</code> + <code>width: 0</code> → <code>width: 100%</code> com <code>transition</code>. Um truque clássico e elegante do CSS!</span>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           VARIÁVEIS CSS
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" id="section-variaveis" style="padding: 80px 10%;">
+        <div class="section-tag">05 — Custom Properties</div>
+        <h2 class="section-title">Variáveis CSS</h2>
+        <p class="section-lead">Variáveis CSS (Custom Properties) permitem guardar valores reutilizáveis. Defina uma vez no <code>:root</code> e use em qualquer lugar com <code>var()</code>.</p>
+
+        <div class="analogy-box reveal">
+          <div class="analogy-label">🎸 No Pearl Jam</div>
+          <p>O <code>style.css</code> do site Pearl Jam começa com um bloco <code>:root { }</code> definindo toda a paleta de cores: desde o fundo escuro <code>--brown-dark: #1a0f07</code> até o dourado <code>--amber-bright: #e8963a</code>. Isso é um <strong>sistema de design em CSS puro</strong>.</p>
+        </div>
+
+        <div class="code-block reveal">
+          <div class="code-block-header">
+            <div class="code-block-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+            </div>
+            <div class="code-block-label">style.css — variáveis reais do site Pearl Jam</div>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <div class="code-block-body"><pre><span class="c-comment">/* :root = o elemento raiz (html) — variáveis ficam aqui */</span>
+<span class="c-sel">:root</span> {
+  <span class="c-comment">/* ── Paleta de cores ── */</span>
+  <span class="c-var">--brown-dark</span>: <span class="c-val">#1a0f07</span>;  <span class="c-comment">/* fundo mais escuro */</span>
+  <span class="c-var">--brown-deep</span>: <span class="c-val">#2c1a0e</span>;  <span class="c-comment">/* fundo intermediário */</span>
+  <span class="c-var">--brown-warm</span>: <span class="c-val">#8b4513</span>;  <span class="c-comment">/* tom marrom quente */</span>
+  <span class="c-var">--amber-bright</span>: <span class="c-val">#e8963a</span>; <span class="c-comment">/* dourado principal */</span>
+  <span class="c-var">--cream</span>: <span class="c-val">#f0e4c8</span>;        <span class="c-comment">/* texto claro */</span>
+  <span class="c-var">--text-body</span>: <span class="c-val">#d4c4a0</span>;    <span class="c-comment">/* texto geral */</span>
+}
+
+<span class="c-comment">/* Usando as variáveis → fácil de manter e mudar! */</span>
+<span class="c-sel">body</span> {
+  <span class="c-prop">background</span>: <span class="c-var">var(--brown-dark)</span>;
+  <span class="c-prop">color</span>: <span class="c-var">var(--text-body)</span>;
+}
+
+<span class="c-sel">.nav-logo</span> {
+  <span class="c-prop">color</span>: <span class="c-var">var(--amber-bright)</span>;
+}</pre></div>
+        </div>
+
+        <div class="practices-grid">
+          <div class="practice-card">
+            <div class="practice-icon">🔁</div>
+            <div class="practice-title">Reutilização</div>
+            <div class="practice-desc">Defina <code>--amber-bright: #e8963a</code> uma vez e use em dezenas de lugares. Para mudar a cor do site inteiro, basta alterar <strong>um único valor</strong>.</div>
+          </div>
+          <div class="practice-card">
+            <div class="practice-icon">📖</div>
+            <div class="practice-title">Legibilidade</div>
+            <div class="practice-desc"><code>color: var(--amber-bright)</code> é muito mais legível que <code>color: #e8963a</code>. O nome da variável documenta a <em>intenção</em>, não só o valor.</div>
+          </div>
+          <div class="practice-card">
+            <div class="practice-icon">🎭</div>
+            <div class="practice-title">Temas</div>
+            <div class="practice-desc">Com variáveis é fácil criar modo escuro/claro. Basta redefinir as variáveis em <code>:root.dark { }</code> e alternar com JavaScript.</div>
+          </div>
+          <div class="practice-card">
+            <div class="practice-icon">🧩</div>
+            <div class="practice-title">Herança</div>
+            <div class="practice-desc">Variáveis definidas em <code>:root</code> ficam disponíveis para todos os elementos. Você também pode sobrescrever em escopos menores, como <code>.dark-card { --bg: #000; }</code>.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           BOX MODEL
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" id="section-boxmodel" style="padding: 80px 10%;">
+        <div class="section-tag">06 — Box Model</div>
+        <h2 class="section-title">O Box Model</h2>
+        <p class="section-lead">Todo elemento HTML é uma caixa. O <strong>Box Model</strong> define as quatro camadas dessa caixa: <em>content, padding, border e margin</em>.</p>
+
+        <div class="box-model reveal">
+          <div class="bm-margin">
+            <span class="bm-label">margin</span>
+            <div class="bm-border">
+              <span class="bm-label">border</span>
+              <div class="bm-padding">
+                <span class="bm-label">padding</span>
+                <div class="bm-content">content</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <table class="styled-table reveal">
+          <thead>
+            <tr>
+              <th>Camada</th>
+              <th>O que é</th>
+              <th>Exemplo do Pearl Jam</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>content</code></td>
+              <td>O conteúdo em si (texto, imagem)</td>
+              <td>O texto "PEARL JAM" no hero</td>
+            </tr>
+            <tr>
+              <td><code>padding</code></td>
+              <td>Espaço interno entre conteúdo e borda</td>
+              <td><code>padding: 1rem 3rem</code> no <code>nav</code></td>
+            </tr>
+            <tr>
+              <td><code>border</code></td>
+              <td>A borda do elemento</td>
+              <td><code>border-bottom: 1px solid rgba(200,114,42,0.2)</code> no nav</td>
+            </tr>
+            <tr>
+              <td><code>margin</code></td>
+              <td>Espaço externo entre elementos</td>
+              <td><code>margin-bottom: 1rem</code> no <code>.footer-brand-name</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="code-block reveal">
+          <div class="code-block-header">
+            <div class="code-block-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+            </div>
+            <div class="code-block-label">style.css — box model no nav do Pearl Jam</div>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <div class="code-block-body"><pre><span class="c-comment">/* Reset global — remove margens e paddings padrão */</span>
+<span class="c-sel">*,
+*::before,
+*::after</span> {
+  <span class="c-prop">box-sizing</span>: <span class="c-val">border-box</span>; <span class="c-comment">/* border e padding ficam DENTRO da largura */</span>
+  <span class="c-prop">margin</span>: <span class="c-num">0</span>;
+  <span class="c-prop">padding</span>: <span class="c-num">0</span>;
+}
+
+<span class="c-sel">nav</span> {
+  <span class="c-prop">padding</span>: <span class="c-num">1rem 3rem</span>;          <span class="c-comment">/* padding: vertical horizontal */</span>
+  <span class="c-prop">border-bottom</span>: <span class="c-num">1px</span> <span class="c-val">solid</span> <span class="c-val">rgba(200, 114, 42, 0.2)</span>;
+}
+
+<span class="c-sel">.btn</span> {
+  <span class="c-prop">padding</span>: <span class="c-num">0.9rem 2rem</span>;
+  <span class="c-prop">border</span>: <span class="c-num">1px</span> <span class="c-val">solid</span> <span class="c-var">var(--brown-amber)</span>;
+}</pre></div>
+        </div>
+
+        <div class="alert alert-warn reveal">
+          <span class="alert-icon">⚠️</span>
+          <span><strong>box-sizing: border-box</strong> é fundamental! Por padrão, <code>width: 200px</code> + <code>padding: 20px</code> resultaria em 240px. Com <code>border-box</code>, o elemento fica em 200px. O Pearl Jam aplica isso globalmente com <code>* { box-sizing: border-box }</code>.</span>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           FLEXBOX E GRID
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" id="section-layout" style="padding: 80px 10%;">
+        <div class="section-tag">07 — Layout</div>
+        <h2 class="section-title">Flexbox e Grid</h2>
+        <p class="section-lead">Os dois sistemas modernos de layout do CSS. O <strong>Flexbox</strong> organiza itens em uma dimensão (linha ou coluna). O <strong>Grid</strong> organiza em duas dimensões (linhas e colunas).</p>
+
+        <h3 style="font-size:22px; font-weight:800; color:var(--ink); margin: 32px 0 16px; font-family:'Fraunces',serif;">Flexbox</h3>
+
+        <div class="demo-box reveal">
+          <div class="demo-title">display: flex — como o nav do Pearl Jam</div>
+          <div class="flex-demo">
+            <div class="flex-item">Logo</div>
+            <div class="flex-item" style="margin-left:auto;">Links</div>
+            <div class="flex-item">CTA</div>
+          </div>
+        </div>
+
+        <div class="code-block reveal">
+          <div class="code-block-header">
+            <div class="code-block-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+            </div>
+            <div class="code-block-label">style.css — Flexbox no nav do Pearl Jam</div>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <div class="code-block-body"><pre><span class="c-sel">nav</span> {
+  <span class="c-prop">display</span>: <span class="c-val">flex</span>;                  <span class="c-comment">/* ativa o flexbox */</span>
+  <span class="c-prop">align-items</span>: <span class="c-val">center</span>;           <span class="c-comment">/* alinha verticalmente ao centro */</span>
+  <span class="c-prop">justify-content</span>: <span class="c-val">space-between</span>; <span class="c-comment">/* logo na esq, links na dir */</span>
+}
+
+<span class="c-sel">.hero-buttons</span> {
+  <span class="c-prop">display</span>: <span class="c-val">flex</span>;
+  <span class="c-prop">gap</span>: <span class="c-num">1rem</span>;             <span class="c-comment">/* espaço entre os botões */</span>
+  <span class="c-prop">flex-wrap</span>: <span class="c-val">wrap</span>;     <span class="c-comment">/* quebra linha no mobile */</span>
+  <span class="c-prop">justify-content</span>: <span class="c-val">center</span>;
+}
+
+<span class="c-sel">.nav-links</span> {
+  <span class="c-prop">display</span>: <span class="c-val">flex</span>;
+  <span class="c-prop">gap</span>: <span class="c-num">2.5rem</span>;
+  <span class="c-prop">list-style</span>: <span class="c-val">none</span>;
+}</pre></div>
+        </div>
+
+        <h3 style="font-size:22px; font-weight:800; color:var(--ink); margin: 40px 0 16px; font-family:'Fraunces',serif;">Grid</h3>
+
+        <div class="demo-box reveal">
+          <div class="demo-title">display: grid — como o grid de álbuns do Pearl Jam</div>
+          <div class="grid-demo">
+            <div class="grid-item">Ten (1991)</div>
+            <div class="grid-item">Vs. (1993)</div>
+            <div class="grid-item">Vitalogy (1994)</div>
+            <div class="grid-item">No Code (1996)</div>
+            <div class="grid-item">Yield (1998)</div>
+            <div class="grid-item">Binaural (2000)</div>
+          </div>
+        </div>
+
+        <div class="code-block reveal">
+          <div class="code-block-header">
+            <div class="code-block-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+            </div>
+            <div class="code-block-label">style.css — Grid no cards de álbuns do Pearl Jam</div>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <div class="code-block-body"><pre><span class="c-sel">.cards-grid</span> {
+  <span class="c-prop">display</span>: <span class="c-val">grid</span>;
+  <span class="c-prop">grid-template-columns</span>: <span class="c-val">repeat(auto-fill, minmax(260px, 1fr))</span>;
+  <span class="c-comment">/*
+    auto-fill → cria quantas colunas couberem
+    minmax(260px, 1fr) → mínimo 260px, máximo proporcional
+    Resultado: grid responsivo sem media query!
+  */</span>
+  <span class="c-prop">gap</span>: <span class="c-num">1.5rem</span>;
+  <span class="c-prop">margin-top</span>: <span class="c-num">3rem</span>;
+}
+
+<span class="c-sel">.stats-grid</span> {
+  <span class="c-prop">display</span>: <span class="c-val">grid</span>;
+  <span class="c-prop">grid-template-columns</span>: <span class="c-val">repeat(4, 1fr)</span>; <span class="c-comment">/* sempre 4 colunas iguais */</span>
+  <span class="c-prop">gap</span>: <span class="c-num">2rem</span>;
+}</pre></div>
+        </div>
+
+        <div class="msg-grid reveal">
+          <div class="msg-card css-blue">
+            <div class="msg-badge">Flexbox</div>
+            <div class="msg-title">Quando usar?</div>
+            <div class="msg-desc">Para layouts em <strong>uma direção</strong>: menus de navegação, listas de botões, alinhamento de itens lado a lado ou em coluna.</div>
+          </div>
+          <div class="msg-card css-purple">
+            <div class="msg-badge">Grid</div>
+            <div class="msg-title">Quando usar?</div>
+            <div class="msg-desc">Para layouts em <strong>duas direções</strong>: galerias de cards, layout de página completo, footer com colunas, tabelas visuais.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           RESPONSIVIDADE
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" id="section-responsive" style="padding: 80px 10%;">
+        <div class="section-tag">08 — Responsividade</div>
+        <h2 class="section-title">Media Queries</h2>
+        <p class="section-lead">Media Queries permitem aplicar estilos diferentes dependendo do tamanho da tela. É assim que o site do Pearl Jam funciona bem tanto no computador quanto no celular.</p>
+
+        <div class="code-block reveal">
+          <div class="code-block-header">
+            <div class="code-block-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+            </div>
+            <div class="code-block-label">style.css — Media Queries reais do Pearl Jam</div>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <div class="code-block-body"><pre><span class="c-comment">/* Estilos padrão: para desktop */</span>
+<span class="c-sel">nav</span> {
+  <span class="c-prop">padding</span>: <span class="c-num">1rem 3rem</span>;
+}
+<span class="c-sel">.nav-links</span> {
+  <span class="c-prop">display</span>: <span class="c-val">flex</span>;   <span class="c-comment">/* links visíveis no desktop */</span>
+}
+<span class="c-sel">.hamburger</span> {
+  <span class="c-prop">display</span>: <span class="c-val">none</span>;  <span class="c-comment">/* menu hamburger escondido */</span>
+}
+
+<span class="c-comment">/* A partir de 768px de largura (mobile): */</span>
+<span class="c-at">@media</span> (<span class="c-prop">max-width</span>: <span class="c-num">768px</span>) {
+  <span class="c-sel">nav</span> {
+    <span class="c-prop">padding</span>: <span class="c-num">1rem 1.5rem</span>; <span class="c-comment">/* menos padding no mobile */</span>
+  }
+  <span class="c-sel">.nav-links</span> {
+    <span class="c-prop">display</span>: <span class="c-val">none</span>;         <span class="c-comment">/* esconde os links */</span>
+  }
+  <span class="c-sel">.hamburger</span> {
+    <span class="c-prop">display</span>: <span class="c-val">flex</span>;         <span class="c-comment">/* mostra ☰ hamburger */</span>
+  }
+  <span class="c-sel">.stats-grid</span> {
+    <span class="c-prop">grid-template-columns</span>: <span class="c-val">repeat(2, 1fr)</span>; <span class="c-comment">/* 4 → 2 colunas */</span>
+  }
+  <span class="c-sel">.footer-top</span> {
+    <span class="c-prop">grid-template-columns</span>: <span class="c-val">1fr 1fr</span>; <span class="c-comment">/* 4 → 2 colunas */</span>
+  }
+}</pre></div>
+        </div>
+
+        <div class="steps-list">
+          <div class="step-item reveal-step">
+            <div class="step-num-wrap">
+              <div class="step-num">1</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">Mobile-first vs Desktop-first</div>
+              <div class="step-desc">O Pearl Jam usa <strong>desktop-first</strong>: estilos padrão para desktop, com <code>max-width</code> sobrescrevendo para mobile. A abordagem oposta (mobile-first) usa <code>min-width</code> e é atualmente recomendada para projetos novos.</div>
+            </div>
+          </div>
+          <div class="step-item reveal-step">
+            <div class="step-num-wrap">
+              <div class="step-num">2</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">Breakpoints comuns</div>
+              <div class="step-desc">
+                <code>max-width: 480px</code> — celular pequeno <br>
+                <code>max-width: 768px</code> — tablet / celular grande (Pearl Jam usa este) <br>
+                <code>max-width: 1024px</code> — tablet landscape / laptop pequeno
+              </div>
+            </div>
+          </div>
+          <div class="step-item reveal-step">
+            <div class="step-num-wrap">
+              <div class="step-num">3</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">clamp() — responsivo sem media query</div>
+              <div class="step-desc">O Pearl Jam usa <code>font-size: clamp(5rem, 15vw, 12rem)</code> no título principal. <code>clamp(mínimo, preferido, máximo)</code> cria tamanhos fluidos que se adaptam à tela automaticamente.</div>
+              <div class="code-block" style="margin-top: 12px;">
+                <div class="code-block-header">
+                  <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+                  <div class="code-block-label">clamp() no Pearl Jam</div>
+                </div>
+                <div class="code-block-body"><pre><span class="c-sel">.hero-title</span> {
+  <span class="c-prop">font-size</span>: <span class="c-val">clamp(5rem, 15vw, 12rem)</span>;
+  <span class="c-comment">/*
+    mínimo: 5rem (celular)
+    preferido: 15vw (flui com a tela)
+    máximo: 12rem (desktop grande)
+  */</span>
+}</pre></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           GLOSSÁRIO
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" style="padding: 80px 10%;">
+        <div class="section-tag">📖 Glossário</div>
+        <h2 class="section-title">Termos Essenciais</h2>
+        <p class="section-lead">Conceitos fundamentais que você vai encontrar em qualquer projeto CSS profissional.</p>
+
+        <div class="glossary-grid reveal">
+          <div class="glossary-item">
+            <div class="glossary-term">cascade</div>
+            <div class="glossary-def">A "cascata" do CSS — regras de maior especificidade ou mais abaixo no arquivo prevalecem sobre as anteriores.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">specificity</div>
+            <div class="glossary-def">Peso de um seletor. IDs > classes > tags. Determina qual regra vence quando há conflito.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">custom property</div>
+            <div class="glossary-def">Variável CSS. Definida com <code>--nome: valor</code>, usada com <code>var(--nome)</code>. Essencial para sistemas de design.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">box model</div>
+            <div class="glossary-def">As quatro camadas de todo elemento: content, padding, border e margin.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">flexbox</div>
+            <div class="glossary-def">Layout unidimensional (linha ou coluna). Ideal para menus, alinhamentos e distribuição de espaço.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">grid</div>
+            <div class="glossary-def">Layout bidimensional (linhas e colunas). Ideal para galerias, layouts de página e estruturas complexas.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">media query</div>
+            <div class="glossary-def">Regra condicional que aplica estilos apenas em determinado tamanho de tela. Base da responsividade.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">pseudo-elemento</div>
+            <div class="glossary-def">Elemento virtual criado via CSS (<code>::before</code>, <code>::after</code>). Permite adicionar conteúdo sem HTML.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">transition</div>
+            <div class="glossary-def">Animação suave entre dois estados CSS. <code>transition: color 0.3s</code> anima a mudança de cor em 300ms.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">clamp()</div>
+            <div class="glossary-def">Função CSS que define mínimo, valor fluido e máximo. Cria tamanhos responsivos sem media queries.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           DESAFIO
+      ══════════════════════════════════════════════════ -->
+      <section class="content-section" style="padding: 80px 10%;">
+        <div class="section-tag">🚀 Prática</div>
+        <h2 class="section-title">Desafio da Aula</h2>
+
+        <div class="challenge-box reveal">
+          <h3>🎨 Estilize sua página Pearl Jam</h3>
+          <p>Agora que você tem o HTML criado na Aula 02, crie um arquivo <code>style.css</code> e conecte ao seu <code>index.html</code>. Use tudo que aprendeu hoje:</p>
+        </div>
+
+        <div class="steps-list">
+          <div class="step-item reveal-step">
+            <div class="step-num-wrap"><div class="step-num">1</div><div class="step-line"></div></div>
+            <div class="step-content">
+              <div class="step-title">Crie o arquivo style.css e defina variáveis</div>
+              <div class="step-desc">Comece com um bloco <code>:root { }</code> definindo pelo menos 5 cores do seu tema. Use nomes descritivos como <code>--bg-dark</code>, <code>--accent</code>, <code>--text</code>.</div>
+            </div>
+          </div>
+          <div class="step-item reveal-step">
+            <div class="step-num-wrap"><div class="step-num">2</div><div class="step-line"></div></div>
+            <div class="step-content">
+              <div class="step-title">Aplique reset e estilos base</div>
+              <div class="step-desc">Use <code>* { box-sizing: border-box; margin: 0; padding: 0; }</code> e defina <code>body { font-family: ...; background: ...; color: ...; }</code>.</div>
+            </div>
+          </div>
+          <div class="step-item reveal-step">
+            <div class="step-num-wrap"><div class="step-num">3</div><div class="step-line"></div></div>
+            <div class="step-content">
+              <div class="step-title">Estilize a navegação com Flexbox</div>
+              <div class="step-desc">Use <code>display: flex; justify-content: space-between;</code> para posicionar logo e links nas extremidades.</div>
+            </div>
+          </div>
+          <div class="step-item reveal-step">
+            <div class="step-num-wrap"><div class="step-num">4</div><div class="step-line"></div></div>
+            <div class="step-content">
+              <div class="step-title">Crie o grid de álbuns</div>
+              <div class="step-desc">Use <code>display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));</code> para criar um grid responsivo de álbuns.</div>
+            </div>
+          </div>
+          <div class="step-item reveal-step">
+            <div class="step-num-wrap"><div class="step-num">5</div><div class="step-line"></div></div>
+            <div class="step-content">
+              <div class="step-title">Adicione uma media query</div>
+              <div class="step-desc">Use <code>@media (max-width: 768px)</code> para adaptar o layout ao celular: coluna única, menu escondido, paddings menores.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-info reveal">
+          <span class="alert-icon">💡</span>
+          <span>Abra o <strong>DevTools</strong> do navegador (F12) → aba <em>Elements</em>. Clique em qualquer elemento e veja as regras CSS aplicadas no painel direito. Você consegue editar as propriedades ao vivo!</span>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           QUIZ
+      ══════════════════════════════════════════════════ -->
+      <section class="quiz-section" id="quiz-section">
+        <div class="section-tag">🧠 Quiz</div>
+        <h2 class="section-title" style="margin-bottom:40px;">Teste seu conhecimento</h2>
+
+        <!-- Q1 -->
+        <div class="quiz-card" id="q1">
+          <div class="quiz-num">Questão 01 / 05</div>
+          <div class="quiz-question">No <code>style.css</code> do Pearl Jam, encontramos <code>color: var(--amber-bright)</code>. O que isso significa?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="answer(this,'q1',false,'Incorreto. var() não é uma tag HTML e sim uma função CSS que acessa o valor de uma variável definida com -- (custom property).')">
+              <span class="opt-letter">A</span> É uma tag HTML especial para cores douradas.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q1',false,'Incorreto. var() não é uma função JavaScript. É uma função CSS nativa que lê o valor de uma variável CSS (custom property).')">
+              <span class="opt-letter">B</span> É uma função JavaScript que calcula a cor.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q1',true,'Correto! var(--amber-bright) acessa o valor da variável CSS --amber-bright definida em :root { --amber-bright: #e8963a }. É a forma de reutilizar valores no CSS sem repetir o código.')">
+              <span class="opt-letter">C</span> Usa o valor da variável CSS <code>--amber-bright</code> definida em <code>:root</code>.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q1',false,'Incorreto. --amber-bright não é um nome de cor pré-definido. Cores pré-definidas em CSS são palavras como red, blue, gold. Aqui é uma variável customizada criada pelo desenvolvedor.')">
+              <span class="opt-letter">D</span> Usa uma cor pré-definida chamada "amber-bright" do CSS.
+            </div>
+          </div>
+          <div class="quiz-feedback" id="q1-fb"></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-card" id="q2">
+          <div class="quiz-num">Questão 02 / 05</div>
+          <div class="quiz-question">O Pearl Jam usa <code>display: flex</code> no <code>nav</code>. O que essa propriedade faz?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="answer(this,'q2',false,'Incorreto. display: flex não torna o elemento invisível. Para esconder, usaríamos display: none. O flex ativa o Flexbox, que organiza os filhos em linha ou coluna.')">
+              <span class="opt-letter">A</span> Torna o elemento invisível na página.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q2',true,'Correto! display: flex ativa o Flexbox no elemento, transformando seus filhos diretos em flex-items. Isso permite alinhar e distribuir o espaço entre logo, links e o botão CTA no nav do Pearl Jam.')">
+              <span class="opt-letter">B</span> Ativa o Flexbox, permitindo alinhar e distribuir os filhos do elemento.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q2',false,'Incorreto. display: flex não deixa o elemento flutuante. Para flutuar, usaríamos float: left ou float: right — uma técnica mais antiga e não recomendada para layouts modernos.')">
+              <span class="opt-letter">C</span> Faz o elemento flutuar ao lado de outros.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q2',false,'Incorreto. display: flex não cria duas colunas automaticamente. Para criar grid de duas colunas, usaríamos display: grid com grid-template-columns: 1fr 1fr.')">
+              <span class="opt-letter">D</span> Divide o elemento automaticamente em duas colunas.
+            </div>
+          </div>
+          <div class="quiz-feedback" id="q2-fb"></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-card" id="q3">
+          <div class="quiz-num">Questão 03 / 05</div>
+          <div class="quiz-question">O Pearl Jam usa <code>* { box-sizing: border-box }</code>. Por que isso é importante?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="answer(this,'q3',false,'Incorreto. box-sizing não é relacionado a animações. Para animar, usamos transition ou animation. box-sizing controla como a largura/altura é calculada.')">
+              <span class="opt-letter">A</span> Para criar animações nos elementos.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q3',false,'Incorreto. border-box não esconde as bordas — isso seria feito com border: none. border-box muda o modelo de cálculo de dimensões para incluir padding e border no tamanho declarado.')">
+              <span class="opt-letter">B</span> Para esconder as bordas dos elementos.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q3',false,'Incorreto. border-box não centraliza o conteúdo. Para centralizar texto, usamos text-align: center; para centralizar elementos, usamos margin: 0 auto ou flexbox.')">
+              <span class="opt-letter">C</span> Para centralizar o conteúdo dentro dos elementos.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q3',true,'Correto! Com border-box, o padding e a border ficam DENTRO da largura/altura declarada. Sem isso, um elemento com width: 200px e padding: 20px ficaria com 240px de largura total. Com border-box, fica exatamente 200px — muito mais previsível!')">
+              <span class="opt-letter">D</span> Para que padding e border sejam incluídos dentro da largura declarada.
+            </div>
+          </div>
+          <div class="quiz-feedback" id="q3-fb"></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-card" id="q4">
+          <div class="quiz-num">Questão 04 / 05</div>
+          <div class="quiz-question">No CSS do Pearl Jam: <code>.cards-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) }</code>. O que <code>auto-fill</code> faz?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="answer(this,'q4',true,'Correto! auto-fill faz o grid criar automaticamente quantas colunas couberem no espaço disponível, respeitando o tamanho mínimo de 260px. Em uma tela larga cabe mais colunas, em uma tela estreita menos — sem nenhuma media query!')">
+              <span class="opt-letter">A</span> Cria automaticamente quantas colunas couberem no espaço disponível.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q4',false,'Incorreto. auto-fill não preenche automaticamente com dados. O "fill" se refere a preencher o espaço com colunas, não com conteúdo. Os dados continuam vindo do HTML.')">
+              <span class="opt-letter">B</span> Preenche automaticamente as células com dados.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q4',false,'Incorreto. auto-fill não define o número de colunas como fixo em 4. Para isso usaríamos repeat(4, 1fr). O auto-fill é dinâmico e depende do tamanho da tela.')">
+              <span class="opt-letter">C</span> Define exatamente 4 colunas no grid.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q4',false,'Incorreto. auto-fill não apaga o conteúdo que não cabe. O conteúdo extra simplesmente vai para a próxima linha. O auto-fill decide quantas colunas existem em cada linha.')">
+              <span class="opt-letter">D</span> Apaga automaticamente o conteúdo que não couber.
+            </div>
+          </div>
+          <div class="quiz-feedback" id="q4-fb"></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-card" id="q5">
+          <div class="quiz-num">Questão 05 / 05</div>
+          <div class="quiz-question">O Pearl Jam usa <code>@media (max-width: 768px) { .nav-links { display: none } }</code>. O que acontece?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="answer(this,'q5',false,'Incorreto. Os links são escondidos, não a nav inteira. A nav continua existindo, mas os links ficam invisíveis. Em compensação, o hamburger (☰) aparece com display: flex.')">
+              <span class="opt-letter">A</span> Toda a navegação é removida do HTML.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q5',false,'Incorreto. max-width: 768px aplica o estilo em telas de até 768px, ou seja, celulares e tablets. Em desktops maiores que 768px, este bloco é ignorado.')">
+              <span class="opt-letter">B</span> Os links somem apenas em telas maiores que 768px.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q5',true,'Correto! Em telas com no máximo 768px de largura (celulares e tablets), os links da nav ficam ocultos (display: none). Para compensar, o hamburguer (☰) aparece. Isso é responsividade: adaptar o layout ao tamanho da tela do usuário.')">
+              <span class="opt-letter">C</span> Em telas de até 768px (celulares/tablets), os links ficam ocultos.
+            </div>
+            <div class="quiz-opt" onclick="answer(this,'q5',false,'Incorreto. display: none oculta o elemento mas não o apaga do HTML. Se inspecionar o código no DevTools, o elemento ainda está lá — apenas invisível. Para remover do HTML seria preciso JavaScript.')">
+              <span class="opt-letter">D</span> Os links são apagados permanentemente do HTML.
+            </div>
+          </div>
+          <div class="quiz-feedback" id="q5-fb"></div>
+        </div>
+
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           PRÓXIMA AULA
+      ══════════════════════════════════════════════════ -->
+      <section class="nc-section" id="section-next">
+        <div class="nc-wrapper">
+          <div class="nc-left">
+            <div class="nc-tag">Próxima Aula</div>
+            <h2 class="nc-title">Introdução ao JavaScript</h2>
+            <ul class="nc-list">
+              <li class="nc-item">
+                <span class="nc-bullet">•</span>
+                <span><strong>O que é JavaScript e como funciona</strong> — a linguagem que dá comportamento ao HTML. Variáveis, funções e eventos.</span>
+              </li>
+              <li class="nc-item">
+                <span class="nc-bullet">•</span>
+                <span><strong>Manipulação do DOM</strong> — como o Pearl Jam usa <code>document.getElementById('sidebar').classList.toggle('open')</code> para abrir o menu.</span>
+              </li>
+              <li class="nc-item">
+                <span class="nc-bullet">•</span>
+                <span><strong>Eventos e interatividade</strong> — responder a cliques, scrolls e teclado. Vamos animar a barra de progresso da página.</span>
+              </li>
+              <li class="nc-item">
+                <span class="nc-bullet">•</span>
+                <span><strong>IntersectionObserver</strong> — fazer elementos aparecerem com animação ao entrar na tela, como nos cards do site Pearl Jam.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nc-right">
+            <div class="nc-glow"></div>
+            <div class="nc-commit-wrap" style="z-index:2;position:relative;">
+              <svg viewBox="0 0 300 300" width="300" height="300">
+                <rect x="30" y="30" width="240" height="240" rx="20" fill="none" stroke="rgba(249,115,22,0.3)" stroke-width="1.5"/>
+                <text x="150" y="80"  text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(249,115,22,0.5)">function toggleMenu() {</text>
+                <text x="150" y="108" text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(88,166,255,0.6)">  const sidebar =</text>
+                <text x="150" y="132" text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(88,166,255,0.6)">  document.getElementById</text>
+                <text x="150" y="156" text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(88,166,255,0.5)">    ('sidebar');</text>
+                <text x="150" y="184" text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(188,140,255,0.6)">  sidebar.classList</text>
+                <text x="150" y="208" text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(188,140,255,0.6)">    .toggle('open');</text>
+                <text x="150" y="236" text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(249,115,22,0.5)">}</text>
+                <text x="150" y="268" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="rgba(249,115,22,0.7)" letter-spacing="4">JS</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+           PROFESSOR
+      ══════════════════════════════════════════════════ -->
+      <section class="teacher-section" id="section-teacher">
+        <div class="teacher-inner">
+          <div class="teacher-avatar-wrap">
+            <div class="teacher-avatar">
+              <img src="https://andersondutra7.github.io/Projetos-WEB/imagens/slide.png" alt="Anderson Dutra" />
+            </div>
+          </div>
+          <div class="teacher-info">
+            <div class="teacher-label">Professor</div>
+            <h4>Anderson Raulino Dutra</h4>
+            <p>Desenvolvedor Web Fullstack &amp; Professor</p>
+            <div class="teacher-skills">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Node.js</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════════════════════
+         JAVASCRIPT
+    ══════════════════════════════════════════════════ -->
+    <script>
+      // ── PROGRESS BAR ──
+      window.addEventListener('scroll', () => {
+        const total = document.body.scrollHeight - window.innerHeight;
+        const pct   = (window.scrollY / total) * 100;
+        document.getElementById('progress-bar').style.width = pct + '%';
+      });
+
+      // ── MENU TOGGLE ──
+      function toggleMenu() {
+        document.getElementById('sidebar').classList.toggle('open');
+        document.getElementById('overlay').classList.toggle('show');
+      }
+
+      // ── QUIZ ──
+      function answer(btn, qid, correct, explanation) {
+        const container = document.getElementById(qid);
+        const fb        = document.getElementById(qid + '-fb');
+
+        if (container.querySelector('.correct, .wrong')) return;
+
+        container.querySelectorAll('.quiz-opt').forEach((o) => o.classList.add('disabled'));
+        btn.classList.add(correct ? 'correct' : 'wrong');
+
+        if (!correct) {
+          container.querySelectorAll('.quiz-opt').forEach((o) => {
+            if (o.getAttribute('onclick').includes('true')) o.classList.add('correct');
+          });
+        }
+
+        fb.textContent = (correct ? '✅ ' : '❌ ') + explanation;
+        fb.className   = 'quiz-feedback show ' + (correct ? 'ok' : 'fail');
+      }
+
+      // ── COPY CODE ──
+      function copyCode(btn) {
+        const pre  = btn.closest('.code-block').querySelector('pre');
+        const text = pre.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          const original = btn.textContent;
+          btn.textContent = 'Copiado!';
+          btn.style.color = '#58a6ff';
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.style.color = '';
+          }, 1500);
+        });
+      }
+
+      // ── SCROLL REVEAL ──
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        }),
+        { threshold: 0.12 }
+      );
+
+      document.querySelectorAll('.practice-card').forEach((el, i) => {
+        el.style.transitionDelay = i * 0.07 + 's';
+        io.observe(el);
+      });
+
+      document.querySelectorAll('.step-item.reveal-step').forEach((el, i) => {
+        el.style.transitionDelay = i * 0.1 + 's';
+        io.observe(el);
+      });
+
+      document.querySelectorAll('.reveal').forEach((el) => {
+        io.observe(el);
+      });
+
+      // ── SPECIFICITY BARS ANIMATION ──
+      const specIO = new IntersectionObserver(
+        (entries) => entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.querySelectorAll('.spec-bar').forEach((bar) => {
+              bar.style.width = bar.getAttribute('data-width');
+            });
+            specIO.unobserve(e.target);
+          }
+        }),
+        { threshold: 0.3 }
+      );
+      const specChart = document.getElementById('spec-chart');
+      if (specChart) specIO.observe(specChart);
+
+      // ── ACTIVE NAV ──
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-item');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach((s) => {
+          if (window.scrollY >= s.offsetTop - 200) current = s.id;
+        });
+        navLinks.forEach((l) =>
+          l.classList.toggle('active', l.getAttribute('href') === '#' + current)
+        );
+      });
+    </script>
+  </body>
+</html>
