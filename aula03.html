@@ -967,7 +967,7 @@
 
         <a class="nav-item" href="#section-performance" onclick="toggleMenu()">
           <span class="nav-icon">🚀</span>
-          SEO Visual e Performance
+          SEO
           <span class="nav-num">15</span>
         </a>
 
@@ -5737,6 +5737,54 @@ padding:10px 0;
       </div>
     </div>
   </div>
+
+  <!-- ── Demos visuais ── -->
+<h3 class="subtitle" style="margin-top:40px;">Demos <span style="color:var(--wood);">visuais</span></h3>
+<p class="text">
+  Veja os padrões mais usados de <code>grid-template-columns</code> e
+  posicionamento de itens em ação:
+</p>
+
+<div class="flex-demo">
+  <div class="flex-demo-label">grid-template-columns: repeat(3, 1fr) + gap: 8px</div>
+  <div class="flex-demo-inner" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+    <div class="flex-item">Item 1</div>
+    <div class="flex-item">Item 2</div>
+    <div class="flex-item">Item 3</div>
+    <div class="flex-item">Item 4</div>
+    <div class="flex-item">Item 5</div>
+    <div class="flex-item">Item 6</div>
+  </div>
+</div>
+
+<div class="flex-demo">
+  <div class="flex-demo-label">grid-template-columns: 280px 1fr (sidebar + conteúdo)</div>
+  <div class="flex-demo-inner" style="display:grid;grid-template-columns:280px 1fr;gap:8px;">
+    <div class="flex-item">Sidebar</div>
+    <div class="flex-item">Conteúdo principal</div>
+  </div>
+</div>
+
+<div class="flex-demo">
+  <div class="flex-demo-label">grid-column: span 3 (item ocupa a linha toda)</div>
+  <div class="flex-demo-inner" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+    <div class="flex-item" style="grid-column:span 3;">Destaque — span 3</div>
+    <div class="flex-item">Item 1</div>
+    <div class="flex-item">Item 2</div>
+    <div class="flex-item">Item 3</div>
+  </div>
+</div>
+
+<div class="flex-demo">
+  <div class="flex-demo-label">repeat(auto-fill, minmax(120px, 1fr)) — responsivo automático</div>
+  <div class="flex-demo-inner" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;">
+    <div class="flex-item">Card 1</div>
+    <div class="flex-item">Card 2</div>
+    <div class="flex-item">Card 3</div>
+    <div class="flex-item">Card 4</div>
+    <div class="flex-item">Card 5</div>
+  </div>
+</div>
 
   <!-- ── Posicionamento dos itens ── -->
   <h3 class="subtitle" style="margin-top:40px;">Posicionando <span style="color:var(--wood);">itens</span> na grade</h3>
@@ -11423,434 +11471,2960 @@ picture</span> {
 
 </section>
 
-      <!-- ══════════════════════════════════════════════════
-           SEÇÃO 14 — VARIÁVEIS CSS
-      ══════════════════════════════════════════════════ -->
-      <section class="content-section" id="section-variaveis">
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 14 — VARIÁVEIS CSS E ORGANIZAÇÃO
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-variaveis" style="background: var(--bg);">
 
-        <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
-          <div class="cover-text">
-            <div class="section-tag">Seção 14</div>
-            <h2 class="section-title">Variáveis CSS e <span style="color:var(--wood);">Organização</span></h2>
-            <p class="section-lead">
-              Variáveis CSS (Custom Properties) são um divisor de águas na organização de projetos. Elas permitem definir valores reutilizáveis, criar temas e manter consistência em todo o sistema.
-            </p>
+  <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
+    <div class="cover-text">
+      <div class="section-tag">Seção 14</div>
+      <h2 style="font-size:clamp(2.5rem,4vw,3.5rem);line-height:1.1;margin-bottom:1rem;color:var(--ink);font-family:'Fraunces',serif;">
+        Variáveis CSS e<br />
+        <span style="color:var(--wood);">Organização</span>
+      </h2>
+      <p class="cover-subtitle" style="font-size:1.1rem;line-height:1.6;">
+        Variáveis CSS transformam folhas de estilo caóticas em sistemas coesos.
+        Com uma única alteração no <code>:root</code>, você muda a cor principal
+        do projeto inteiro — sem busca e substituição, sem risco de esquecer um valor.
+        É a base de qualquer <strong>arquitetura visual profissional</strong>.
+      </p>
+    </div>
+    <div class="nc-right">
+      <div class="nc-glow"></div>
+      <img
+        src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/css14.png"
+        alt="Variáveis CSS"
+        onerror="this.style.display='none';"
+        style="width:640px;height:700px;object-fit:cover;object-position:center;box-shadow:0 10px 30px rgba(0,0,0,0.5),0 0 20px rgba(88,166,255,0.2);border:1px solid rgba(88,166,255,0.3);transition:transform 0.3s ease;"
+      />
+    </div>
+  </div>
+
+  <!-- ── O que são variáveis CSS ── -->
+  <h3 class="subtitle">O que são <span style="color:var(--wood);">variáveis CSS</span>?</h3>
+  <p class="text">
+    Variáveis CSS — oficialmente chamadas de <em>custom properties</em> — são valores
+    nomeados que você define uma vez e reutiliza em qualquer lugar da folha de estilo.
+    Elas sempre começam com dois hífens (<code>--nome</code>) e são lidas com a função
+    <code>var()</code>.
+  </p>
+  <p class="text">
+    Diferente das variáveis de pré-processadores como Sass ou Less, as variáveis CSS
+    são <strong>nativas do navegador</strong> — funcionam sem ferramentas extras,
+    podem ser alteradas com JavaScript em tempo real e respeitam a cascata do CSS,
+    podendo ter valores diferentes em contextos diferentes.
+  </p>
+
+  <!-- ── Onde declarar ── -->
+  <h3 class="subtitle" style="margin-top:40px;">Onde <span style="color:var(--wood);">declarar</span> as variáveis</h3>
+  <p class="text">
+    Variáveis CSS têm escopo: elas só estão disponíveis no elemento onde foram declaradas
+    e em seus descendentes. Por isso, o lugar mais comum para variáveis globais é o
+    seletor <code>:root</code> — ele representa o elemento raiz do documento e garante
+    que as variáveis estejam acessíveis em todo o CSS:
+  </p>
+
+  <div
+    class="msg-grid"
+    style="margin:24px 2%;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;"
+  >
+
+    <div class="msg-card git-blue">
+      <div class="msg-badge">:root</div>
+      <div class="msg-title">Variáveis globais</div>
+      <div class="msg-desc">
+        Declaradas em <code>:root</code>, ficam disponíveis em
+        <strong>todo o documento</strong>. É o lugar certo para cores, tipografia, espaçamentos, sombras e outros tokens reutilizados em todo o projeto.
+        Funciona como um arquivo de configuração do design.
+      </div>
+    </div>
+
+    <div class="msg-card git-green">
+      <div class="msg-badge">Escopo local</div>
+      <div class="msg-title">Variáveis de componente</div>
+      <div class="msg-desc">
+        Declaradas em um seletor específico, ficam disponíveis
+        <strong>apenas naquele componente e seus filhos</strong>.
+        Útil para variantes de um mesmo componente — um botão primário e um
+        secundário que compartilham a mesma estrutura, mas com cores diferentes.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Reutilização e consistência ── -->
+  <h3 class="subtitle" style="margin-top:40px;"><span style="color:var(--wood);">Reutilização</span> e consistência</h3>
+  <p class="text">
+    O maior benefício das variáveis não é a praticidade — é a
+    <strong>consistência forçada</strong>. Quando todas as cores do projeto
+    vêm de variáveis nomeadas, fica impossível usar um azul levemente diferente
+    por descuido. O design system inteiro passa a ser controlado em um único lugar:
+  </p>
+
+  <div
+    class="msg-grid"
+    style="margin:24px 2%;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;"
+  >
+
+    <div class="msg-card git-gold">
+      <div class="msg-badge">Sem variáveis</div>
+      <div class="msg-title">Valores espalhados</div>
+      <div class="msg-desc">
+        <code>#1a73e8</code> aparece em 40 lugares diferentes do CSS.
+        Para trocar a cor principal, você faz busca e substituição — e torce
+        para não ter digitado <code>#1A73E8</code> com maiúsculas em algum lugar,
+        ou usado o mesmo azul com outro propósito que não devia mudar.
+      </div>
+    </div>
+
+    <div class="msg-card git-green">
+      <div class="msg-badge">Com variáveis</div>
+      <div class="msg-title">Uma fonte de verdade</div>
+      <div class="msg-desc">
+        <code>--cor-primaria: #1a73e8</code> declarado uma vez no <code>:root</code>.
+        Todos os 40 lugares usam <code>var(--cor-primaria)</code>.
+        Para trocar, você altera <strong>uma linha</strong> — e todo o projeto
+        atualiza instantaneamente, sem risco de inconsistência.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-tip">
+    <span class="alert-icon">🧠</span>
+    <span>
+      Nomeie variáveis pelo <strong>papel semântico</strong>, não pelo valor visual.
+      <code>--cor-primaria</code> é melhor que <code>--azul</code> — porque se você
+      trocar o azul por verde, o nome ainda faz sentido. O mesmo vale para
+      <code>--texto-secundario</code>, <code>--superficie-elevada</code>,
+      <code>--espacamento-md</code>.
+    </span>
+  </div>
+
+  <!-- ── Propriedades e sintaxe ── -->
+  <h3 class="subtitle" style="margin-top:40px;">Sintaxe e <span style="color:var(--wood);">uso</span></h3>
+  <p class="text">
+    A tabela abaixo resume a sintaxe essencial das variáveis CSS — declaração,
+    leitura, valor de fallback e manipulação com <code>calc()</code>:
+  </p>
+
+  <div style="padding:0 2%;overflow-x:auto;margin-bottom:24px;">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Sintaxe</th>
+          <th>O que faz</th>
+          <th>Exemplo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>--nome: valor</code></td>
+          <td>Declara a variável</td>
+          <td><code>--bg: #0d1117</code></td>
+        </tr>
+        <tr>
+          <td><code>var(--nome)</code></td>
+          <td>Lê o valor da variável</td>
+          <td><code>background: var(--bg)</code></td>
+        </tr>
+        <tr>
+          <td><code>var(--nome, fallback)</code></td>
+          <td>Usa fallback se a variável não existir</td>
+          <td><code>color: var(--texto, #333)</code></td>
+        </tr>
+        <tr>
+          <td><code>calc() + var()</code></td>
+          <td>Opera matematicamente com variáveis</td>
+          <td><code>padding: calc(var(--espacamento) * 2)</code></td>
+        </tr>
+        <tr>
+          <td>Escopo local</td>
+          <td>Redefine a variável em um contexto</td>
+          <td><code>.dark { --bg: #000; }</code></td>
+        </tr>
+        <tr>
+          <td>JavaScript</td>
+          <td>Altera a variável em tempo real</td>
+          <td><code>el.style.setProperty('--cor', '#f00')</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Acordeão declaração na prática ── -->
+  <div class="acc-item" style="margin:32px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">🎨</span>
+        <span class="acc-title">Exemplo — Declarando e usando variáveis CSS</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+            <span class="code-block-label">variáveis css — declaração e uso básico</span>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
           </div>
-          <div class="nc-right">
-            <div class="nc-glow"></div>
-            <img
-              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/css14.png"
-              alt="Variáveis CSS"
-              onerror="this.style.display='none';"
-              style="width:640px;height:700px;object-fit:cover;border:1px solid rgba(38,77,228,0.3);"
-            />
-          </div>
-        </div>
-
-        <div style="padding:0 2%;">
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-              <span class="code-block-label">variáveis CSS — declaração e uso</span>
-              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-            </div>
-            <div class="code-block-body"><pre><span class="c-comment">/* Declaração: sempre no :root para escopo global */</span>
+          <div class="code-block-body"><pre><span class="c-comment">/* Variáveis globais no :root */</span>
 <span class="c-sel">:root</span> {
   <span class="c-comment">/* Cores */</span>
-  <span class="c-prop">--primary</span>: <span class="c-val">#264de4</span>;
-  <span class="c-prop">--primary-dim</span>: <span class="c-val">#1d3bb5</span>;
-  <span class="c-prop">--bg</span>: <span class="c-val">#0f172a</span>;
-  <span class="c-prop">--text</span>: <span class="c-val">#f8fafc</span>;
-  <span class="c-prop">--text-dim</span>: <span class="c-val">#94a3b8</span>;
-  <span class="c-prop">--border</span>: <span class="c-val">#334155</span>;
+  <span class="c-prop">--bg</span>: <span class="c-val">#0d1117</span>;
+  <span class="c-prop">--bg-elevado</span>: <span class="c-val">#161b22</span>;
+  <span class="c-prop">--cor-primaria</span>: <span class="c-val">#58a6ff</span>;
+  <span class="c-prop">--cor-destaque</span>: <span class="c-val">#f78166</span>;
+  <span class="c-prop">--texto</span>: <span class="c-val">#e6edf3</span>;
+  <span class="c-prop">--texto-secundario</span>: <span class="c-val">#8b949e</span>;
 
-  <span class="c-comment">/* Fontes */</span>
-  <span class="c-prop">--font-body</span>: <span class="c-val">'DM Sans', sans-serif</span>;
-  <span class="c-prop">--font-title</span>: <span class="c-val">'Fraunces', serif</span>;
-  <span class="c-prop">--font-mono</span>: <span class="c-val">'DM Mono', monospace</span>;
+  <span class="c-comment">/* Tipografia */</span>
+  <span class="c-prop">--fonte-base</span>: <span class="c-val">'Inter', sans-serif</span>;
+  <span class="c-prop">--fonte-titulo</span>: <span class="c-val">'Fraunces', serif</span>;
+  <span class="c-prop">--tamanho-base</span>: <span class="c-val">1rem</span>;
 
   <span class="c-comment">/* Espaçamentos */</span>
-  <span class="c-prop">--space-sm</span>: <span class="c-val">8px</span>;
-  <span class="c-prop">--space-md</span>: <span class="c-val">16px</span>;
-  <span class="c-prop">--space-lg</span>: <span class="c-val">32px</span>;
-  <span class="c-prop">--space-xl</span>: <span class="c-val">64px</span>;
+  <span class="c-prop">--esp-sm</span>: <span class="c-val">0.5rem</span>;
+  <span class="c-prop">--esp-md</span>: <span class="c-val">1rem</span>;
+  <span class="c-prop">--esp-lg</span>: <span class="c-val">2rem</span>;
 
-  <span class="c-comment">/* Border radius */</span>
-  <span class="c-prop">--radius-sm</span>: <span class="c-val">6px</span>;
-  <span class="c-prop">--radius-md</span>: <span class="c-val">12px</span>;
-  <span class="c-prop">--radius-lg</span>: <span class="c-val">24px</span>;
+  <span class="c-comment">/* Bordas e sombras */</span>
+  <span class="c-prop">--raio</span>: <span class="c-val">8px</span>;
+  <span class="c-prop">--borda</span>: <span class="c-val">1px solid #30363d</span>;
 }
 
-<span class="c-comment">/* Uso — sempre com var() */</span>
-<span class="c-sel">.card</span> {
+<span class="c-comment">/* Usando as variáveis */</span>
+<span class="c-sel">body</span> {
   <span class="c-prop">background</span>: <span class="c-val">var(--bg)</span>;
-  <span class="c-prop">border</span>: <span class="c-val">1px solid var(--border)</span>;
-  <span class="c-prop">border-radius</span>: <span class="c-val">var(--radius-md)</span>;
-  <span class="c-prop">padding</span>: <span class="c-val">var(--space-lg)</span>;
-  <span class="c-prop">color</span>: <span class="c-val">var(--text)</span>;
-  <span class="c-prop">font-family</span>: <span class="c-val">var(--font-body)</span>;
+  <span class="c-prop">color</span>: <span class="c-val">var(--texto)</span>;
+  <span class="c-prop">font-family</span>: <span class="c-val">var(--fonte-base)</span>;
 }
 
-<span class="c-comment">/* Valor fallback (padrão se a variável não existir) */</span>
-<span class="c-sel">.btn</span> {
-  <span class="c-prop">background</span>: <span class="c-val">var(--primary, #264de4)</span>;
+<span class="c-sel">.card</span> {
+  <span class="c-prop">background</span>: <span class="c-val">var(--bg-elevado)</span>;
+  <span class="c-prop">border</span>: <span class="c-val">var(--borda)</span>;
+  <span class="c-prop">border-radius</span>: <span class="c-val">var(--raio)</span>;
+  <span class="c-prop">padding</span>: <span class="c-val">var(--esp-lg)</span>;
+}
+
+<span class="c-sel">.btn-primario</span> {
+  <span class="c-prop">background</span>: <span class="c-val">var(--cor-primaria)</span>;
+  <span class="c-prop">padding</span>: <span class="c-val">var(--esp-sm) var(--esp-md)</span>;
+  <span class="c-prop">border-radius</span>: <span class="c-val">var(--raio)</span>;
+}
+
+<span class="c-comment">/* Fallback: usa #333 se --texto não existir */</span>
+<span class="c-sel">.legenda</span> {
+  <span class="c-prop">color</span>: <span class="c-val">var(--texto-secundario, #333)</span>;
 }</pre></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Demos visuais ── -->
+  <h3 class="subtitle" style="margin-top:40px;">Demos <span style="color:var(--wood);">visuais</span></h3>
+  <p class="text">
+    Veja como variáveis CSS permitem trocar todo o visual de um componente
+    alterando apenas as variáveis do escopo:
+  </p>
+
+  <div class="flex-demo">
+    <div class="flex-demo-label">Componente usando var() — cores e espaçamentos centralizados</div>
+    <div class="flex-demo-inner" style="gap:8px;">
+      <div class="flex-item" style="background:var(--wood,#c9a96e);color:#fff;">var(--wood)</div>
+      <div class="flex-item" style="background:var(--cor-primaria,#58a6ff);color:#fff;">var(--primaria)</div>
+      <div class="flex-item" style="background:var(--bg-elevado,#161b22);border:1px solid #30363d;">var(--bg-elevado)</div>
+    </div>
+  </div>
+
+  <div class="flex-demo">
+    <div class="flex-demo-label">Escopo local — variante do componente sem alterar o :root</div>
+    <div class="flex-demo-inner" style="gap:8px;flex-direction:column;align-items:stretch;">
+      <div class="flex-item" style="--item-bg:#58a6ff;background:var(--item-bg);color:#fff;text-align:center;">
+        .btn-primario → --item-bg: #58a6ff
+      </div>
+      <div class="flex-item" style="--item-bg:#f78166;background:var(--item-bg);color:#fff;text-align:center;">
+        .btn-destaque → --item-bg: #f78166
+      </div>
+      <div class="flex-item" style="--item-bg:#3fb950;background:var(--item-bg);color:#fff;text-align:center;">
+        .btn-sucesso → --item-bg: #3fb950
+      </div>
+    </div>
+  </div>
+
+  <div class="flex-demo">
+    <div class="flex-demo-label">calc() + var() — espaçamentos derivados de uma base</div>
+    <div class="flex-demo-inner" style="gap:8px;flex-wrap:wrap;">
+      <div class="flex-item" style="padding:4px 8px;font-size:0.8rem;">esp-sm: calc(base × 0.5)</div>
+      <div class="flex-item" style="padding:8px 16px;">esp-md: base</div>
+      <div class="flex-item" style="padding:16px 32px;">esp-lg: calc(base × 2)</div>
+    </div>
+  </div>
+
+  <!-- ── Arquitetura visual ── -->
+  <h3 class="subtitle" style="margin-top:40px;"><span style="color:var(--wood);">Arquitetura visual</span> — organizando o :root</h3>
+  <p class="text">
+    Um <code>:root</code> bem estruturado funciona como o design system do projeto.
+    A convenção mais adotada é dividir as variáveis em camadas — primeiro os valores
+    brutos, depois os papéis semânticos que os consomem:
+  </p>
+
+  <div
+    class="msg-grid"
+    style="margin:24px 2%;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;"
+  >
+
+    <div class="msg-card git-gold">
+      <div class="msg-badge">Camada primitiva</div>
+      <div class="msg-title">Os valores brutos</div>
+      <div class="msg-desc">
+        Os valores reais do design: <code>--azul-500: #58a6ff</code>,
+        <code>--cinza-900: #0d1117</code>. Não são usados diretamente
+        nos componentes — servem apenas como fonte para a camada semântica.
+        Mudar aqui afeta tudo que depende desse valor.
+      </div>
+    </div>
+
+    <div class="msg-card git-blue">
+      <div class="msg-badge">Camada semântica</div>
+      <div class="msg-title">Os papéis do design</div>
+      <div class="msg-desc">
+        Variáveis com significado: <code>--cor-primaria: var(--azul-500)</code>,
+        <code>--bg: var(--cinza-900)</code>. São estas que os componentes consomem.
+        Para criar um tema claro, basta redefinir a camada semântica — os
+        primitivos permanecem intocados.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Acordeão tema claro/escuro ── -->
+  <div class="acc-item" style="margin:32px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">🌗</span>
+        <span class="acc-title">Exemplo — Tema claro e escuro com variáveis CSS</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+            <span class="code-block-label">tema claro e escuro — variáveis e prefers-color-scheme</span>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
           </div>
-
-          <!-- Tema claro/escuro -->
-          <h3 class="subtitle" style="margin-top:40px;">Tema <span style="color:var(--wood);">Claro e Escuro</span> com Variáveis</h3>
-          <p class="text">
-            Uma das maiores vantagens das variáveis CSS é criar temas. Você pode alternar entre modo escuro e claro trocando apenas os valores das variáveis:
-          </p>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-              <span class="code-block-label">dark mode / light mode com variáveis</span>
-              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-            </div>
-            <div class="code-block-body"><pre><span class="c-comment">/* Tema escuro (padrão) */</span>
+          <div class="code-block-body"><pre><span class="c-comment">/* Camada primitiva — os valores reais */</span>
 <span class="c-sel">:root</span> {
-  <span class="c-prop">--bg</span>: <span class="c-val">#0f172a</span>;
-  <span class="c-prop">--text</span>: <span class="c-val">#f8fafc</span>;
-  <span class="c-prop">--card</span>: <span class="c-val">#1e293b</span>;
+  <span class="c-prop">--cinza-050</span>: <span class="c-val">#f6f8fa</span>;
+  <span class="c-prop">--cinza-900</span>: <span class="c-val">#0d1117</span>;
+  <span class="c-prop">--azul-400</span>: <span class="c-val">#58a6ff</span>;
+  <span class="c-prop">--laranja-400</span>: <span class="c-val">#c9a96e</span>;
 }
 
-<span class="c-comment">/* Tema claro */</span>
-<span class="c-sel">[data-theme="light"]</span> {
-  <span class="c-prop">--bg</span>: <span class="c-val">#ffffff</span>;
-  <span class="c-prop">--text</span>: <span class="c-val">#0f172a</span>;
-  <span class="c-prop">--card</span>: <span class="c-val">#f1f5f9</span>;
+<span class="c-comment">/* Camada semântica — tema escuro (padrão) */</span>
+<span class="c-sel">:root</span> {
+  <span class="c-prop">--bg</span>: <span class="c-val">var(--cinza-900)</span>;
+  <span class="c-prop">--texto</span>: <span class="c-val">var(--cinza-050)</span>;
+  <span class="c-prop">--cor-primaria</span>: <span class="c-val">var(--azul-400)</span>;
+  <span class="c-prop">--cor-destaque</span>: <span class="c-val">var(--laranja-400)</span>;
 }
 
-<span class="c-comment">/* Respeitar preferência do sistema */</span>
+<span class="c-comment">/* Tema claro — só redefine a camada semântica */</span>
 <span class="c-sel">@media (prefers-color-scheme: light)</span> {
   <span class="c-sel">:root</span> {
-    <span class="c-prop">--bg</span>: <span class="c-val">#ffffff</span>;
-    <span class="c-prop">--text</span>: <span class="c-val">#0f172a</span>;
+    <span class="c-prop">--bg</span>: <span class="c-val">var(--cinza-050)</span>;
+    <span class="c-prop">--texto</span>: <span class="c-val">var(--cinza-900)</span>;
   }
+}
+
+<span class="c-comment">/* Tema manual via classe no body */</span>
+<span class="c-sel">body.tema-claro</span> {
+  <span class="c-prop">--bg</span>: <span class="c-val">var(--cinza-050)</span>;
+  <span class="c-prop">--texto</span>: <span class="c-val">var(--cinza-900)</span>;
+}
+
+<span class="c-comment">/* Os componentes não mudam — consomem as variáveis */</span>
+<span class="c-sel">body</span> {
+  <span class="c-prop">background</span>: <span class="c-val">var(--bg)</span>;
+  <span class="c-prop">color</span>: <span class="c-val">var(--texto)</span>;
+}
+
+<span class="c-comment">/* JavaScript: alterna o tema */</span>
+<span class="c-comment">/* document.body.classList.toggle('tema-claro') */</span></pre></div>
+        </div>
+
+        <div class="alert alert-tip" style="margin-top:24px;">
+          <span class="alert-icon">💡</span>
+          <span>
+            Toda a lógica do tema claro/escuro acontece no CSS — o JavaScript
+            só adiciona ou remove uma classe no <code>body</code>. Os componentes
+            não sabem que o tema mudou: eles continuam lendo <code>var(--bg)</code>
+            e o navegador resolve o valor correto automaticamente.
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Boas práticas ── -->
+  <h3 class="subtitle" style="margin-top:40px;">Boas práticas de <span style="color:var(--wood);">variáveis CSS</span></h3>
+  <p class="text">
+    Variáveis mal organizadas trocam um problema por outro — valores espalhados
+    viram variáveis com nomes confusos. Algumas convenções tornam o sistema
+    escalável e fácil de manter:
+  </p>
+
+  <div style="padding:0 2%;overflow-x:auto;margin-bottom:24px;">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Prática</th>
+          <th>Regra</th>
+          <th>Por quê</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nomenclatura semântica</td>
+          <td>Use <code>--cor-primaria</code>, não <code>--azul</code></td>
+          <td>O nome continua válido se você trocar a cor no futuro</td>
+        </tr>
+        <tr>
+          <td>Prefixos por categoria</td>
+          <td><code>--cor-</code>, <code>--esp-</code>, <code>--fonte-</code>, <code>--raio-</code></td>
+          <td>Facilita a leitura e o autocomplete no editor</td>
+        </tr>
+        <tr>
+          <td>Primitivos separados</td>
+          <td>Declare valores brutos antes dos semânticos</td>
+          <td>Torna a troca de tema cirúrgica — sem efeitos colaterais</td>
+        </tr>
+        <tr>
+          <td>Fallback sempre</td>
+          <td>Use <code>var(--nome, fallback)</code> em componentes reutilizáveis</td>
+          <td>Garante que o componente funcione mesmo fora do sistema de variáveis</td>
+        </tr>
+        <tr>
+          <td>Escopo local para variantes</td>
+          <td>Redefina variáveis no seletor do componente, não no <code>:root</code></td>
+          <td>Evita poluir o escopo global com variantes específicas</td>
+        </tr>
+        <tr>
+          <td>Documentar no :root</td>
+          <td>Comente as seções — cores, tipografia, espaçamento, componentes</td>
+          <td>O <code>:root</code> vira o design system do projeto — precisa ser legível</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Exemplo completo ── -->
+  <div class="acc-item" style="margin:32px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">📐</span>
+        <span class="acc-title">Exemplo completo — :root organizado como design system</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+            <span class="code-block-label">variáveis css — :root completo e organizado</span>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <div class="code-block-body"><pre><span class="c-sel">:root</span> {
+
+  <span class="c-comment">/* ── Primitivos ─────────────────────────── */</span>
+  <span class="c-prop">--preto</span>: <span class="c-val">#0d1117</span>;
+  <span class="c-prop">--cinza-800</span>: <span class="c-val">#161b22</span>;
+  <span class="c-prop">--cinza-600</span>: <span class="c-val">#30363d</span>;
+  <span class="c-prop">--cinza-400</span>: <span class="c-val">#8b949e</span>;
+  <span class="c-prop">--branco</span>: <span class="c-val">#e6edf3</span>;
+  <span class="c-prop">--azul</span>: <span class="c-val">#58a6ff</span>;
+  <span class="c-prop">--laranja</span>: <span class="c-val">#c9a96e</span>;
+  <span class="c-prop">--verde</span>: <span class="c-val">#3fb950</span>;
+  <span class="c-prop">--vermelho</span>: <span class="c-val">#f85149</span>;
+
+  <span class="c-comment">/* ── Cores semânticas ────────────────────── */</span>
+  <span class="c-prop">--bg</span>: <span class="c-val">var(--preto)</span>;
+  <span class="c-prop">--bg-elevado</span>: <span class="c-val">var(--cinza-800)</span>;
+  <span class="c-prop">--borda-cor</span>: <span class="c-val">var(--cinza-600)</span>;
+  <span class="c-prop">--texto</span>: <span class="c-val">var(--branco)</span>;
+  <span class="c-prop">--texto-suave</span>: <span class="c-val">var(--cinza-400)</span>;
+  <span class="c-prop">--cor-primaria</span>: <span class="c-val">var(--azul)</span>;
+  <span class="c-prop">--cor-destaque</span>: <span class="c-val">var(--laranja)</span>;
+  <span class="c-prop">--cor-sucesso</span>: <span class="c-val">var(--verde)</span>;
+  <span class="c-prop">--cor-erro</span>: <span class="c-val">var(--vermelho)</span>;
+
+  <span class="c-comment">/* ── Tipografia ──────────────────────────── */</span>
+  <span class="c-prop">--fonte-base</span>: <span class="c-val">'Inter', sans-serif</span>;
+  <span class="c-prop">--fonte-titulo</span>: <span class="c-val">'Fraunces', serif</span>;
+  <span class="c-prop">--fonte-codigo</span>: <span class="c-val">'JetBrains Mono', monospace</span>;
+  <span class="c-prop">--tamanho-sm</span>: <span class="c-val">0.875rem</span>;
+  <span class="c-prop">--tamanho-base</span>: <span class="c-val">1rem</span>;
+  <span class="c-prop">--tamanho-lg</span>: <span class="c-val">1.25rem</span>;
+
+  <span class="c-comment">/* ── Espaçamentos ────────────────────────── */</span>
+  <span class="c-prop">--esp-xs</span>: <span class="c-val">0.25rem</span>;
+  <span class="c-prop">--esp-sm</span>: <span class="c-val">0.5rem</span>;
+  <span class="c-prop">--esp-md</span>: <span class="c-val">1rem</span>;
+  <span class="c-prop">--esp-lg</span>: <span class="c-val">2rem</span>;
+  <span class="c-prop">--esp-xl</span>: <span class="c-val">4rem</span>;
+
+  <span class="c-comment">/* ── Componentes ─────────────────────────── */</span>
+  <span class="c-prop">--raio-sm</span>: <span class="c-val">4px</span>;
+  <span class="c-prop">--raio</span>: <span class="c-val">8px</span>;
+  <span class="c-prop">--raio-lg</span>: <span class="c-val">16px</span>;
+  <span class="c-prop">--borda</span>: <span class="c-val">1px solid var(--borda-cor)</span>;
+  <span class="c-prop">--sombra</span>: <span class="c-val">0 4px 16px rgba(0, 0, 0, 0.4)</span>;
+  <span class="c-prop">--transicao</span>: <span class="c-val">0.2s ease</span>;
 }</pre></div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ══════════════════════════════════════════════════
-           SEÇÃO 15 — SEO VISUAL E PERFORMANCE
-      ══════════════════════════════════════════════════ -->
-      <section class="content-section" id="section-performance" style="background: var(--bg);">
-
-        <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
-          <div class="cover-text">
-            <div class="section-tag">Seção 15</div>
-            <h2 class="section-title">SEO Visual e <span style="color:var(--wood);">Performance</span></h2>
-            <p class="section-lead">
-              Um site bonito que demora 10 segundos para carregar não serve para nada. Performance e acessibilidade visual são tão importantes quanto o design em si.
-            </p>
-          </div>
-          <div class="nc-right">
-            <div class="nc-glow"></div>
-            <img
-              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/css15.png"
-              alt="Performance CSS"
-              onerror="this.style.display='none';"
-              style="width:640px;height:700px;object-fit:cover;border:1px solid rgba(38,77,228,0.3);"
-            />
-          </div>
         </div>
 
-        <div style="padding:0 2%;">
+        <p class="text" style="margin-top:24px;">
+          Repare na separação em camadas com comentários: primitivos primeiro,
+          depois semânticos que os referenciam. Qualquer novo desenvolvedor no projeto
+          entende o sistema só de ler o <code>:root</code> — sem precisar caçar valores
+          espalhados pelo CSS.
+        </p>
 
-          <div class="practices-grid" style="margin:24px 0;">
-            <div class="practice-card reveal">
-              <div class="practice-icon">🖼️</div>
-              <div class="practice-title">Otimize imagens</div>
-              <div class="practice-desc">Use formatos modernos como <strong>WebP</strong> ou <strong>AVIF</strong>. Reduzem o tamanho em 30–70% sem perda visual. Adicione <code>loading="lazy"</code> em imagens fora da viewport.</div>
-            </div>
-            <div class="practice-card reveal">
-              <div class="practice-icon">📦</div>
-              <div class="practice-title">CSS enxuto</div>
-              <div class="practice-desc">Remova estilos não utilizados. Evite seletores muito específicos ou longos demais. Use ferramentas como PurgeCSS em produção para reduzir o arquivo final.</div>
-            </div>
-            <div class="practice-card reveal">
-              <div class="practice-icon">🔤</div>
-              <div class="practice-title">Fontes eficientes</div>
-              <div class="practice-desc">Carregue apenas os pesos necessários. Use <code>font-display: swap</code> para evitar texto invisível durante o carregamento da fonte.</div>
-            </div>
-            <div class="practice-card reveal">
-              <div class="practice-icon">⚡</div>
-              <div class="practice-title">Evite reflows</div>
-              <div class="practice-desc">Sempre prefira <code>transform</code> e <code>opacity</code> para animações. Leia e escreva o DOM em batch para evitar forced layout reflows.</div>
-            </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-tip" style="margin-top:24px;">
+    <span class="alert-icon">♿</span>
+    <span>
+      Variáveis CSS são especialmente úteis para acessibilidade: com
+      <code>@media (prefers-contrast: more)</code> e
+      <code>@media (prefers-reduced-motion: reduce)</code>, você redefine
+      apenas as variáveis relevantes — aumentando contrastes ou desativando
+      animações — sem tocar em nenhum componente individualmente.
+    </span>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 15 — SEO Performance e Acessibilidade
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-performance" style="background: var(--bg);">
+
+  <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
+    <div class="cover-text">
+      <div class="section-tag">Seção 15</div>
+      <h2 style="font-size:clamp(2.5rem,4vw,3.5rem);line-height:1.1;margin-bottom:1rem;color:var(--ink);font-family:'Fraunces',serif;">
+        SEO<br />
+        <span style="color:var(--wood);">Performance e Acessibilidade</span>
+      </h2>
+      <p class="cover-subtitle" style="font-size:1.1rem;line-height:1.6;">
+        Um site bonito perde valor quando demora para responder — performance também faz parte da experiência. Performance não é detalhe técnico: é parte do design.
+        Nesta seção você aprende a otimizar imagens, controlar fontes,
+        enxugar CSS e garantir <strong>contraste e acessibilidade visual</strong>
+        — a ponte direta para UX/UI profissional.
+      </p>
+    </div>
+    <div class="nc-right">
+      <div class="nc-glow"></div>
+      <img
+        src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/css15.png"
+        alt="SEO Performance e Acessibilidade"
+        onerror="this.style.display='none';"
+        style="width:640px;height:700px;object-fit:cover;object-position:center;box-shadow:0 10px 30px rgba(0,0,0,0.5),0 0 20px rgba(88,166,255,0.2);border:1px solid rgba(88,166,255,0.3);transition:transform 0.3s ease;"
+      />
+    </div>
+  </div>
+
+  <!-- ── Por que performance importa ── -->
+  <h3 class="subtitle">Por que <span style="color:var(--wood);">performance</span> é parte do design?</h3>
+  <p class="text">
+    O Google usa a velocidade de carregamento como fator de rankeamento desde 2010 —
+    e os <strong>Core Web Vitals</strong>, introduzidos em 2021, tornaram isso ainda mais explícito.
+    Mas além do SEO, há um impacto direto no usuário: cada segundo a mais de
+    carregamento aumenta a taxa de abandono. Performance lenta é experiência ruim.
+  </p>
+
+  <p class="text">
+    SEO é o conjunto de práticas que ajudam mecanismos de busca a entender, indexar e recomendar uma página com base na qualidade do conteúdo e da experiência oferecida ao usuário.
+  </p>
+  <p class="text">
+    A boa notícia é que a maioria dos ganhos vem de práticas simples —
+    não de otimizações complexas. Imagens no formato certo, fontes carregadas
+    com inteligência e CSS sem peso morto já resolvem a maior parte dos problemas
+    de performance de um projeto front-end típico. Outros fatores importantes —
+    como compressão HTTP (gzip/brotli), cache e tamanho de JavaScript —
+    entram em cena conforme o projeto cresce em complexidade.
+  </p>
+
+  <!-- ── Glossário de termos técnicos ── -->
+  <h3 class="subtitle" style="margin-top:40px;">Glossário — <span style="color:var(--wood);">termos técnicos</span> desta seção</h3>
+  <p class="text">
+    Antes de mergulhar nas técnicas, vale entender o que cada termo significa.
+    Performance web tem vocabulário próprio — e conhecer esses conceitos torna
+    muito mais fácil interpretar ferramentas como o Lighthouse e tomar decisões conscientes:
+  </p>
+
+  <div class="acc-item" style="margin:16px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">📖</span>
+        <span class="acc-title">LCP — Largest Contentful Paint</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p class="text" style="margin:0 0 12px;">
+          <strong>O que é:</strong> Mede o tempo até o maior elemento visível da tela terminar de carregar —
+          normalmente a imagem hero, uma foto de destaque ou um bloco grande de texto.
+        </p>
+        <p class="text" style="margin:0 0 12px;">
+          <strong>Por que importa:</strong> É o principal indicador de "velocidade percebida". Se o LCP demora,
+          o usuário sente que a página é lenta — mesmo que o resto carregue rápido.
+        </p>
+        <p class="text" style="margin:0;">
+          <strong>Meta:</strong> Abaixo de <strong>2,5 segundos</strong> para ser considerado "bom" pelo Google.
+          Imagens sem otimização e fontes bloqueantes são as causas mais comuns de LCP alto.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc-item" style="margin:16px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">📖</span>
+        <span class="acc-title">CLS — Cumulative Layout Shift</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p class="text" style="margin:0 0 12px;">
+          <strong>O que é:</strong> Mede o quanto os elementos da página se movem de forma inesperada
+          durante o carregamento. Acontece quando uma imagem sem dimensões definidas "empurra" o texto
+          para baixo assim que carrega, ou quando uma fonte substitui outra e muda o tamanho do layout.
+        </p>
+        <p class="text" style="margin:0 0 12px;">
+          <strong>Por que importa:</strong> É a experiência de clicar num botão e ele se mover no
+          momento exato do clique. Frustrante e prejudicial à usabilidade.
+        </p>
+        <p class="text" style="margin:0;">
+          <strong>Meta:</strong> Abaixo de <strong>0,1</strong>. As causas mais comuns são imagens sem
+          <code>width</code>/<code>height</code> declarados, fontes com fallback de tamanho diferente
+          e conteúdo dinâmico (anúncios, embeds) sem espaço reservado.
+          O <code>aspect-ratio</code> ajuda a reservar espaço, mas não resolve todos os casos de CLS —
+          como conteúdo dinâmico, anúncios e fontes com métricas diferentes do fallback.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc-item" style="margin:16px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">📖</span>
+        <span class="acc-title">INP — Interaction to Next Paint</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p class="text" style="margin:0 0 12px;">
+          <strong>O que é:</strong> Mede o tempo que a página leva para responder visualmente
+          depois que o usuário faz uma interação — clicar num botão, digitar num campo, abrir um menu.
+        </p>
+        <p class="text" style="margin:0 0 12px;">
+          <strong>Por que importa:</strong> Uma página pode carregar rápido, mas travar ao interagir.
+          O INP captura exatamente isso — e substituiu o FID (First Input Delay) como métrica oficial em 2024.
+        </p>
+        <p class="text" style="margin:0;">
+          <strong>Meta:</strong> Abaixo de <strong>200ms</strong>. JavaScript pesado executando na thread
+          principal é a causa mais comum de INP alto.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc-item" style="margin:16px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">📖</span>
+        <span class="acc-title">Lazy Loading</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p class="text" style="margin:0 0 12px;">
+          <strong>O que é:</strong> Estratégia onde o navegador <em>adia</em> o carregamento de recursos
+          que ainda não estão visíveis na tela. Em vez de baixar todas as imagens ao abrir a página,
+          ele carrega apenas as que o usuário consegue ver — e vai buscando as demais conforme ele rola a página.
+        </p>
+        <p class="text" style="margin:0 0 12px;">
+          <strong>Como usar:</strong> Basta adicionar o atributo <code>loading="lazy"</code> na tag
+          <code>&lt;img&gt;</code>. Funciona nativamente em todos os navegadores modernos, sem JavaScript.
+        </p>
+        <div class="alert alert-warn" style="margin:12px 0 0;">
+          <span class="alert-icon">⚠️</span>
+          <span>
+            <strong>Nunca use lazy loading na imagem principal da página</strong> (hero image ou elemento LCP).
+            Isso atrasa exatamente o elemento que o Google mede no LCP — e piora a performance percebida.
+            Use <code>loading="lazy"</code> apenas em imagens abaixo da dobra (fora da área visível inicial).
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc-item" style="margin:16px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">📖</span>
+        <span class="acc-title">FOIT e FOUT — Flash of Invisible / Unstyled Text</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p class="text" style="margin:0 0 12px;">
+          <strong>FOIT (Flash of Invisible Text):</strong> O navegador esconde o texto completamente
+          enquanto a fonte personalizada ainda está baixando. O usuário vê blocos em branco onde
+          deveria haver palavras — às vezes por vários segundos em conexões lentas.
+        </p>
+        <p class="text" style="margin:0 0 12px;">
+          <strong>FOUT (Flash of Unstyled Text):</strong> O navegador exibe o texto imediatamente
+          usando uma fonte do sistema (fallback), e troca para a fonte personalizada assim que ela carrega.
+          O usuário vê uma "piscada" visual quando a fonte muda.
+        </p>
+        <p class="text" style="margin:0;">
+          <strong>O que <code>font-display: swap</code> faz:</strong> Troca o comportamento de FOIT
+          para FOUT — o texto fica visível imediatamente com a fonte de sistema, e é substituído
+          pela fonte personalizada quando pronta. FOUT é geralmente preferível a FOIT
+          porque o conteúdo permanece legível durante o carregamento. Nenhuma das duas opções
+          é perfeita: a escolha certa depende do projeto e de quanto o fallback difere da fonte final.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc-item" style="margin:16px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">📖</span>
+        <span class="acc-title">preconnect, preload e prefetch</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p class="text" style="margin:0 0 12px;">
+          São três "dicas" que você dá ao navegador sobre recursos que serão necessários em breve —
+          cada uma com um nível diferente de antecipação:
+        </p>
+        <p class="text" style="margin:0 0 8px;">
+          <strong>preconnect:</strong> "Já abre a conexão com este servidor, porque vou precisar de algo dele."
+          Estabelece DNS, TCP e TLS com antecedência. Ideal para servidores de fontes externas (Google Fonts, etc.).
+          Economiza 100–300ms em conexões lentas.
+        </p>
+        <p class="text" style="margin:0 0 8px;">
+          <strong>preload:</strong> "Baixe este recurso agora, com alta prioridade — vou usar logo."
+          O recurso é buscado antes mesmo de ser encontrado no HTML. Use para fontes críticas,
+          imagens LCP ou CSS essencial. Uso incorreto pode prejudicar a performance ao competir
+          com recursos ainda mais prioritários.
+        </p>
+        <p class="text" style="margin:0;">
+          <strong>prefetch:</strong> "Quando tiver tempo e banda disponível, baixe este recurso —
+          pode ser que o usuário precise dele numa próxima navegação." Baixa com baixa prioridade,
+          ideal para páginas que o usuário provavelmente vai acessar a seguir.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc-item" style="margin:16px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">📖</span>
+        <span class="acc-title">fetchpriority e decoding="async"</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p class="text" style="margin:0 0 12px;">
+          <strong>fetchpriority:</strong> Permite indicar explicitamente ao navegador qual imagem
+          tem prioridade alta ou baixa de download. Muito útil para a imagem LCP:
+          ao marcar <code>fetchpriority="high"</code>, você garante que o navegador
+          a busque antes das demais, melhorando diretamente o score de LCP.
+        </p>
+        <div class="code-block" style="margin:0 0 16px;">
+          <div class="code-block-header">
+            <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+            <span class="code-block-label">fetchpriority — hero image com prioridade alta</span>
           </div>
+          <div class="code-block-body"><pre><span class="c-comment"><!-- Hero image: alta prioridade, nunca lazy --></span>
+&lt;<span class="c-sel">img</span>
+  <span class="c-prop">src</span>=<span class="c-str">"hero.webp"</span>
+  <span class="c-prop">alt</span>=<span class="c-str">"Imagem principal"</span>
+  <span class="c-prop">fetchpriority</span>=<span class="c-str">"high"</span>
+  <span class="c-prop">width</span>=<span class="c-str">"1200"</span>
+  <span class="c-prop">height</span>=<span class="c-str">"600"</span>
+/&gt;
 
-          <!-- Contraste e acessibilidade -->
-          <h3 class="subtitle" style="margin-top:40px;"><span style="color:var(--wood);">Contraste</span> e Acessibilidade Visual</h3>
-          <p class="text">
-            A WCAG (diretrizes de acessibilidade) define que o contraste mínimo entre texto e fundo deve ser de <strong>4.5:1</strong> para texto normal e <strong>3:1</strong> para texto grande. Sempre verifique:
-          </p>
+<span class="c-comment"><!-- Imagens abaixo da dobra: baixa prioridade + lazy --></span>
+&lt;<span class="c-sel">img</span>
+  <span class="c-prop">src</span>=<span class="c-str">"card-foto.webp"</span>
+  <span class="c-prop">alt</span>=<span class="c-str">"Foto do card"</span>
+  <span class="c-prop">loading</span>=<span class="c-str">"lazy"</span>
+  <span class="c-prop">fetchpriority</span>=<span class="c-str">"low"</span>
+  <span class="c-prop">width</span>=<span class="c-str">"400"</span>
+  <span class="c-prop">height</span>=<span class="c-str">"300"</span>
+/&gt;</pre></div>
+        </div>
+        <p class="text" style="margin:0;">
+          <strong>decoding="async":</strong> Instrui o navegador a decodificar a imagem
+          de forma assíncrona — sem bloquear a thread principal enquanto processa os pixels.
+          Pequeno ganho, mas alinhado às boas práticas modernas para imagens abaixo da dobra.
+        </p>
+      </div>
+    </div>
+  </div>
 
-          <div class="msg-grid" style="margin:24px 0;">
-            <div class="msg-card git-green">
-              <div class="msg-badge">✅ Bom contraste</div>
-              <div class="msg-title">#f8fafc sobre #0f172a</div>
-              <div class="msg-desc">Contraste: ~18:1 — Excelente para qualquer tamanho de texto.</div>
-            </div>
-            <div class="msg-card git-gold">
-              <div class="msg-badge">⚠️ Cuidado</div>
-              <div class="msg-title">#94a3b8 sobre #0f172a</div>
-              <div class="msg-desc">Contraste: ~4.9:1 — Passa no mínimo, mas use apenas para texto secundário.</div>
-            </div>
-            <div class="msg-card git-red">
-              <div class="msg-badge">❌ Evite</div>
-              <div class="msg-title">Cinza claro sobre branco</div>
-              <div class="msg-desc">Muito comum em designs "modernos" mas inacessível. Falha nas diretrizes WCAG AA e AAA.</div>
-            </div>
-            <div class="msg-card git-blue">
-              <div class="msg-badge">🛠️ Ferramenta</div>
-              <div class="msg-title">WebAIM Contrast Checker</div>
-              <div class="msg-desc">Acesse <strong>webaim.org/resources/contrastchecker</strong> para verificar qualquer combinação de cores antes de publicar.</div>
-            </div>
+  <div class="acc-item" style="margin:16px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">📖</span>
+        <span class="acc-title">gzip e Brotli — compressão HTTP</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p class="text" style="margin:0 0 12px;">
+          <strong>O que são:</strong> Algoritmos de compressão que o servidor aplica em arquivos de texto
+          (HTML, CSS, JavaScript, fontes) antes de enviá-los ao navegador. O navegador descomprime
+          automaticamente ao receber — tudo transparente para o usuário.
+        </p>
+        <p class="text" style="margin:0 0 12px;">
+          <strong>Por que importa:</strong> Reduzem o tamanho dos arquivos transferidos em 60–80%.
+          Um arquivo CSS de 100kb pode chegar ao navegador como 20kb com Brotli ativo.
+          É uma das otimizações de maior impacto absoluto em performance — e geralmente
+          ativada no servidor (Nginx, Apache, CDN), não no código front-end.
+        </p>
+        <p class="text" style="margin:0;">
+          <strong>Brotli vs gzip:</strong> Brotli é mais moderno e comprime melhor (especialmente para texto).
+          É suportado por todos os navegadores atuais. gzip é o fallback universal.
+          A maioria dos servidores e CDNs modernos já oferece Brotli — verifique se está ativo no seu deploy.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc-item" style="margin:16px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">📖</span>
+        <span class="acc-title">Cache HTTP — Cache-Control e cache busting</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p class="text" style="margin:0 0 12px;">
+          <strong>O que é cache HTTP:</strong> O navegador armazena cópias de arquivos estáticos
+          (CSS, imagens, fontes, JS) na memória local. Na próxima visita, esses arquivos são
+          carregados do disco local — sem nenhuma requisição ao servidor. Resultado: carregamento
+          quase instantâneo em visitas repetidas.
+        </p>
+        <p class="text" style="margin:0 0 12px;">
+          <strong>Cache-Control:</strong> Cabeçalho HTTP que define por quanto tempo um arquivo
+          pode ficar em cache. <code>Cache-Control: max-age=31536000, immutable</code>
+          diz ao navegador "este arquivo pode ficar em cache por 1 ano e nunca vai mudar".
+          Ideal para arquivos com hash no nome.
+        </p>
+        <p class="text" style="margin:0;">
+          <strong>Cache busting:</strong> Técnica para forçar o navegador a buscar uma versão
+          nova de um arquivo quando ele é atualizado. Funciona incluindo um hash no nome do arquivo:
+          <code>estilos.abc123.css</code>. Quando o CSS muda, o hash muda, o nome muda —
+          o navegador entende que é um arquivo novo e busca do servidor. Ferramentas como
+          Vite e Webpack fazem isso automaticamente no build.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc-item" style="margin:16px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">📖</span>
+        <span class="acc-title">JavaScript: defer, async e bundle size</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p class="text" style="margin:0 0 12px;">
+          JavaScript é frequentemente o maior gargalo de performance em projetos modernos —
+          não o CSS ou as imagens. Um script no <code>&lt;head&gt;</code> sem atributos
+          bloqueia completamente o parse do HTML enquanto é baixado e executado.
+        </p>
+        <p class="text" style="margin:0 0 8px;">
+          <strong>defer:</strong> O script é baixado em paralelo com o HTML, mas só executado
+          depois que o HTML terminar de ser parseado. Ideal para scripts que precisam do DOM.
+          Ordem de execução garantida entre múltiplos scripts com <code>defer</code>.
+        </p>
+        <p class="text" style="margin:0 0 8px;">
+          <strong>async:</strong> O script é baixado em paralelo e executado imediatamente
+          quando o download termina — interrompendo o parse do HTML. Ideal para scripts
+          independentes (analytics, chat widgets) que não dependem do DOM.
+        </p>
+        <p class="text" style="margin:0 0 12px;">
+          <strong>bundle size:</strong> O tamanho total do JavaScript enviado ao navegador.
+          Cada kilobyte precisa ser baixado, parseado e compilado antes de executar —
+          tudo isso bloqueia a thread principal. Em dispositivos móveis com CPU fraca,
+          mesmo scripts pequenos podem causar travamento perceptível.
+        </p>
+        <div class="code-block" style="margin:0;">
+          <div class="code-block-header">
+            <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+            <span class="code-block-label">scripts — defer vs async</span>
           </div>
+          <div class="code-block-body"><pre><span class="c-comment"><!-- ❌ Bloqueia o HTML — evite no &lt;head&gt; sem atributos --></span>
+&lt;<span class="c-sel">script</span> <span class="c-prop">src</span>=<span class="c-str">"app.js"</span>&gt;&lt;/<span class="c-sel">script</span>&gt;
 
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-              <span class="code-block-label">font-display e lazy loading</span>
-              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-            </div>
-            <div class="code-block-body"><pre><span class="c-comment">/* font-display: swap evita texto invisível */</span>
+<span class="c-comment"><!-- ✅ defer: baixa em paralelo, executa após o HTML --></span>
+&lt;<span class="c-sel">script</span> <span class="c-prop">src</span>=<span class="c-str">"app.js"</span> <span class="c-prop">defer</span>&gt;&lt;/<span class="c-sel">script</span>&gt;
+
+<span class="c-comment"><!-- ✅ async: ideal para scripts independentes (analytics) --></span>
+&lt;<span class="c-sel">script</span> <span class="c-prop">src</span>=<span class="c-str">"analytics.js"</span> <span class="c-prop">async</span>&gt;&lt;/<span class="c-sel">script</span>&gt;</pre></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc-item" style="margin:16px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">📖</span>
+        <span class="acc-title">WCAG — Web Content Accessibility Guidelines</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p class="text" style="margin:0 0 12px;">
+          <strong>O que é:</strong> Um conjunto de diretrizes técnicas publicado pelo W3C
+          para tornar conteúdo web acessível a pessoas com deficiências visuais, motoras,
+          auditivas e cognitivas. É organizado em três níveis: A (mínimo), AA (mercado) e AAA (ideal).
+        </p>
+        <p class="text" style="margin:0 0 12px;">
+          <strong>Importante:</strong> WCAG é uma <em>recomendação técnica</em>, não uma lei global.
+          Ela serve de base para legislações de acessibilidade em vários países — como a
+          Lei Brasileira de Inclusão (LBI), a ADA nos EUA e a EN 301 549 na Europa —
+          mas o nível exigido e as obrigações legais variam por país, tipo de site e contexto.
+          Para projetos comerciais e governamentais, consulte a legislação local.
+        </p>
+        <p class="text" style="margin:0;">
+          <strong>O nível AA</strong> é o padrão adotado pelo mercado e pela maioria das legislações.
+          Exige razão de contraste de 4,5:1 para texto normal e 3:1 para texto grande.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc-item" style="margin:16px 2% 32px;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">📖</span>
+        <span class="acc-title">srcset, sizes e o elemento &lt;picture&gt;</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+        <p class="text" style="margin:0 0 12px;">
+          <strong>srcset:</strong> Atributo que oferece ao navegador múltiplas versões de uma
+          imagem em tamanhos diferentes. O navegador escolhe automaticamente a mais adequada
+          para a tela do usuário — evitando baixar uma imagem de 1200px em um celular
+          que só precisa de 400px.
+        </p>
+        <p class="text" style="margin:0 0 12px;">
+          <strong>sizes:</strong> Diz ao navegador qual será o tamanho visual da imagem na tela,
+          dependendo do viewport. Sem isso, o navegador não consegue escolher a versão certa
+          do srcset antes de calcular o layout.
+        </p>
+        <p class="text" style="margin:0;">
+          <strong>&lt;picture&gt;:</strong> Elemento HTML que permite oferecer formatos diferentes
+          da mesma imagem. O navegador usa o primeiro <code>&lt;source&gt;</code> que ele suporta —
+          ideal para servir AVIF para navegadores compatíveis e JPEG como fallback para os demais,
+          sem JavaScript.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Os quatro pilares ── -->
+  <h3 class="subtitle" style="margin-top:40px;">Os quatro <span style="color:var(--wood);">pilares</span> da performance front-end</h3>
+  <p class="text">
+    Performance de front-end se concentra em quatro frentes. Cada uma tem
+    impacto direto tanto no carregamento quanto na experiência percebida pelo usuário:
+  </p>
+
+  <div
+    class="msg-grid"
+    style="margin:24px 2%;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;"
+  >
+
+    <div class="msg-card git-gold">
+      <div class="msg-badge">Imagens</div>
+      <div class="msg-title">O maior vilão do peso</div>
+      <div class="msg-desc">
+        Imagens respondem por 50% a 70% do peso total da maioria das páginas.
+        Formato errado, tamanho excessivo e lazy loading aplicado na imagem errada
+        são os erros mais comuns — e os mais fáceis de corrigir com impacto imediato
+        no tempo de carregamento.
+      </div>
+    </div>
+
+    <div class="msg-card git-blue">
+      <div class="msg-badge">Fontes</div>
+      <div class="msg-title">O bloqueio invisível</div>
+      <div class="msg-desc">
+        O comportamento de renderização das fontes depende do navegador e da política
+        definida em <code>font-display</code>: o texto pode ficar invisível temporariamente
+        (FOIT) ou usar um fallback imediato com troca posterior (FOUT).
+        Estratégias como <code>font-display: swap</code> e <code>preconnect</code>
+        ajudam a reduzir atrasos perceptíveis no carregamento tipográfico.
+      </div>
+    </div>
+
+    <div class="msg-card git-green">
+      <div class="msg-badge">CSS</div>
+      <div class="msg-title">Peso morto no estilo</div>
+      <div class="msg-desc">
+        CSS não usado e arquivos gigantes importados desnecessariamente aumentam o
+        tempo de parse e podem bloquear a renderização. Organização e critério na
+        importação fazem toda a diferença — especialmente em projetos que usam
+        frameworks CSS completos.
+      </div>
+    </div>
+
+    <div class="msg-card git-blue">
+      <div class="msg-badge">Acessibilidade visual</div>
+      <div class="msg-title">Contraste e legibilidade</div>
+      <div class="msg-desc">
+        Contraste insuficiente não é só uma questão de acessibilidade —
+        é uma falha de design. As diretrizes WCAG recomendam razão de contraste mínima
+        de <strong>4,5:1</strong> para texto normal, padrão adotado pela maioria
+        das legislações de acessibilidade.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-tip">
+    <span class="alert-icon">🧠</span>
+    <span>
+      Os Core Web Vitals do Google medem três coisas: <strong>LCP</strong>
+      (Largest Contentful Paint — velocidade de carregamento do maior elemento visível),
+      <strong>CLS</strong> (Cumulative Layout Shift — estabilidade visual durante o carregamento)
+      e <strong>INP</strong> (Interaction to Next Paint — resposta a interações).
+      Imagens e fontes mal configuradas degradam os três ao mesmo tempo.
+    </span>
+  </div>
+
+  <!-- ── Otimização de imagens ── -->
+  <h3 class="subtitle" style="margin-top:40px;">Otimização de <span style="color:var(--wood);">imagens</span></h3>
+  <p class="text">
+    A regra é simples: envie o menor arquivo possível que ainda pareça bom na tela
+    do usuário. Isso envolve escolher o formato certo, definir dimensões adequadas
+    e deixar o navegador carregar apenas as imagens que o usuário vai ver:
+  </p>
+
+  <div style="padding:0 2%;overflow-x:auto;margin-bottom:24px;">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Formato</th>
+          <th>Quando usar</th>
+          <th>Por quê</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>WebP</code></td>
+          <td>Fotos e imagens complexas</td>
+          <td>25–35% menor que JPEG com qualidade igual ou superior; ótimo suporte</td>
+        </tr>
+        <tr>
+          <td><code>AVIF</code></td>
+          <td>Fotos onde a compatibilidade não é crítica</td>
+          <td>Compressão excelente — porém encode mais lento e decode mais pesado. Não é universalmente "o melhor": depende do contexto</td>
+        </tr>
+        <tr>
+          <td><code>SVG</code></td>
+          <td>Ícones, logos e ilustrações vetoriais</td>
+          <td>Escala para qualquer tamanho sem perda de qualidade — peso mínimo</td>
+        </tr>
+        <tr>
+          <td><code>PNG</code></td>
+          <td>Imagens com transparência que precisam de nitidez absoluta</td>
+          <td>Lossless — use apenas quando necessário, pois pesa mais</td>
+        </tr>
+        <tr>
+          <td><code>JPEG</code></td>
+          <td>Fotos sem transparência em contextos legados</td>
+          <td>Amplamente suportado, mas substituível por WebP em projetos modernos</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="acc-item" style="margin:32px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">🖼️</span>
+        <span class="acc-title">Exemplo — Imagens otimizadas no HTML</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+            <span class="code-block-label">imagens — hero, lazy loading, srcset e picture</span>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <div class="code-block-body"><pre><span class="c-comment"><!-- ✅ Hero image: NUNCA lazy — alta prioridade --></span>
+&lt;<span class="c-sel">img</span>
+  <span class="c-prop">src</span>=<span class="c-str">"hero.webp"</span>
+  <span class="c-prop">alt</span>=<span class="c-str">"Descrição da imagem principal"</span>
+  <span class="c-prop">fetchpriority</span>=<span class="c-str">"high"</span>
+  <span class="c-prop">width</span>=<span class="c-str">"1200"</span>
+  <span class="c-prop">height</span>=<span class="c-str">"600"</span>
+/&gt;
+
+<span class="c-comment"><!-- ✅ Imagem abaixo da dobra: lazy + baixa prioridade --></span>
+&lt;<span class="c-sel">img</span>
+  <span class="c-prop">src</span>=<span class="c-str">"foto.webp"</span>
+  <span class="c-prop">alt</span>=<span class="c-str">"Descrição da imagem"</span>
+  <span class="c-prop">loading</span>=<span class="c-str">"lazy"</span>
+  <span class="c-prop">decoding</span>=<span class="c-str">"async"</span>
+  <span class="c-prop">width</span>=<span class="c-str">"800"</span>
+  <span class="c-prop">height</span>=<span class="c-str">"600"</span>
+/&gt;
+
+<span class="c-comment"><!-- srcset: imagem certa para cada densidade de tela --></span>
+&lt;<span class="c-sel">img</span>
+  <span class="c-prop">src</span>=<span class="c-str">"foto-800.webp"</span>
+  <span class="c-prop">srcset</span>=<span class="c-str">"foto-400.webp 400w,
+          foto-800.webp 800w,
+          foto-1200.webp 1200w"</span>
+  <span class="c-prop">sizes</span>=<span class="c-str">"(max-width: 600px) 100vw, 50vw"</span>
+  <span class="c-prop">alt</span>=<span class="c-str">"Imagem responsiva"</span>
+  <span class="c-prop">loading</span>=<span class="c-str">"lazy"</span>
+  <span class="c-prop">decoding</span>=<span class="c-str">"async"</span>
+/&gt;
+
+<span class="c-comment"><!-- picture: formato moderno com fallback --></span>
+&lt;<span class="c-sel">picture</span>&gt;
+  &lt;<span class="c-sel">source</span> <span class="c-prop">srcset</span>=<span class="c-str">"foto.avif"</span> <span class="c-prop">type</span>=<span class="c-str">"image/avif"</span> /&gt;
+  &lt;<span class="c-sel">source</span> <span class="c-prop">srcset</span>=<span class="c-str">"foto.webp"</span> <span class="c-prop">type</span>=<span class="c-str">"image/webp"</span> /&gt;
+  &lt;<span class="c-sel">img</span>
+    <span class="c-prop">src</span>=<span class="c-str">"foto.jpg"</span>
+    <span class="c-prop">alt</span>=<span class="c-str">"Fallback JPEG"</span>
+    <span class="c-prop">loading</span>=<span class="c-str">"lazy"</span>
+    <span class="c-prop">decoding</span>=<span class="c-str">"async"</span>
+  /&gt;
+&lt;/<span class="c-sel">picture</span>&gt;
+
+<span class="c-comment">/* CSS: aspect-ratio reserva espaço — ajuda a reduzir CLS */</span>
+<span class="c-comment">/* Para CLS causado por fontes ou conteúdo dinâmico, */</span>
+<span class="c-comment">/* outras estratégias são necessárias. */</span>
+<span class="c-sel">.hero-img</span> {
+  <span class="c-prop">width</span>: <span class="c-val">100%</span>;
+  <span class="c-prop">height</span>: <span class="c-val">auto</span>;
+  <span class="c-prop">aspect-ratio</span>: <span class="c-val">16 / 9</span>;
+  <span class="c-prop">object-fit</span>: <span class="c-val">cover</span>;
+}</pre></div>
+        </div>
+
+        <div class="alert alert-tip" style="margin-top:24px;">
+          <span class="alert-icon">💡</span>
+          <span>
+            Sempre declare <code>width</code> e <code>height</code> nas tags
+            <code>&lt;img&gt;</code> — mesmo que você redimensione via CSS depois.
+            O navegador usa esses valores para reservar o espaço antes da imagem
+            carregar, ajudando a reduzir o CLS. Para eliminar completamente o layout shift,
+            garanta também que fontes e conteúdo dinâmico tenham espaço reservado.
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Fontes ── -->
+  <h3 class="subtitle" style="margin-top:40px;">Carregamento de <span style="color:var(--wood);">fontes</span></h3>
+  <p class="text">
+    Fontes externas podem ser fontes de atraso na renderização: o comportamento
+    depende do navegador e da estratégia definida via <code>font-display</code>.
+    Sem as instruções certas, o usuário pode ver texto invisível (FOIT) ou
+    uma piscada visual quando a fonte troca (FOUT). Duas estratégias combinadas
+    minimizam esses problemas:
+  </p>
+
+  <div
+    class="msg-grid"
+    style="margin:24px 2%;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;"
+  >
+
+    <div class="msg-card git-gold">
+      <div class="msg-badge">font-display: swap</div>
+      <div class="msg-title">FOUT em vez de FOIT</div>
+      <div class="msg-desc">
+        Instrui o navegador a exibir o texto com uma fonte do sistema (fallback)
+        enquanto a fonte personalizada carrega — e trocar assim que estiver pronta.
+        O usuário vê o conteúdo imediatamente. Haverá uma troca visual (FOUT),
+        que costuma ser preferível ao texto invisível (FOIT).
+        É o comportamento recomendado para a maioria dos projetos.
+      </div>
+    </div>
+
+    <div class="msg-card git-green">
+      <div class="msg-badge">preconnect</div>
+      <div class="msg-title">Conexão antecipada</div>
+      <div class="msg-desc">
+        Avisa o navegador com antecedência para estabelecer conexão com o
+        servidor de fontes ainda durante o parse do HTML —
+        antes de encontrar o <code>&lt;link&gt;</code> da fonte.
+        Reduz em 100–300ms o tempo de download em conexões lentas.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="acc-item" style="margin:32px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">✍️</span>
+        <span class="acc-title">Exemplo — Fontes otimizadas</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+            <span class="code-block-label">fontes — preconnect, font-display e unicode-range</span>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <div class="code-block-body"><pre><span class="c-comment"><!-- No &lt;head&gt;: preconnect antes do link da fonte --></span>
+&lt;<span class="c-sel">link</span> <span class="c-prop">rel</span>=<span class="c-str">"preconnect"</span> <span class="c-prop">href</span>=<span class="c-str">"https://fonts.googleapis.com"</span> /&gt;
+&lt;<span class="c-sel">link</span> <span class="c-prop">rel</span>=<span class="c-str">"preconnect"</span> <span class="c-prop">href</span>=<span class="c-str">"https://fonts.gstatic.com"</span> <span class="c-prop">crossorigin</span> /&gt;
+&lt;<span class="c-sel">link</span> <span class="c-prop">rel</span>=<span class="c-str">"stylesheet"</span> <span class="c-prop">href</span>=<span class="c-str">"https://fonts.googleapis.com/css2?
+  family=Inter:wght@400;600&
+  family=Fraunces:wght@700&
+  display=swap"</span> /&gt;
+
+<span class="c-comment">/* font-display: swap em @font-face próprio */</span>
 <span class="c-sel">@font-face</span> {
   <span class="c-prop">font-family</span>: <span class="c-val">'MinhaFonte'</span>;
   <span class="c-prop">src</span>: <span class="c-val">url('fonte.woff2') format('woff2')</span>;
-  <span class="c-prop">font-display</span>: <span class="c-val">swap</span>; <span class="c-comment">/* mostra fallback enquanto carrega */</span>
+  <span class="c-prop">font-weight</span>: <span class="c-val">400</span>;
+  <span class="c-prop">font-display</span>: <span class="c-val">swap</span>;
+  <span class="c-comment">/* unicode-range: define quais subsets desta @font-face são carregados. */</span>
+  <span class="c-comment">/* O navegador só baixa este arquivo se a página usar caracteres neste intervalo. */</span>
+  <span class="c-comment">/* Não "detecta" caracteres usados — você define os subsets manualmente ou */</span>
+  <span class="c-comment">/* o serviço de fontes (ex: Google Fonts) gera automaticamente. */</span>
+  <span class="c-prop">unicode-range</span>: <span class="c-val">U+0000-00FF</span>;
 }
 
-<span class="c-comment">&lt;!-- Lazy loading de imagens --&gt;</span>
-&lt;<span class="c-tag">img</span>
-  <span class="c-attr">src</span>=<span class="c-str">"foto.webp"</span>
-  <span class="c-attr">alt</span>=<span class="c-str">"Descrição da imagem"</span>
-  <span class="c-attr">loading</span>=<span class="c-str">"lazy"</span>
-  <span class="c-attr">width</span>=<span class="c-str">"800"</span>
-  <span class="c-attr">height</span>=<span class="c-str">"600"</span>
+<span class="c-comment">/* Pilha de fontes com fallbacks seguros */</span>
+<span class="c-sel">body</span> {
+  <span class="c-prop">font-family</span>: <span class="c-val">'Inter', 'Helvetica Neue', Arial, sans-serif</span>;
+}
+
+<span class="c-comment">/* Importe só os pesos que você realmente usa */</span>
+<span class="c-comment">/* ❌ Carrega todos os pesos: family=Inter */</span>
+<span class="c-comment">/* ✅ Só 400 e 700: family=Inter:wght@400;700 */</span></pre></div>
+        </div>
+
+        <div class="alert alert-tip" style="margin-top:24px;">
+          <span class="alert-icon">💡</span>
+          <span>
+            O formato <code>woff2</code> é o padrão moderno para fontes próprias —
+            compressão superior ao <code>woff</code> e suportado por todos os
+            navegadores atuais. Se você hospedar a fonte no próprio servidor,
+            use sempre <code>woff2</code> e elimine a dependência de serviços externos.
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CSS enxuto ── -->
+  <h3 class="subtitle" style="margin-top:40px;">CSS enxuto — evitar o <span style="color:var(--wood);">peso morto</span></h3>
+  <p class="text">
+    O CSS do <code>&lt;head&gt;</code> precisa ser processado antes de o navegador
+    construir a render tree — a combinação de HTML e estilos que resulta no que o usuário vê.
+    Na prática, um arquivo CSS grande ou cheio de regras desnecessárias aumenta esse tempo de parse.
+    Navegadores modernos têm heurísticas sofisticadas, então o impacto real depende muito do
+    tamanho e complexidade do arquivo. Quatro hábitos resolvem a maior parte do problema:
+  </p>
+
+  <div style="padding:0 2%;overflow-x:auto;margin-bottom:24px;">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Problema</th>
+          <th>Prática recomendada</th>
+          <th>Impacto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CSS não utilizado</td>
+          <td>Audite com DevTools → Coverage e remova regras mortas</td>
+          <td>Pode reduzir o arquivo em 60–80% em projetos com frameworks CSS</td>
+        </tr>
+        <tr>
+          <td>Importar frameworks inteiros</td>
+          <td>Use apenas os módulos necessários ou purge automático</td>
+          <td>Frameworks CSS completos costumam incluir muito mais estilos do que um projeto realmente usa</td>
+        </tr>
+        <tr>
+          <td>Seletores muito profundos</td>
+          <td>Limite a 2–3 níveis de especificidade</td>
+          <td>O impacto em performance de parse é mínimo em browsers modernos — o ganho real é em manutenção e legibilidade</td>
+        </tr>
+        <tr>
+          <td>CSS inline em excesso</td>
+          <td>Mova estilos repetidos para classes reutilizáveis</td>
+          <td>HTML menor, cache do CSS funciona corretamente</td>
+        </tr>
+        <tr>
+          <td>Múltiplos arquivos CSS</td>
+          <td>Em HTTP/2 e HTTP/3, múltiplos arquivos pequenos são menos problemáticos. Em HTTP/1.1, concatenar em produção ainda ajuda</td>
+          <td>Depende do protocolo e do servidor — avalie antes de otimizar</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="acc-item" style="margin:32px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">✂️</span>
+        <span class="acc-title">Exemplo — CSS crítico e carregamento eficiente</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+            <span class="code-block-label">css — crítico inline + restante assíncrono (técnica avançada)</span>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <div class="code-block-body"><pre><span class="c-comment"><!-- CSS crítico inline: renderiza o acima da dobra imediatamente --></span>
+&lt;<span class="c-sel">style</span>&gt;
+  <span class="c-sel">body</span> { <span class="c-prop">margin</span>: <span class="c-val">0</span>; <span class="c-prop">font-family</span>: <span class="c-val">sans-serif</span>; <span class="c-prop">background</span>: <span class="c-val">#0d1117</span>; }
+  <span class="c-sel">.navbar</span> { <span class="c-prop">height</span>: <span class="c-val">64px</span>; <span class="c-prop">display</span>: <span class="c-val">flex</span>; <span class="c-prop">align-items</span>: <span class="c-val">center</span>; }
+  <span class="c-sel">.hero</span>   { <span class="c-prop">min-height</span>: <span class="c-val">100vh</span>; }
+&lt;/<span class="c-sel">style</span>&gt;
+
+<span class="c-comment"><!--
+  TÉCNICA AVANÇADA: CSS não-crítico carregado de forma assíncrona.
+  Como funciona: rel="preload" baixa o arquivo sem aplicá-lo;
+  o onload troca para rel="stylesheet" quando o download termina.
+  Cuidado: pode causar FOUC (Flash of Unstyled Content) se o CSS
+  crítico inline não cobrir tudo que aparece antes da dobra.
+  O fallback <noscript> é necessário para usuários sem JavaScript.
+  Avalie se essa complexidade é justificada para o seu projeto.
+--></span>
+&lt;<span class="c-sel">link</span>
+  <span class="c-prop">rel</span>=<span class="c-str">"preload"</span>
+  <span class="c-prop">href</span>=<span class="c-str">"estilos.css"</span>
+  <span class="c-prop">as</span>=<span class="c-str">"style"</span>
+  <span class="c-prop">onload</span>=<span class="c-str">"this.onload=null;this.rel='stylesheet'"</span>
 /&gt;
-<span class="c-comment">&lt;!-- width e height evitam Cumulative Layout Shift (CLS) --&gt;</span></pre></div>
-          </div>
+&lt;<span class="c-sel">noscript</span>&gt;
+  &lt;<span class="c-sel">link</span> <span class="c-prop">rel</span>=<span class="c-str">"stylesheet"</span> <span class="c-prop">href</span>=<span class="c-str">"estilos.css"</span> /&gt;
+&lt;/<span class="c-sel">noscript</span>&gt;
 
-        </div>
-      </section>
+<span class="c-comment">/* Evite: seletor desnecessariamente profundo */</span>
+<span class="c-sel">header nav ul li a span</span> { <span class="c-prop">color</span>: <span class="c-val">red</span>; }
+<span class="c-comment">/* ❌ Difícil de manter — acoplamento forte */</span>
 
-      <!-- ══════════════════════════════════════════════════
-           SEÇÃO 16 — BOAS PRÁTICAS
-      ══════════════════════════════════════════════════ -->
-      <section class="content-section" id="section-boaspraticas">
+<span class="c-comment">/* Prefira: classe direta */</span>
+<span class="c-sel">.nav-link</span> { <span class="c-prop">color</span>: <span class="c-val">red</span>; }
+<span class="c-comment">/* ✅ Fácil de manter — sem dependência de estrutura */</span>
 
-        <div class="cover" style="padding:0;min-height:auto;background:transparent;margin-bottom:40px;box-shadow:none;">
-          <div class="cover-text">
-            <div class="section-tag">Seção 16</div>
-            <h2 class="section-title"><span style="color:var(--wood);">Boas Práticas</span></h2>
-            <p class="section-lead">
-              CSS profissional vs CSS espaguete. A diferença não está no que funciona — está em como você escreve, organiza e nomeia. Aqui estão os padrões que separam amadores de profissionais.
-            </p>
-          </div>
-          <div class="nc-right">
-            <div class="nc-glow"></div>
-            <img
-              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/css16.png"
-              alt="Boas Práticas CSS"
-              onerror="this.style.display='none';"
-              style="width:640px;height:700px;object-fit:cover;border:1px solid rgba(38,77,228,0.3);"
-            />
-          </div>
+<span class="c-comment">/* Evite: !important para corrigir especificidade */</span>
+<span class="c-sel">.btn</span> { <span class="c-prop">color</span>: <span class="c-val">blue !important</span>; }
+<span class="c-comment">/* ❌ sinal de CSS desorganizado */</span>
+
+<span class="c-comment">/* Prefira: especificidade correta desde o início */</span>
+<span class="c-sel">.btn-primario</span> { <span class="c-prop">color</span>: <span class="c-val">blue</span>; }
+<span class="c-comment">/* ✅ */</span></pre></div>
         </div>
 
-        <div style="padding:0 2%;">
+      </div>
+    </div>
+  </div>
 
-          <!-- Nomenclatura -->
-          <h3 class="subtitle"><span style="color:var(--wood);">Nomenclatura</span> de Classes</h3>
-          <p class="text">Nomes de classes descritivos, específicos e consistentes são essenciais. Evite abreviações obscuras e nomes genéricos:</p>
+  <!-- ── Acessibilidade visual ── -->
+  <h3 class="subtitle" style="margin-top:40px;"><span style="color:var(--wood);">Acessibilidade visual</span> e contraste</h3>
+  <p class="text">
+    Acessibilidade visual é um requisito de design e, em muitos países, também legal.
+    O ponto de partida é o contraste: a diferença de luminosidade entre texto e fundo
+    precisa ser suficiente para pessoas com baixa visão ou daltonismo lerem o conteúdo
+    sem dificuldade. O Google leva em conta sinais relacionados a experiência do usuário —
+    como Core Web Vitals e usabilidade mobile — nos critérios de rankeamento,
+    mas não há penalização direta por contraste baixo. O impacto do contraste
+    é principalmente em acessibilidade e qualidade de experiência.
+  </p>
 
-          <div class="compare-grid" style="margin:24px 0;">
-            <div class="compare-card bad">
-              <div class="compare-header">❌ CSS Espaguete</div>
-              <div class="compare-body">
-                <div class="compare-item"><span class="bullet">✗</span><span><code>.d1, .d2, .c, .x</code> — sem significado</span></div>
-                <div class="compare-item"><span class="bullet">✗</span><span><code>.red, .big, .left</code> — baseado em visual</span></div>
-                <div class="compare-item"><span class="bullet">✗</span><span><code>.div123, .container2</code> — numeração sem sentido</span></div>
-                <div class="compare-item"><span class="bullet">✗</span><span>IDs para estilo: <code>#titulo, #paragrafo</code></span></div>
-                <div class="compare-item"><span class="bullet">✗</span><span><code>!important</code> em todo lugar</span></div>
-              </div>
-            </div>
-            <div class="compare-card good">
-              <div class="compare-header">✅ CSS Profissional (BEM)</div>
-              <div class="compare-body">
-                <div class="compare-item"><span class="bullet">✓</span><span><code>.card, .card__title, .card__body</code></span></div>
-                <div class="compare-item"><span class="bullet">✓</span><span><code>.btn, .btn--primary, .btn--outline</code></span></div>
-                <div class="compare-item"><span class="bullet">✓</span><span><code>.nav__item--active</code></span></div>
-                <div class="compare-item"><span class="bullet">✓</span><span>Baseado em função, não em visual</span></div>
-                <div class="compare-item"><span class="bullet">✓</span><span>Previsível e autoexplicativo</span></div>
-              </div>
-            </div>
+  <div
+    class="msg-grid"
+    style="margin:24px 2%;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;"
+  >
+
+    <div class="msg-card git-gold">
+      <div class="msg-badge">WCAG AA — mínimo de mercado</div>
+      <div class="msg-title">Razão 4,5:1 para texto</div>
+      <div class="msg-desc">
+        O nível AA das diretrizes WCAG define razão de contraste mínima de
+        <strong>4,5:1</strong> para texto normal e <strong>3:1</strong> para
+        texto grande (acima de 18px bold ou 24px regular).
+        É o padrão adotado pela maioria das legislações de acessibilidade
+        — mas verifique as exigências específicas do país e contexto do seu projeto.
+      </div>
+    </div>
+
+    <div class="msg-card git-blue">
+      <div class="msg-badge">WCAG AAA — ideal</div>
+      <div class="msg-title">Razão 7:1 para máxima legibilidade</div>
+      <div class="msg-desc">
+        O nível AAA eleva a exigência para <strong>7:1</strong> em texto normal —
+        garantindo legibilidade para pessoas com visão muito reduzida.
+        É o padrão recomendado para interfaces que precisam de alta legibilidade,
+        como painéis de controle e ferramentas de leitura.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Demos visuais ── -->
+  <h3 class="subtitle" style="margin-top:40px;">Demos <span style="color:var(--wood);">visuais</span></h3>
+  <p class="text">
+    Veja a diferença entre contraste inadequado e contraste correto —
+    e como pequenas escolhas de cor afetam diretamente a legibilidade:
+  </p>
+
+  <div class="flex-demo">
+    <div class="flex-demo-label">Contraste insuficiente vs. adequado</div>
+    <div class="flex-demo-inner" style="gap:8px;flex-wrap:wrap;">
+      <div class="flex-item" style="background:#1a1a2e;color:#2a4080;flex:1;min-width:180px;text-align:center;">
+        ❌ Texto escuro em fundo escuro — ilegível
+      </div>
+      <div class="flex-item" style="background:#1a1a2e;color:#e6edf3;flex:1;min-width:180px;text-align:center;">
+        ✅ Texto claro em fundo escuro — legível
+      </div>
+    </div>
+  </div>
+
+  <div class="flex-demo">
+    <div class="flex-demo-label">font-display: swap — FOUT: fallback visível, depois troca para a fonte personalizada</div>
+    <div class="flex-demo-inner" style="gap:8px;flex-direction:column;align-items:stretch;">
+      <div class="flex-item" style="font-family:serif;text-align:center;font-size:1.1rem;">
+        → Fonte do sistema (fallback) — exibida imediatamente
+      </div>
+      <div class="flex-item" style="font-family:'Fraunces',serif;text-align:center;font-size:1.1rem;">
+        → Fonte personalizada — substitui quando pronta (FOUT)
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Acessibilidade + media queries ── -->
+  <div class="acc-item" style="margin:32px 2%;">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="acc-emoji">♿</span>
+        <span class="acc-title">Exemplo — Contraste, foco e preferências do usuário</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-body-inner">
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+            <span class="code-block-label">acessibilidade visual — contraste, foco e media queries</span>
+            <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
           </div>
+          <div class="code-block-body"><pre><span class="c-comment">/* Contraste mínimo WCAG AA: 4,5:1 */</span>
+<span class="c-sel">body</span> {
+  <span class="c-prop">background</span>: <span class="c-val">#0d1117</span>;  <span class="c-comment">/* escuro */</span>
+  <span class="c-prop">color</span>: <span class="c-val">#e6edf3</span>;       <span class="c-comment">/* claro — razão ~15:1 ✅ */</span>
+}
 
-          <!-- Organização do arquivo CSS -->
-          <h3 class="subtitle" style="margin-top:40px;">Organização do <span style="color:var(--wood);">Arquivo CSS</span></h3>
+<span class="c-comment">/* Nunca remova o outline de foco — usuários de teclado dependem dele */</span>
+<span class="c-sel">:focus-visible</span> {
+  <span class="c-prop">outline</span>: <span class="c-val">2px solid #58a6ff</span>;
+  <span class="c-prop">outline-offset</span>: <span class="c-val">3px</span>;
+  <span class="c-prop">border-radius</span>: <span class="c-val">4px</span>;
+}
 
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-              <span class="code-block-label">estrutura organizada do style.css</span>
-              <button class="code-block-copy" onclick="copyCode(this)">Copiar</button>
-            </div>
-            <div class="code-block-body"><pre><span class="c-comment">/* ═══════════════════════════════════════
+<span class="c-comment">/* Respeita preferência por menos movimento.
+   animation: none e transition: none são alternativas mais
+   robustas ao 0.01ms — evitam que eventos de animação
+   ainda disparem em algumas bibliotecas. */</span>
+<span class="c-sel">@media (prefers-reduced-motion: reduce)</span> {
+  <span class="c-sel">*, *::before, *::after</span> {
+    <span class="c-prop">animation</span>: <span class="c-val">none !important</span>;
+    <span class="c-prop">transition</span>: <span class="c-val">none !important</span>;
+  }
+}
+
+<span class="c-comment">/* prefers-contrast ainda tem suporte parcial em alguns browsers —
+   use como aprimoramento progressivo, não como recurso obrigatório. */</span>
+<span class="c-sel">@media (prefers-contrast: more)</span> {
+  <span class="c-sel">:root</span> {
+    <span class="c-prop">--texto</span>: <span class="c-val">#ffffff</span>;
+    <span class="c-prop">--borda-cor</span>: <span class="c-val">#ffffff</span>;
+    <span class="c-prop">--texto-suave</span>: <span class="c-val">#cccccc</span>;
+  }
+}
+
+<span class="c-comment">/* Tamanho mínimo para áreas clicáveis — WCAG 2.5.5 */</span>
+<span class="c-sel">.btn, a, [role="button"]</span> {
+  <span class="c-prop">min-height</span>: <span class="c-val">44px</span>;   <span class="c-comment">/* mínimo recomendado para toque */</span>
+  <span class="c-prop">min-width</span>: <span class="c-val">44px</span>;
+}</pre></div>
+        </div>
+
+        <div class="alert alert-tip" style="margin-top:24px;">
+          <span class="alert-icon">💡</span>
+          <span>
+            Use o DevTools do Chrome: aba <strong>Lighthouse</strong> para auditar
+            performance e acessibilidade de uma vez, e a aba <strong>Rendering</strong>
+            para simular <code>prefers-reduced-motion</code> e
+            <code>prefers-color-scheme</code> sem alterar as configurações do sistema.
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Checklist ── -->
+  <h3 class="subtitle" style="margin-top:40px;">Checklist de <span style="color:var(--wood);">SEO</span></h3>
+  <p class="text">
+    Antes de publicar qualquer projeto, percorra esta lista. Cada item aqui
+    tem impacto direto nos Core Web Vitals, no rankeamento e na experiência
+    do usuário — especialmente em conexões lentas e dispositivos móveis:
+  </p>
+
+  <div style="padding:0 2%;overflow-x:auto;margin-bottom:24px;">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Status</th>
+          <th>Impacto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Imagens em WebP ou AVIF</td>
+          <td>✅ Essencial</td>
+          <td>LCP — carrega o maior elemento mais rápido</td>
+        </tr>
+        <tr>
+          <td>Hero image sem <code>loading="lazy"</code>, com <code>fetchpriority="high"</code></td>
+          <td>✅ Essencial</td>
+          <td>LCP — garante prioridade máxima para o elemento mais importante</td>
+        </tr>
+        <tr>
+          <td><code>loading="lazy"</code> apenas em imagens abaixo da dobra</td>
+          <td>✅ Essencial</td>
+          <td>Reduz dados transferidos no carregamento inicial</td>
+        </tr>
+        <tr>
+          <td><code>width</code> e <code>height</code> em todas as <code>&lt;img&gt;</code></td>
+          <td>✅ Essencial</td>
+          <td>CLS — ajuda a reservar espaço e reduzir layout shift</td>
+        </tr>
+        <tr>
+          <td><code>preconnect</code> para fontes externas</td>
+          <td>✅ Essencial</td>
+          <td>Reduz tempo de conexão com servidor de fontes</td>
+        </tr>
+        <tr>
+          <td><code>font-display: swap</code></td>
+          <td>✅ Essencial</td>
+          <td>Troca FOIT por FOUT — texto visível imediatamente</td>
+        </tr>
+        <tr>
+          <td>Contraste mínimo 4,5:1 em todo texto</td>
+          <td>✅ Essencial</td>
+          <td>Acessibilidade WCAG AA — e boa legibilidade geral</td>
+        </tr>
+        <tr>
+          <td><code>:focus-visible</code> estilizado</td>
+          <td>✅ Essencial</td>
+          <td>Acessibilidade para usuários de teclado</td>
+        </tr>
+        <tr>
+          <td>Scripts com <code>defer</code> ou <code>async</code></td>
+          <td>✅ Essencial</td>
+          <td>Evita bloqueio do parse HTML por JavaScript</td>
+        </tr>
+        <tr>
+          <td>Compressão gzip ou Brotli ativa no servidor</td>
+          <td>✅ Essencial</td>
+          <td>Reduz tamanho dos arquivos transferidos em 60–80%</td>
+        </tr>
+        <tr>
+          <td><code>prefers-reduced-motion</code> respeitado</td>
+          <td>⭐ Recomendado</td>
+          <td>Acessibilidade para pessoas com sensibilidade a movimento</td>
+        </tr>
+        <tr>
+          <td>CSS não utilizado removido</td>
+          <td>⭐ Recomendado</td>
+          <td>Reduz tempo de parse e tamanho do arquivo</td>
+        </tr>
+        <tr>
+          <td>Cache-Control configurado para assets estáticos</td>
+          <td>⭐ Recomendado</td>
+          <td>Carregamento quase instantâneo em visitas repetidas</td>
+        </tr>
+        <tr>
+          <td>Auditoria Lighthouse como diagnóstico</td>
+          <td>⭐ Referência</td>
+          <td>Use como ferramenta diagnóstica — não como meta isolada; scores variam por ambiente</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Ponte para UX/UI ── -->
+  <div class="alert alert-tip" style="margin-top:24px;">
+    <span class="alert-icon">🎨</span>
+    <span>
+      Performance e acessibilidade não são restrições ao design — são
+      <strong>disciplinas que atravessam design, engenharia e infraestrutura</strong>.
+      Escolher o formato certo de imagem, garantir contraste adequado, respeitar
+      preferências do sistema operacional, configurar cache e compressão no servidor:
+      tudo isso é pensar na experiência real do usuário em condições reais —
+      dispositivos com CPU limitada, conexões móveis lentas, pessoas com baixa visão.
+      É exatamente esse pensamento que distingue desenvolvimento front-end de
+      UX/UI profissional — o próximo passo natural desta jornada.
+    </span>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 16 — BOAS PRÁTICAS CSS
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-boaspraticas" style="background:var(--bg);">
+
+  <!-- COVER -->
+  <div
+    class="cover"
+    style="
+      padding:0;
+      min-height:auto;
+      background:transparent;
+      margin-bottom:40px;
+      box-shadow:none;
+    "
+  >
+
+    <!-- Texto -->
+    <div class="cover-text">
+
+      <div class="section-tag">
+        Seção 16
+      </div>
+
+      <h2
+        style="
+          font-size:clamp(2.5rem,4vw,3.5rem);
+          line-height:1.1;
+          margin-bottom:1rem;
+          color:var(--ink);
+          font-family:'Fraunces',serif;
+        "
+      >
+        Boas<br />
+        <span style="color:var(--wood);">
+          Práticas CSS
+        </span>
+      </h2>
+
+      <p
+        class="cover-subtitle"
+        style="
+          font-size:1.1rem;
+          line-height:1.6;
+        "
+      >
+        CSS profissional não é apenas sobre fazer funcionar.
+        É sobre organização, previsibilidade,
+        manutenção e escalabilidade.
+        Nesta seção você aprenderá os padrões
+        utilizados em projetos reais para escrever
+        um CSS mais limpo, reutilizável e sustentável.
+      </p>
+
+    </div>
+
+    <!-- Imagem -->
+    <div class="nc-right">
+
+      <div class="nc-glow"></div>
+
+      <img
+        src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/css16.png"
+        alt="Boas práticas e arquitetura profissional em CSS"
+        onerror="this.style.display='none';"
+        style="
+          width:640px;
+          height:700px;
+
+          object-fit:cover;
+          object-position:center;
+
+          box-shadow:
+            0 10px 30px rgba(0,0,0,0.5),
+            0 0 20px rgba(88,166,255,0.18);
+
+          border:1px solid rgba(88,166,255,0.25);
+
+          transition:transform 0.3s ease;
+        "
+      />
+
+    </div>
+
+  </div>
+
+  <!-- INTRO -->
+  <h3 class="subtitle">
+    CSS profissional vs CSS <span style="color:var(--wood);">espaguete</span>
+  </h3>
+
+  <p class="text">
+    Em projetos pequenos, quase qualquer CSS parece funcionar.
+    O problema aparece quando o sistema cresce:
+    regras começam a colidir,
+    componentes quebram,
+    estilos se tornam imprevisíveis
+    e ninguém entende mais o propósito das classes.
+  </p>
+
+  <p class="text">
+    Boas práticas existem para resolver exatamente isso.
+    Elas tornam o CSS mais previsível,
+    escalável,
+    reutilizável
+    e sustentável em projetos reais.
+  </p>
+
+  <div class="alert alert-tip">
+    <span class="alert-icon">🧠</span>
+
+    <span>
+      A diferença entre um CSS iniciante e um CSS profissional
+      raramente está apenas no visual final.
+      Ela aparece principalmente na manutenção,
+      organização,
+      consistência
+      e facilidade de trabalhar em equipe.
+    </span>
+  </div>
+
+  <!-- NOMENCLATURA -->
+  <h3 class="subtitle" style="margin-top:40px;">
+    Nomeando classes de forma
+    <span style="color:var(--wood);">inteligente</span>
+  </h3>
+
+  <p class="text">
+    Classes são a linguagem interna do seu projeto.
+    Quando os nomes são vagos,
+    inconsistentes
+    ou baseados apenas na aparência visual,
+    o CSS rapidamente se torna difícil de manter.
+  </p>
+
+  <div class="compare-grid" style="margin:24px 0;">
+
+    <!-- ERRADO -->
+    <div class="compare-card bad">
+
+      <div class="compare-header">
+        ❌ CSS Desorganizado
+      </div>
+
+      <div class="compare-body">
+
+        <div class="compare-item">
+          <span class="bullet">✗</span>
+          <span>
+            <code>.d1, .x, .c2</code> — sem significado
+          </span>
+        </div>
+
+        <div class="compare-item">
+          <span class="bullet">✗</span>
+          <span>
+            <code>.red, .big, .left</code> — baseado em aparência
+          </span>
+        </div>
+
+        <div class="compare-item">
+          <span class="bullet">✗</span>
+          <span>
+            <code>.div123</code> — numeração sem contexto
+          </span>
+        </div>
+
+        <div class="compare-item">
+          <span class="bullet">✗</span>
+          <span>
+            IDs usados para estilização:
+            <code>#titulo</code>,
+            <code>#paragrafo</code>
+          </span>
+        </div>
+
+        <div class="compare-item">
+          <span class="bullet">✗</span>
+          <span>
+            Uso excessivo de
+            <code>!important</code>
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CERTO -->
+    <div class="compare-card good">
+
+      <div class="compare-header">
+        ✅ CSS Organizado (BEM)
+      </div>
+
+      <div class="compare-body">
+
+        <div class="compare-item">
+          <span class="bullet">✓</span>
+          <span>
+            <code>.card</code>,
+            <code>.card__title</code>,
+            <code>.card__body</code>
+          </span>
+        </div>
+
+        <div class="compare-item">
+          <span class="bullet">✓</span>
+          <span>
+            <code>.btn</code>,
+            <code>.btn--primary</code>
+          </span>
+        </div>
+
+        <div class="compare-item">
+          <span class="bullet">✓</span>
+          <span>
+            <code>.nav__item--active</code>
+          </span>
+        </div>
+
+        <div class="compare-item">
+          <span class="bullet">✓</span>
+          <span>
+            Classes baseadas em função e contexto
+          </span>
+        </div>
+
+        <div class="compare-item">
+          <span class="bullet">✓</span>
+          <span>
+            Estrutura previsível e reutilizável
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CONSISTÊNCIA -->
+  <h3 class="subtitle" style="margin-top:40px;">
+    Consistência e
+    <span style="color:var(--wood);">padronização</span>
+  </h3>
+
+  <p class="text">
+    Um dos maiores sinais de maturidade em CSS
+    é reduzir decisões repetidas.
+    Espaçamentos,
+    cores,
+    tipografia,
+    sombras
+    e breakpoints
+    devem seguir padrões reutilizáveis em todo o projeto.
+  </p>
+
+  <div
+    class="msg-grid"
+    style="
+      margin:24px 2%;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:24px;
+    "
+  >
+
+    <div class="msg-card git-gold">
+
+      <div class="msg-badge">
+        Tokens
+      </div>
+
+      <div class="msg-title">
+        Variáveis centralizadas
+      </div>
+
+      <div class="msg-desc">
+        Cores, tipografia, espaçamentos e sombras
+        devem ser definidos em um único lugar
+        utilizando CSS Variables.
+        Isso reduz inconsistências
+        e facilita manutenção.
+      </div>
+
+    </div>
+
+    <div class="msg-card git-blue">
+
+      <div class="msg-badge">
+        Breakpoints
+      </div>
+
+      <div class="msg-title">
+        Responsividade previsível
+      </div>
+
+      <div class="msg-desc">
+        Evite breakpoints aleatórios espalhados pelo projeto.
+        Utilize padrões reutilizáveis
+        para manter consistência entre páginas e componentes.
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ORGANIZAÇÃO -->
+  <h3 class="subtitle" style="margin-top:40px;">
+    Organização do
+    <span style="color:var(--wood);">arquivo CSS</span>
+  </h3>
+
+  <p class="text">
+    Projetos reais podem possuir milhares de linhas de CSS.
+    Sem organização,
+    encontrar problemas ou reutilizar estilos
+    se torna extremamente difícil.
+  </p>
+
+  <div class="code-block">
+
+    <div class="code-block-header">
+
+      <div class="code-block-dots">
+        <span class="dot-red"></span>
+        <span class="dot-yellow"></span>
+        <span class="dot-green"></span>
+      </div>
+
+      <span class="code-block-label">
+        estrutura organizada do style.css
+      </span>
+
+      <button class="code-block-copy" onclick="copyCode(this)">
+        Copiar
+      </button>
+
+    </div>
+
+    <div class="code-block-body">
+<pre><span class="c-comment">/* ═══════════════════════════════════════
    1. VARIÁVEIS E CONFIGURAÇÃO
 ═══════════════════════════════════════ */</span>
-<span class="c-sel">:root</span> { <span class="c-comment">/* tokens de design */</span> }
+
+<span class="c-sel">:root</span> {
+  <span class="c-comment">/* tokens de design */</span>
+}
 
 <span class="c-comment">/* ═══════════════════════════════════════
    2. RESET E BASE
 ═══════════════════════════════════════ */</span>
-<span class="c-sel">*</span> { <span class="c-prop">box-sizing</span>: <span class="c-val">border-box</span>; <span class="c-prop">margin</span>: <span class="c-val">0</span>; <span class="c-prop">padding</span>: <span class="c-val">0</span>; }
-<span class="c-sel">body</span> { <span class="c-comment">/* estilos globais */</span> }
+
+<span class="c-sel">*</span> {
+  <span class="c-prop">box-sizing</span>: <span class="c-val">border-box</span>;
+  <span class="c-prop">margin</span>: <span class="c-val">0</span>;
+  <span class="c-prop">padding</span>: <span class="c-val">0</span>;
+}
+
+<span class="c-sel">body</span> {
+  <span class="c-comment">/* estilos globais */</span>
+}
 
 <span class="c-comment">/* ═══════════════════════════════════════
    3. TIPOGRAFIA
 ═══════════════════════════════════════ */</span>
-<span class="c-sel">h1, h2, h3, p</span> { <span class="c-comment">/* hierarquia tipográfica */</span> }
+
+<span class="c-sel">h1, h2, h3, p</span> {
+  <span class="c-comment">/* hierarquia tipográfica */</span>
+}
 
 <span class="c-comment">/* ═══════════════════════════════════════
    4. LAYOUT
 ═══════════════════════════════════════ */</span>
-<span class="c-sel">.container, .grid, .flex</span> { <span class="c-comment">/* estruturas de layout */</span> }
+
+<span class="c-sel">.container, .grid, .flex</span> {
+  <span class="c-comment">/* estruturas reutilizáveis */</span>
+}
 
 <span class="c-comment">/* ═══════════════════════════════════════
    5. COMPONENTES
 ═══════════════════════════════════════ */</span>
-<span class="c-sel">.btn, .card, .navbar</span> { <span class="c-comment">/* componentes reutilizáveis */</span> }
+
+<span class="c-sel">.btn, .card, .navbar</span> {
+  <span class="c-comment">/* componentes reutilizáveis */</span>
+}
 
 <span class="c-comment">/* ═══════════════════════════════════════
    6. SEÇÕES / PÁGINAS
 ═══════════════════════════════════════ */</span>
-<span class="c-sel">.hero, .about, .portfolio</span> { <span class="c-comment">/* específicos por página */</span> }
+
+<span class="c-sel">.hero, .about, .portfolio</span> {
+  <span class="c-comment">/* específicos da página */</span>
+}
 
 <span class="c-comment">/* ═══════════════════════════════════════
    7. RESPONSIVIDADE
 ═══════════════════════════════════════ */</span>
-<span class="c-sel">@media (max-width: 768px)</span> { <span class="c-comment">/* adaptações mobile */</span> }</pre></div>
-          </div>
 
-          <div class="alert alert-tip">
-            <span class="alert-icon">💡</span>
-            <span>
-              O CSS não tem erros de compilação — se você escrever errado, ele simplesmente ignora a propriedade. Use as <strong>DevTools do navegador</strong> (F12) sempre que um estilo não funcionar como esperado. A aba Styles mostra exatamente qual regra foi aplicada e qual foi substituída.
-            </span>
-          </div>
+<span class="c-sel">@media (max-width: 768px)</span> {
+  <span class="c-comment">/* adaptações mobile */</span>
+}</pre>
+    </div>
 
+  </div>
+
+  <!-- ARQUITETURA -->
+  <h3 class="subtitle" style="margin-top:40px;">
+    CSS moderno é baseado em
+    <span style="color:var(--wood);">componentes</span>
+  </h3>
+
+  <p class="text">
+    O CSS moderno deixou de ser totalmente global.
+    Hoje,
+    frameworks e arquiteturas modernas
+    trabalham com componentes isolados,
+    escopo previsível
+    e reutilização de estilos.
+  </p>
+
+  <div
+    class="msg-grid"
+    style="
+      margin:24px 2%;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:24px;
+    "
+  >
+
+    <div class="msg-card git-green">
+
+      <div class="msg-badge">
+        Componentização
+      </div>
+
+      <div class="msg-title">
+        Estilos isolados
+      </div>
+
+      <div class="msg-desc">
+        Cada componente possui sua própria estrutura,
+        comportamento
+        e estilos.
+        Isso reduz colisões
+        e facilita reutilização.
+      </div>
+
+    </div>
+
+    <div class="msg-card git-blue">
+
+      <div class="msg-badge">
+        Escopo previsível
+      </div>
+
+      <div class="msg-title">
+        Menos conflitos globais
+      </div>
+
+      <div class="msg-desc">
+        Arquiteturas modernas evitam que estilos
+        vazem entre componentes.
+        CSS Modules,
+        BEM
+        e utility-first ajudam nisso.
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ALERTA -->
+  <div class="alert alert-warning" style="margin-top:32px;">
+
+    <span class="alert-icon">⚠️</span>
+
+    <span>
+      Os sinais clássicos de CSS desorganizado são:
+      uso excessivo de <code>!important</code>,
+      seletores extremamente longos,
+      valores mágicos repetidos,
+      duplicação constante de código
+      e classes genéricas sem contexto.
+    </span>
+
+  </div>
+
+  <!-- DEVTOOLS -->
+  <div class="alert alert-tip" style="margin-top:24px;">
+
+    <span class="alert-icon">💡</span>
+
+    <span>
+      O CSS não possui erros de compilação:
+      quando algo está incorreto,
+      o navegador simplesmente ignora a regra.
+      Use sempre as DevTools do navegador (F12)
+      para identificar conflitos,
+      regras sobrescritas
+      e problemas de especificidade.
+    </span>
+
+  </div>
+
+  <!-- CHECKLIST -->
+  <h3 class="subtitle" style="margin-top:40px;">
+    Checklist de
+    <span style="color:var(--wood);">CSS profissional</span>
+  </h3>
+
+  <p class="text">
+    Antes de considerar um projeto organizado,
+    verifique se ele segue os princípios fundamentais
+    de escalabilidade,
+    consistência
+    e manutenção:
+  </p>
+
+  <div style="padding:0 2%;overflow-x:auto;margin-bottom:24px;">
+
+    <table class="styled-table">
+
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Status</th>
+          <th>Objetivo</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Classes semânticas</td>
+          <td>✅ Essencial</td>
+          <td>Clareza e manutenção</td>
+        </tr>
+
+        <tr>
+          <td>Variáveis CSS centralizadas</td>
+          <td>✅ Essencial</td>
+          <td>Consistência visual</td>
+        </tr>
+
+        <tr>
+          <td>Componentização</td>
+          <td>✅ Essencial</td>
+          <td>Escalabilidade</td>
+        </tr>
+
+        <tr>
+          <td>Responsividade padronizada</td>
+          <td>✅ Essencial</td>
+          <td>Previsibilidade</td>
+        </tr>
+
+        <tr>
+          <td>Evitar <code>!important</code></td>
+          <td>⭐ Recomendado</td>
+          <td>Controle de especificidade</td>
+        </tr>
+
+        <tr>
+          <td>Arquitetura CSS definida</td>
+          <td>⭐ Recomendado</td>
+          <td>Organização do projeto</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <!-- CONCLUSÃO -->
+  <div class="alert alert-tip" style="margin-top:24px;">
+
+    <span class="alert-icon">🎨</span>
+
+    <span>
+      CSS profissional não é sobre decorar propriedades —
+      é sobre construir sistemas visuais sustentáveis.
+      Quanto maior o projeto,
+      mais importante se tornam
+      organização,
+      consistência
+      e previsibilidade.
+    </span>
+
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 17 — DESAFIO PRÁTICO HTML
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-desafio" style="background:var(--bg);">
+
+  <!-- COVER -->
+  <div
+    class="cover"
+    style="
+      padding:0;
+      min-height:auto;
+      background:transparent;
+      margin-bottom:40px;
+      box-shadow:none;
+    "
+  >
+
+    <!-- Texto -->
+    <div class="cover-text">
+
+      <div class="section-tag">
+        Seção 15
+      </div>
+
+      <h2
+        style="
+          font-size:clamp(2.5rem,4vw,3.5rem);
+          line-height:1.1;
+          margin-bottom:1rem;
+          color:var(--ink);
+          font-family:'Fraunces',serif;
+        "
+      >
+        Desafio<br />
+        <span style="color:var(--wood);">
+          Prático
+        </span>
+      </h2>
+
+      <p
+        class="cover-subtitle"
+        style="
+          font-size:1.1rem;
+          line-height:1.6;
+        "
+      >
+        Agora chegou o momento de transformar teoria em prática.
+        Você irá estilizar sua página HTML aplicando
+        seletores, cores, tipografia, espaçamentos,
+        Flexbox, Grid e boas práticas de CSS profissional.
+      </p>
+
+    </div>
+
+    <!-- Imagem -->
+    <div class="nc-right">
+
+      <img
+        src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/css17.png"
+        alt="Desafio prático de CSS e estilização de páginas web"
+        onerror="this.style.display='none';"
+        style="
+          width: 640px;
+          height: 700px;
+          object-fit: cover;
+          object-position: center;
+          box-shadow:
+            0 10px 30px rgba(0,0,0,0.5),
+            0 0 20px rgba(227,179,65,0.18);
+          border: 1px solid rgba(227,179,65,0.25);
+          transition: transform 0.3s ease;
+        "
+      />
+
+    </div>
+
+  </div>
+
+  <!-- INTRO -->
+  <h3 class="subtitle">
+    Estilizando sua Primeira Página <span style="color:var(--wood);">Completa</span>
+  </h3>
+
+  <p class="text">
+    Nesta atividade, você irá estilizar a página HTML criada na aula anterior
+    utilizando os principais recursos do CSS estudados durante a aula.
+    O objetivo é consolidar os fundamentos de estilização
+    e reproduzir o fluxo real de design de uma página web.
+  </p>
+
+  <!-- CONTEXTO -->
+  <div style="padding:0 2%; margin-top:32px;">
+
+    <div class="challenge-step">
+
+      <h3
+        style="
+          font-size:22px;
+          margin-bottom:12px;
+          display:flex;
+          align-items:center;
+          gap:10px;
+          color:var(--ink);
+          font-family:'Fraunces',serif;
+        "
+      >
+        🧩 Contexto
+      </h3>
+
+      <p style="font-size:18px; line-height:1.8; color:var(--text);">
+        Você irá continuar o projeto da aula anterior — a landing page
+        da sua banda, artista, filme, jogo ou tema favorito.
+        Agora o desafio é transformar a estrutura HTML em uma página
+        visualmente atraente utilizando CSS com organização, responsividade
+        e identidade visual definida.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- COMANDO -->
+  <div style="padding:0 2%; margin-top:24px;">
+
+    <div class="challenge-step">
+
+      <h3
+        style="
+          font-size:22px;
+          margin-bottom:12px;
+          display:flex;
+          align-items:center;
+          gap:10px;
+          color:var(--ink);
+          font-family:'Fraunces',serif;
+        "
+      >
+        🚀 Comando
+      </h3>
+
+      <p style="font-size:18px; line-height:1.8; color:var(--text);">
+        No projeto <code>pagina-favorita</code>, crie um arquivo
+        <code>style.css</code> e vincule-o ao <code>index.html</code>.
+        Sua página deve possuir paleta de cores definida com variáveis CSS,
+        tipografia customizada, layout com Flexbox ou Grid,
+        espaçamentos consistentes e ao menos um efeito de hover.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- REQUISITOS -->
+  <div
+    style="
+      padding:0 2%;
+      margin-top:32px;
+    "
+  >
+
+    <div
+      style="
+        background:rgba(0,0,0,0.07);
+        padding:24px;
+        border-radius:12px;
+        border-left:4px solid var(--accent3);
+      "
+    >
+
+      <h3
+        style="
+          color:var(--accent3);
+          font-size:22px;
+          margin-bottom:18px;
+          display:flex;
+          align-items:center;
+          gap:10px;
+          font-family:'Fraunces',serif;
+        "
+      >
+        🎯 Requisitos da Atividade
+      </h3>
+
+      <ul
+        style="
+          list-style:none;
+          padding:0;
+          margin:0;
+          font-size:17px;
+        "
+      >
+
+        <li style="margin-bottom:14px; display:flex; align-items:flex-start; gap:10px;">
+          <span style="color:var(--accent3);">•</span>
+          <span>
+            O projeto deve possuir um arquivo
+            <code>style.css</code> corretamente vinculado ao HTML.
+          </span>
+        </li>
+
+        <li style="margin-bottom:14px; display:flex; align-items:flex-start; gap:10px;">
+          <span style="color:var(--accent3);">•</span>
+          <span>
+            Deve utilizar <strong>variáveis CSS</strong>
+            (<code>:root</code>) para definir a paleta de cores e fontes.
+          </span>
+        </li>
+
+        <li style="margin-bottom:14px; display:flex; align-items:flex-start; gap:10px;">
+          <span style="color:var(--accent3);">•</span>
+          <span>
+            O layout deve ser construído com
+            <strong>Flexbox</strong> ou <strong>Grid</strong>.
+          </span>
+        </li>
+
+        <li style="margin-bottom:14px; display:flex; align-items:flex-start; gap:10px;">
+          <span style="color:var(--accent3);">•</span>
+          <span>
+            A página deve ser <strong>responsiva</strong>
+            utilizando ao menos uma <code>@media query</code>.
+          </span>
+        </li>
+
+        <li style="margin-bottom:14px; display:flex; align-items:flex-start; gap:10px;">
+          <span style="color:var(--accent3);">•</span>
+          <span>
+            Deve existir pelo menos:
+            <strong>1 efeito hover</strong>,
+            <strong>1 fonte do Google Fonts</strong> e
+            <strong>espaçamentos consistentes</strong> com <code>padding</code> e <code>margin</code>.
+          </span>
+        </li>
+
+        <li style="display:flex; align-items:flex-start; gap:10px;">
+          <span style="color:var(--accent3);">•</span>
+          <span>
+            O código deve estar organizado,
+            indentado corretamente e com comentários por seção.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <!-- ENTREGA -->
+  <div style="padding:0 2%; margin-top:32px;">
+
+    <h3
+      style="
+        font-size:22px;
+        margin-bottom:18px;
+        display:flex;
+        align-items:center;
+        gap:10px;
+        font-family:'Fraunces',serif;
+      "
+    >
+      📦 O que Entregar
+    </h3>
+
+    <div style="display:flex; flex-direction:column; gap:12px;">
+
+      <div class="alert alert-tip">
+        <span class="alert-icon">1</span>
+        <div>
+          Pasta do projeto contendo os arquivos
+          <code>index.html</code> e <code>style.css</code>.
         </div>
-      </section>
+      </div>
 
-      <!-- ══════════════════════════════════════════════════
-           SEÇÃO 17 — DESAFIO PRÁTICO
-      ══════════════════════════════════════════════════ -->
-      <section class="content-section" id="section-desafio" style="background: var(--bg);">
-
-        <div style="padding: 40px 2%;">
-          <div class="section-tag">Seção 17</div>
-          <h2 class="section-title">🔥 Desafio <span style="color:var(--wood);">Prático</span></h2>
-          <p class="section-lead">Aplique tudo que você aprendeu criando um projeto completo do zero.</p>
-
-          <div class="challenge-box">
-            <h3>🎯 Desafio: Landing Page Completa</h3>
-            <p>Crie uma landing page de apresentação pessoal ou de um produto fictício, aplicando todos os conceitos desta aula:</p>
-          </div>
-
-          <ul class="list" style="margin:32px 0;">
-            <li><strong>Arquivo externo style.css</strong> conectado via <code>&lt;link&gt;</code>, com variáveis CSS no <code>:root</code></li>
-            <li><strong>Reset universal</strong> com <code>box-sizing: border-box</code></li>
-            <li><strong>Seção hero</strong> com Flexbox, mínimo de 100vh, imagem/gradiente de fundo e texto centralizado</li>
-            <li><strong>Grade de cards</strong> com Grid Layout e pelo menos 3 colunas no desktop, 1 no mobile</li>
-            <li><strong>Navbar</strong> com <code>position: fixed</code>, Flexbox e efeito de hover nos links</li>
-            <li><strong>Pelo menos 2 animações</strong>: uma com <code>transition</code> e uma com <code>@keyframes</code></li>
-            <li><strong>Responsividade</strong> com media queries: desktop, tablet e mobile</li>
-            <li><strong>Tipografia hierárquica</strong> com Google Fonts, <code>clamp()</code> para títulos</li>
-          </ul>
-
-          <div class="msg-grid" style="margin:24px 0;">
-            <div class="msg-card git-green">
-              <div class="msg-badge">⭐ Básico</div>
-              <div class="msg-title">Landing Page</div>
-              <div class="msg-desc">Hero + 3 cards + footer responsivo. Foco em Flexbox, cores e tipografia.</div>
-            </div>
-            <div class="msg-card git-blue">
-              <div class="msg-badge">⭐⭐ Intermediário</div>
-              <div class="msg-title">Mini Portfólio</div>
-              <div class="msg-desc">Navbar + hero + galeria em Grid + seção de contato + animações de entrada.</div>
-            </div>
-            <div class="msg-card git-gold">
-              <div class="msg-badge">⭐⭐⭐ Avançado</div>
-              <div class="msg-title">Dashboard</div>
-              <div class="msg-desc">Layout complexo com sidebar, grid de métricas, gráficos simulados e dark mode.</div>
-            </div>
-            <div class="msg-card git-orange">
-              <div class="msg-badge">🎸 Criativo</div>
-              <div class="msg-title">Página de Banda</div>
-              <div class="msg-desc">Homenagem ao Pearl Jam: discografia em grid, animações, tema escuro profissional.</div>
-            </div>
-          </div>
-
+      <div class="alert alert-tip">
+        <span class="alert-icon">2</span>
+        <div>
+          Página HTML estilizada funcionando corretamente no navegador.
         </div>
-      </section>
+      </div>
 
-      <!-- ══════════════════════════════════════════════════
-           GLOSSÁRIO
-      ══════════════════════════════════════════════════ -->
-      <section class="content-section" id="section-glossary">
-        <div style="padding:40px 2%;">
-          <div class="section-tag">Referência</div>
-          <h2 class="section-title">📖 Glossário</h2>
-          <p class="section-lead">Os termos mais importantes do CSS que você precisa dominar.</p>
+      <div class="alert alert-tip">
+        <span class="alert-icon">3</span>
+        <div>
+          CSS organizado em seções comentadas e com variáveis definidas no <code>:root</code>.
+        </div>
+      </div>
 
-          <div class="glossary-grid">
-            <div class="glossary-item">
-              <div class="glossary-term">selector</div>
-              <div class="glossary-def">A parte da regra CSS que aponta para qual(is) elemento(s) o estilo será aplicado. Pode ser tag, classe, ID ou combinação.</div>
-            </div>
-            <div class="glossary-item">
-              <div class="glossary-term">property</div>
-              <div class="glossary-def">O aspecto visual que você quer controlar: <code>color</code>, <code>font-size</code>, <code>margin</code>. Sempre seguido de dois pontos e um valor.</div>
-            </div>
-            <div class="glossary-item">
-              <div class="glossary-term">value</div>
-              <div class="glossary-def">O que você quer aplicar à propriedade. Ex: <code>16px</code>, <code>#264de4</code>, <code>bold</code>, <code>flex</code>.</div>
-            </div>
-            <div class="glossary-item">
-              <div class="glossary-term">cascade</div>
-              <div class="glossary-def">O mecanismo que resolve conflitos entre regras CSS. Considera origem, especificidade e ordem de declaração.</div>
-            </div>
-            <div class="glossary-item">
-              <div class="glossary-term">specificity</div>
-              <div class="glossary-def">Pontuação calculada para determinar qual regra prevalece: inline(1000), ID(100), classe(10), elemento(1).</div>
-            </div>
-            <div class="glossary-item">
-              <div class="glossary-term">flex container</div>
-              <div class="glossary-def">Elemento pai com <code>display: flex</code>. Seus filhos diretos tornam-se flex items e seguem as regras do Flexbox.</div>
-            </div>
-            <div class="glossary-item">
-              <div class="glossary-term">media query</div>
-              <div class="glossary-def">Bloco <code>@media</code> que aplica CSS condicionalmente baseado em características do dispositivo como largura de tela.</div>
-            </div>
-            <div class="glossary-item">
-              <div class="glossary-term">viewport</div>
-              <div class="glossary-def">A área visível da página no navegador. <code>100vw</code> = 100% da largura da viewport. <code>100vh</code> = 100% da altura.</div>
-            </div>
-            <div class="glossary-item">
-              <div class="glossary-term">pseudo-class</div>
-              <div class="glossary-def">Seletor que aplica estilos baseados em estado ou posição: <code>:hover</code>, <code>:focus</code>, <code>:first-child</code>.</div>
-            </div>
-            <div class="glossary-item">
-              <div class="glossary-term">box model</div>
-              <!-- ══════════════════════════════════════════════════
+    </div>
+
+    <div class="alert alert-tip" style="margin-top:16px;">
+      <span class="alert-icon">💡</span>
+      <div>
+        Vá além do mínimo.
+        Quanto mais personalizada e visualmente coesa sua página estiver,
+        mais próximo você estará do fluxo real utilizado
+        no desenvolvimento web profissional.
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 17 — Glossário CSS
+══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-glossary">
+
+  <!-- HEADER -->
+  <div style="padding:0 2%;margin-bottom:24px;">
+
+    <div class="section-tag">
+      Seção 17
+    </div>
+
+    <h2 class="section-title">
+      📖 <span>Glossário</span>
+    </h2>
+
+    <p class="text">
+      Os principais termos técnicos que você irá encontrar
+      constantemente no desenvolvimento web com CSS.
+    </p>
+
+  </div>
+
+  <!-- GRID -->
+  <div style="padding:0 2%;">
+
+    <div class="glossary-grid">
+
+      <div class="glossary-item">
+        <div class="glossary-term">CSS</div>
+        <div class="glossary-def">
+          Sigla para <strong>Cascading Style Sheets</strong>.
+          É a linguagem responsável pela apresentação visual das páginas web,
+          controlando cores, fontes, espaçamentos e layouts.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Seletor</div>
+        <div class="glossary-def">
+          Parte da regra CSS que indica quais elementos serão estilizados.
+          Exemplos: <code>p</code>, <code>.classe</code>, <code>#id</code>.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Propriedade</div>
+        <div class="glossary-def">
+          Característica visual que será alterada, como
+          <code>color</code>, <code>font-size</code> ou <code>margin</code>.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Valor</div>
+        <div class="glossary-def">
+          O dado atribuído a uma propriedade CSS.
+          Exemplo: <code>color: red</code> — onde <code>red</code> é o valor.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Box Model</div>
+        <div class="glossary-def">
+          Modelo que descreve como cada elemento HTML ocupa espaço,
+          composto por <code>content</code>, <code>padding</code>,
+          <code>border</code> e <code>margin</code>.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Flexbox</div>
+        <div class="glossary-def">
+          Sistema de layout unidimensional que permite alinhar
+          e distribuir elementos em linhas ou colunas com facilidade.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Grid</div>
+        <div class="glossary-def">
+          Sistema de layout bidimensional que organiza elementos
+          em linhas e colunas ao mesmo tempo, ideal para estruturas complexas.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Variáveis CSS</div>
+        <div class="glossary-def">
+          Valores reutilizáveis definidos com <code>--nome</code> no <code>:root</code>
+          e acessados via <code>var(--nome)</code>.
+          Facilitam manutenção e consistência visual.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Media Query</div>
+        <div class="glossary-def">
+          Regra CSS que aplica estilos condicionalmente
+          com base no tamanho da tela ou dispositivo,
+          fundamental para responsividade.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Especificidade</div>
+        <div class="glossary-def">
+          Regra que determina qual estilo prevalece quando
+          múltiplos seletores atingem o mesmo elemento.
+          IDs têm maior peso que classes, que têm maior peso que tags.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Cascata</div>
+        <div class="glossary-def">
+          Mecanismo que define a ordem de aplicação dos estilos CSS,
+          considerando especificidade, herança e ordem de declaração.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Pseudo-classe</div>
+        <div class="glossary-def">
+          Seletor que aplica estilos em estados específicos do elemento,
+          como <code>:hover</code>, <code>:focus</code> e <code>:nth-child</code>.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Pseudo-elemento</div>
+        <div class="glossary-def">
+          Permite estilizar partes específicas de um elemento,
+          como <code>::before</code>, <code>::after</code> e <code>::first-line</code>.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Transição</div>
+        <div class="glossary-def">
+          Propriedade <code>transition</code> que anima suavemente
+          a mudança entre dois estados CSS,
+          como uma mudança de cor ao passar o mouse.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Herança</div>
+        <div class="glossary-def">
+          Mecanismo pelo qual propriedades CSS de um elemento pai
+          são transmitidas automaticamente aos elementos filhos,
+          como <code>font-family</code> e <code>color</code>.
+        </div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Reset CSS</div>
+        <div class="glossary-def">
+          Conjunto de regras que remove os estilos padrão do navegador,
+          garantindo consistência visual entre diferentes browsers.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FECHAMENTO -->
+  <div style="padding:0 2%;margin-top:40px;">
+
+    <div class="summary-box">
+
+      <div class="sum-label">
+        🧠 Dica Profissional
+      </div>
+
+      <p style="margin-top:0;margin-bottom:10px;">
+        Dominar o vocabulário do CSS acelera seu aprendizado.
+      </p>
+
+      <p style="margin-bottom:0;">
+        Quanto mais familiarizado você estiver com esses termos,
+        mais facilidade terá para entender documentações como o MDN,
+        assistir tutoriais avançados e trabalhar com frameworks
+        como Tailwind, Bootstrap e styled-components.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     QUIZ
+══════════════════════════════════════════════════ -->
+<section class="quiz-section" id="section-quiz">
+  <div class="section-header" style="margin-bottom:32px;">
+    <h2>🧠 Quiz — Teste seu Conhecimento</h2>
+  </div>
+
+  <!-- Q1 -->
+  <div class="quiz-card">
+    <div class="quiz-num">Questão 01/05</div>
+    <div class="quiz-question">O que significa a sigla CSS?</div>
+    <div class="quiz-options" id="q1">
+      <div class="quiz-opt" onclick="answer(this,'q1',false,'Incorreto. Colorful Style Sheets não existe.')">
+        <span class="opt-letter">A</span> Colorful Style Sheets
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q1',true,'Correto! CSS significa Cascading Style Sheets — Folhas de Estilo em Cascata. É a linguagem responsável pela apresentação visual das páginas web.')">
+        <span class="opt-letter">B</span> Cascading Style Sheets
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q1',false,'Incorreto. Creative Styling System não é uma tecnologia real.')">
+        <span class="opt-letter">C</span> Creative Styling System
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q1',false,'Incorreto. Computer Style Syntax não existe.')">
+        <span class="opt-letter">D</span> Computer Style Syntax
+      </div>
+    </div>
+    <div class="quiz-feedback" id="q1-fb"></div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card">
+    <div class="quiz-num">Questão 02/05</div>
+    <div class="quiz-question">Qual propriedade CSS é usada para definir a cor do texto de um elemento?</div>
+    <div class="quiz-options" id="q2">
+      <div class="quiz-opt" onclick="answer(this,'q2',false,'Incorreto. A propriedade text-color não existe no CSS.')">
+        <span class="opt-letter">A</span> <code>text-color</code>
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q2',false,'Incorreto. font-color não é uma propriedade válida do CSS.')">
+        <span class="opt-letter">B</span> <code>font-color</code>
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q2',true,'Correto! A propriedade color define a cor do texto de um elemento. É uma das propriedades mais básicas e mais utilizadas do CSS.')">
+        <span class="opt-letter">C</span> <code>color</code>
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q2',false,'Incorreto. foreground-color não existe no CSS.')">
+        <span class="opt-letter">D</span> <code>foreground-color</code>
+      </div>
+    </div>
+    <div class="quiz-feedback" id="q2-fb"></div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card">
+    <div class="quiz-num">Questão 03/05</div>
+    <div class="quiz-question">Qual é a forma correta de definir uma variável CSS e utilizá-la?</div>
+    <div class="quiz-options" id="q3">
+      <div class="quiz-opt" onclick="answer(this,'q3',false,'Incorreto. Variáveis CSS não usam o símbolo $, essa é a sintaxe do Sass/SCSS.')">
+        <span class="opt-letter">A</span> <code>$primary: #fff;</code> e <code>color: $primary;</code>
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q3',false,'Incorreto. Variáveis CSS não utilizam colchetes.')">
+        <span class="opt-letter">B</span> <code>var[primary]: #fff;</code> e <code>color: var[primary];</code>
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q3',true,'Correto! Variáveis CSS são definidas com dois hífens (--nome) dentro do :root e acessadas com var(--nome). Isso permite reutilizar valores e facilitar a manutenção do código.')">
+        <span class="opt-letter">C</span> <code>--primary: #fff;</code> no <code>:root</code> e <code>color: var(--primary);</code>
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q3',false,'Incorreto. Essa sintaxe não é válida no CSS nativo.')">
+        <span class="opt-letter">D</span> <code>@primary: #fff;</code> e <code>color: @primary;</code>
+      </div>
+    </div>
+    <div class="quiz-feedback" id="q3-fb"></div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card">
+    <div class="quiz-num">Questão 04/05</div>
+    <div class="quiz-question">Qual propriedade CSS transforma um elemento em um container Flexbox?</div>
+    <div class="quiz-options" id="q4">
+      <div class="quiz-opt" onclick="answer(this,'q4',false,'Incorreto. flex: 1 é usado em elementos filhos para distribuir espaço, não no container.')">
+        <span class="opt-letter">A</span> <code>flex: 1;</code>
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q4',true,'Correto! display: flex ativa o Flexbox no elemento, tornando-o um container e seus filhos diretos em flex items. A partir daí, propriedades como justify-content e align-items passam a funcionar.')">
+        <span class="opt-letter">B</span> <code>display: flex;</code>
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q4',false,'Incorreto. flexbox: true não é uma propriedade CSS válida.')">
+        <span class="opt-letter">C</span> <code>flexbox: true;</code>
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q4',false,'Incorreto. flex-direction sozinho não transforma um elemento em container Flexbox.')">
+        <span class="opt-letter">D</span> <code>flex-direction: row;</code>
+      </div>
+    </div>
+    <div class="quiz-feedback" id="q4-fb"></div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card">
+    <div class="quiz-num">Questão 05/05</div>
+    <div class="quiz-question">Como aplicar um estilo apenas quando a tela tiver no máximo 768px de largura?</div>
+    <div class="quiz-options" id="q5">
+      <div class="quiz-opt" onclick="answer(this,'q5',false,'Incorreto. @screen não é uma diretiva válida no CSS nativo.')">
+        <span class="opt-letter">A</span> <code>@screen (max-width: 768px) { }</code>
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q5',false,'Incorreto. responsive: 768px não existe no CSS.')">
+        <span class="opt-letter">B</span> <code>responsive: 768px { }</code>
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q5',true,'Correto! @media (max-width: 768px) é a sintaxe correta de uma media query. Os estilos dentro dela só serão aplicados quando a largura da tela for igual ou menor que 768px — essencial para responsividade.')">
+        <span class="opt-letter">C</span> <code>@media (max-width: 768px) { }</code>
+      </div>
+      <div class="quiz-opt" onclick="answer(this,'q5',false,'Incorreto. @breakpoint não é uma diretiva nativa do CSS.')">
+        <span class="opt-letter">D</span> <code>@breakpoint 768px { }</code>
+      </div>
+    </div>
+    <div class="quiz-feedback" id="q5-fb"></div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PRÓXIMA AULA
+══════════════════════════════════════════════════ -->
+<section class="nc-section" id="section-next">
+  <div class="nc-wrapper">
+    <div class="nc-left">
+      <div class="nc-tag">Próxima Aula</div>
+      <h2 class="nc-title">Introdução ao <span style="color:var(--wood);">JavaScript</span></h2>
+      <ul class="nc-list">
+        <li class="nc-item">
+          <span class="nc-bullet">•</span>
+          <span><strong>Variáveis e tipos de dados</strong> — a diferença entre <code>var</code>, <code>let</code> e <code>const</code>, e como trabalhar com strings, numbers e booleans.</span>
+        </li>
+        <li class="nc-item">
+          <span class="nc-bullet">•</span>
+          <span><strong>Funções e eventos</strong> — como criar funções, capturar eventos do usuário com <code>addEventListener</code> e manipular o comportamento da página.</span>
+        </li>
+        <li class="nc-item">
+          <span class="nc-bullet">•</span>
+          <span><strong>Manipulação do DOM</strong> — selecionar elementos com <code>querySelector</code>, alterar textos, classes e estilos diretamente pelo JavaScript.</span>
+        </li>
+        <li class="nc-item">
+          <span class="nc-bullet">•</span>
+          <span><strong>Condicionais e loops</strong> — estruturas <code>if/else</code>, <code>for</code> e <code>while</code> para criar lógica e interatividade real nas suas páginas. ⚡</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="nc-right">
+      <div class="nc-glow"></div>
+      <img
+        src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/html19.png"
+        alt="Introdução ao JavaScript"
+        onerror="this.style.display='none';"
+        style="width:640px;height:700px;object-fit:cover;object-position:center;border-radius:18px;position:relative;z-index:2;box-shadow:0 10px 30px rgba(0,0,0,0.5),0 0 20px rgba(56,189,248,0.18);border:1px solid rgba(56,189,248,0.25);transition:transform 0.3s ease;"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PROFESSOR
+══════════════════════════════════════════════════ -->
+<section class="teacher-section" id="section-teacher">
+  <div class="teacher-inner">
+    <div class="teacher-avatar-wrap">
+      <div class="teacher-avatar">
+        <img src="https://andersondutra7.github.io/Projetos-WEB/imagens/slide.png" alt="Anderson Dutra" />
+      </div>
+    </div>
+    <div class="teacher-info">
+      <div class="teacher-label">Professor</div>
+      <h4>Anderson Raulino Dutra</h4>
+      <p>Desenvolvedor Web Fullstack &amp; Professor</p>
+      <div class="teacher-skills">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">PostgreSQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+    <!-- ══════════════════════════════════════════════════
          JAVASCRIPT
     ══════════════════════════════════════════════════ -->
     <script>
