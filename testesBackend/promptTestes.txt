@@ -1,0 +1,210 @@
+Aula 1 — Kickoff do Projeto (4h)
+Introdução (30 min)
+
+Explicar:
+
+O que é QA.
+O que é homologação.
+O que é um caso de teste.
+O que é um defeito.
+
+Sem aprofundar em ferramentas.
+
+Entrega do desafio
+
+Você entrega:
+
+Documento de requisitos
+
+Exemplo:
+
+Sistema de gerenciamento de usuários.
+
+Funcionalidades:
+
+Cadastro.
+Login.
+Alteração de dados.
+Exclusão.
+Regras de negócio
+
+Exemplo:
+
+Email deve ser único.
+Senha mínima de 6 caracteres.
+Apenas administradores podem excluir usuários.
+CPF deve possuir 11 dígitos.
+Atividade
+
+Equipes criam:
+
+Objetivos do teste.
+Escopo.
+Estratégia.
+
+Entrega parcial.
+
+Aula 2 — Casos de Teste (4h)
+
+Agora eles constroem:
+
+ID	Cenário	Resultado Esperado
+CT01	Cadastro válido	Sucesso
+CT02	Email duplicado	Erro
+CT03	Senha curta	Erro
+
+Depois:
+
+Classificação
+Funcional
+Segurança
+Validação
+Usabilidade da API
+
+No final:
+
+Cada grupo apresenta seus casos.
+
+Você questiona:
+
+"O que aconteceria se o CPF viesse vazio?"
+
+"Vocês testariam caracteres especiais?"
+
+Aula 3 — Simulação de Homologação (4h)
+
+Aqui está a parte interessante.
+
+Você entrega um documento chamado:
+
+Resultado da Execução
+
+Por exemplo:
+
+Caso	Resultado Obtido
+CT01	Aprovado
+CT02	Reprovado
+CT03	Reprovado
+
+Ou então:
+
+Bug 01
+
+O sistema permitiu cadastro de email duplicado.
+Bug 02
+
+O sistema aceitou senha com apenas 3 caracteres.
+Bug 03
+
+Usuário comum conseguiu excluir outro usuário.
+
+Agora eles devem:
+
+Registrar defeitos.
+Classificar severidade.
+Avaliar impacto.
+
+Exatamente como um QA faria.
+
+Você não precisa de API alguma.
+
+Conceitos que eles trabalharão
+Bug
+Incidente
+Severidade
+Prioridade
+Homologação
+Aula 4 — Comitê de Aprovação (4h)
+
+Apresentação final.
+
+Cada grupo entrega:
+
+Plano de Testes
+Casos de Teste
+Relatório de Defeitos
+Parecer Final
+
+E responde:
+
+A aplicação está apta para produção?
+
+Sim ou não?
+
+Justifique.
+
+O grande benefício
+
+Você sai da posição de:
+
+"Professor especialista em automação de testes"
+
+e passa para:
+
+"Coordenador de qualidade conduzindo uma homologação"
+
+O conhecimento exigido muda completamente.
+
+Você precisará dominar apenas:
+
+Casos de teste.
+Requisitos.
+Regras de negócio.
+Severidade.
+Prioridade.
+Relatórios.
+
+Tudo isso pode ser preparado em poucas horas.
+
+Na verdade, para uma disciplina encerrando o semestre, essa abordagem costuma funcionar melhor do que tentar ensinar uma ferramenta nova nas últimas quatro aulas. Os alunos produzem documentação, trabalham em equipe, apresentam resultados e exercitam análise crítica, que é uma habilidade central em QA.
+
+
+PROMPT   PROMPT     PROMPT     PROMPT     PROMPT    PROMPT
+
+Ola Claude ... segue anexo ... padrão de aula que utilizo em Javascript...
+
+Preciso que voce crie a aula a seguir, seguindo o mesmo tempalte.
+
+Agora estamos em Testes Backend, e nao domino o assunto. Serão 4 aula, estamos na primeira, e a ideia é fazer uma revisão basica, e colocar os alunos apra planejar o documento de QA.
+
+Segue cronograma:
+Aula 1 — Kickoff do Projeto (4h)
+Aula 2 — Casos de Teste (4h)
+Aula 3 — Simulação de Homologação (4h)
+Aula 4 — Comitê de Aprovação (4h)
+
+A primeira aula sera a revisão basica e Start do projeto, são 17 alunos, iremos dividir em grupo de 3. Então, precisaremos de 5 projetos diferentes.
+
+Aula 1 — Kickoff do Projeto (4h)
+Introdução (30 min)
+Explicar:
+
+O que é QA.
+O que é homologação.
+O que é um caso de teste.
+O que é um defeito.
+Sem aprofundar em ferramentas.
+Entrega do desafio
+Você entrega:
+Documento de requisitos
+Exemplo:
+Sistema de gerenciamento de usuários.
+Funcionalidades:
+
+Cadastro.
+Login.
+Alteração de dados.
+Exclusão.
+Regras de negócio
+Exemplo:
+
+Email deve ser único.
+Senha mínima de 6 caracteres.
+Apenas administradores podem excluir usuários.
+CPF deve possuir 11 dígitos.
+Atividade
+Equipes criam:
+
+Objetivos do teste.
+Escopo.
+Estratégia. Entrega parcial.

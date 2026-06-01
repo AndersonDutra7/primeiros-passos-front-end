@@ -1,0 +1,1129 @@
+<!-- ══════════════════════════════════════════════════
+           SEÇÃO 06 — ATIVIDADE: PLANO DE QA
+      ══════════════════════════════════════════════════ -->
+<section
+  class="content-section"
+  id="section-atividade"
+  style="background: var(--bg2)"
+>
+  <div style="padding: 40px 2% 0">
+    <div class="section-tag">Seção 06 — Atividade da Aula</div>
+    <h2 class="section-title">
+      Criando o <span style="color: var(--wood)">Plano de QA</span>
+    </h2>
+    <p class="section-lead">
+      Com base no documento de requisitos do seu projeto, cada equipe deve
+      produzir a primeira entrega do projeto: o
+      <strong>Plano de QA inicial</strong>.
+    </p>
+  </div>
+
+  <div style="padding: 0 2%">
+    <div class="activity-box">
+      <div class="act-label">🔥 Entrega Parcial — Aula 01</div>
+
+      <h3>Plano de QA — Versão Inicial</h3>
+
+      <p>
+        A partir da análise do documento de requisitos, cada equipe deverá
+        produzir a primeira entrega oficial do projeto: o
+        <strong>Plano de QA</strong>.
+      </p>
+
+      <p>
+        Este documento servirá como base para as próximas etapas do ciclo de
+        testes, registrando os objetivos, requisitos identificados, escopo,
+        estratégia, riscos e critérios de aprovação do sistema.
+      </p>
+
+      <p>
+        O trabalho deverá ser entregue exclusivamente em
+        <strong>formato PDF</strong>, contemplando todos os itens obrigatórios
+        apresentados a seguir.
+      </p>
+
+      <div class="activity-deliverables">
+        <div class="deliverable-item">
+          <div class="deliverable-icon">🎯</div>
+          <div class="deliverable-title">1. Objetivos do Teste</div>
+          <div class="deliverable-desc">
+            Definam pelo menos <strong>10 objetivos</strong> de teste com base
+            nos requisitos e riscos identificados.
+          </div>
+        </div>
+
+        <div class="deliverable-item">
+          <div class="deliverable-icon">📋</div>
+          <div class="deliverable-title">2. Requisitos Identificados</div>
+          <div class="deliverable-desc">
+            Liste todos os requisitos funcionais e regras de negócio encontrados
+            no documento do projeto.
+          </div>
+        </div>
+
+        <div class="deliverable-item">
+          <div class="deliverable-icon">🗺️</div>
+          <div class="deliverable-title">3. Escopo</div>
+          <div class="deliverable-desc">
+            Defina claramente o que será testado (In Scope) e o que ficará fora
+            deste ciclo (Out of Scope).
+          </div>
+        </div>
+
+        <div class="deliverable-item">
+          <div class="deliverable-icon">⚙️</div>
+          <div class="deliverable-title">4. Estratégia de Teste</div>
+          <div class="deliverable-desc">
+            Descreva a abordagem utilizada, técnicas de teste, prioridades e
+            divisão da equipe.
+          </div>
+        </div>
+
+        <div class="deliverable-item">
+          <div class="deliverable-icon">⚠️</div>
+          <div class="deliverable-title">5. Riscos Identificados</div>
+          <div class="deliverable-desc">
+            Relacione os principais riscos de negócio e seus impactos caso
+            ocorram em produção.
+          </div>
+        </div>
+
+        <div class="deliverable-item">
+          <div class="deliverable-icon">✅</div>
+          <div class="deliverable-title">6. Critérios de Aprovação</div>
+          <div class="deliverable-desc">
+            Defina quais condições devem ser atendidas para considerar o sistema
+            apto para homologação.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="subtitle" style="margin-top: 40px">
+      O que colocar em cada <span style="color: var(--wood)">seção</span>?
+    </h3>
+
+    <!-- OBJETIVOS -->
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-header-left">
+          <span class="acc-emoji">🎯</span>
+          <span class="acc-title">Objetivos do Teste — Como escrever</span>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>
+            Os objetivos devem responder:
+            <strong
+              >"O que precisamos validar para reduzir os riscos do
+              projeto?"</strong
+            >
+          </p>
+
+          <p>
+            O plano deve conter no mínimo
+            <strong>10 objetivos de teste</strong>, distribuídos entre as
+            funcionalidades e regras de negócio identificadas.
+          </p>
+
+          <p>Exemplos de bons objetivos:</p>
+
+          <ul
+            style="
+              margin: 12px 0 0 20px;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            "
+          >
+            <li>
+              Garantir que as regras de negócio do cadastro sejam respeitadas.
+            </li>
+            <li>
+              Verificar que usuários sem permissão não consigam executar ações
+              restritas.
+            </li>
+            <li>
+              Assegurar que dados inválidos sejam rejeitados pelo sistema.
+            </li>
+            <li>
+              Validar que o processo de autenticação funcione corretamente.
+            </li>
+            <li>
+              Confirmar que o sistema se comporte adequadamente nos limites de
+              cada regra de negócio.
+            </li>
+          </ul>
+
+          <p style="margin-top: 12px">
+            <strong>Dica:</strong> evite objetivos genéricos como "testar o
+            sistema". Seja específico sobre o que precisa ser validado.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- REQUISITOS -->
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-header-left">
+          <span class="acc-emoji">📋</span>
+          <span class="acc-title">Requisitos Identificados</span>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>
+            Antes de planejar os testes, a equipe deve identificar todas as
+            funcionalidades e regras de negócio descritas no documento de
+            requisitos.
+          </p>
+
+          <p><strong>Exemplo:</strong></p>
+
+          <ul
+            style="
+              margin: 12px 0 0 20px;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            "
+          >
+            <li>RF01 — Cadastro de usuários</li>
+            <li>RF02 — Login</li>
+            <li>RF03 — Alteração de dados</li>
+            <li>RF04 — Exclusão de registros</li>
+            <li>RN01 — E-mail deve ser único</li>
+            <li>RN02 — Senha mínima de 6 caracteres</li>
+          </ul>
+
+          <p style="margin-top: 12px">
+            Essa lista servirá como base para os objetivos, riscos e futuros
+            casos de teste.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESCOPO -->
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-header-left">
+          <span class="acc-emoji">🗺️</span>
+          <span class="acc-title">Escopo — O que será e não será testado</span>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>
+            O escopo define exatamente quais funcionalidades e regras serão
+            avaliadas neste ciclo de testes.
+          </p>
+
+          <p>
+            <strong>In Scope (será testado):</strong>
+            funcionalidades, fluxos e regras de negócio descritas nos
+            requisitos.
+          </p>
+
+          <p>
+            <strong>Out of Scope (não será testado):</strong>
+            aspectos que não fazem parte dos objetivos atuais do projeto, como
+            testes de carga, performance, segurança avançada ou integrações não
+            previstas.
+          </p>
+
+          <p>
+            Definir claramente o escopo evita interpretações equivocadas sobre o
+            que faz ou não parte do trabalho da equipe.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESTRATÉGIA -->
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-header-left">
+          <span class="acc-emoji">⚙️</span>
+          <span class="acc-title">Estratégia de Teste</span>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>
+            A estratégia descreve como a equipe pretende conduzir as atividades
+            de teste.
+          </p>
+
+          <p><strong>Inclua na estratégia:</strong></p>
+
+          <ul
+            style="
+              margin: 12px 0 0 20px;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            "
+          >
+            <li><strong>Técnica principal:</strong> Caixa-Preta.</li>
+            <li>
+              <strong>Abordagem:</strong> Partição por Equivalência e Análise de
+              Valor Limite.
+            </li>
+            <li>
+              <strong>Prioridade:</strong> definir quais funcionalidades possuem
+              maior criticidade.
+            </li>
+            <li>
+              <strong>Distribuição:</strong> dividir responsabilidades entre os
+              integrantes da equipe.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- RISCOS -->
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-header-left">
+          <span class="acc-emoji">⚠️</span>
+          <span class="acc-title">Riscos Identificados</span>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>
+            Todo plano de QA deve registrar os principais riscos do sistema e o
+            impacto que eles podem causar caso cheguem à produção.
+          </p>
+
+          <p><strong>Exemplos:</strong></p>
+
+          <ul
+            style="
+              margin: 12px 0 0 20px;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            "
+          >
+            <li>
+              Usuários comuns conseguirem acessar funções administrativas.
+            </li>
+            <li>E-mails duplicados serem aceitos pelo sistema.</li>
+            <li>Dados inválidos serem armazenados.</li>
+            <li>Falhas no processo de autenticação.</li>
+            <li>Regras de negócio não serem aplicadas corretamente.</li>
+          </ul>
+
+          <p style="margin-top: 12px">
+            Classifique cada risco como Baixo, Médio, Alto ou Crítico.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CRITÉRIOS -->
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-header-left">
+          <span class="acc-emoji">✅</span>
+          <span class="acc-title">Critérios de Aprovação</span>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>
+            Os critérios de aprovação definem quando o sistema poderá ser
+            considerado apto para avançar para a próxima etapa do processo de
+            testes.
+          </p>
+
+          <p><strong>Exemplos:</strong></p>
+
+          <ul
+            style="
+              margin: 12px 0 0 20px;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            "
+          >
+            <li>Todas as funcionalidades principais foram analisadas.</li>
+            <li>As regras de negócio foram validadas.</li>
+            <li>Não existem defeitos críticos conhecidos.</li>
+            <li>Os objetivos definidos no plano foram atendidos.</li>
+            <li>Os riscos mais importantes foram considerados pela equipe.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-red" style="margin-top: 32px">
+      <span class="alert-icon">🚨</span>
+      <span>
+        <strong>Atenção:</strong> A entrega desta aula é
+        <strong>parcial</strong> — o plano será refinado nas próximas aulas
+        conforme vocês aprenderem mais sobre casos de teste. O mais importante
+        agora é mostrar que vocês leram e entenderam o documento de requisitos.
+      </span>
+    </div>
+
+    <!-- Template de exemplo -->
+    <h3 class="subtitle" style="margin-top: 40px">
+      Template de
+      <span style="color: var(--wood)">exemplo estruturado</span>
+    </h3>
+    <p class="text">
+      Veja abaixo o modelo oficial de como deve ser a estrutura e o nível de
+      detalhamento do Plano de QA do seu grupo. Você pode copiar o código base
+      em Markdown clicando no botão se preferir.
+    </p>
+
+    <div
+      style="
+        background-color: #ffffff;
+        color: #262626;
+        padding: 30px;
+        border-radius: 8px;
+        border: 1px solid #cbd5e0;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        margin-top: 20px;
+        line-height: 1.5;
+        font-size: 14px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      "
+    >
+      <div
+        style="
+          border-bottom: 2px solid #1a365d;
+          padding-bottom: 15px;
+          margin-bottom: 25px;
+        "
+      >
+        <h1
+          style="
+            font-size: 24px;
+            color: #1a365d;
+            margin: 0 0 5px 0;
+            font-weight: 700;
+          "
+        >
+          Capa - Plano de QA
+        </h1>
+        <p
+          style="
+            font-size: 16px;
+            color: #4a5568;
+            margin: 0 0 15px 0;
+            font-weight: 500;
+          "
+        >
+          Nome do Sistema + Sistema de ?
+        </p>
+
+        <div style="display: table; width: 100%; margin-top: 15px">
+          <div style="display: table-cell; width: 40%">
+            <div
+              style="
+                font-size: 11px;
+                text-transform: uppercase;
+                color: #718096;
+                font-weight: bold;
+              "
+            >
+              Grupo
+            </div>
+            <div style="color: #2d3748; margin-top: 3px; font-weight: 500">
+              • Nome 01<br />• Nome 02<br />• Nome 03
+            </div>
+          </div>
+          <div style="display: table-cell; width: 30%">
+            <div
+              style="
+                font-size: 11px;
+                text-transform: uppercase;
+                color: #718096;
+                font-weight: bold;
+              "
+            >
+              Data
+            </div>
+            <div style="color: #2d3748; margin-top: 3px; font-weight: 500">
+              01/06/2026
+            </div>
+          </div>
+          <div style="display: table-cell; width: 30%">
+            <div
+              style="
+                font-size: 11px;
+                text-transform: uppercase;
+                color: #718096;
+                font-weight: bold;
+              "
+            >
+              Versão
+            </div>
+            <div style="color: #2f855a; margin-top: 3px; font-weight: bold">
+              v1.0 (Inicial)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2
+        style="
+          font-size: 16px;
+          color: #1a365d;
+          border-left: 4px solid #2b6cb0;
+          padding-left: 10px;
+          margin: 25px 0 12px 0;
+          font-weight: 600;
+        "
+      >
+        1. Objetivos do Teste
+      </h2>
+      <p style="margin-bottom: 15px; text-align: justify; color: #4a5568">
+        O objetivo deste ciclo de testes é validar se o sistema atende
+        corretamente aos requisitos funcionais e regras de negócio definidos
+        pelo cliente.
+      </p>
+
+      <p style="margin-bottom: 15px; text-align: justify; color: #4a5568">
+        Listar 10 Objetivos
+      </p>
+
+      <table
+        style="width: 100%; border-collapse: collapse; margin-bottom: 25px"
+      >
+        <thead>
+          <tr
+            style="background-color: #f7fafc; border-bottom: 2px solid #cbd5e0"
+          >
+            <th
+              style="
+                padding: 10px;
+                text-align: left;
+                font-weight: 600;
+                color: #2d3748;
+                width: 15%;
+              "
+            >
+              ID
+            </th>
+            <th
+              style="
+                padding: 10px;
+                text-align: left;
+                font-weight: 600;
+                color: #2d3748;
+                width: 85%;
+              "
+            >
+              Objetivo
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #e2e8f0">
+            <td style="padding: 8px 10px; font-weight: bold; color: #2b6cb0">
+              OBJ-01
+            </td>
+            <td style="padding: 8px 10px; color: #4a5568">
+              Verificar que mensagens de erro sejam exibidas para dados
+              inválidos
+            </td>
+          </tr>
+          <tr
+            style="border-bottom: 1px solid #e2e8f0; background-color: #f8fafc"
+          >
+            <td style="padding: 8px 10px; font-weight: bold; color: #2b6cb0">
+              OBJ-02
+            </td>
+            <td style="padding: 8px 10px; color: #4a5568">
+              Confirmar que todas as regras de negócio descritas nos requisitos
+              sejam respeitadas.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2
+        style="
+          font-size: 16px;
+          color: #1a365d;
+          border-left: 4px solid #2b6cb0;
+          padding-left: 10px;
+          margin: 25px 0 12px 0;
+          font-weight: 600;
+        "
+      >
+        2. Requisitos Identificados (Matriz de Rastreabilidade)
+      </h2>
+
+      <p style="margin: 0 0 15px 0; text-align: justify; color: #4a5568">
+        Mapeamento inicial dos requisitos do sistema e suas respectivas regras
+        de validação. Esta matriz serve como base de rastreabilidade para
+        garantir que todos os pontos críticos descritos no escopo sejam
+        devidamente validados pelas estratégias de teste do grupo.
+      </p>
+
+      <table
+        style="width: 100%; border-collapse: collapse; margin-bottom: 25px"
+      >
+        <thead>
+          <tr
+            style="background-color: #f7fafc; border-bottom: 2px solid #cbd5e0"
+          >
+            <th
+              style="
+                padding: 10px;
+                text-align: left;
+                font-weight: 600;
+                color: #2d3748;
+                width: 25%;
+              "
+            >
+              ID Requisito
+            </th>
+            <th
+              style="
+                padding: 10px;
+                text-align: left;
+                font-weight: 600;
+                color: #2d3748;
+                width: 75%;
+              "
+            >
+              Descrição do Requisito / Regra de Negócio
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #e2e8f0">
+            <td style="padding: 8px 10px; font-weight: bold; color: #2b6cb0">
+              RF01
+            </td>
+            <td style="padding: 8px 10px; color: #4a5568; font-weight: 500">
+              [Nome da Funcionalidade Principal Principal - Ex: Cadastrar
+              Registro]
+            </td>
+          </tr>
+          <tr
+            style="border-bottom: 1px solid #e2e8f0; background-color: #f8fafc"
+          >
+            <td
+              style="
+                padding: 8px 10px;
+                font-weight: bold;
+                color: #4a5568;
+                padding-left: 20px;
+              "
+            >
+              └─ RN01
+            </td>
+            <td style="padding: 8px 10px; color: #718096; font-style: italic">
+              [Regra de validação atrelada ao RF01 - Ex: O campo X não pode
+              aceitar duplicidade]
+            </td>
+          </tr>
+          <tr style="border-bottom: 1px solid #e2e8f0">
+            <td style="padding: 8px 10px; font-weight: bold; color: #cbd5e1">
+              RF02
+            </td>
+            <td style="padding: 8px 10px; color: #cbd5e1">
+              [Preencher com o próximo Requisito Funcional...]
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2
+        style="
+          font-size: 16px;
+          color: #1a365d;
+          border-left: 4px solid #2b6cb0;
+          padding-left: 10px;
+          margin: 25px 0 12px 0;
+          font-weight: 600;
+        "
+      >
+        3. Definição do Escopo de Teste
+      </h2>
+
+      <p style="margin: 0 0 15px 0; text-align: justify; color: #4a5568">
+        Delimitação clara das fronteiras do projeto de testes. É fundamental que
+        a equipe determine de forma realista quais entregáveis e cenários serão
+        validados (In Scope) e quais tecnologias ou tipos de testes não serão
+        abordados neste ciclo (Out of Scope).
+      </p>
+
+      <div style="display: table; width: 100%; margin-bottom: 25px">
+        <div
+          style="
+            display: table-cell;
+            width: 50%;
+            padding-right: 15px;
+            vertical-align: top;
+          "
+        >
+          <div style="font-weight: bold; color: #2f855a; margin-bottom: 8px">
+            ✓ In Scope (Será Testado)
+          </div>
+          <ul style="padding-left: 20px; margin: 0; color: #4a5568">
+            <li style="margin-bottom: 4px">
+              Funcionalidades principais listadas na Matriz de Rastreabilidade
+            </li>
+            <li style="margin-bottom: 4px">
+              Regras de negócio atreladas a cada funcionalidade
+            </li>
+            <li style="margin-bottom: 4px">
+              Fluxos Principais (Cenários de Sucesso / Caminho Feliz)
+            </li>
+            <li style="margin-bottom: 4px">
+              Fluxos de Exceção (Cenários de Erro / Mensagens de Validação)
+            </li>
+            <li style="margin-bottom: 4px; color: #cbd5e1; font-style: italic">
+              [Adicione outros itens que o grupo irá testar...]
+            </li>
+          </ul>
+        </div>
+        <div
+          style="
+            display: table-cell;
+            width: 50%;
+            padding-left: 15px;
+            border-left: 1px solid #e2e8f0;
+            vertical-align: top;
+          "
+        >
+          <div style="font-weight: bold; color: #c53030; margin-bottom: 8px">
+            ✗ Out of Scope (Não Será Testado)
+          </div>
+          <ul style="padding-left: 20px; margin: 0; color: #4a5568">
+            <li style="margin-bottom: 4px">
+              Testes Não-Funcionais Avançados (Performance, Carga ou Estresse)
+            </li>
+            <li style="margin-bottom: 4px">
+              Segurança em nível de infraestrutura ou testes de intrusão
+              (Pentest)
+            </li>
+            <li style="margin-bottom: 4px">
+              Componentes internos do Banco de Dados ou microsserviços legados
+            </li>
+            <li style="margin-bottom: 4px">
+              Qualquer integração de terceiros que não possua ambiente de
+              Sandbox
+            </li>
+            <li style="margin-bottom: 4px; color: #cbd5e1; font-style: italic">
+              [Adicione escopos explicitamente fora do plano...]
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h2
+        style="
+          font-size: 16px;
+          color: #1a365d;
+          border-left: 4px solid #2b6cb0;
+          padding-left: 10px;
+          margin: 25px 0 12px 0;
+          font-weight: 600;
+        "
+      >
+        4. Estratégia de Teste
+      </h2>
+
+      <p style="margin: 0 0 15px 0; text-align: justify; color: #4a5568">
+        Metodologia técnica aplicada para guiar a execução dos testes. Define
+        quais abordagens analíticas e de design de testes serão utilizadas para
+        mapear as entradas e saídas do sistema, o nível de criticidade das
+        funcionalidades e como o esforço de validação será distribuído entre os
+        membros da equipe.
+      </p>
+
+      <div
+        style="
+          background-color: #f7fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 4px;
+          padding: 12px 15px;
+          margin-bottom: 15px;
+        "
+      >
+        <strong style="color: #1a365d">Técnica Principal: Caixa-Preta</strong>
+        <p style="margin: 4px 0 0 0; font-size: 13px; color: #4a5568">
+          A equipe irá validar o comportamento externo do sistema sem acesso ao
+          código-fonte, baseando-se estritamente nas regras de negócio
+          documentadas.
+        </p>
+      </div>
+
+      <h3
+        style="
+          font-size: 14px;
+          color: #2b6cb0;
+          margin: 15px 0 8px 0;
+          font-weight: 600;
+        "
+      >
+        Abordagens Utilizadas
+      </h3>
+      <ul style="padding-left: 20px; color: #4a5568">
+        <li style="margin-bottom: 8px">
+          <strong>Partição por Equivalência:</strong>
+          <br /><span style="font-size: 13px; color: #718096"
+            >• [Exemplo de Campo - Ex: Campo X]: Válido → [Critério] | Inválido
+            → [Motivo A] | Inválido → [Motivo B].</span
+          >
+          <br /><span style="font-size: 13px; color: #718096"
+            >• [Exemplo de Campo - Ex: Campo Y]: Válido → [Critério] | Inválida
+            → [Motivo].</span
+          >
+        </li>
+        <li style="margin-bottom: 8px">
+          <strong>Análise de Valor Limite:</strong>
+          <br /><span style="font-size: 13px; color: #718096"
+            >• [Exemplo de Campo - Ex: Campo Y]: [Abaixo do Limite], [No Limite
+            Exato] e [Acima do Limite].</span
+          >
+          <br /><span style="font-size: 13px; color: #718096"
+            >• [Exemplo de Campo - Ex: Campo X]: [Abaixo do Limite], [No Limite
+            Exato] e [Acima do Limite].</span
+          >
+        </li>
+      </ul>
+
+      <h3
+        style="
+          font-size: 14px;
+          color: #2b6cb0;
+          margin: 15px 0 8px 0;
+          font-weight: 600;
+        "
+      >
+        Prioridade dos Testes
+      </h3>
+      <table
+        style="width: 100%; border-collapse: collapse; margin-bottom: 25px"
+      >
+        <thead>
+          <tr
+            style="background-color: #f7fafc; border-bottom: 2px solid #cbd5e0"
+          >
+            <th
+              style="
+                padding: 8px 10px;
+                text-align: left;
+                font-weight: 600;
+                color: #2d3748;
+                width: 25%;
+              "
+            >
+              Prioridade
+            </th>
+            <th
+              style="
+                padding: 8px 10px;
+                text-align: left;
+                font-weight: 600;
+                color: #2d3748;
+                width: 75%;
+              "
+            >
+              Funcionalidades / Módulos Afetados
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #e2e8f0">
+            <td style="padding: 8px 10px">
+              <span
+                style="
+                  background-color: #fed7d7;
+                  color: #9b2c2c;
+                  padding: 2px 6px;
+                  font-size: 11px;
+                  font-weight: bold;
+                  border-radius: 3px;
+                "
+                >ALTA</span
+              >
+            </td>
+            <td style="padding: 8px 10px; color: #4a5568">
+              [Funcionalidades core do sistema - Ex: Autenticação, Fluxo
+              Crítico]
+            </td>
+          </tr>
+          <tr
+            style="border-bottom: 1px solid #e2e8f0; background-color: #f8fafc"
+          >
+            <td style="padding: 8px 10px">
+              <span
+                style="
+                  background-color: #feebc8;
+                  color: #9c4221;
+                  padding: 2px 6px;
+                  font-size: 11px;
+                  font-weight: bold;
+                  border-radius: 3px;
+                "
+                >MÉDIA</span
+              >
+            </td>
+            <td style="padding: 8px 10px; color: #cbd5e1; font-style: italic">
+              [Funcionalidades secundárias - Ex: Edição de cadastros, Relatórios
+              de Apoio]
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3
+        style="
+          font-size: 14px;
+          color: #2b6cb0;
+          margin: 15px 0 8px 0;
+          font-weight: 600;
+        "
+      >
+        Distribuição da Equipe
+      </h3>
+      <table
+        style="width: 100%; border-collapse: collapse; margin-bottom: 25px"
+      >
+        <thead>
+          <tr
+            style="background-color: #f7fafc; border-bottom: 2px solid #cbd5e0"
+          >
+            <th
+              style="
+                padding: 8px 10px;
+                text-align: left;
+                font-weight: 600;
+                color: #2d3748;
+                width: 40%;
+              "
+            >
+              Integrante
+            </th>
+            <th
+              style="
+                padding: 8px 10px;
+                text-align: left;
+                font-weight: 600;
+                color: #2d3748;
+                width: 60%;
+              "
+            >
+              Responsabilidade Funcional Mapeada
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #e2e8f0">
+            <td style="padding: 8px 10px; font-weight: 500">Integrante 01</td>
+            <td style="padding: 8px 10px; color: #4a5568">
+              [Ex: Criação e execução dos CTs de RF01 e RN01]
+            </td>
+          </tr>
+          <tr
+            style="border-bottom: 1px solid #e2e8f0; background-color: #f8fafc"
+          >
+            <td style="padding: 8px 10px; font-weight: 500">Integrante 02</td>
+            <td style="padding: 8px 10px; color: #4a5568">
+              [Ex: Criação e execução dos CTs de RF02]
+            </td>
+          </tr>
+          <tr style="border-bottom: 1px solid #e2e8f0">
+            <td style="padding: 8px 10px; font-weight: 500">Integrante 03</td>
+            <td style="padding: 8px 10px; color: #4a5568">
+              [Ex: Criação e execução dos CTs de RF03]
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2
+        style="
+          font-size: 16px;
+          color: #1a365d;
+          border-left: 4px solid #2b6cb0;
+          padding-left: 10px;
+          margin: 25px 0 12px 0;
+          font-weight: 600;
+        "
+      >
+        5. Riscos do Produto / Sistema
+      </h2>
+
+      <p style="margin: 0 0 15px 0; text-align: justify; color: #4a5568">
+        Mapeamento preventivo de falhas potenciais que podem impactar
+        diretamente o negócio ou a experiência do usuário final. Identificar e
+        classificar os riscos por nível de impacto permite que a equipe priorize
+        a cobertura dos cenários de testes nos comportamentos mais vulneráveis e
+        críticos do sistema.
+      </p>
+
+      <table
+        style="width: 100%; border-collapse: collapse; margin-bottom: 25px"
+      >
+        <thead>
+          <tr
+            style="background-color: #f7fafc; border-bottom: 2px solid #cbd5e0"
+          >
+            <th
+              style="
+                padding: 8px 10px;
+                text-align: left;
+                font-weight: 600;
+                color: #2d3748;
+                width: 65%;
+              "
+            >
+              Risco Mapeado (Cenário de Falha Potencial)
+            </th>
+            <th
+              style="
+                padding: 8px 10px;
+                text-align: left;
+                font-weight: 600;
+                color: #2d3748;
+                width: 35%;
+              "
+            >
+              Nível de Impacto
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #e2e8f0">
+            <td style="padding: 8px 10px; color: #4a5568">
+              [O sistema aceitar ou processar um dado em desconformidade com a
+              RN01 - Ex: Aceitar duplicidade]
+            </td>
+            <td style="padding: 8px 10px">
+              <span
+                style="
+                  background-color: #fed7d7;
+                  color: #9b2c2c;
+                  padding: 2px 6px;
+                  font-size: 11px;
+                  font-weight: bold;
+                  border-radius: 3px;
+                "
+                >ALTO</span
+              >
+            </td>
+          </tr>
+          <tr
+            style="border-bottom: 1px solid #e2e8f0; background-color: #f8fafc"
+          >
+            <td style="padding: 8px 10px; color: #cbd5e1; font-style: italic">
+              [Preencher com o próximo risco mapeado pelo grupo...]
+            </td>
+            <td style="padding: 8px 10px">
+              <span
+                style="
+                  background-color: #e2e8f0;
+                  color: #4a5568;
+                  padding: 2px 6px;
+                  font-size: 11px;
+                  font-weight: bold;
+                  border-radius: 3px;
+                "
+                >AGUARDANDO</span
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2
+        style="
+          font-size: 16px;
+          color: #1a365d;
+          border-left: 4px solid #2b6cb0;
+          padding-left: 10px;
+          margin: 25px 0 12px 0;
+          font-weight: 600;
+        "
+      >
+        6. Critérios de Aprovação (Exit Criteria)
+      </h2>
+
+      <p style="margin: 0 0 15px 0; text-align: justify; color: #4a5568">
+        Conjunto de condições e métricas mandatórias que devem ser totalmente
+        atendidas para que o ciclo atual de homologação seja considerado
+        encerrado com sucesso. Estes critérios garantem o rigor técnico e a
+        maturidade mínima necessária antes de autorizar o avanço do produto para
+        a próxima fase.
+      </p>
+
+      <p style="color: #4a5568; margin-bottom: 10px; font-weight: 500">
+        O ciclo de validação será considerado apto para encerramento e aprovação
+        quando:
+      </p>
+      <ul style="padding-left: 20px; color: #4a5568; margin-bottom: 25px">
+        <li style="margin-bottom: 4px">
+          100% das funcionalidades descritas na Matriz de Rastreabilidade
+          possuírem cenários de testes mapeados.
+        </li>
+        <li style="margin-bottom: 4px">
+          Todas as regras de negócio associadas aos requisitos passarem por
+          validações de caminhos felizes e exceções.
+        </li>
+        <li style="margin-bottom: 4px">
+          Nenhum risco classificado como "Alto" ou "Crítico" permanecer sem a
+          devida cobertura de testes ou plano de mitigação.
+        </li>
+        <li style="margin-bottom: 4px">
+          Os objetivos de qualidade inicialmente acordados pela equipe de testes
+          para este ciclo forem atingidos.
+        </li>
+        <li style="margin-bottom: 4px">
+          A documentação dos Casos de Teste (CTs) estiver devidamente
+          estruturada, revisada e vinculada aos IDs dos requisitos.
+        </li>
+      </ul>
+
+      <div
+        style="
+          font-style: italic;
+          color: #4a5568;
+          background-color: #f7fafc;
+          padding: 12px;
+          border-top: 1px solid #cbd5e0;
+        "
+      >
+        <strong>Conclusão do Plano:</strong> Este Plano de QA estabelece
+        formalmente os objetivos, fronteiras de escopo, abordagens estratégicas
+        e o mapeamento inicial de riscos do projeto. Suas diretrizes servem como
+        fundação técnica obrigatória para guiar a modelagem e a futura execução
+        dos cenários de teste na próxima etapa da disciplina.
+      </div>
+    </div>
+  </div>
+</section>
