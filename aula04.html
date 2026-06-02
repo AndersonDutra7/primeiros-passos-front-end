@@ -16506,7 +16506,7 @@ console.<span class="c-prop">log</span>(Object.<span class="c-prop">keys</span>(
           <div class="nc-right">
             <div class="nc-glow"></div>
             <img
-              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/js09.png"
+              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/js12.png"
               alt="DOM Document Object Model"
               onerror="this.style.display='none';"
               style="
@@ -17794,7 +17794,7 @@ lista.<span class="c-prop">append</span>(fragment); <span class="c-comment">// t
           <div class="nc-right">
             <div class="nc-glow"></div>
             <img
-              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/js02.png"
+              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/js11.png"
               alt="Eventos JavaScript"
               onerror="this.style.display='none';"
               style="
@@ -19313,7 +19313,7 @@ botao.<span class="c-prop">disabled</span> = <span class="c-sel">true</span>; <s
           <div class="nc-right">
             <div class="nc-glow"></div>
             <img
-              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/js02.png"
+              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/js13.png"
               alt="Manipulação de Formulários"
               onerror="this.style.display='none';"
               style="
@@ -20356,7 +20356,7 @@ form.<span class="c-prop">addEventListener</span>(<span class="c-val">'submit'</
           <div class="nc-right">
             <div class="nc-glow"></div>
             <img
-              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/async01.png"
+              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/js14.png"
               alt="Assincronismo em JavaScript"
               onerror="this.style.display='none';"
               style="
@@ -20491,9 +20491,9 @@ form.<span class="c-prop">addEventListener</span>(<span class="c-val">'submit'</
                   font-size: 0.82rem;
                 "
               ><span class="c-comment">// Executa em ordem estrita</span>
-        <span class="c-prop">console</span>.<span class="c-prop">log</span>(<span class="c-val">'A'</span>);
-        <span class="c-prop">console</span>.<span class="c-prop">log</span>(<span class="c-val">'B'</span>);
-        <span class="c-prop">console</span>.<span class="c-prop">log</span>(<span class="c-val">'C'</span>);</pre>
+<span class="c-prop">console</span>.<span class="c-prop">log</span>(<span class="c-val">'A'</span>);
+<span class="c-prop">console</span>.<span class="c-prop">log</span>(<span class="c-val">'B'</span>);
+<span class="c-prop">console</span>.<span class="c-prop">log</span>(<span class="c-val">'C'</span>);</pre>
 
               <div style="margin-top: auto; padding-top: 16px">
                 <div
@@ -20548,10 +20548,10 @@ form.<span class="c-prop">addEventListener</span>(<span class="c-val">'submit'</
                   font-size: 0.82rem;
                 "
               ><span class="c-prop">console</span>.<span class="c-prop">log</span>(<span class="c-val">'A'</span>);
-        <span class="c-prop">setTimeout</span>(() => {
-          <span class="c-prop">console</span>.<span class="c-prop">log</span>(<span class="c-val">'B'</span>);
-        }, <span class="c-val">3000</span>);
-        <span class="c-prop">console</span>.<span class="c-prop">log</span>(<span class="c-val">'C'</span>);</pre>
+<span class="c-prop">setTimeout</span>(() => {
+  <span class="c-prop">console</span>.<span class="c-prop">log</span>(<span class="c-val">'B'</span>);
+}, <span class="c-val">3000</span>);
+<span class="c-prop">console</span>.<span class="c-prop">log</span>(<span class="c-val">'C'</span>);</pre>
 
               <div style="margin-top: auto; padding-top: 16px">
                 <div
@@ -20952,15 +20952,15 @@ contador++;
                   line-height: 1.8;
                 "
               >
-        <span class="c-prop">login</span>(usuario, () => {
-          <span class="c-prop">buscarPerfil</span>(id, () => {
-            <span class="c-prop">carregarFoto</span>(url, () => {
-              <span class="c-prop">mostrarPainel</span>(dados, () => {
-                <span class="c-comment">// cada vez mais fundo…</span>
-              });
-            });
-          });
-        });</pre>
+<span class="c-prop">login</span>(usuario, () => {
+  <span class="c-prop">buscarPerfil</span>(id, () => {
+    <span class="c-prop">carregarFoto</span>(url, () => {
+      <span class="c-prop">mostrarPainel</span>(dados, () => {
+        <span class="c-comment">// cada vez mais fundo…</span>
+      });
+    });
+  });
+});</pre>
               <p
                 style="
                   font-size: 0.78rem;
@@ -21721,41 +21721,6 @@ contador++;
           </table>
         </div>
 
-        <!-- Boas práticas cards -->
-        <div
-          class="msg-grid"
-          style="
-            margin: 24px 2%;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-          "
-        >
-          <div class="msg-card git-green">
-            <div class="msg-badge">✅ Fazer</div>
-            <div class="msg-title">Boas práticas</div>
-            <div class="msg-desc">
-              Prefira <strong>async/await</strong> sobre
-              <code>.then()</code> para legibilidade. Sempre trate erros com
-              <code>try/catch</code>. Use <code>Promise.all</code> para
-              operações independentes. Entenda o Event Loop — ele explica
-              comportamentos inesperados.
-            </div>
-          </div>
-
-          <div class="msg-card git-gold">
-            <div class="msg-badge">🔜 Próxima seção</div>
-            <div class="msg-title">Consumindo APIs</div>
-            <div class="msg-desc">
-              Tudo que você aprendeu aqui será aplicado imediatamente.
-              <code>fetch()</code>, Promises, <code>async/await</code> e
-              <code>try/catch</code> serão usados para buscar
-              <strong>dados reais da internet</strong> — o que fazem todas as
-              aplicações modernas.
-            </div>
-          </div>
-        </div>
-
         <div class="alert alert-tip">
           <span class="alert-icon">🧠</span>
           <span>
@@ -21768,10 +21733,4764 @@ contador++;
         </div>
       </section>
 
-      <!-- Seção 14 — Consumindo APIs       → #section-apis        -->
-      <!-- Seção 15 — Modularização         → #section-modulos     -->
-      <!-- Seção 16 — Performance           → #section-performance -->
-      <!-- Seção 17 — Debugging             → #section-debugging   -->
+      <!-- ══════════════════════════════════════════════════
+     SEÇÃO 14 — CONSUMINDO APIs
+══════════════════════════════════════════════════ -->
+      <section
+        class="content-section"
+        id="section-apis"
+        style="background: var(--bg)"
+      >
+        <div
+          class="cover"
+          style="
+            padding: 0;
+            min-height: auto;
+            background: transparent;
+            margin-bottom: 40px;
+            box-shadow: none;
+          "
+        >
+          <div class="cover-text">
+            <div class="section-tag">Seção 14</div>
+            <h2
+              style="
+                font-size: clamp(2.5rem, 4vw, 3.5rem);
+                line-height: 1.1;
+                margin-bottom: 1rem;
+                color: var(--ink);
+                font-family: 'Fraunces', serif;
+              "
+            >
+              Consu&shy;mindo<br />
+              <span style="color: var(--wood)">APIs</span>
+            </h2>
+            <p
+              class="cover-subtitle"
+              style="font-size: 1.1rem; line-height: 1.6"
+            >
+              Aplicações modernas raramente vivem isoladas. Elas conversam com
+              servidores, buscam dados externos e enviam informações em tempo
+              real. As <strong>APIs</strong> são as pontes que tornam isso
+              possível — e o JavaScript oferece ferramentas nativas, como o
+              <strong>fetch</strong>, para consumi-las de forma elegante. Nesta
+              seção você vai aprender a fazer requisições HTTP, trabalhar com
+              JSON e construir interfaces que se comunicam com o mundo.
+            </p>
+          </div>
+          <div class="nc-right">
+            <div class="nc-glow"></div>
+            <img
+              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/async01.png"
+              alt="Consumindo APIs com JavaScript"
+              onerror="this.style.display='none';"
+              style="
+                width: 640px;
+                height: 700px;
+                object-fit: cover;
+                object-position: center;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+                  0 0 20px rgba(249, 193, 80, 0.2);
+                border: 1px solid rgba(249, 193, 80, 0.3);
+                transition: transform 0.3s ease;
+              "
+            />
+          </div>
+        </div>
+
+        <!-- ── O que é uma API? ── -->
+        <h3 class="subtitle">
+          O que é uma
+          <span style="color: var(--wood)">API?</span>
+        </h3>
+        <p class="text">
+          <strong>API</strong> (Application Programming Interface) é uma
+          interface que permite que diferentes sistemas se comuniquem. No
+          desenvolvimento web, consumimos APIs através de requisições
+          <strong>HTTP</strong> — o mesmo protocolo que o navegador usa para
+          carregar páginas.
+        </p>
+        <p class="text">
+          Você já usa APIs todos os dias sem perceber: quando um app de clima
+          busca a temperatura, quando você faz login com o Google, quando um
+          e-commerce processa seu pagamento. Por baixo dos panos, há uma API
+          sendo chamada.
+        </p>
+
+        <!-- Cards: exemplos do dia a dia -->
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+          "
+        >
+          <div class="msg-card git-gold">
+            <div class="msg-badge">Clima</div>
+            <div class="msg-title">Aplicativos de tempo</div>
+            <div class="msg-desc">
+              O app consulta uma API meteorológica com sua localização e recebe
+              de volta temperatura, umidade e previsão — tudo em
+              <strong>JSON</strong>.
+            </div>
+          </div>
+
+          <div class="msg-card git-blue">
+            <div class="msg-badge">Mapas</div>
+            <div class="msg-title">Google Maps</div>
+            <div class="msg-desc">
+              Sites que exibem mapas, calculam rotas ou buscam endereços estão
+              consumindo a <strong>API do Google Maps</strong> em tempo real.
+            </div>
+          </div>
+
+          <div class="msg-card git-green">
+            <div class="msg-badge">Pagamentos</div>
+            <div class="msg-title">E-commerce e bancos</div>
+            <div class="msg-desc">
+              Toda transação financeira online passa por uma API de pagamentos,
+              que valida e autoriza a operação com
+              <strong>segurança</strong>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Diagrama: fluxo de comunicação -->
+        <div
+          style="
+            margin: 32px 2%;
+            background: var(--bg-elevado, #161b22);
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 32px 24px;
+          "
+        >
+          <div
+            style="
+              font-size: 0.7rem;
+              font-weight: 800;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: #8b949e;
+              margin-bottom: 24px;
+              font-family: 'JetBrains Mono', monospace;
+              text-align: center;
+            "
+          >
+            Fluxo de comunicação
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 0;
+              flex-wrap: wrap;
+            "
+          >
+            <!-- Bloco 1 -->
+            <div style="text-align: center; padding: 8px 12px">
+              <div
+                style="
+                  background: #0d1117;
+                  border: 2px solid var(--wood, #c9a96e);
+                  border-radius: 12px;
+                  padding: 16px 20px;
+                  min-width: 130px;
+                "
+              >
+                <div style="font-size: 1.6rem; margin-bottom: 6px">💻</div>
+                <div
+                  style="
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: var(--wood, #c9a96e);
+                    font-family: 'JetBrains Mono', monospace;
+                  "
+                >
+                  Frontend
+                </div>
+                <div
+                  style="font-size: 0.75rem; color: #8b949e; margin-top: 4px"
+                >
+                  JavaScript
+                </div>
+              </div>
+            </div>
+            <div style="font-size: 1.3rem; color: #8b949e; padding: 0 4px">
+              →
+            </div>
+            <!-- Bloco 2 -->
+            <div style="text-align: center; padding: 8px 12px">
+              <div
+                style="
+                  background: #0d1117;
+                  border: 2px solid #58a6ff;
+                  border-radius: 12px;
+                  padding: 16px 20px;
+                  min-width: 130px;
+                "
+              >
+                <div style="font-size: 1.6rem; margin-bottom: 6px">📡</div>
+                <div
+                  style="
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: #58a6ff;
+                    font-family: 'JetBrains Mono', monospace;
+                  "
+                >
+                  Requisição
+                </div>
+                <div
+                  style="font-size: 0.75rem; color: #8b949e; margin-top: 4px"
+                >
+                  HTTP
+                </div>
+              </div>
+            </div>
+            <div style="font-size: 1.3rem; color: #8b949e; padding: 0 4px">
+              →
+            </div>
+            <!-- Bloco 3 -->
+            <div style="text-align: center; padding: 8px 12px">
+              <div
+                style="
+                  background: #0d1117;
+                  border: 2px solid #3fb950;
+                  border-radius: 12px;
+                  padding: 16px 20px;
+                  min-width: 130px;
+                "
+              >
+                <div style="font-size: 1.6rem; margin-bottom: 6px">🌐</div>
+                <div
+                  style="
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: #3fb950;
+                    font-family: 'JetBrains Mono', monospace;
+                  "
+                >
+                  API
+                </div>
+                <div
+                  style="font-size: 0.75rem; color: #8b949e; margin-top: 4px"
+                >
+                  Servidor
+                </div>
+              </div>
+            </div>
+            <div style="font-size: 1.3rem; color: #8b949e; padding: 0 4px">
+              →
+            </div>
+            <!-- Bloco 4 -->
+            <div style="text-align: center; padding: 8px 12px">
+              <div
+                style="
+                  background: #0d1117;
+                  border: 2px solid #d2a8ff;
+                  border-radius: 12px;
+                  padding: 16px 20px;
+                  min-width: 130px;
+                "
+              >
+                <div style="font-size: 1.6rem; margin-bottom: 6px">📦</div>
+                <div
+                  style="
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: #d2a8ff;
+                    font-family: 'JetBrains Mono', monospace;
+                  "
+                >
+                  Resposta
+                </div>
+                <div
+                  style="font-size: 0.75rem; color: #8b949e; margin-top: 4px"
+                >
+                  JSON
+                </div>
+              </div>
+            </div>
+            <div style="font-size: 1.3rem; color: #8b949e; padding: 0 4px">
+              →
+            </div>
+            <!-- Bloco 5 -->
+            <div style="text-align: center; padding: 8px 12px">
+              <div
+                style="
+                  background: #0d1117;
+                  border: 2px solid var(--wood, #c9a96e);
+                  border-radius: 12px;
+                  padding: 16px 20px;
+                  min-width: 130px;
+                "
+              >
+                <div style="font-size: 1.6rem; margin-bottom: 6px">🖥️</div>
+                <div
+                  style="
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: var(--wood, #c9a96e);
+                    font-family: 'JetBrains Mono', monospace;
+                  "
+                >
+                  Tela
+                </div>
+                <div
+                  style="font-size: 0.75rem; color: #8b949e; margin-top: 4px"
+                >
+                  Atualiza
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── API REST e Endpoints ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">API REST</span> e Endpoints
+        </h3>
+        <p class="text">
+          <strong>REST</strong> (Representational State Transfer) é o padrão
+          mais popular para construção de APIs. Uma API REST usa
+          <em>URLs</em> para identificar recursos e <em>métodos HTTP</em> para
+          definir a ação. O formato de dados mais comum é o
+          <strong>JSON</strong>.
+        </p>
+        <p class="text">
+          Um <strong>endpoint</strong> é um endereço específico da API. Pense na
+          API como um restaurante: a API é o estabelecimento, e cada endpoint é
+          um item do cardápio — você pede exatamente o que quer, e o garçom
+          (HTTP) traz de volta.
+        </p>
+
+        <!-- Cards: métodos HTTP -->
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+          "
+        >
+          <div class="msg-card git-green">
+            <div class="msg-badge">GET</div>
+            <div class="msg-title">Buscar</div>
+            <div class="msg-desc">
+              Lê informações. Não altera dados no servidor.
+              <br /><code>GET /produtos</code>
+            </div>
+          </div>
+
+          <div class="msg-card git-blue">
+            <div class="msg-badge">POST</div>
+            <div class="msg-title">Criar</div>
+            <div class="msg-desc">
+              Envia dados para criar um recurso novo.
+              <br /><code>POST /produtos</code>
+            </div>
+          </div>
+
+          <div class="msg-card git-gold">
+            <div class="msg-badge">PUT</div>
+            <div class="msg-title">Substituir</div>
+            <div class="msg-desc">
+              Atualiza um recurso inteiro.
+              <br /><code>PUT /produtos/1</code>
+            </div>
+          </div>
+
+          <div class="msg-card git-gold">
+            <div class="msg-badge">PATCH</div>
+            <div class="msg-title">Editar</div>
+            <div class="msg-desc">
+              Atualiza parcialmente um recurso.
+              <br /><code>PATCH /produtos/1</code>
+            </div>
+          </div>
+
+          <div
+            class="msg-card"
+            style="border: 1px solid #f8516940; background: #f8516908"
+          >
+            <div
+              class="msg-badge"
+              style="background: #f8516920; color: #f85169"
+            >
+              DELETE
+            </div>
+            <div class="msg-title">Remover</div>
+            <div class="msg-desc">
+              Remove um recurso do servidor.
+              <br /><code>DELETE /produtos/1</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── JSON ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          O que é <span style="color: var(--wood)">JSON?</span>
+        </h3>
+        <p class="text">
+          <strong>JSON</strong> (JavaScript Object Notation) é o formato mais
+          comum para troca de dados entre frontend e API. Apesar do nome, é
+          apenas <em>texto puro</em> — qualquer linguagem consegue lê-lo. A
+          sintaxe é muito parecida com objetos JavaScript, mas com algumas
+          diferenças importantes.
+        </p>
+
+        <!-- Comparação objeto JS vs JSON -->
+        <div class="code-block" style="margin: 32px 2%">
+          <div class="code-block-header">
+            <div class="code-block-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span
+              ><span class="dot-green"></span>
+            </div>
+            <span class="code-block-label">javascript — objeto JS vs JSON</span>
+            <button class="code-block-copy" onclick="copyCode(this)">
+              Copiar
+            </button>
+          </div>
+
+          <div
+            class="code-block-body"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 0"
+          >
+            <div
+              style="
+                border-right: 1px solid #30363d;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <div
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  text-transform: uppercase;
+                  color: #58a6ff;
+                  margin-bottom: 12px;
+                  font-family: 'JetBrains Mono', monospace;
+                "
+              >
+                Objeto JavaScript
+              </div>
+              <pre
+                style="
+                  margin: 0;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.82rem;
+                "
+              ><span class="c-sel">const</span> usuario = {
+nome: <span class="c-val">"Anderson"</span>,
+idade: <span class="c-val">25</span>,
+ativo: <span class="c-val">true</span>
+};</pre>
+              <div style="margin-top: auto; padding-top: 16px">
+                <ul
+                  style="
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                  "
+                >
+                  <li
+                    style="
+                      font-size: 0.78rem;
+                      color: #8b949e;
+                      display: flex;
+                      gap: 8px;
+                    "
+                  >
+                    <span style="color: #3fb950">✓</span> Aspas são opcionais
+                    nas chaves
+                  </li>
+                  <li
+                    style="
+                      font-size: 0.78rem;
+                      color: #8b949e;
+                      display: flex;
+                      gap: 8px;
+                    "
+                  >
+                    <span style="color: #3fb950">✓</span> Pode conter funções e
+                    métodos
+                  </li>
+                  <li
+                    style="
+                      font-size: 0.78rem;
+                      color: #8b949e;
+                      display: flex;
+                      gap: 8px;
+                    "
+                  >
+                    <span style="color: #3fb950">✓</span> É código JavaScript
+                    executável
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="padding: 20px; display: flex; flex-direction: column">
+              <div
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  text-transform: uppercase;
+                  color: var(--wood, #c9a96e);
+                  margin-bottom: 12px;
+                  font-family: 'JetBrains Mono', monospace;
+                "
+              >
+                JSON
+              </div>
+              <pre
+                style="
+                  margin: 0;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.82rem;
+                "
+              >{
+<span class="c-val">"nome"</span>: <span class="c-val">"Anderson"</span>,
+<span class="c-val">"idade"</span>: <span class="c-val">25</span>,
+<span class="c-val">"ativo"</span>: <span class="c-val">true</span>
+}</pre>
+              <div style="margin-top: auto; padding-top: 16px">
+                <ul
+                  style="
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                  "
+                >
+                  <li
+                    style="
+                      font-size: 0.78rem;
+                      color: #8b949e;
+                      display: flex;
+                      gap: 8px;
+                    "
+                  >
+                    <span style="color: #f85149">✗</span> Chaves
+                    <strong>sempre</strong> com aspas duplas
+                  </li>
+                  <li
+                    style="
+                      font-size: 0.78rem;
+                      color: #8b949e;
+                      display: flex;
+                      gap: 8px;
+                    "
+                  >
+                    <span style="color: #f85149">✗</span> Não suporta funções
+                  </li>
+                  <li
+                    style="
+                      font-size: 0.78rem;
+                      color: #8b949e;
+                      display: flex;
+                      gap: 8px;
+                    "
+                  >
+                    <span style="color: #f85149">✗</span> É apenas texto puro
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Convertendo JSON ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Convertendo <span style="color: var(--wood)">JSON</span>
+        </h3>
+        <p class="text">
+          JavaScript possui dois métodos nativos para converter entre objetos e
+          JSON. Você vai usá-los o tempo todo ao consumir APIs: o
+          <code>JSON.stringify()</code> quando <em>envia</em> dados, e o
+          <code>JSON.parse()</code> quando os <em>recebe</em>.
+        </p>
+
+        <!-- Cards: stringify e parse -->
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+          "
+        >
+          <div class="msg-card git-blue">
+            <div class="msg-badge">JSON.stringify()</div>
+            <div class="msg-title">Objeto → JSON (texto)</div>
+            <div class="msg-desc">
+              Converte um objeto JavaScript em uma string JSON. Usado ao
+              <strong>enviar dados</strong> para uma API — o body da requisição
+              precisa ser texto. <br /><br />
+              <code>JSON.stringify({ nome: "Ana" })</code><br />
+              <span style="color: #3fb950">→ '{"nome":"Ana"}'</span>
+            </div>
+          </div>
+
+          <div class="msg-card git-gold">
+            <div class="msg-badge">JSON.parse()</div>
+            <div class="msg-title">JSON (texto) → Objeto</div>
+            <div class="msg-desc">
+              Converte uma string JSON em um objeto JavaScript. Usado ao
+              <strong>receber dados</strong> de uma API — assim você pode
+              acessar as propriedades normalmente. <br /><br />
+              <code>JSON.parse('{"nome":"Ana"}')</code><br />
+              <span style="color: #3fb950">→ { nome: "Ana" }</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── A API Fetch ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          A API <span style="color: var(--wood)">Fetch</span>
+        </h3>
+        <p class="text">
+          O <strong>fetch</strong> é o método nativo e moderno do JavaScript
+          para realizar requisições HTTP. Ele retorna uma
+          <strong>Promise</strong> — por isso tudo que aprendemos sobre
+          assincronismo na seção anterior se aplica diretamente aqui.
+        </p>
+
+        <!-- Fluxo fetch -->
+        <div
+          style="
+            margin: 32px 2%;
+            background: var(--bg-elevado, #161b22);
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 32px 24px;
+          "
+        >
+          <div
+            style="
+              font-size: 0.7rem;
+              font-weight: 800;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: #8b949e;
+              margin-bottom: 24px;
+              font-family: 'JetBrains Mono', monospace;
+              text-align: center;
+            "
+          >
+            Fluxo de uma requisição fetch()
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 0;
+            "
+          >
+            <div
+              style="
+                background: #0d1117;
+                border: 2px solid var(--wood, #c9a96e);
+                border-radius: 10px;
+                padding: 12px 32px;
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.85rem;
+                color: var(--wood, #c9a96e);
+                font-weight: 700;
+              "
+            >
+              fetch(url)
+            </div>
+            <div style="color: #8b949e; font-size: 1.2rem; padding: 4px 0">
+              ↓
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px">
+              <div
+                style="
+                  background: #0d1117;
+                  border: 1px solid #30363d;
+                  border-radius: 10px;
+                  padding: 10px 24px;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.8rem;
+                  color: #e6edf3;
+                "
+              >
+                <span style="color: #58a6ff">Promise</span> → response
+              </div>
+              <div
+                style="
+                  font-size: 0.72rem;
+                  color: #8b949e;
+                  max-width: 180px;
+                  line-height: 1.4;
+                "
+              >
+                Objeto com status, headers e o corpo da resposta
+              </div>
+            </div>
+            <div style="color: #8b949e; font-size: 1.2rem; padding: 4px 0">
+              ↓
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px">
+              <div
+                style="
+                  background: #0d1117;
+                  border: 1px solid #30363d;
+                  border-radius: 10px;
+                  padding: 10px 24px;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.8rem;
+                  color: #e6edf3;
+                "
+              >
+                response.<span style="color: var(--wood, #c9a96e)">json()</span>
+              </div>
+              <div
+                style="
+                  font-size: 0.72rem;
+                  color: #8b949e;
+                  max-width: 180px;
+                  line-height: 1.4;
+                "
+              >
+                Converte o corpo da resposta de JSON para objeto JS
+              </div>
+            </div>
+            <div style="color: #8b949e; font-size: 1.2rem; padding: 4px 0">
+              ↓
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px">
+              <div
+                style="
+                  background: #0d1117;
+                  border: 2px solid #3fb950;
+                  border-radius: 10px;
+                  padding: 10px 24px;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.8rem;
+                  color: #3fb950;
+                  font-weight: 700;
+                "
+              >
+                dados ✓
+              </div>
+              <div
+                style="
+                  font-size: 0.72rem;
+                  color: #8b949e;
+                  max-width: 180px;
+                  line-height: 1.4;
+                "
+              >
+                Objeto JavaScript pronto para usar no seu código
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Requisições GET ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Requisições <span style="color: var(--wood)">GET</span> com Fetch
+        </h3>
+        <p class="text">
+          A requisição mais comum é o <strong>GET</strong> — usada para buscar
+          dados. O <code>fetch()</code> usa GET por padrão, então basta passar a
+          URL. O objeto <code>response</code> retornado contém propriedades
+          importantes como <code>status</code> (código HTTP),
+          <code>ok</code> (booleano, true se status 200–299) e
+          <code>headers</code>.
+        </p>
+
+        <!-- Accordeão: exemplos GET -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">🔍</span>
+              <span class="acc-title"
+                >Exemplos — fetch GET, response e exibindo no HTML</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — requisições GET com fetch</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ── Primeira requisição GET ─────────────────────</span>
+<span class="c-prop">fetch</span>(<span class="c-val">"https://jsonplaceholder.typicode.com/users"</span>)
+.<span class="c-prop">then</span>(response => response.<span class="c-prop">json</span>())
+.<span class="c-prop">then</span>(dados => {
+  <span class="c-sel">console</span>.<span class="c-prop">log</span>(dados);
+});
+
+<span class="c-comment">// ── Inspecionando o objeto response ─────────────</span>
+<span class="c-prop">fetch</span>(<span class="c-val">"https://jsonplaceholder.typicode.com/users"</span>)
+.<span class="c-prop">then</span>(response => {
+  <span class="c-sel">console</span>.<span class="c-prop">log</span>(response.status);   <span class="c-comment">// 200</span>
+  <span class="c-sel">console</span>.<span class="c-prop">log</span>(response.ok);      <span class="c-comment">// true</span>
+  <span class="c-sel">console</span>.<span class="c-prop">log</span>(response.headers); <span class="c-comment">// Headers {}</span>
+  <span class="c-sel">return</span> response.<span class="c-prop">json</span>();
+})
+.<span class="c-prop">then</span>(usuarios => {
+  usuarios.<span class="c-prop">forEach</span>(usuario => {
+    <span class="c-sel">console</span>.<span class="c-prop">log</span>(usuario.name);
+  });
+});
+
+<span class="c-comment">// ── Exibindo dados no HTML ───────────────────────</span>
+<span class="c-sel">const</span> lista = document.<span class="c-prop">getElementById</span>(<span class="c-val">"lista"</span>);
+
+<span class="c-prop">fetch</span>(<span class="c-val">"https://jsonplaceholder.typicode.com/users"</span>)
+.<span class="c-prop">then</span>(response => response.<span class="c-prop">json</span>())
+.<span class="c-prop">then</span>(usuarios => {
+
+  usuarios.<span class="c-prop">forEach</span>(usuario => {
+    lista.innerHTML += <span class="c-val">`&lt;li&gt;${usuario.name}&lt;/li&gt;`</span>;
+  });
+
+});</pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">💡</span>
+                <span>
+                  <strong>response.json()</strong> também retorna uma Promise —
+                  por isso é necessário um segundo <code>.then()</code> para
+                  acessar os dados de fato. O primeiro
+                  <code>.then()</code> recebe o <em>envelope</em>, o segundo
+                  recebe o <em>conteúdo</em>.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Tratamento de Erros ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Tratamento de erros</span>
+        </h3>
+        <p class="text">
+          O <code>fetch()</code> tem um comportamento importante que confunde
+          muitos desenvolvedores: ele
+          <strong>não rejeita a Promise</strong> quando o servidor retorna um
+          erro HTTP (como 404 ou 500). A Promise só é rejeitada em falhas de
+          rede. Por isso é essencial verificar <code>response.ok</code>
+          manualmente.
+        </p>
+
+        <!-- Accordeão: erros -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">🛡️</span>
+              <span class="acc-title"
+                >Exemplos — catch, verificação de status e async/await com
+                try/catch</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — tratamento de erros com fetch</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ── Somente .catch() — captura erros de REDE ────</span>
+<span class="c-prop">fetch</span>(url)
+.<span class="c-prop">then</span>(response => response.<span class="c-prop">json</span>())
+.<span class="c-prop">then</span>(dados => <span class="c-sel">console</span>.<span class="c-prop">log</span>(dados))
+.<span class="c-prop">catch</span>(erro => {
+  <span class="c-sel">console</span>.<span class="c-prop">error</span>(<span class="c-val">"Falha de rede:"</span>, erro);
+});
+
+<span class="c-comment">// ── Verificando response.ok — cobre erros HTTP ──</span>
+<span class="c-prop">fetch</span>(url)
+.<span class="c-prop">then</span>(response => {
+
+  <span class="c-sel">if</span> (!response.ok) {
+    <span class="c-sel">throw new</span> <span class="c-prop">Error</span>(<span class="c-val">`Erro ${response.status}`</span>);
+  }
+
+  <span class="c-sel">return</span> response.<span class="c-prop">json</span>();
+
+})
+.<span class="c-prop">then</span>(dados => <span class="c-sel">console</span>.<span class="c-prop">log</span>(dados))
+.<span class="c-prop">catch</span>(erro => <span class="c-sel">console</span>.<span class="c-prop">error</span>(erro));
+
+<span class="c-comment">// ── Async/Await com try/catch — forma moderna ───</span>
+<span class="c-sel">async function</span> <span class="c-prop">buscarDados</span>() {
+
+<span class="c-sel">try</span> {
+
+  <span class="c-sel">const</span> response = <span class="c-sel">await</span> <span class="c-prop">fetch</span>(url);
+
+  <span class="c-sel">if</span> (!response.ok) {
+    <span class="c-sel">throw new</span> <span class="c-prop">Error</span>(<span class="c-val">`Erro ${response.status}`</span>);
+  }
+
+  <span class="c-sel">const</span> dados = <span class="c-sel">await</span> response.<span class="c-prop">json</span>();
+  <span class="c-sel">console</span>.<span class="c-prop">log</span>(dados);
+
+} <span class="c-sel">catch</span> (erro) {
+
+  <span class="c-sel">console</span>.<span class="c-prop">error</span>(<span class="c-val">"Erro:"</span>, erro.message);
+
+}
+
+}
+
+<span class="c-prop">buscarDados</span>();</pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">⚠️</span>
+                <span>
+                  <strong>fetch não falha em erros HTTP!</strong> Um status 404
+                  ou 500 ainda resolve a Promise normalmente. Sempre verifique
+                  <code>response.ok</code> ou <code>response.status</code> para
+                  tratar esses casos — o <code>.catch()</code> sozinho não é
+                  suficiente.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Enviando Dados ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Enviando dados:
+          <span style="color: var(--wood)">POST, PUT e DELETE</span>
+        </h3>
+        <p class="text">
+          Para enviar dados ao servidor, passamos um segundo argumento ao
+          <code>fetch()</code>: um objeto de configuração com o método, os
+          headers e o body. O body deve ser convertido para JSON com
+          <code>JSON.stringify()</code>, e o header
+          <code>Content-Type: application/json</code> informa ao servidor o
+          formato dos dados enviados.
+        </p>
+
+        <!-- Accordeão: POST PUT DELETE -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">📤</span>
+              <span class="acc-title"
+                >Exemplos — POST, PUT/PATCH e DELETE na prática</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — POST, PUT e DELETE com fetch</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ── POST: criando um recurso ────────────────────</span>
+<span class="c-prop">fetch</span>(
+<span class="c-val">"https://jsonplaceholder.typicode.com/posts"</span>,
+{
+  method: <span class="c-val">"POST"</span>,
+  headers: {
+    <span class="c-val">"Content-Type"</span>: <span class="c-val">"application/json"</span>
+  },
+  body: <span class="c-prop">JSON</span>.<span class="c-prop">stringify</span>({
+    titulo: <span class="c-val">"Meu Post"</span>,
+    autor: <span class="c-val">"Anderson"</span>
+  })
+}
+)
+.<span class="c-prop">then</span>(response => response.<span class="c-prop">json</span>())
+.<span class="c-prop">then</span>(dados => <span class="c-sel">console</span>.<span class="c-prop">log</span>(dados));
+
+<span class="c-comment">// ── PUT: substituindo um recurso inteiro ────────</span>
+<span class="c-prop">fetch</span>(
+<span class="c-val">"https://jsonplaceholder.typicode.com/posts/1"</span>,
+{
+  method: <span class="c-val">"PUT"</span>,
+  headers: { <span class="c-val">"Content-Type"</span>: <span class="c-val">"application/json"</span> },
+  body: <span class="c-prop">JSON</span>.<span class="c-prop">stringify</span>({ titulo: <span class="c-val">"Novo Título"</span> })
+}
+);
+
+<span class="c-comment">// ── DELETE: removendo um recurso ─────────────────</span>
+<span class="c-prop">fetch</span>(
+<span class="c-val">"https://jsonplaceholder.typicode.com/posts/1"</span>,
+{
+  method: <span class="c-val">"DELETE"</span>
+}
+)
+.<span class="c-prop">then</span>(response => {
+  <span class="c-sel">if</span> (response.ok) {
+    <span class="c-sel">console</span>.<span class="c-prop">log</span>(<span class="c-val">"Deletado com sucesso!"</span>);
+  }
+});</pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">💡</span>
+                <span>
+                  A diferença entre <strong>PUT</strong> e
+                  <strong>PATCH</strong>: PUT substitui o recurso inteiro
+                  (campos não enviados podem ser apagados), enquanto PATCH
+                  atualiza apenas os campos enviados. Na prática, o
+                  comportamento depende de como a API foi implementada —
+                  consulte sempre a documentação.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Headers HTTP ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Headers</span> HTTP
+        </h3>
+        <p class="text">
+          Headers são informações extras enviadas junto com a requisição. O mais
+          comum é o <code>Content-Type</code>, que informa o formato dos dados.
+          Quando a API exige autenticação, usamos o header
+          <strong>Authorization</strong> com um token.
+        </p>
+
+        <!-- Cards: headers -->
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+          "
+        >
+          <div class="msg-card git-blue">
+            <div class="msg-badge">Content-Type</div>
+            <div class="msg-title">Formato dos dados</div>
+            <div class="msg-desc">
+              Informa ao servidor o tipo do conteúdo enviado no body.
+              <br /><br />
+              <code>"Content-Type": "application/json"</code>
+            </div>
+          </div>
+
+          <div class="msg-card git-gold">
+            <div class="msg-badge">Authorization</div>
+            <div class="msg-title">Token de autenticação</div>
+            <div class="msg-desc">
+              Usado para autenticar o usuário em APIs protegidas. O padrão mais
+              comum é o <strong>Bearer Token</strong>. <br /><br />
+              <code>Authorization: "Bearer SEU_TOKEN"</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── APIs Públicas ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">APIs públicas</span> para testes
+        </h3>
+        <p class="text">
+          Antes de integrar com uma API real, é ótimo praticar com APIs públicas
+          que simulam dados reais sem precisar de cadastro ou chave. Aqui estão
+          as principais:
+        </p>
+
+        <div
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+          "
+        >
+          <div
+            style="
+              background: var(--bg-elevado, #161b22);
+              border: 1px solid #30363d;
+              border-radius: 12px;
+              padding: 20px;
+              text-align: center;
+            "
+          >
+            <div style="font-size: 1.8rem; margin-bottom: 8px">🃏</div>
+            <div
+              style="
+                font-weight: 700;
+                color: #e6edf3;
+                font-size: 0.95rem;
+                margin-bottom: 6px;
+              "
+            >
+              JSONPlaceholder
+            </div>
+            <div
+              style="
+                font-size: 0.78rem;
+                color: #8b949e;
+                margin-bottom: 12px;
+                line-height: 1.4;
+              "
+            >
+              Posts, usuários, comentários e fotos fictícios. Suporta todos os
+              métodos HTTP.
+            </div>
+            <code
+              style="
+                font-size: 0.72rem;
+                color: var(--wood, #c9a96e);
+                word-break: break-all;
+              "
+              >jsonplaceholder.typicode.com</code
+            >
+          </div>
+
+          <div
+            style="
+              background: var(--bg-elevado, #161b22);
+              border: 1px solid #30363d;
+              border-radius: 12px;
+              padding: 20px;
+              text-align: center;
+            "
+          >
+            <div style="font-size: 1.8rem; margin-bottom: 8px">📮</div>
+            <div
+              style="
+                font-weight: 700;
+                color: #e6edf3;
+                font-size: 0.95rem;
+                margin-bottom: 6px;
+              "
+            >
+              ViaCEP
+            </div>
+            <div
+              style="
+                font-size: 0.78rem;
+                color: #8b949e;
+                margin-bottom: 12px;
+                line-height: 1.4;
+              "
+            >
+              API brasileira que retorna endereço completo a partir de um CEP.
+              Ideal para projetos reais.
+            </div>
+            <code style="font-size: 0.72rem; color: var(--wood, #c9a96e)"
+              >viacep.com.br</code
+            >
+          </div>
+
+          <div
+            style="
+              background: var(--bg-elevado, #161b22);
+              border: 1px solid #30363d;
+              border-radius: 12px;
+              padding: 20px;
+              text-align: center;
+            "
+          >
+            <div style="font-size: 1.8rem; margin-bottom: 8px">🤖</div>
+            <div
+              style="
+                font-weight: 700;
+                color: #e6edf3;
+                font-size: 0.95rem;
+                margin-bottom: 6px;
+              "
+            >
+              DummyJSON
+            </div>
+            <div
+              style="
+                font-size: 0.78rem;
+                color: #8b949e;
+                margin-bottom: 12px;
+                line-height: 1.4;
+              "
+            >
+              Produtos, carrinhos, receitas e muito mais. Inclui autenticação
+              para simular APIs protegidas.
+            </div>
+            <code style="font-size: 0.72rem; color: var(--wood, #c9a96e)"
+              >dummyjson.com</code
+            >
+          </div>
+        </div>
+
+        <!-- ── Erros comuns ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Erros comuns</span> e boas práticas
+        </h3>
+        <p class="text">
+          Consumir APIs tem armadilhas conhecidas. A tabela abaixo reúne os
+          erros mais frequentes para você evitá-los desde o início:
+        </p>
+
+        <div style="padding: 0 2%; overflow-x: auto; margin-bottom: 24px">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Erro comum</th>
+                <th>O que acontece</th>
+                <th>Como corrigir</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Não usar <code>response.json()</code></td>
+                <td>
+                  A variável recebe um objeto <code>Response</code>, não os
+                  dados
+                </td>
+                <td>Sempre chame <code>.then(r => r.json())</code></td>
+              </tr>
+              <tr>
+                <td>Ignorar <code>response.ok</code></td>
+                <td>Erros HTTP (404, 500) passam silenciosamente sem tratar</td>
+                <td>
+                  Verifique <code>if (!response.ok) throw new Error(...)</code>
+                </td>
+              </tr>
+              <tr>
+                <td>Esquecer o <code>Content-Type</code></td>
+                <td>
+                  O servidor não sabe o formato dos dados e pode rejeitar a
+                  requisição
+                </td>
+                <td>
+                  Sempre inclua
+                  <code>"Content-Type": "application/json"</code> no POST
+                </td>
+              </tr>
+              <tr>
+                <td>Não usar <code>JSON.stringify()</code> no body</td>
+                <td>
+                  O body é enviado como <code>[object Object]</code>, não como
+                  JSON
+                </td>
+                <td>
+                  Envolva o objeto com <code>JSON.stringify(objeto)</code>
+                </td>
+              </tr>
+              <tr>
+                <td>Sem <code>try/catch</code> no async/await</td>
+                <td>
+                  Erros de rede geram Unhandled Rejection e travam a aplicação
+                </td>
+                <td>
+                  Sempre envolva o <code>await fetch()</code> em um
+                  <code>try/catch</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ── Projeto Prático: Consulta de CEP ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Projeto prático —
+          <span style="color: var(--wood)">Consulta de CEP</span>
+        </h3>
+        <p class="text">
+          Vamos colocar tudo em prática com um projeto real: um buscador de
+          endereço por CEP usando a API pública <strong>ViaCEP</strong>. O
+          usuário digita um CEP, clica em buscar, e os dados de endereço
+          aparecem na tela.
+        </p>
+
+        <!-- Accordeão: projeto completo CEP -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">🗺️</span>
+              <span class="acc-title"
+                >Código completo — Consulta de CEP com ViaCEP</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >html — estrutura da página</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">&lt;!-- HTML ──────────────────────────────────────── --&gt;</span>
+&lt;<span class="c-prop">input</span>
+<span class="c-sel">id</span>=<span class="c-val">"cep"</span>
+<span class="c-sel">type</span>=<span class="c-val">"text"</span>
+<span class="c-sel">placeholder</span>=<span class="c-val">"Digite o CEP..."</span>
+<span class="c-sel">maxlength</span>=<span class="c-val">"8"</span>
+&gt;
+
+&lt;<span class="c-prop">button</span> <span class="c-sel">id</span>=<span class="c-val">"buscar"</span>&gt;Buscar&lt;/<span class="c-prop">button</span>&gt;
+
+&lt;<span class="c-prop">div</span> <span class="c-sel">id</span>=<span class="c-val">"resultado"</span>&gt;&lt;/<span class="c-prop">div</span>&gt;</pre>
+                </div>
+              </div>
+
+              <div class="code-block" style="margin-top: 16px">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — lógica completa</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-sel">const</span> botao    = document.<span class="c-prop">getElementById</span>(<span class="c-val">"buscar"</span>);
+<span class="c-sel">const</span> resultado = document.<span class="c-prop">getElementById</span>(<span class="c-val">"resultado"</span>);
+
+botao.<span class="c-prop">addEventListener</span>(<span class="c-val">"click"</span>, <span class="c-sel">async</span> () => {
+
+<span class="c-sel">const</span> cep = document.<span class="c-prop">getElementById</span>(<span class="c-val">"cep"</span>).value;
+
+<span class="c-sel">if</span> (!cep || cep.length !== <span class="c-val">8</span>) {
+  resultado.innerHTML = <span class="c-val">"&lt;p&gt;CEP inválido.&lt;/p&gt;"</span>;
+  <span class="c-sel">return</span>;
+}
+
+resultado.innerHTML = <span class="c-val">"&lt;p&gt;Buscando...&lt;/p&gt;"</span>;
+
+<span class="c-sel">try</span> {
+
+  <span class="c-sel">const</span> response = <span class="c-sel">await</span> <span class="c-prop">fetch</span>(
+    <span class="c-val">`https://viacep.com.br/ws/${cep}/json/`</span>
+  );
+
+  <span class="c-sel">if</span> (!response.ok) {
+    <span class="c-sel">throw new</span> <span class="c-prop">Error</span>(<span class="c-val">"Erro ao buscar CEP"</span>);
+  }
+
+  <span class="c-sel">const</span> dados = <span class="c-sel">await</span> response.<span class="c-prop">json</span>();
+
+  <span class="c-sel">if</span> (dados.erro) {
+    resultado.innerHTML = <span class="c-val">"&lt;p&gt;CEP não encontrado.&lt;/p&gt;"</span>;
+    <span class="c-sel">return</span>;
+  }
+
+  resultado.innerHTML = <span class="c-val">`
+    &lt;p&gt;&lt;strong&gt;Logradouro:&lt;/strong&gt; ${dados.logradouro}&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Bairro:&lt;/strong&gt;    ${dados.bairro}&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Cidade:&lt;/strong&gt;    ${dados.localidade}&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Estado:&lt;/strong&gt;    ${dados.uf}&lt;/p&gt;
+  `</span>;
+
+} <span class="c-sel">catch</span> (erro) {
+
+  resultado.innerHTML = <span class="c-val">`&lt;p&gt;Erro: ${erro.message}&lt;/p&gt;`</span>;
+
+}
+
+});</pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">🚀</span>
+                <span>
+                  Note o uso de <code>dados.erro</code>: a API ViaCEP retorna um
+                  objeto com a propriedade <code>{ "erro": true }</code> quando
+                  o CEP não existe — e isso <strong>não é um erro HTTP</strong>.
+                  Esse é um exemplo perfeito de por que sempre verificar o
+                  conteúdo da resposta, não apenas o status.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-tip">
+          <span class="alert-icon">🧠</span>
+          <span>
+            Com o <strong>fetch</strong>, o <strong>JSON</strong> e o
+            <strong>async/await</strong> dominados, você tem as ferramentas para
+            integrar qualquer API em seus projetos. A partir daqui, o
+            aprendizado se aprofunda: autenticação com tokens, paginação de
+            resultados, cache e tratamento avançado de estados de loading e erro
+            são os próximos passos naturais.
+          </span>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+     SEÇÃO 15 — MODULARIZAÇÃO
+══════════════════════════════════════════════════ -->
+      <section
+        class="content-section"
+        id="section-modulos"
+        style="background: var(--bg)"
+      >
+        <div
+          class="cover"
+          style="
+            padding: 0;
+            min-height: auto;
+            background: transparent;
+            margin-bottom: 40px;
+            box-shadow: none;
+          "
+        >
+          <div class="cover-text">
+            <div class="section-tag">Seção 15</div>
+            <h2
+              style="
+                font-size: clamp(2.5rem, 4vw, 3.5rem);
+                line-height: 1.1;
+                margin-bottom: 1rem;
+                color: var(--ink);
+                font-family: 'Fraunces', serif;
+              "
+            >
+              Modu&shy;la&shy;ri&shy;za&shy;ção
+              <br />
+              <span style="color: var(--wood)">em JS</span>
+            </h2>
+            <p
+              class="cover-subtitle"
+              style="font-size: 1.1rem; line-height: 1.6"
+            >
+              À medida que uma aplicação cresce, concentrar todo o código em um
+              único arquivo se torna inviável. A
+              <strong>modularização</strong> resolve isso dividindo o sistema em
+              partes menores com responsabilidades bem definidas. Com os módulos
+              nativos do JavaScript — usando <strong>import</strong> e
+              <strong>export</strong> — você escreve código mais organizado,
+              reutilizável e fácil de manter.
+            </p>
+          </div>
+          <div class="nc-right">
+            <div class="nc-glow"></div>
+            <img
+              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/js16.png"
+              alt="Modularização com JavaScript"
+              onerror="this.style.display='none';"
+              style="
+                width: 640px;
+                height: 700px;
+                object-fit: cover;
+                object-position: center;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+                  0 0 20px rgba(249, 193, 80, 0.2);
+                border: 1px solid rgba(249, 193, 80, 0.3);
+                transition: transform 0.3s ease;
+              "
+            />
+          </div>
+        </div>
+
+        <!-- ── O Problema dos Arquivos Gigantes ── -->
+        <h3 class="subtitle">
+          O problema dos
+          <span style="color: var(--wood)">arquivos gigantes</span>
+        </h3>
+        <p class="text">
+          Quando todo o código fica em um único arquivo, a aplicação rapidamente
+          se torna difícil de entender e manter. Imagine centenas de funções
+          espalhadas em um único <code>app.js</code> sem nenhuma separação —
+          encontrar um bug vira uma tarefa árdua, e trabalhar em equipe se torna
+          quase impossível.
+        </p>
+
+        <!-- Cards: problemas -->
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+          "
+        >
+          <div class="msg-card git-gold">
+            <div class="msg-badge">Manutenção</div>
+            <div class="msg-title">Código difícil de manter</div>
+            <div class="msg-desc">
+              Qualquer alteração exige percorrer centenas de linhas para
+              localizar a função correta.
+            </div>
+          </div>
+
+          <div class="msg-card git-blue">
+            <div class="msg-badge">Reutilização</div>
+            <div class="msg-title">Reutilização limitada</div>
+            <div class="msg-desc">
+              Funções misturadas com outros contextos tornam o reaproveitamento
+              complicado e arriscado.
+            </div>
+          </div>
+
+          <div
+            class="msg-card"
+            style="border: 1px solid #f8516940; background: #f8516908"
+          >
+            <div
+              class="msg-badge"
+              style="background: #f8516920; color: #f85169"
+            >
+              Equipe
+            </div>
+            <div class="msg-title">Trabalho em equipe comprometido</div>
+            <div class="msg-desc">
+              Vários desenvolvedores editando o mesmo arquivo geram
+              <strong>conflitos</strong> e perda de produtividade.
+            </div>
+          </div>
+        </div>
+
+        <!-- ── O que é Modularização ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          O que é
+          <span style="color: var(--wood)">Modularização?</span>
+        </h3>
+        <p class="text">
+          Modularização é a prática de dividir o sistema em partes menores
+          chamadas <strong>módulos</strong>. Cada módulo é um arquivo JavaScript
+          com uma responsabilidade específica — ele não sabe (nem precisa saber)
+          como o restante da aplicação funciona.
+        </p>
+        <p class="text">
+          Pense em um projeto como um conjunto de peças de LEGO: cada peça tem
+          uma forma e função próprias, e você as encaixa para construir algo
+          maior. Qualquer peça pode ser substituída sem desmontar tudo.
+        </p>
+
+        <!-- Diagrama: estrutura de pastas -->
+        <div
+          style="
+            margin: 32px 2%;
+            background: var(--bg-elevado, #161b22);
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 32px 24px;
+          "
+        >
+          <div
+            style="
+              font-size: 0.7rem;
+              font-weight: 800;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: #8b949e;
+              margin-bottom: 24px;
+              font-family: 'JetBrains Mono', monospace;
+              text-align: center;
+            "
+          >
+            Arquivo único vs. Modularizado
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px">
+            <!-- Ruim -->
+            <div
+              style="
+                background: #0d1117;
+                border: 2px solid #f8516940;
+                border-radius: 12px;
+                padding: 20px;
+              "
+            >
+              <div
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  text-transform: uppercase;
+                  color: #f85169;
+                  margin-bottom: 16px;
+                  font-family: 'JetBrains Mono', monospace;
+                "
+              >
+                ✗ Arquivo único
+              </div>
+              <pre
+                style="
+                  margin: 0;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.82rem;
+                  color: #8b949e;
+                "
+              >app.js
+
+<span style="color:#f85169">// Login</span>
+function login() {}
+
+<span style="color:#f85169">// Produtos</span>
+function listarProdutos() {}
+
+<span style="color:#f85169">// Carrinho</span>
+function adicionarAoCarrinho() {}
+
+<span style="color:#f85169">// Pagamentos</span>
+function finalizarCompra() {}
+
+<span style="color:#f85169">// ... centenas de linhas</span></pre>
+            </div>
+
+            <!-- Bom -->
+            <div
+              style="
+                background: #0d1117;
+                border: 2px solid #3fb950;
+                border-radius: 12px;
+                padding: 20px;
+              "
+            >
+              <div
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  text-transform: uppercase;
+                  color: #3fb950;
+                  margin-bottom: 16px;
+                  font-family: 'JetBrains Mono', monospace;
+                "
+              >
+                ✓ Modularizado
+              </div>
+              <pre
+                style="
+                  margin: 0;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.82rem;
+                  color: #e6edf3;
+                "
+              >src/
+
+<span style="color:#3fb950">├──</span> app.js
+<span style="color:#3fb950">├──</span> usuario.js
+<span style="color:#3fb950">├──</span> produtos.js
+<span style="color:#3fb950">└──</span> carrinho.js</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Benefícios ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Benefícios</span> da Modularização
+        </h3>
+
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+          "
+        >
+          <div class="msg-card git-green">
+            <div class="msg-badge">Organização</div>
+            <div class="msg-title">Um arquivo, uma responsabilidade</div>
+            <div class="msg-desc">
+              Cada módulo cuida de apenas uma parte da aplicação.
+            </div>
+          </div>
+
+          <div class="msg-card git-blue">
+            <div class="msg-badge">Reutilização</div>
+            <div class="msg-title">Use em qualquer lugar</div>
+            <div class="msg-desc">
+              Uma função exportada pode ser importada em quantos arquivos forem
+              necessários.
+            </div>
+          </div>
+
+          <div class="msg-card git-gold">
+            <div class="msg-badge">Manutenção</div>
+            <div class="msg-title">Mudanças mais simples</div>
+            <div class="msg-desc">
+              Alterar um módulo não afeta os outros — desde que a interface seja
+              mantida.
+            </div>
+          </div>
+
+          <div class="msg-card git-gold">
+            <div class="msg-badge">Escalabilidade</div>
+            <div class="msg-title">Cresce sem virar caos</div>
+            <div class="msg-desc">
+              Projetos grandes ficam administráveis com uma boa estrutura
+              modular.
+            </div>
+          </div>
+
+          <div class="msg-card git-green">
+            <div class="msg-badge">Equipe</div>
+            <div class="msg-title">Trabalho paralelo</div>
+            <div class="msg-desc">
+              Cada dev atua em módulos diferentes sem gerar conflitos.
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Escopo de Módulos ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Escopo</span> de Módulos
+        </h3>
+        <p class="text">
+          Uma diferença crucial dos módulos ES6: variáveis declaradas dentro de
+          um módulo <strong>não ficam disponíveis globalmente</strong>. Cada
+          arquivo tem seu próprio escopo isolado — o que protege seu código de
+          colisões de nomes e efeitos colaterais indesejados.
+        </p>
+
+        <div class="code-block" style="margin: 32px 2%">
+          <div class="code-block-header">
+            <div class="code-block-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span
+              ><span class="dot-green"></span>
+            </div>
+            <span class="code-block-label"
+              >javascript — escopo isolado por módulo</span
+            >
+            <button class="code-block-copy" onclick="copyCode(this)">
+              Copiar
+            </button>
+          </div>
+          <div
+            class="code-block-body"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 0"
+          >
+            <div
+              style="
+                border-right: 1px solid #30363d;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <div
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  text-transform: uppercase;
+                  color: #58a6ff;
+                  margin-bottom: 12px;
+                  font-family: 'JetBrains Mono', monospace;
+                "
+              >
+                usuario.js
+              </div>
+              <pre
+                style="
+                  margin: 0;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.82rem;
+                "
+              ><span class="c-comment">// Escopo privado do módulo</span>
+<span class="c-sel">const</span> nome = <span class="c-val">"Anderson"</span>;</pre>
+            </div>
+
+            <div style="padding: 20px; display: flex; flex-direction: column">
+              <div
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  text-transform: uppercase;
+                  color: #f85169;
+                  margin-bottom: 12px;
+                  font-family: 'JetBrains Mono', monospace;
+                "
+              >
+                app.js — acesso sem import
+              </div>
+              <pre
+                style="
+                  margin: 0;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.82rem;
+                "
+              ><span class="c-comment">// Tentativa de acesso direto</span>
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(nome);
+
+<span style="color:#f85169">// ❌ ReferenceError</span>
+<span style="color:#f85169">// nome is not defined</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Export e Import ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">export</span> e
+          <span style="color: var(--wood)">import</span>
+        </h3>
+        <p class="text">
+          Para compartilhar algo entre módulos, precisamos
+          <strong>exportar</strong> no arquivo de origem e
+          <strong>importar</strong> onde vamos usar. O JavaScript oferece dois
+          tipos de exportação: a <em>nomeada</em> (pode ter várias por arquivo)
+          e a <em>default</em> (apenas uma por arquivo).
+        </p>
+
+        <!-- Accordeão: export nomeado, variáveis e múltiplos -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">📤</span>
+              <span class="acc-title"
+                >Exemplos — export nomeado, variáveis, múltiplos itens e
+                alias</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — export e import nomeados</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ── Export nomeado de função ────────────────────</span>
+<span class="c-comment">// saudacao.js</span>
+<span class="c-sel">export function</span> <span class="c-prop">saudacao</span>() {
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(<span class="c-val">"Olá"</span>);
+}
+
+<span class="c-comment">// app.js</span>
+<span class="c-sel">import</span> { saudacao } <span class="c-sel">from</span> <span class="c-val">"./saudacao.js"</span>;
+<span class="c-prop">saudacao</span>(); <span class="c-comment">// Olá</span>
+
+<span class="c-comment">// ── Export de variável ──────────────────────────</span>
+<span class="c-comment">// empresa.js</span>
+<span class="c-sel">export const</span> empresa = <span class="c-val">"Tech Solutions"</span>;
+
+<span class="c-comment">// app.js</span>
+<span class="c-sel">import</span> { empresa } <span class="c-sel">from</span> <span class="c-val">"./empresa.js"</span>;
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(empresa); <span class="c-comment">// Tech Solutions</span>
+
+<span class="c-comment">// ── Múltiplos exports ───────────────────────────</span>
+<span class="c-comment">// usuario.js</span>
+<span class="c-sel">export const</span> nome = <span class="c-val">"Anderson"</span>;
+<span class="c-sel">export const</span> idade = <span class="c-val">25</span>;
+<span class="c-sel">export function</span> <span class="c-prop">apresentar</span>() {
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(nome);
+}
+
+<span class="c-comment">// app.js</span>
+<span class="c-sel">import</span> { nome, idade, apresentar } <span class="c-sel">from</span> <span class="c-val">"./usuario.js"</span>;
+
+<span class="c-comment">// ── Renomeando com "as" ─────────────────────────</span>
+<span class="c-sel">import</span> { apresentar <span class="c-sel">as</span> exibirUsuario } <span class="c-sel">from</span> <span class="c-val">"./usuario.js"</span>;
+<span class="c-prop">exibirUsuario</span>(); <span class="c-comment">// Anderson</span></pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">💡</span>
+                <span>
+                  O alias com <code>as</code> é útil quando dois módulos
+                  exportam nomes iguais — renomeie na importação para evitar
+                  colisão:
+                  <code
+                    >import &#123; log as logUsuario &#125; from
+                    "./usuario.js"</code
+                  >.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Export Default ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Export Default</span>
+        </h3>
+        <p class="text">
+          Cada módulo pode ter <strong>um único</strong> export default —
+          geralmente a funcionalidade principal daquele arquivo. A diferença
+          essencial: ao importar um default, você <em>não usa chaves</em> e pode
+          escolher qualquer nome.
+        </p>
+
+        <!-- Comparação nomeado vs default -->
+        <div class="code-block" style="margin: 32px 2%">
+          <div class="code-block-header">
+            <div class="code-block-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span
+              ><span class="dot-green"></span>
+            </div>
+            <span class="code-block-label"
+              >javascript — export nomeado vs export default</span
+            >
+            <button class="code-block-copy" onclick="copyCode(this)">
+              Copiar
+            </button>
+          </div>
+          <div
+            class="code-block-body"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 0"
+          >
+            <div
+              style="
+                border-right: 1px solid #30363d;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <div
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  text-transform: uppercase;
+                  color: #58a6ff;
+                  margin-bottom: 12px;
+                  font-family: 'JetBrains Mono', monospace;
+                "
+              >
+                Export Nomeado
+              </div>
+              <pre
+                style="
+                  margin: 0;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.82rem;
+                "
+              ><span class="c-comment">// arquivo.js</span>
+<span class="c-sel">export const</span> nome = <span class="c-val">"Anderson"</span>;
+
+<span class="c-comment">// importação</span>
+<span class="c-sel">import</span> { nome } <span class="c-sel">from</span> <span class="c-val">"./arquivo.js"</span>;
+<span class="c-comment">// ↑ chaves obrigatórias</span>
+<span class="c-comment">// ↑ nome deve ser exato</span></pre>
+              <div style="margin-top: auto; padding-top: 16px">
+                <ul
+                  style="
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                  "
+                >
+                  <li
+                    style="
+                      font-size: 0.78rem;
+                      color: #8b949e;
+                      display: flex;
+                      gap: 8px;
+                    "
+                  >
+                    <span style="color: #3fb950">✓</span> Múltiplos por arquivo
+                  </li>
+                  <li
+                    style="
+                      font-size: 0.78rem;
+                      color: #8b949e;
+                      display: flex;
+                      gap: 8px;
+                    "
+                  >
+                    <span style="color: #3fb950">✓</span> Nome precisa bater
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="padding: 20px; display: flex; flex-direction: column">
+              <div
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  text-transform: uppercase;
+                  color: var(--wood, #c9a96e);
+                  margin-bottom: 12px;
+                  font-family: 'JetBrains Mono', monospace;
+                "
+              >
+                Export Default
+              </div>
+              <pre
+                style="
+                  margin: 0;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.82rem;
+                "
+              ><span class="c-comment">// saudar.js</span>
+<span class="c-sel">export default function</span> <span class="c-prop">saudar</span>() {
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(<span class="c-val">"Olá"</span>);
+}
+
+<span class="c-comment">// importação</span>
+<span class="c-sel">import</span> saudar <span class="c-sel">from</span> <span class="c-val">"./saudar.js"</span>;
+<span class="c-comment">// ↑ sem chaves</span>
+<span class="c-comment">// ↑ nome livre</span></pre>
+              <div style="margin-top: auto; padding-top: 16px">
+                <ul
+                  style="
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                  "
+                >
+                  <li
+                    style="
+                      font-size: 0.78rem;
+                      color: #8b949e;
+                      display: flex;
+                      gap: 8px;
+                    "
+                  >
+                    <span style="color: #f85149">✗</span> Apenas um por arquivo
+                  </li>
+                  <li
+                    style="
+                      font-size: 0.78rem;
+                      color: #8b949e;
+                      display: flex;
+                      gap: 8px;
+                    "
+                  >
+                    <span style="color: #3fb950">✓</span> Nome pode ser qualquer
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Importando Tudo ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Importando <span style="color: var(--wood)">tudo com *</span>
+        </h3>
+        <p class="text">
+          É possível importar todas as exportações de um módulo de uma vez
+          usando
+          <code>* as</code>. O resultado é um objeto onde cada export vira uma
+          propriedade. Útil para módulos com muitas funções relacionadas, mas
+          use com moderação — importar apenas o necessário mantém o código mais
+          legível.
+        </p>
+
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">🌐</span>
+              <span class="acc-title"
+                >Exemplos — import *, módulos no navegador e boas práticas</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — import *, namespace e uso no browser</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ── Importando tudo como namespace ──────────────</span>
+<span class="c-sel">import</span> * <span class="c-sel">as</span> usuario <span class="c-sel">from</span> <span class="c-val">"./usuario.js"</span>;
+
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(usuario.nome);  <span class="c-comment">// Anderson</span>
+usuario.<span class="c-prop">apresentar</span>();     <span class="c-comment">// Anderson</span>
+
+<span class="c-comment">// ── Preferível: importar apenas o necessário ────</span>
+<span class="c-comment">// Ruim — importa funções que não serão usadas</span>
+<span class="c-sel">import</span> * <span class="c-sel">as</span> utils <span class="c-sel">from</span> <span class="c-val">"./utils.js"</span>;
+
+<span class="c-comment">// Bom — só o que for usar</span>
+<span class="c-sel">import</span> { formatarMoeda } <span class="c-sel">from</span> <span class="c-val">"./utils.js"</span>;
+
+<span class="c-comment">// ── Habilitando módulos no navegador ────────────</span>
+<span class="c-comment">&lt;!-- HTML: atributo type="module" é obrigatório --&gt;</span>
+&lt;<span class="c-prop">script</span> <span class="c-sel">type</span>=<span class="c-val">"module"</span> <span class="c-sel">src</span>=<span class="c-val">"app.js"</span>&gt;&lt;/<span class="c-prop">script</span>&gt;
+
+<span class="c-comment">// Sem type="module", o import gera erro:</span>
+<span class="c-comment">// Cannot use import statement outside a module</span></pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">⚠️</span>
+                <span>
+                  Módulos ES6 no navegador exigem um servidor HTTP para
+                  funcionar — abrir o arquivo diretamente com
+                  <code>file://</code> causa erro de CORS. Use a extensão
+                  <strong>Live Server</strong> no VS Code ou qualquer servidor
+                  local.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Estrutura de Pastas ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Estrutura de pastas</span> em
+          projetos reais
+        </h3>
+        <p class="text">
+          Projetos profissionais organizam os módulos em subpastas por
+          responsabilidade. Não existe uma regra única, mas alguns padrões se
+          tornaram convenções amplamente adotadas.
+        </p>
+
+        <!-- Diagrama: estrutura de pastas -->
+        <div
+          style="
+            margin: 32px 2%;
+            background: var(--bg-elevado, #161b22);
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 32px 24px;
+          "
+        >
+          <div
+            style="
+              font-size: 0.7rem;
+              font-weight: 800;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: #8b949e;
+              margin-bottom: 24px;
+              font-family: 'JetBrains Mono', monospace;
+              text-align: center;
+            "
+          >
+            Estrutura de diretórios recomendada
+          </div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 32px;
+              align-items: start;
+            "
+          >
+            <pre
+              style="
+                margin: 0;
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.85rem;
+                color: #e6edf3;
+                background: #0d1117;
+                padding: 20px;
+                border-radius: 10px;
+                border: 1px solid #30363d;
+              "
+            ><span style="color:var(--wood,#c9a96e)">src/</span>
+<span style="color:#3fb950">├──</span> js/
+<span style="color:#3fb950">│   ├──</span> <span style="color:#58a6ff">api/</span>
+<span style="color:#3fb950">│   ├──</span> <span style="color:#58a6ff">utils/</span>
+<span style="color:#3fb950">│   ├──</span> <span style="color:#58a6ff">services/</span>
+<span style="color:#3fb950">│   └──</span> <span style="color:#58a6ff">components/</span>
+<span style="color:#3fb950">├──</span> css/
+<span style="color:#3fb950">└──</span> assets/</pre>
+            <div style="display: flex; flex-direction: column; gap: 12px">
+              <div style="display: flex; gap: 12px; align-items: flex-start">
+                <span
+                  style="
+                    background: #58a6ff20;
+                    color: #58a6ff;
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    padding: 2px 8px;
+                    border-radius: 4px;
+                    font-family: 'JetBrains Mono', monospace;
+                    white-space: nowrap;
+                    margin-top: 2px;
+                  "
+                  >api/</span
+                >
+                <span
+                  style="font-size: 0.8rem; color: #8b949e; line-height: 1.4"
+                  >Funções que se comunicam com APIs externas via fetch</span
+                >
+              </div>
+              <div style="display: flex; gap: 12px; align-items: flex-start">
+                <span
+                  style="
+                    background: #58a6ff20;
+                    color: #58a6ff;
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    padding: 2px 8px;
+                    border-radius: 4px;
+                    font-family: 'JetBrains Mono', monospace;
+                    white-space: nowrap;
+                    margin-top: 2px;
+                  "
+                  >utils/</span
+                >
+                <span
+                  style="font-size: 0.8rem; color: #8b949e; line-height: 1.4"
+                  >Funções utilitárias reutilizáveis (formatação, validação,
+                  etc.)</span
+                >
+              </div>
+              <div style="display: flex; gap: 12px; align-items: flex-start">
+                <span
+                  style="
+                    background: #58a6ff20;
+                    color: #58a6ff;
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    padding: 2px 8px;
+                    border-radius: 4px;
+                    font-family: 'JetBrains Mono', monospace;
+                    white-space: nowrap;
+                    margin-top: 2px;
+                  "
+                  >services/</span
+                >
+                <span
+                  style="font-size: 0.8rem; color: #8b949e; line-height: 1.4"
+                  >Lógica de negócio separada da interface</span
+                >
+              </div>
+              <div style="display: flex; gap: 12px; align-items: flex-start">
+                <span
+                  style="
+                    background: #58a6ff20;
+                    color: #58a6ff;
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    padding: 2px 8px;
+                    border-radius: 4px;
+                    font-family: 'JetBrains Mono', monospace;
+                    white-space: nowrap;
+                    margin-top: 2px;
+                  "
+                  >components/</span
+                >
+                <span
+                  style="font-size: 0.8rem; color: #8b949e; line-height: 1.4"
+                  >Partes visuais da UI encapsuladas como módulos</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Boas práticas ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Boas práticas</span> e erros comuns
+        </h3>
+        <p class="text">
+          Modularizar não é só dividir arquivos — é dividir bem. A tabela abaixo
+          reúne as principais boas práticas e os erros mais frequentes para você
+          evitá-los desde o início:
+        </p>
+
+        <div style="padding: 0 2%; overflow-x: auto; margin-bottom: 24px">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Prática</th>
+                <th>Ruim</th>
+                <th>Bom</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Uma responsabilidade por módulo</td>
+                <td>
+                  <code>utils.js</code> com login, produtos e pagamentos juntos
+                </td>
+                <td>
+                  <code>usuario.js</code>, <code>produto.js</code>,
+                  <code>pagamento.js</code> separados
+                </td>
+              </tr>
+              <tr>
+                <td>Nomes descritivos</td>
+                <td><code>arquivo1.js</code>, <code>modulo2.js</code></td>
+                <td>
+                  <code>usuarioService.js</code>,
+                  <code>formatarMoeda.js</code>
+                </td>
+              </tr>
+              <tr>
+                <td>Importar apenas o necessário</td>
+                <td>
+                  <code>import * as utils from "./utils.js"</code> quando só usa
+                  uma função
+                </td>
+                <td>
+                  <code
+                    >import &#123; formatarMoeda &#125; from "./utils.js"</code
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Evitar dependências circulares</td>
+                <td>
+                  <code>a.js</code> importa <code>b.js</code> que importa
+                  <code>a.js</code>
+                </td>
+                <td>Extrair código compartilhado para um terceiro módulo</td>
+              </tr>
+              <tr>
+                <td>type="module" no HTML</td>
+                <td><code>&lt;script src="app.js"&gt;</code> sem o atributo</td>
+                <td>
+                  <code>&lt;script type="module" src="app.js"&gt;</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ── Projeto Prático: Sistema Modular ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Projeto prático —
+          <span style="color: var(--wood)">Sistema Modular</span>
+        </h3>
+        <p class="text">
+          Vamos colocar tudo em prática com um projeto real: uma mini-aplicação
+          dividida em quatro módulos independentes — <code>usuario.js</code>,
+          <code>calculadora.js</code>, <code>utils.js</code> e
+          <code>app.js</code> como ponto de entrada.
+        </p>
+
+        <!-- Accordeão: projeto completo modular -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">🧩</span>
+              <span class="acc-title"
+                >Código completo — Sistema Modular com 4 arquivos</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <!-- usuario.js -->
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label">javascript — usuario.js</span>
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-sel">export function</span> <span class="c-prop">exibirUsuario</span>() {
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(<span class="c-val">"Anderson"</span>);
+}</pre>
+                </div>
+              </div>
+
+              <!-- calculadora.js -->
+              <div class="code-block" style="margin-top: 16px">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — calculadora.js</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-sel">export function</span> <span class="c-prop">somar</span>(a, b) {
+<span class="c-sel">return</span> a + b;
+}
+
+<span class="c-sel">export function</span> <span class="c-prop">subtrair</span>(a, b) {
+<span class="c-sel">return</span> a - b;
+}</pre>
+                </div>
+              </div>
+
+              <!-- utils.js -->
+              <div class="code-block" style="margin-top: 16px">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label">javascript — utils.js</span>
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-sel">export function</span> <span class="c-prop">formatarTexto</span>(texto) {
+<span class="c-sel">return</span> texto.<span class="c-prop">toUpperCase</span>();
+}
+
+<span class="c-sel">export function</span> <span class="c-prop">formatarMoeda</span>(valor) {
+<span class="c-sel">return</span> valor.<span class="c-prop">toLocaleString</span>(<span class="c-val">"pt-BR"</span>, {
+style: <span class="c-val">"currency"</span>,
+currency: <span class="c-val">"BRL"</span>
+});
+}</pre>
+                </div>
+              </div>
+
+              <!-- app.js -->
+              <div class="code-block" style="margin-top: 16px">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — app.js (ponto de entrada)</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-sel">import</span> { exibirUsuario } <span class="c-sel">from</span> <span class="c-val">"./usuario.js"</span>;
+<span class="c-sel">import</span> { somar, subtrair } <span class="c-sel">from</span> <span class="c-val">"./calculadora.js"</span>;
+<span class="c-sel">import</span> { formatarTexto, formatarMoeda } <span class="c-sel">from</span> <span class="c-val">"./utils.js"</span>;
+
+<span class="c-prop">exibirUsuario</span>();
+<span class="c-comment">// Anderson</span>
+
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(<span class="c-prop">somar</span>(<span class="c-val">10</span>, <span class="c-val">5</span>));
+<span class="c-comment">// 15</span>
+
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(<span class="c-prop">subtrair</span>(<span class="c-val">10</span>, <span class="c-val">5</span>));
+<span class="c-comment">// 5</span>
+
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(<span class="c-prop">formatarTexto</span>(<span class="c-val">"javascript"</span>));
+<span class="c-comment">// JAVASCRIPT</span>
+
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(<span class="c-prop">formatarMoeda</span>(<span class="c-val">2500</span>));
+<span class="c-comment">// R$ 2.500,00</span></pre>
+                </div>
+              </div>
+
+              <!-- index.html -->
+              <div class="code-block" style="margin-top: 16px">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label">html — index.html</span>
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre>&lt;<span class="c-prop">script</span>
+<span class="c-sel">type</span>=<span class="c-val">"module"</span>
+<span class="c-sel">src</span>=<span class="c-val">"app.js"</span>
+&gt;&lt;/<span class="c-prop">script</span>&gt;</pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">🚀</span>
+                <span>
+                  Note que <code>app.js</code> é o único arquivo referenciado no
+                  HTML. Ele funciona como o <strong>ponto de entrada</strong> da
+                  aplicação — orquestra os demais módulos sem que o HTML precise
+                  saber da sua existência. Essa é a essência de uma arquitetura
+                  modular bem feita.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-tip">
+          <span class="alert-icon">🧠</span>
+          <span>
+            Com a <strong>modularização</strong> dominada, você tem a base para
+            trabalhar em projetos profissionais. Os próximos passos naturais são
+            os <strong>bundlers</strong> como Vite e Webpack — ferramentas que
+            empacotam os módulos para produção — e os frameworks modernos como
+            React e Vue, que abraçam completamente essa arquitetura.
+          </span>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+     SEÇÃO 16 — PERFORMANCE
+══════════════════════════════════════════════════ -->
+      <section
+        class="content-section"
+        id="section-performance"
+        style="background: var(--bg)"
+      >
+        <div
+          class="cover"
+          style="
+            padding: 0;
+            min-height: auto;
+            background: transparent;
+            margin-bottom: 40px;
+            box-shadow: none;
+          "
+        >
+          <div class="cover-text">
+            <div class="section-tag">Seção 16</div>
+            <h2
+              style="
+                font-size: clamp(2.5rem, 4vw, 3.5rem);
+                line-height: 1.1;
+                margin-bottom: 1rem;
+                color: var(--ink);
+                font-family: 'Fraunces', serif;
+              "
+            >
+              Per&shy;for&shy;man&shy;ce
+              <br />
+              <span style="color: var(--wood)">em JS</span>
+            </h2>
+            <p
+              class="cover-subtitle"
+              style="font-size: 1.1rem; line-height: 1.6"
+            >
+              Uma aplicação pode funcionar — mas será que ela funciona
+              <em>bem</em>? <strong>Performance</strong> é a capacidade de
+              executar tarefas de forma rápida e eficiente, sem desperdiçar
+              memória nem processamento. Nesta seção você vai aprender a
+              identificar gargalos, evitar armadilhas comuns e aplicar técnicas
+              como <strong>debounce</strong>, <strong>cache</strong> e
+              <strong>event delegation</strong> para entregar uma experiência
+              fluida ao usuário.
+            </p>
+          </div>
+          <div class="nc-right">
+            <div class="nc-glow"></div>
+            <img
+              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/js17.png"
+              alt="Performance em JavaScript"
+              onerror="this.style.display='none';"
+              style="
+                width: 640px;
+                height: 700px;
+                object-fit: cover;
+                object-position: center;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+                  0 0 20px rgba(249, 193, 80, 0.2);
+                border: 1px solid rgba(249, 193, 80, 0.3);
+                transition: transform 0.3s ease;
+              "
+            />
+          </div>
+        </div>
+
+        <!-- ── O que é Performance? ── -->
+        <h3 class="subtitle">
+          O que é
+          <span style="color: var(--wood)">Performance?</span>
+        </h3>
+        <p class="text">
+          Performance é a capacidade de uma aplicação executar tarefas de forma
+          rápida e eficiente. Não basta o código funcionar — ele precisa
+          responder bem, consumir o mínimo de recursos e oferecer uma
+          experiência fluida mesmo sob carga. Um único loop mal escrito pode
+          congelar a página inteira por vários segundos.
+        </p>
+
+        <!-- Cards: impactos -->
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+          "
+        >
+          <div class="msg-card git-green">
+            <div class="msg-badge">Resposta</div>
+            <div class="msg-title">Aplicação responsiva</div>
+            <div class="msg-desc">
+              Código eficiente responde instantaneamente às ações do usuário,
+              sem travamentos ou delays perceptíveis.
+            </div>
+          </div>
+
+          <div class="msg-card git-blue">
+            <div class="msg-badge">Memória</div>
+            <div class="msg-title">Menos consumo</div>
+            <div class="msg-desc">
+              Variáveis globais, listeners acumulados e referências não
+              liberadas inflam o uso de memória ao longo do tempo.
+            </div>
+          </div>
+
+          <div
+            class="msg-card"
+            style="border: 1px solid #f8516940; background: #f8516908"
+          >
+            <div
+              class="msg-badge"
+              style="background: #f8516920; color: #f85169"
+            >
+              UX
+            </div>
+            <div class="msg-title">Experiência prejudicada</div>
+            <div class="msg-desc">
+              Travamentos, lentidão e alto uso de CPU resultam em frustração e
+              <strong>abandono</strong> da aplicação.
+            </div>
+          </div>
+        </div>
+
+        <!-- ── DOM: seletores e manipulação ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">DOM:</span> seletores e manipulação
+        </h3>
+        <p class="text">
+          Cada acesso ao DOM tem um custo. Selecionar o mesmo elemento várias
+          vezes, modificá-lo repetidamente dentro de um loop ou usar
+          <code>innerHTML</code> quando <code>textContent</code> bastaria são
+          erros que somam milissegundos e degradam a experiência.
+        </p>
+
+        <!-- Accordeão: DOM -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">🎯</span>
+              <span class="acc-title"
+                >Exemplos — seletores, innerHTML vs textContent e batch de
+                DOM</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — otimizando acesso ao DOM</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ── Ruim: seleciona o mesmo elemento 3x ────────</span>
+document.<span class="c-prop">getElementById</span>(<span class="c-val">"titulo"</span>).textContent = <span class="c-val">"Olá"</span>;
+document.<span class="c-prop">getElementById</span>(<span class="c-val">"titulo"</span>).style.color = <span class="c-val">"red"</span>;
+document.<span class="c-prop">getElementById</span>(<span class="c-val">"titulo"</span>).style.fontSize = <span class="c-val">"30px"</span>;
+
+<span class="c-comment">// ── Bom: referência salva, 1 busca no DOM ───────</span>
+<span class="c-sel">const</span> titulo = document.<span class="c-prop">getElementById</span>(<span class="c-val">"titulo"</span>);
+titulo.textContent = <span class="c-val">"Olá"</span>;
+titulo.style.color = <span class="c-val">"red"</span>;
+titulo.style.fontSize = <span class="c-val">"30px"</span>;
+
+<span class="c-comment">// ── Ruim: 100 atualizações do DOM no loop ───────</span>
+<span class="c-sel">const</span> lista = document.<span class="c-prop">querySelector</span>(<span class="c-val">"#lista"</span>);
+<span class="c-sel">for</span> (<span class="c-sel">let</span> i = <span class="c-val">0</span>; i < <span class="c-val">100</span>; i++) {
+lista.innerHTML += <span class="c-val">`&lt;li&gt;${i}&lt;/li&gt;`</span>;
+}
+
+<span class="c-comment">// ── Bom: 1 única atualização do DOM ─────────────</span>
+<span class="c-sel">let</span> html = <span class="c-val">""</span>;
+<span class="c-sel">for</span> (<span class="c-sel">let</span> i = <span class="c-val">0</span>; i < <span class="c-val">100</span>; i++) {
+html += <span class="c-val">`&lt;li&gt;${i}&lt;/li&gt;`</span>;
+}
+lista.innerHTML = html;
+
+<span class="c-comment">// ── textContent é mais seguro e rápido ──────────</span>
+titulo.textContent = <span class="c-val">"Texto simples"</span>; <span class="c-comment">// ✓ preferível</span>
+titulo.innerHTML   = <span class="c-val">"&lt;strong&gt;Negrito&lt;/strong&gt;"</span>; <span class="c-comment">// só se precisar de HTML</span></pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">💡</span>
+                <span>
+                  Cada atribuição ao <code>innerHTML</code> dentro de um loop
+                  força o navegador a re-parsear e re-renderizar o elemento
+                  inteiro. Acumule o HTML em uma string e aplique
+                  <strong>uma única vez</strong> ao final.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Loops e Performance ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Loops</span> e Performance
+        </h3>
+        <p class="text">
+          Loops são um dos lugares onde pequenas ineficiências se multiplicam.
+          Calcular <code>lista.length</code> a cada iteração, percorrer arrays
+          inteiros quando só precisa de um item — esses hábitos somam
+          processamento desnecessário.
+        </p>
+
+        <!-- Comparação loops -->
+        <div class="code-block" style="margin: 32px 2%">
+          <div class="code-block-header">
+            <div class="code-block-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span
+              ><span class="dot-green"></span>
+            </div>
+            <span class="code-block-label">javascript — loops eficientes</span>
+            <button class="code-block-copy" onclick="copyCode(this)">
+              Copiar
+            </button>
+          </div>
+          <div
+            class="code-block-body"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 0"
+          >
+            <div
+              style="
+                border-right: 1px solid #30363d;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <div
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  text-transform: uppercase;
+                  color: #f85169;
+                  margin-bottom: 12px;
+                  font-family: 'JetBrains Mono', monospace;
+                "
+              >
+                ✗ Ruim
+              </div>
+              <pre
+                style="
+                  margin: 0;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.82rem;
+                "
+              ><span class="c-comment">// .length recalculado a cada iteração</span>
+<span class="c-sel">for</span> (<span class="c-sel">let</span> i = <span class="c-val">0</span>; i < lista.length; i++) {
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(lista[i]);
+}
+
+<span class="c-comment">// percorre tudo para achar 1 item</span>
+usuarios.<span class="c-prop">forEach</span>(usuario => {
+<span class="c-sel">if</span> (usuario.id === <span class="c-val">10</span>) {
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(usuario);
+}
+});</pre>
+            </div>
+
+            <div style="padding: 20px; display: flex; flex-direction: column">
+              <div
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  text-transform: uppercase;
+                  color: #3fb950;
+                  margin-bottom: 12px;
+                  font-family: 'JetBrains Mono', monospace;
+                "
+              >
+                ✓ Bom
+              </div>
+              <pre
+                style="
+                  margin: 0;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.82rem;
+                "
+              ><span class="c-comment">// .length calculado apenas 1 vez</span>
+<span class="c-sel">const</span> tamanho = lista.length;
+<span class="c-sel">for</span> (<span class="c-sel">let</span> i = <span class="c-val">0</span>; i < tamanho; i++) {
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(lista[i]);
+}
+
+<span class="c-comment">// para assim que encontrar o item</span>
+<span class="c-sel">const</span> usuario = usuarios.<span class="c-prop">find</span>(
+u => u.id === <span class="c-val">10</span>
+);
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(usuario);</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Debounce e Throttle ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Debounce</span> e
+          <span style="color: var(--wood)">Throttle</span>
+        </h3>
+        <p class="text">
+          Eventos como <code>input</code>, <code>scroll</code> e
+          <code>resize</code> disparam dezenas de vezes por segundo. Executar
+          código pesado a cada disparo é um dos erros mais comuns de
+          performance. <strong>Debounce</strong> aguarda o usuário parar de agir
+          antes de executar; <strong>Throttle</strong> limita quantas vezes a
+          função pode rodar em um intervalo de tempo.
+        </p>
+
+        <!-- Cards: debounce vs throttle -->
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+          "
+        >
+          <div class="msg-card git-blue">
+            <div class="msg-badge">Debounce</div>
+            <div class="msg-title">Espera parar para executar</div>
+            <div class="msg-desc">
+              Ideal para campos de busca: só chama a API quando o usuário
+              <strong>parou de digitar</strong> por X milissegundos.
+              <br /><br />
+              Usuário digita "JAVA" rapidamente →
+              <span style="color: #3fb950">API chamada 1× só</span>
+            </div>
+          </div>
+
+          <div class="msg-card git-gold">
+            <div class="msg-badge">Throttle</div>
+            <div class="msg-title">Limita a frequência de execução</div>
+            <div class="msg-desc">
+              Ideal para scroll e resize: garante que a função rode no
+              <strong>máximo 1× a cada X ms</strong>, independente de quantos
+              eventos dispararam. <br /><br />
+              100 eventos de scroll →
+              <span style="color: #3fb950">função executada 5×</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordeão: debounce e throttle -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">⏱️</span>
+              <span class="acc-title"
+                >Implementação — debounce e throttle do zero</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — debounce e throttle</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ── Debounce ─────────────────────────────────────</span>
+<span class="c-sel">function</span> <span class="c-prop">debounce</span>(callback, delay) {
+
+<span class="c-sel">let</span> timeout;
+
+<span class="c-sel">return</span> (...args) => {
+clearTimeout(timeout);
+timeout = setTimeout(() => {
+callback(...args);
+}, delay);
+};
+
+}
+
+<span class="c-comment">// Uso: chama buscar() 500ms após parar de digitar</span>
+input.<span class="c-prop">addEventListener</span>(<span class="c-val">"input"</span>, <span class="c-prop">debounce</span>(buscar, <span class="c-val">500</span>));
+
+<span class="c-comment">// ── Throttle ─────────────────────────────────────</span>
+<span class="c-sel">function</span> <span class="c-prop">throttle</span>(callback, delay) {
+
+<span class="c-sel">let</span> permitido = <span class="c-val">true</span>;
+
+<span class="c-sel">return</span> (...args) => {
+<span class="c-sel">if</span> (!permitido) <span class="c-sel">return</span>;
+
+permitido = <span class="c-val">false</span>;
+callback(...args);
+
+setTimeout(() => {
+permitido = <span class="c-val">true</span>;
+}, delay);
+};
+
+}
+
+<span class="c-comment">// Uso: atualizar posição no máximo 1× a cada 200ms</span>
+window.<span class="c-prop">addEventListener</span>(<span class="c-val">"scroll"</span>, <span class="c-prop">throttle</span>(atualizarPosicao, <span class="c-val">200</span>));</pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">💡</span>
+                <span>
+                  A diferença prática: <strong>debounce</strong> é "execute
+                  depois que parar" — o timer é reiniciado a cada chamada.
+                  <strong>Throttle</strong> é "execute no máximo 1× por
+                  intervalo" — o timer não reinicia, apenas bloqueia novas
+                  execuções enquanto o delay não passou.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Memória e Listeners ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Memória</span> e Event Listeners
+        </h3>
+        <p class="text">
+          Event listeners acumulados e variáveis globais mantidas em memória são
+          causas comuns de <em>memory leaks</em>. Remova listeners quando não
+          forem mais necessários, prefira variáveis com escopo local e delegue
+          eventos ao pai quando possível.
+        </p>
+
+        <!-- Accordeão: memória e event delegation -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">🧹</span>
+              <span class="acc-title"
+                >Exemplos — removeEventListener, variáveis globais e event
+                delegation</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — liberando recursos e event delegation</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ── Variáveis globais ficam em memória para sempre</span>
+<span class="c-comment">// Ruim:</span>
+<span class="c-sel">var</span> contador = <span class="c-val">0</span>;
+
+<span class="c-comment">// Bom: escopo local — liberado ao terminar a função</span>
+<span class="c-sel">function</span> <span class="c-prop">iniciar</span>() {
+<span class="c-sel">let</span> contador = <span class="c-val">0</span>;
+}
+
+<span class="c-comment">// ── Removendo listeners desnecessários ──────────</span>
+<span class="c-sel">function</span> <span class="c-prop">clicar</span>() { <span class="c-sel">console</span>.<span class="c-prop">log</span>(<span class="c-val">"clicou"</span>); }
+
+botao.<span class="c-prop">addEventListener</span>(<span class="c-val">"click"</span>, clicar);
+<span class="c-comment">// ...quando não precisar mais:</span>
+botao.<span class="c-prop">removeEventListener</span>(<span class="c-val">"click"</span>, clicar);
+
+<span class="c-comment">// ── Event Delegation: 1 listener para N itens ───</span>
+<span class="c-comment">// Ruim: 1000 elementos = 1000 listeners</span>
+itens.<span class="c-prop">forEach</span>(item => {
+item.<span class="c-prop">addEventListener</span>(<span class="c-val">"click"</span>, selecionar);
+});
+
+<span class="c-comment">// Bom: 1 listener no pai que captura todos</span>
+lista.<span class="c-prop">addEventListener</span>(<span class="c-val">"click"</span>, event => {
+<span class="c-sel">if</span> (event.target.<span class="c-prop">matches</span>(<span class="c-val">".item"</span>)) {
+<span class="c-prop">selecionar</span>(event);
+}
+});</pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">⚠️</span>
+                <span>
+                  Para remover um listener, a função passada deve ser uma
+                  <strong>referência nomeada</strong> — não uma arrow function
+                  anônima inline. Arrow functions anônimas criam uma nova
+                  referência a cada chamada e não podem ser removidas.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Cache e Lazy Loading ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Cache</span> e Lazy Loading
+        </h3>
+        <p class="text">
+          Buscar os mesmos dados várias vezes desperdiça tempo e banda. Guardar
+          resultados já obtidos em um objeto de cache evita chamadas
+          desnecessárias à API. O <strong>lazy loading</strong> complementa essa
+          ideia no nível dos recursos: só carregue o que o usuário vai realmente
+          ver.
+        </p>
+
+        <!-- Accordeão: cache e lazy loading -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">💾</span>
+              <span class="acc-title"
+                >Exemplos — cache de requisições e lazy loading de imagens</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript / html — cache e lazy loading</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ── Cache de requisições ────────────────────────</span>
+<span class="c-sel">const</span> cache = {};
+
+<span class="c-sel">async function</span> <span class="c-prop">buscarUsuario</span>(id) {
+
+<span class="c-sel">if</span> (cache[id]) {
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(<span class="c-val">"Do cache!"</span>);
+<span class="c-sel">return</span> cache[id];
+}
+
+<span class="c-sel">const</span> response = <span class="c-sel">await</span> <span class="c-prop">fetch</span>(<span class="c-val">`/usuarios/${id}`</span>);
+<span class="c-sel">const</span> usuario = <span class="c-sel">await</span> response.<span class="c-prop">json</span>();
+
+cache[id] = usuario; <span class="c-comment">// armazena para próximas chamadas</span>
+<span class="c-sel">return</span> usuario;
+
+}
+
+<span class="c-comment">// ── Lazy Loading de imagens (HTML nativo) ───────</span>
+<span class="c-comment">&lt;!-- A imagem só carrega quando se aproxima da tela --&gt;</span>
+&lt;<span class="c-prop">img</span>
+<span class="c-sel">src</span>=<span class="c-val">"foto.jpg"</span>
+<span class="c-sel">loading</span>=<span class="c-val">"lazy"</span>
+<span class="c-sel">alt</span>=<span class="c-val">"Foto de perfil"</span>
+&gt;</pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">💡</span>
+                <span>
+                  O atributo <code>loading="lazy"</code> é suportado nativamente
+                  por todos os navegadores modernos e não exige JavaScript. Para
+                  dados de API, considere usar o
+                  <strong>sessionStorage</strong> ou
+                  <strong>localStorage</strong>
+                  quando o cache precisa sobreviver à navegação entre páginas.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Ferramentas do Navegador ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Ferramentas</span> do Navegador
+        </h3>
+        <p class="text">
+          Antes de otimizar, <em>meça</em>. O navegador oferece ferramentas
+          nativas para identificar gargalos de CPU, tempo de execução e
+          requisições lentas — tudo disponível nas DevTools.
+        </p>
+
+        <!-- Cards: ferramentas -->
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+          "
+        >
+          <div class="msg-card git-gold">
+            <div class="msg-badge">console.time</div>
+            <div class="msg-title">Cronometrar código</div>
+            <div class="msg-desc">
+              <code>console.time("label")</code> inicia o timer;
+              <code>console.timeEnd("label")</code> exibe o tempo decorrido no
+              console. <br /><br />
+              <span style="color: #3fb950">→ processo: 5ms</span>
+            </div>
+          </div>
+
+          <div class="msg-card git-blue">
+            <div class="msg-badge">Performance Tab</div>
+            <div class="msg-title">Análise visual</div>
+            <div class="msg-desc">
+              Disponível nas DevTools. Grava um perfil de execução e exibe tempo
+              de cada função, eventos e uso da CPU em forma de
+              <strong>gráfico de chama</strong>.
+            </div>
+          </div>
+
+          <div class="msg-card git-green">
+            <div class="msg-badge">Network Tab</div>
+            <div class="msg-title">Requisições</div>
+            <div class="msg-desc">
+              Mostra todas as requisições, seus tempos de resposta, tamanho dos
+              arquivos e status HTTP — ideal para identificar chamadas lentas ou
+              duplicadas.
+            </div>
+          </div>
+        </div>
+
+        <!-- Código: console.time -->
+        <div class="code-block" style="margin: 32px 2%">
+          <div class="code-block-header">
+            <div class="code-block-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span
+              ><span class="dot-green"></span>
+            </div>
+            <span class="code-block-label"
+              >javascript — medindo tempo de execução</span
+            >
+            <button class="code-block-copy" onclick="copyCode(this)">
+              Copiar
+            </button>
+          </div>
+          <div class="code-block-body">
+            <pre><span class="c-sel">console</span>.<span class="c-prop">time</span>(<span class="c-val">"processo"</span>);
+
+<span class="c-prop">executar</span>(); <span class="c-comment">// qualquer código a medir</span>
+
+<span class="c-sel">console</span>.<span class="c-prop">timeEnd</span>(<span class="c-val">"processo"</span>);
+<span class="c-comment">// → processo: 5ms</span></pre>
+          </div>
+        </div>
+
+        <!-- ── Tabela: boas práticas ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Resumo</span> de boas práticas
+        </h3>
+        <p class="text">
+          A tabela abaixo consolida os principais padrões de performance
+          abordados nesta seção para consulta rápida:
+        </p>
+
+        <div style="padding: 0 2%; overflow-x: auto; margin-bottom: 24px">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Técnica</th>
+                <th>Problema resolvido</th>
+                <th>Quando usar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Salvar referência DOM</td>
+                <td>Evita buscar o mesmo elemento várias vezes</td>
+                <td>Sempre que usar um elemento mais de uma vez</td>
+              </tr>
+              <tr>
+                <td>Batch de DOM (<code>innerHTML</code> único)</td>
+                <td>Reduz re-renderizações durante loops</td>
+                <td>Ao inserir múltiplos itens no DOM</td>
+              </tr>
+              <tr>
+                <td>Debounce</td>
+                <td>Evita execuções excessivas em eventos de digitação</td>
+                <td>Busca em tempo real, campos de formulário</td>
+              </tr>
+              <tr>
+                <td>Throttle</td>
+                <td>Limita a frequência de execução</td>
+                <td>Scroll, resize, mousemove</td>
+              </tr>
+              <tr>
+                <td>Event Delegation</td>
+                <td>Substitui N listeners por apenas 1</td>
+                <td>Listas e grids com muitos itens dinâmicos</td>
+              </tr>
+              <tr>
+                <td>Cache de dados</td>
+                <td>Evita chamadas repetidas à mesma API</td>
+                <td>Dados que não mudam com frequência</td>
+              </tr>
+              <tr>
+                <td>Lazy Loading</td>
+                <td>Não carrega recursos fora da tela</td>
+                <td>Imagens, iframes e componentes pesados</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ── Projeto Prático: Busca Inteligente ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Projeto prático —
+          <span style="color: var(--wood)">Busca Inteligente</span>
+        </h3>
+        <p class="text">
+          Vamos reunir as técnicas em um projeto real: uma busca que consulta a
+          API <strong>DummyJSON</strong>, usa <strong>debounce</strong> para
+          evitar chamadas excessivas e atualiza o DOM com uma única operação ao
+          final.
+        </p>
+
+        <!-- Accordeão: projeto completo -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">🔍</span>
+              <span class="acc-title"
+                >Código completo — Busca Inteligente com debounce e DOM
+                eficiente</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >html — estrutura da página</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">&lt;!-- HTML ──────────────────────────────────────── --&gt;</span>
+&lt;<span class="c-prop">input</span> <span class="c-sel">id</span>=<span class="c-val">"busca"</span> <span class="c-sel">type</span>=<span class="c-val">"text"</span> <span class="c-sel">placeholder</span>=<span class="c-val">"Buscar usuário..."</span>&gt;
+&lt;<span class="c-prop">ul</span> <span class="c-sel">id</span>=<span class="c-val">"resultado"</span>&gt;&lt;/<span class="c-prop">ul</span>&gt;</pre>
+                </div>
+              </div>
+
+              <div class="code-block" style="margin-top: 16px">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — lógica completa</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ── Referências salvas (1 busca no DOM) ─────────</span>
+<span class="c-sel">const</span> campo   = document.<span class="c-prop">getElementById</span>(<span class="c-val">"busca"</span>);
+<span class="c-sel">const</span> lista   = document.<span class="c-prop">getElementById</span>(<span class="c-val">"resultado"</span>);
+
+<span class="c-comment">// ── Debounce ─────────────────────────────────────</span>
+<span class="c-sel">function</span> <span class="c-prop">debounce</span>(callback, delay) {
+<span class="c-sel">let</span> timeout;
+<span class="c-sel">return</span> (...args) => {
+clearTimeout(timeout);
+timeout = setTimeout(() => callback(...args), delay);
+};
+}
+
+<span class="c-comment">// ── Busca com DOM eficiente ──────────────────────</span>
+<span class="c-sel">async function</span> <span class="c-prop">buscar</span>() {
+
+<span class="c-sel">const</span> texto = campo.value.<span class="c-prop">trim</span>();
+<span class="c-sel">if</span> (!texto) {
+lista.innerHTML = <span class="c-val">""</span>;
+<span class="c-sel">return</span>;
+}
+
+<span class="c-sel">try</span> {
+
+<span class="c-sel">const</span> response = <span class="c-sel">await</span> <span class="c-prop">fetch</span>(
+<span class="c-val">`https://dummyjson.com/users/search?q=${texto}`</span>
+);
+
+<span class="c-sel">if</span> (!response.ok) <span class="c-sel">throw new</span> <span class="c-prop">Error</span>(<span class="c-val">"Erro na busca"</span>);
+
+<span class="c-sel">const</span> dados = <span class="c-sel">await</span> response.<span class="c-prop">json</span>();
+
+<span class="c-comment">// acumula HTML, 1 única atualização do DOM</span>
+<span class="c-sel">let</span> html = <span class="c-val">""</span>;
+dados.users.<span class="c-prop">forEach</span>(usuario => {
+html += <span class="c-val">`&lt;li&gt;${usuario.firstName} ${usuario.lastName}&lt;/li&gt;`</span>;
+});
+lista.innerHTML = html;
+
+} <span class="c-sel">catch</span> (erro) {
+lista.innerHTML = <span class="c-val">`&lt;li&gt;Erro: ${erro.message}&lt;/li&gt;`</span>;
+}
+
+}
+
+<span class="c-comment">// ── Event listener com debounce de 500ms ────────</span>
+campo.<span class="c-prop">addEventListener</span>(<span class="c-val">"input"</span>, <span class="c-prop">debounce</span>(buscar, <span class="c-val">500</span>));</pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">🚀</span>
+                <span>
+                  Este projeto combina três técnicas em sinergia: referências
+                  DOM salvas, debounce para limitar requisições e batch de DOM
+                  para uma única renderização. O resultado é uma busca que
+                  consome até <strong>10× menos chamadas à API</strong> do que
+                  uma implementação ingênua.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-tip">
+          <span class="alert-icon">🧠</span>
+          <span>
+            Performance não é uma etapa final — é um hábito. Com
+            <strong>debounce</strong>, <strong>event delegation</strong>,
+            <strong>cache</strong> e DOM eficiente incorporados ao seu fluxo de
+            trabalho, você escreve código rápido desde o início. Os próximos
+            passos naturais são <strong>Web Workers</strong> para tarefas
+            pesadas fora da thread principal e a
+            <strong>API IntersectionObserver</strong>
+            para lazy loading avançado.
+          </span>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════
+     SEÇÃO 17 — DEBUGGING
+══════════════════════════════════════════════════ -->
+      <section
+        class="content-section"
+        id="section-debugging"
+        style="background: var(--bg)"
+      >
+        <div
+          class="cover"
+          style="
+            padding: 0;
+            min-height: auto;
+            background: transparent;
+            margin-bottom: 40px;
+            box-shadow: none;
+          "
+        >
+          <div class="cover-text">
+            <div class="section-tag">Seção 17</div>
+            <h2
+              style="
+                font-size: clamp(2.5rem, 4vw, 3.5rem);
+                line-height: 1.1;
+                margin-bottom: 1rem;
+                color: var(--ink);
+                font-family: 'Fraunces', serif;
+              "
+            >
+              Debu&shy;gging
+              <br />
+              <span style="color: var(--wood)">em JS</span>
+            </h2>
+            <p
+              class="cover-subtitle"
+              style="font-size: 1.1rem; line-height: 1.6"
+            >
+              Todo desenvolvedor encontra bugs — a diferença está em saber
+              <em>como</em> encontrá-los e corrigi-los.
+              <strong>Debugging</strong> é o processo de identificar, analisar e
+              corrigir erros em um programa. Nesta seção você vai aprender a ler
+              mensagens de erro, usar o <strong>console</strong> e as
+              <strong>DevTools</strong> do navegador, trabalhar com breakpoints
+              e desenvolver uma estratégia sólida de depuração.
+            </p>
+          </div>
+          <div class="nc-right">
+            <div class="nc-glow"></div>
+            <img
+              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/js18.png"
+              alt="Debugging em JavaScript"
+              onerror="this.style.display='none';"
+              style="
+                width: 640px;
+                height: 700px;
+                object-fit: cover;
+                object-position: center;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+                  0 0 20px rgba(249, 193, 80, 0.2);
+                border: 1px solid rgba(249, 193, 80, 0.3);
+                transition: transform 0.3s ease;
+              "
+            />
+          </div>
+        </div>
+
+        <!-- ── O que é um Bug? ── -->
+        <h3 class="subtitle">
+          O que é um
+          <span style="color: var(--wood)">Bug?</span>
+        </h3>
+        <p class="text">
+          Um <strong>bug</strong> é qualquer comportamento incorreto de um
+          software — desde um resultado errado num cálculo até um botão que não
+          responde. Bugs não são sinal de incompetência; são parte natural do
+          desenvolvimento. O que separa um desenvolvedor experiente de um
+          iniciante é a velocidade e precisão com que resolve esses problemas.
+        </p>
+
+        <!-- Diagrama: fluxo de debugging -->
+        <div
+          style="
+            margin: 32px 2%;
+            background: var(--bg-elevado, #161b22);
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 32px 24px;
+          "
+        >
+          <div
+            style="
+              font-size: 0.7rem;
+              font-weight: 800;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: #8b949e;
+              margin-bottom: 24px;
+              font-family: 'JetBrains Mono', monospace;
+              text-align: center;
+            "
+          >
+            Fluxo de depuração
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 0;
+              flex-wrap: wrap;
+            "
+          >
+            <div style="text-align: center; padding: 8px 12px">
+              <div
+                style="
+                  background: #0d1117;
+                  border: 2px solid #f85169;
+                  border-radius: 12px;
+                  padding: 16px 20px;
+                  min-width: 110px;
+                "
+              >
+                <div style="font-size: 1.6rem; margin-bottom: 6px">🐛</div>
+                <div
+                  style="
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: #f85169;
+                    font-family: 'JetBrains Mono', monospace;
+                  "
+                >
+                  Erro
+                </div>
+              </div>
+            </div>
+            <div style="font-size: 1.3rem; color: #8b949e; padding: 0 4px">
+              →
+            </div>
+            <div style="text-align: center; padding: 8px 12px">
+              <div
+                style="
+                  background: #0d1117;
+                  border: 2px solid #f8a040;
+                  border-radius: 12px;
+                  padding: 16px 20px;
+                  min-width: 110px;
+                "
+              >
+                <div style="font-size: 1.6rem; margin-bottom: 6px">🔍</div>
+                <div
+                  style="
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: #f8a040;
+                    font-family: 'JetBrains Mono', monospace;
+                  "
+                >
+                  Identificar
+                </div>
+              </div>
+            </div>
+            <div style="font-size: 1.3rem; color: #8b949e; padding: 0 4px">
+              →
+            </div>
+            <div style="text-align: center; padding: 8px 12px">
+              <div
+                style="
+                  background: #0d1117;
+                  border: 2px solid #58a6ff;
+                  border-radius: 12px;
+                  padding: 16px 20px;
+                  min-width: 110px;
+                "
+              >
+                <div style="font-size: 1.6rem; margin-bottom: 6px">🧪</div>
+                <div
+                  style="
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: #58a6ff;
+                    font-family: 'JetBrains Mono', monospace;
+                  "
+                >
+                  Investigar
+                </div>
+              </div>
+            </div>
+            <div style="font-size: 1.3rem; color: #8b949e; padding: 0 4px">
+              →
+            </div>
+            <div style="text-align: center; padding: 8px 12px">
+              <div
+                style="
+                  background: #0d1117;
+                  border: 2px solid #d2a8ff;
+                  border-radius: 12px;
+                  padding: 16px 20px;
+                  min-width: 110px;
+                "
+              >
+                <div style="font-size: 1.6rem; margin-bottom: 6px">🛠️</div>
+                <div
+                  style="
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: #d2a8ff;
+                    font-family: 'JetBrains Mono', monospace;
+                  "
+                >
+                  Corrigir
+                </div>
+              </div>
+            </div>
+            <div style="font-size: 1.3rem; color: #8b949e; padding: 0 4px">
+              →
+            </div>
+            <div style="text-align: center; padding: 8px 12px">
+              <div
+                style="
+                  background: #0d1117;
+                  border: 2px solid #3fb950;
+                  border-radius: 12px;
+                  padding: 16px 20px;
+                  min-width: 110px;
+                "
+              >
+                <div style="font-size: 1.6rem; margin-bottom: 6px">✅</div>
+                <div
+                  style="
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: #3fb950;
+                    font-family: 'JetBrains Mono', monospace;
+                  "
+                >
+                  Testar
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Tipos de Erros ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Tipos de
+          <span style="color: var(--wood)">Erros</span>
+        </h3>
+        <p class="text">
+          O JavaScript categoriza os erros em tipos distintos. Reconhecer o tipo
+          pelo nome na mensagem do console é o primeiro passo para corrigi-lo —
+          cada tipo aponta para uma causa diferente.
+        </p>
+
+        <!-- Cards: tipos de erro -->
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+          "
+        >
+          <div
+            class="msg-card"
+            style="border: 1px solid #f8516940; background: #f8516908"
+          >
+            <div
+              class="msg-badge"
+              style="background: #f8516920; color: #f85169"
+            >
+              SyntaxError
+            </div>
+            <div class="msg-title">Erro de sintaxe</div>
+            <div class="msg-desc">
+              O código nem chega a executar. Geralmente uma vírgula, chave ou
+              parêntese faltando.
+              <br /><br />
+              <code>const nome = ;</code>
+            </div>
+          </div>
+
+          <div
+            class="msg-card"
+            style="border: 1px solid #f8a04040; background: #f8a04008"
+          >
+            <div
+              class="msg-badge"
+              style="background: #f8a04020; color: #f8a040"
+            >
+              ReferenceError
+            </div>
+            <div class="msg-title">Variável inexistente</div>
+            <div class="msg-desc">
+              Tentativa de usar uma variável que não foi declarada no escopo
+              atual.
+              <br /><br />
+              <code>console.log(usuario);</code>
+            </div>
+          </div>
+
+          <div class="msg-card git-blue">
+            <div class="msg-badge">TypeError</div>
+            <div class="msg-title">Tipo incompatível</div>
+            <div class="msg-desc">
+              Operação inválida para o tipo do valor — como chamar um método em
+              <code>null</code>. <br /><br />
+              <code>null.toUpperCase()</code>
+            </div>
+          </div>
+
+          <div class="msg-card git-gold">
+            <div class="msg-badge">Logical Error</div>
+            <div class="msg-title">Erro de lógica</div>
+            <div class="msg-desc">
+              O código executa sem erros, mas produz resultado incorreto. O mais
+              difícil de encontrar.
+              <br /><br />
+              <code>return a - b;</code> (deveria somar)
+            </div>
+          </div>
+        </div>
+
+        <!-- Lendo mensagem de erro -->
+        <div
+          style="
+            margin: 32px 2%;
+            background: var(--bg-elevado, #161b22);
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 28px 24px;
+          "
+        >
+          <div
+            style="
+              font-size: 0.7rem;
+              font-weight: 800;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: #8b949e;
+              margin-bottom: 20px;
+              font-family: 'JetBrains Mono', monospace;
+            "
+          >
+            Anatomia de uma mensagem de erro
+          </div>
+          <div
+            style="
+              background: #0d1117;
+              border: 1px solid #f8516940;
+              border-radius: 10px;
+              padding: 16px 20px;
+              font-family: 'JetBrains Mono', monospace;
+              font-size: 0.85rem;
+              color: #f85169;
+              margin-bottom: 20px;
+            "
+          >
+            Uncaught ReferenceError: usuario is not defined<br />
+            <span style="color: #8b949e"
+              >&nbsp;&nbsp;&nbsp;&nbsp;at app.js:15</span
+            >
+          </div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 16px;
+            "
+          >
+            <div style="display: flex; gap: 10px; align-items: flex-start">
+              <span
+                style="
+                  background: #f8516920;
+                  color: #f85169;
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  padding: 2px 8px;
+                  border-radius: 4px;
+                  font-family: 'JetBrains Mono', monospace;
+                  white-space: nowrap;
+                  margin-top: 2px;
+                "
+                >Uncaught</span
+              >
+              <span style="font-size: 0.78rem; color: #8b949e; line-height: 1.4"
+                >Não foi capturado por um try/catch</span
+              >
+            </div>
+            <div style="display: flex; gap: 10px; align-items: flex-start">
+              <span
+                style="
+                  background: #f8a04020;
+                  color: #f8a040;
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  padding: 2px 8px;
+                  border-radius: 4px;
+                  font-family: 'JetBrains Mono', monospace;
+                  white-space: nowrap;
+                  margin-top: 2px;
+                "
+                >ReferenceError</span
+              >
+              <span style="font-size: 0.78rem; color: #8b949e; line-height: 1.4"
+                >Tipo do erro — guia a investigação</span
+              >
+            </div>
+            <div style="display: flex; gap: 10px; align-items: flex-start">
+              <span
+                style="
+                  background: #58a6ff20;
+                  color: #58a6ff;
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  padding: 2px 8px;
+                  border-radius: 4px;
+                  font-family: 'JetBrains Mono', monospace;
+                  white-space: nowrap;
+                  margin-top: 2px;
+                "
+                >mensagem</span
+              >
+              <span style="font-size: 0.78rem; color: #8b949e; line-height: 1.4"
+                >Descrição clara do problema</span
+              >
+            </div>
+            <div style="display: flex; gap: 10px; align-items: flex-start">
+              <span
+                style="
+                  background: #3fb95020;
+                  color: #3fb950;
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  padding: 2px 8px;
+                  border-radius: 4px;
+                  font-family: 'JetBrains Mono', monospace;
+                  white-space: nowrap;
+                  margin-top: 2px;
+                "
+                >app.js:15</span
+              >
+              <span style="font-size: 0.78rem; color: #8b949e; line-height: 1.4"
+                >Arquivo e linha onde ocorreu</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Ferramentas do Console ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Ferramentas do
+          <span style="color: var(--wood)">Console</span>
+        </h3>
+        <p class="text">
+          O <code>console</code> vai muito além do <code>console.log()</code>.
+          Cada método foi criado para uma situação específica — usar o certo
+          torna a depuração mais rápida e a leitura dos logs mais clara.
+        </p>
+
+        <!-- Cards: métodos do console -->
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+          "
+        >
+          <div class="msg-card git-blue">
+            <div class="msg-badge">console.log()</div>
+            <div class="msg-title">Log geral</div>
+            <div class="msg-desc">
+              Exibe qualquer valor. O mais usado para inspecionar variáveis e
+              rastrear o fluxo.
+            </div>
+          </div>
+
+          <div class="msg-card git-green">
+            <div class="msg-badge">console.table()</div>
+            <div class="msg-title">Arrays e objetos</div>
+            <div class="msg-desc">
+              Exibe dados em formato tabular — ideal para arrays de objetos como
+              listas de usuários.
+            </div>
+          </div>
+
+          <div class="msg-card git-gold">
+            <div class="msg-badge">console.warn()</div>
+            <div class="msg-title">Avisos</div>
+            <div class="msg-desc">
+              Destaca alertas em amarelo no console. Útil para indicar uso
+              incorreto de APIs.
+            </div>
+          </div>
+
+          <div
+            class="msg-card"
+            style="border: 1px solid #f8516940; background: #f8516908"
+          >
+            <div
+              class="msg-badge"
+              style="background: #f8516920; color: #f85169"
+            >
+              console.error()
+            </div>
+            <div class="msg-title">Erros</div>
+            <div class="msg-desc">
+              Exibe mensagens em vermelho com stack trace. Use para sinalizar
+              falhas críticas na aplicação.
+            </div>
+          </div>
+
+          <div class="msg-card git-gold">
+            <div class="msg-badge">console.time()</div>
+            <div class="msg-title">Cronômetro</div>
+            <div class="msg-desc">
+              Mede o tempo entre <code>.time()</code> e
+              <code>.timeEnd()</code> com a mesma label.
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordeão: console na prática -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">🖥️</span>
+              <span class="acc-title"
+                >Exemplos — console.log, table, warn, error e time</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — métodos do console</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ── console.log — inspecionando variáveis ───────</span>
+<span class="c-sel">const</span> usuario = { nome: <span class="c-val">"Anderson"</span>, idade: <span class="c-val">25</span> };
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(usuario);
+<span class="c-comment">// → { nome: "Anderson", idade: 25 }</span>
+
+<span class="c-comment">// ── console.table — arrays de objetos ───────────</span>
+<span class="c-sel">const</span> usuarios = [
+{ nome: <span class="c-val">"Ana"</span>,    idade: <span class="c-val">20</span> },
+{ nome: <span class="c-val">"Carlos"</span>, idade: <span class="c-val">30</span> }
+];
+<span class="c-sel">console</span>.<span class="c-prop">table</span>(usuarios);
+<span class="c-comment">// → exibe tabela com colunas nome e idade</span>
+
+<span class="c-comment">// ── console.warn — avisos em amarelo ────────────</span>
+<span class="c-sel">console</span>.<span class="c-prop">warn</span>(<span class="c-val">"Campo vazio"</span>);
+
+<span class="c-comment">// ── console.error — erros em vermelho ───────────</span>
+<span class="c-sel">console</span>.<span class="c-prop">error</span>(<span class="c-val">"Falha ao carregar dados"</span>);
+
+<span class="c-comment">// ── console.time — mede tempo de execução ───────</span>
+<span class="c-sel">console</span>.<span class="c-prop">time</span>(<span class="c-val">"processo"</span>);
+
+<span class="c-sel">for</span> (<span class="c-sel">let</span> i = <span class="c-val">0</span>; i < <span class="c-val">1000000</span>; i++) {}
+
+<span class="c-sel">console</span>.<span class="c-prop">timeEnd</span>(<span class="c-val">"processo"</span>);
+<span class="c-comment">// → processo: 12ms</span></pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">💡</span>
+                <span>
+                  Use <code>console.log()</code> com múltiplos argumentos para
+                  adicionar contexto:
+                  <code>console.log("usuario:", usuario)</code>
+                  exibe um label antes do valor — muito mais fácil de
+                  identificar em consoles com muitos logs.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── DevTools ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">DevTools</span> do Navegador
+        </h3>
+        <p class="text">
+          As DevTools são as ferramentas de desenvolvimento integradas ao
+          navegador, acessíveis com <kbd>F12</kbd>. Cada aba cobre um aspecto
+          diferente da aplicação — juntas, formam o ambiente completo de
+          depuração.
+        </p>
+
+        <!-- Cards: abas DevTools -->
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+          "
+        >
+          <div class="msg-card git-gold">
+            <div class="msg-badge">Elements</div>
+            <div class="msg-title">HTML e CSS ao vivo</div>
+            <div class="msg-desc">
+              Inspecione e edite elementos, classes e estilos em tempo real.
+              Ideal para verificar se um elemento existe, está oculto ou recebeu
+              a classe correta.
+            </div>
+          </div>
+
+          <div class="msg-card git-blue">
+            <div class="msg-badge">Sources</div>
+            <div class="msg-title">Depuração passo a passo</div>
+            <div class="msg-desc">
+              Adicione <strong>breakpoints</strong>, pause a execução e
+              inspecione variáveis em tempo real com Step Over e Step Into.
+            </div>
+          </div>
+
+          <div class="msg-card git-green">
+            <div class="msg-badge">Network</div>
+            <div class="msg-title">Requisições HTTP</div>
+            <div class="msg-desc">
+              Monitore todas as chamadas de API: status, tempo de resposta,
+              payload enviado e JSON retornado. Indispensável para depurar
+              fetch.
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Breakpoints e debugger ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Breakpoints</span> e debugger
+        </h3>
+        <p class="text">
+          Um <strong>breakpoint</strong> é um ponto de parada no código: a
+          execução congela naquele ponto e você pode inspecionar o valor de
+          qualquer variável naquele momento exato. Você pode adicioná-los
+          clicando no número da linha na aba Sources, ou diretamente no código
+          com a palavra-chave <code>debugger</code>.
+        </p>
+
+        <!-- Accordeão: breakpoints e debugger -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">⏸️</span>
+              <span class="acc-title"
+                >Exemplos — debugger, breakpoints e stack trace</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — debugger e stack trace</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ── debugger: pausa via código ──────────────────</span>
+<span class="c-sel">function</span> <span class="c-prop">calcular</span>() {
+
+<span class="c-sel">const</span> total = <span class="c-val">10</span> + <span class="c-val">20</span>;
+
+<span class="c-sel">debugger</span>; <span class="c-comment">// navegador pausa aqui</span>
+      <span class="c-comment">// DevTools mostra: total → 30</span>
+
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(total);
+
+}
+
+<span class="c-comment">// ── Stack Trace: rastreando a origem do erro ────</span>
+<span class="c-sel">function</span> <span class="c-prop">a</span>() { <span class="c-prop">b</span>(); }
+<span class="c-sel">function</span> <span class="c-prop">b</span>() { <span class="c-prop">c</span>(); }
+<span class="c-sel">function</span> <span class="c-prop">c</span>() { <span class="c-prop">erro</span>(); } <span class="c-comment">// erro aqui</span>
+
+<span class="c-prop">a</span>();
+
+<span class="c-comment">// Console mostra a pilha de chamadas:</span>
+<span class="c-comment">// c()  ← origem do erro</span>
+<span class="c-comment">// b()  ← chamou c()</span>
+<span class="c-comment">// a()  ← chamou b()</span>
+
+<span class="c-comment">// ── Removendo debugger em produção ──────────────</span>
+<span class="c-comment">// NUNCA suba código com debugger para produção.</span>
+<span class="c-comment">// Use breakpoints visuais na aba Sources.</span></pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">⚠️</span>
+                <span>
+                  O <strong>Stack Trace</strong> deve ser lido de baixo para
+                  cima: a linha de baixo mostra onde a execução começou, e a
+                  linha de cima mostra onde o erro ocorreu de fato. Comece pela
+                  primeira entrada que pertence ao <em>seu</em> código, não às
+                  bibliotecas.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Debugando situações comuns ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Debugando situações
+          <span style="color: var(--wood)">comuns</span>
+        </h3>
+        <p class="text">
+          Alguns cenários aparecem com frequência no dia a dia. Ter um roteiro
+          para cada um acelera muito a investigação.
+        </p>
+
+        <!-- Accordeão: eventos, formulários, APIs -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">🔧</span>
+              <span class="acc-title"
+                >Roteiros — eventos, formulários e requisições fetch</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — debugando eventos, forms e fetch</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ── Botão que não responde ───────────────────────</span>
+<span class="c-comment">// 1. Confirme que o elemento existe</span>
+<span class="c-sel">const</span> botao = document.<span class="c-prop">getElementById</span>(<span class="c-val">"salvar"</span>);
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(botao); <span class="c-comment">// null = ID errado ou script carrega antes do HTML</span>
+
+<span class="c-comment">// 2. Confirme que o listener foi registrado</span>
+<span class="c-sel">function</span> <span class="c-prop">salvar</span>() {
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(<span class="c-val">"Clique detectado"</span>); <span class="c-comment">// aparece no console?</span>
+}
+botao.<span class="c-prop">addEventListener</span>(<span class="c-val">"click"</span>, salvar);
+
+<span class="c-comment">// ── Formulário com dados incorretos ─────────────</span>
+form.<span class="c-prop">addEventListener</span>(<span class="c-val">"submit"</span>, evento => {
+evento.<span class="c-prop">preventDefault</span>();
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(evento.target);        <span class="c-comment">// estrutura do form</span>
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(<span class="c-sel">new</span> FormData(evento.target)); <span class="c-comment">// valores</span>
+});
+
+<span class="c-comment">// ── fetch que não retorna dados ──────────────────</span>
+<span class="c-comment">// 1. Verifique a aba Network: qual o status?</span>
+<span class="c-comment">// 2. Inspecione o objeto response</span>
+<span class="c-prop">fetch</span>(<span class="c-val">"/usuarios"</span>)
+.<span class="c-prop">then</span>(response => {
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(response.status); <span class="c-comment">// 200 ou 404?</span>
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(response.ok);     <span class="c-comment">// true ou false?</span>
+<span class="c-sel">return</span> response.<span class="c-prop">json</span>();
+})
+.<span class="c-prop">then</span>(data => {
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(data);           <span class="c-comment">// estrutura correta?</span>
+});</pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">💡</span>
+                <span>
+                  O erro <strong>"Cannot read properties of null"</strong> ao
+                  adicionar um listener quase sempre significa que o script está
+                  sendo executado antes do HTML ser carregado. Mova o
+                  <code>&lt;script&gt;</code> para o final do
+                  <code>&lt;body&gt;</code> ou use o atributo
+                  <code>defer</code>.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Erros comuns de iniciantes ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Erros comuns</span> de iniciantes
+        </h3>
+        <p class="text">
+          Alguns bugs aparecem repetidamente para quem está aprendendo.
+          Reconhecê-los de imediato economiza horas de investigação:
+        </p>
+
+        <div style="padding: 0 2%; overflow-x: auto; margin-bottom: 24px">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Erro</th>
+                <th>Exemplo incorreto</th>
+                <th>Correção</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Esquecer parênteses no console.log</td>
+                <td><code>console.log</code></td>
+                <td><code>console.log(valor)</code></td>
+              </tr>
+              <tr>
+                <td>Confundir atribuição com comparação</td>
+                <td><code>if (idade = 18)</code></td>
+                <td><code>if (idade === 18)</code></td>
+              </tr>
+              <tr>
+                <td>Usar variável não declarada</td>
+                <td><code>console.log(nome)</code> sem declarar</td>
+                <td>
+                  Declarar com <code>const</code>, <code>let</code> ou
+                  <code>var</code>
+                </td>
+              </tr>
+              <tr>
+                <td>ID errado no getElementById</td>
+                <td>
+                  <code>getElementById("salva")</code> — elemento tem id
+                  "salvar"
+                </td>
+                <td>Confirmar o id no HTML com Elements do DevTools</td>
+              </tr>
+              <tr>
+                <td>Script carrega antes do HTML</td>
+                <td>
+                  <code>&lt;script&gt;</code> no <code>&lt;head&gt;</code> sem
+                  defer
+                </td>
+                <td>
+                  Mover para o fim do <code>&lt;body&gt;</code> ou adicionar
+                  <code>defer</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ── Estratégia de Depuração ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">Estratégia</span> de Depuração
+        </h3>
+        <p class="text">
+          Ter um roteiro evita o debugging aleatório — aquela tentativa de mudar
+          coisas ao acaso na esperança de que funcione. Siga estes passos em
+          ordem sempre que encontrar um problema:
+        </p>
+
+        <!-- Diagrama: 7 passos -->
+        <div
+          style="
+            margin: 32px 2%;
+            background: var(--bg-elevado, #161b22);
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 32px 24px;
+          "
+        >
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                background: #0d1117;
+                border: 1px solid #30363d;
+                border-radius: 10px;
+                padding: 14px 20px;
+              "
+            >
+              <span
+                style="
+                  background: #f8516920;
+                  color: #f85169;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.8rem;
+                  font-weight: 800;
+                  padding: 4px 10px;
+                  border-radius: 6px;
+                  min-width: 32px;
+                  text-align: center;
+                "
+                >1</span
+              >
+              <div>
+                <div
+                  style="font-weight: 700; font-size: 0.9rem; color: #e6edf3"
+                >
+                  Reproduzir o problema
+                </div>
+                <div
+                  style="font-size: 0.78rem; color: #8b949e; margin-top: 2px"
+                >
+                  Garanta que consegue fazer o bug acontecer de forma
+                  consistente
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                background: #0d1117;
+                border: 1px solid #30363d;
+                border-radius: 10px;
+                padding: 14px 20px;
+              "
+            >
+              <span
+                style="
+                  background: #f8a04020;
+                  color: #f8a040;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.8rem;
+                  font-weight: 800;
+                  padding: 4px 10px;
+                  border-radius: 6px;
+                  min-width: 32px;
+                  text-align: center;
+                "
+                >2</span
+              >
+              <div>
+                <div
+                  style="font-weight: 700; font-size: 0.9rem; color: #e6edf3"
+                >
+                  Ler a mensagem de erro
+                </div>
+                <div
+                  style="font-size: 0.78rem; color: #8b949e; margin-top: 2px"
+                >
+                  Tipo do erro, mensagem e número de linha — tudo está ali
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                background: #0d1117;
+                border: 1px solid #30363d;
+                border-radius: 10px;
+                padding: 14px 20px;
+              "
+            >
+              <span
+                style="
+                  background: var(--wood, #c9a96e) 20;
+                  color: var(--wood, #c9a96e);
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.8rem;
+                  font-weight: 800;
+                  padding: 4px 10px;
+                  border-radius: 6px;
+                  min-width: 32px;
+                  text-align: center;
+                "
+                >3</span
+              >
+              <div>
+                <div
+                  style="font-weight: 700; font-size: 0.9rem; color: #e6edf3"
+                >
+                  Ir até a linha indicada
+                </div>
+                <div
+                  style="font-size: 0.78rem; color: #8b949e; margin-top: 2px"
+                >
+                  Clique no link do erro no console para abrir direto no Sources
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                background: #0d1117;
+                border: 1px solid #30363d;
+                border-radius: 10px;
+                padding: 14px 20px;
+              "
+            >
+              <span
+                style="
+                  background: #58a6ff20;
+                  color: #58a6ff;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.8rem;
+                  font-weight: 800;
+                  padding: 4px 10px;
+                  border-radius: 6px;
+                  min-width: 32px;
+                  text-align: center;
+                "
+                >4</span
+              >
+              <div>
+                <div
+                  style="font-weight: 700; font-size: 0.9rem; color: #e6edf3"
+                >
+                  Inspecionar variáveis
+                </div>
+                <div
+                  style="font-size: 0.78rem; color: #8b949e; margin-top: 2px"
+                >
+                  Use console.log ou breakpoint para ver o valor real de cada
+                  variável
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                background: #0d1117;
+                border: 1px solid #30363d;
+                border-radius: 10px;
+                padding: 14px 20px;
+              "
+            >
+              <span
+                style="
+                  background: #d2a8ff20;
+                  color: #d2a8ff;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.8rem;
+                  font-weight: 800;
+                  padding: 4px 10px;
+                  border-radius: 6px;
+                  min-width: 32px;
+                  text-align: center;
+                "
+                >5</span
+              >
+              <div>
+                <div
+                  style="font-weight: 700; font-size: 0.9rem; color: #e6edf3"
+                >
+                  Testar hipóteses
+                </div>
+                <div
+                  style="font-size: 0.78rem; color: #8b949e; margin-top: 2px"
+                >
+                  Formule "e se for X?" e valide uma hipótese de cada vez
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                background: #0d1117;
+                border: 1px solid #30363d;
+                border-radius: 10px;
+                padding: 14px 20px;
+              "
+            >
+              <span
+                style="
+                  background: #3fb95020;
+                  color: #3fb950;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.8rem;
+                  font-weight: 800;
+                  padding: 4px 10px;
+                  border-radius: 6px;
+                  min-width: 32px;
+                  text-align: center;
+                "
+                >6</span
+              >
+              <div>
+                <div
+                  style="font-weight: 700; font-size: 0.9rem; color: #e6edf3"
+                >
+                  Corrigir
+                </div>
+                <div
+                  style="font-size: 0.78rem; color: #8b949e; margin-top: 2px"
+                >
+                  Aplique a correção mínima necessária — sem mudar o que não
+                  está quebrado
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                background: #0d1117;
+                border: 2px solid #3fb950;
+                border-radius: 10px;
+                padding: 14px 20px;
+              "
+            >
+              <span
+                style="
+                  background: #3fb95030;
+                  color: #3fb950;
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.8rem;
+                  font-weight: 800;
+                  padding: 4px 10px;
+                  border-radius: 6px;
+                  min-width: 32px;
+                  text-align: center;
+                "
+                >7</span
+              >
+              <div>
+                <div
+                  style="font-weight: 700; font-size: 0.9rem; color: #3fb950"
+                >
+                  Validar novamente
+                </div>
+                <div
+                  style="font-size: 0.78rem; color: #8b949e; margin-top: 2px"
+                >
+                  Reproduza o cenário original e confirme que o bug foi
+                  resolvido
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Projeto Prático: Sistema com Bugs ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Projeto prático —
+          <span style="color: var(--wood)"
+            >Investigando um Sistema com Bugs</span
+          >
+        </h3>
+        <p class="text">
+          Vamos praticar o processo completo de debugging com um sistema
+          intencionalmente quebrado. Seu objetivo é encontrar e corrigir cada
+          erro usando as técnicas desta seção.
+        </p>
+
+        <!-- Accordeão: projeto com bugs -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">🐛</span>
+              <span class="acc-title"
+                >Código com bugs — encontre e corrija os 3 erros</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <!-- HTML com bug -->
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label">html — estrutura</span>
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre>&lt;<span class="c-prop">input</span> <span class="c-sel">id</span>=<span class="c-val">"nome"</span>&gt;
+&lt;<span class="c-prop">button</span> <span class="c-sel">id</span>=<span class="c-val">"salvar"</span>&gt;Salvar&lt;/<span class="c-prop">button</span>&gt;</pre>
+                </div>
+              </div>
+
+              <!-- JS com bugs -->
+              <div class="code-block" style="margin-top: 16px">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — código com bugs intencionais</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ❌ Bug 1: ID incorreto — "salva" em vez de "salvar"</span>
+<span class="c-sel">const</span> botao = document.<span class="c-prop">getElementById</span>(<span class="c-val">"salva"</span>);
+
+botao.<span class="c-prop">addEventListener</span>(<span class="c-val">"click"</span>, salvar);
+
+<span class="c-sel">function</span> <span class="c-prop">salvar</span>() {
+
+<span class="c-comment">// ❌ Bug 2: variável "usuario" nunca foi declarada</span>
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(usuario);
+
+}</pre>
+                </div>
+              </div>
+
+              <!-- Solução -->
+              <div class="code-block" style="margin-top: 16px">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — versão corrigida</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ✓ Correção 1: ID correto</span>
+<span class="c-sel">const</span> botao = document.<span class="c-prop">getElementById</span>(<span class="c-val">"salvar"</span>);
+
+botao.<span class="c-prop">addEventListener</span>(<span class="c-val">"click"</span>, salvar);
+
+<span class="c-sel">function</span> <span class="c-prop">salvar</span>() {
+
+<span class="c-comment">// ✓ Correção 2: lê o valor do campo</span>
+<span class="c-sel">const</span> usuario = document.<span class="c-prop">getElementById</span>(<span class="c-val">"nome"</span>).value;
+<span class="c-sel">console</span>.<span class="c-prop">log</span>(usuario);
+
+}</pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">🚀</span>
+                <span>
+                  Antes de ver a solução, tente usar as DevTools: abra o
+                  console, clique no botão e leia a mensagem de erro. O tipo
+                  <strong>TypeError</strong> em
+                  <code>botao.addEventListener</code> revela que
+                  <code>botao</code> é <code>null</code> — confirmando que o
+                  getElementById falhou. Em seguida, o
+                  <strong>ReferenceError</strong> aponta a variável
+                  <code>usuario</code> não declarada.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-tip">
+          <span class="alert-icon">🧠</span>
+          <span>
+            Debugging é uma habilidade que se afina com prática. Com o
+            <strong>console</strong>, os <strong>breakpoints</strong> e a
+            <strong>estratégia dos 7 passos</strong> no seu repertório, você
+            resolve a maioria dos bugs em minutos. O próximo nível é aprender a
+            escrever <strong>testes automatizados</strong> — que detectam
+            regressões antes mesmo de você abrir o navegador.
+          </span>
+        </div>
+      </section>
       <!-- Seção 18 — Desafio Prático       → #section-desafio     -->
 
       <!-- ══════════════════════════════════════════════════
