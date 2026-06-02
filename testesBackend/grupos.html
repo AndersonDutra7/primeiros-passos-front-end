@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divisão dos Grupos — Squads</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* ═══════════════════════════════════════════════════
+           ESTILOS GERAIS & VARIÁVEIS
+        ═══════════════════════════════════════════════════ */
+      :root {
+        --bg-body: #0b1120;
+        --bg-card: #1e293b;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --border-color: #2a4365;
+
+        /* Cores dos Grupos */
+        --alpha: #3b82f6;
+        --beta: #10b981;
+        --charlie: #d946ef;
+        --delta: #facc15;
+        --echo: #ec4899;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-body);
+        color: var(--text-main);
+        padding: 2rem 1rem;
+        line-height: 1.5;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .container h1 {
+        color: var(--text-main);
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 0.5rem;
+      }
+
+      header p {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+      }
+
+      /* ═══════════════════════════════════════════════════
+           GRID E CARDS
+        ═══════════════════════════════════════════════════ */
+      .squads-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .squad-card {
+        background-color: var(--bg-card);
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        border: 1px solid var(--border-color);
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .squad-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .squad-header {
+        padding: 1.25rem 1.5rem;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .badge {
+        /* Força o alinhamento em linha e centraliza verticalmente */
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        /* Espaçamento interno da bolinha/etiqueta */
+        padding: 0.35rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+
+        /* Cria o espaço exato de 6 pixels entre o ícone e o número */
+        gap: 6px !important;
+      }
+
+      /* Garante que o ícone não mude de linha ou herde margens estranhas */
+      .badge i {
+        display: inline-block;
+        margin: 0;
+        line-height: 1;
+      }
+
+      .squad-body {
+        padding: 1.5rem;
+      }
+
+      .member-list {
+        list-style: none;
+      }
+
+      .member-item {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        color: var(--text-main);
+      }
+
+      .member-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .member-item:first-child {
+        padding-top: 0;
+      }
+
+      /* Ícone simples antes do nome */
+      .member-item::before {
+        content: '';
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-right: 12px;
+        background-color: #cbd5e1;
+        flex-shrink: 0;
+      }
+
+      /* Cores customizadas por classe do card */
+      .card-alpha .squad-header {
+        background-color: var(--alpha);
+      }
+      .card-alpha .member-item::before {
+        background-color: var(--alpha);
+      }
+
+      .card-beta .squad-header {
+        background-color: var(--beta);
+      }
+      .card-beta .member-item::before {
+        background-color: var(--beta);
+      }
+
+      .card-charlie .squad-header {
+        background-color: var(--charlie);
+      }
+      .card-charlie .member-item::before {
+        background-color: var(--charlie);
+      }
+
+      .card-delta .squad-header {
+        background-color: var(--delta);
+      }
+      .card-delta .member-item::before {
+        background-color: var(--delta);
+      }
+
+      .card-echo .squad-header {
+        background-color: var(--echo);
+      }
+      .card-echo .member-item::before {
+        background-color: var(--echo);
+      }
+
+      .squad-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 1.5rem;
+      }
+
+      .squad-title {
+        display: block;
+        font-weight: 700;
+        font-size: 1.25rem;
+      }
+
+      .system-name {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 0.2rem;
+      }
+
+      /* Responsividade*/
+      @media (max-width: 640px) {
+        header h1 {
+          font-size: 2rem;
+        }
+        body {
+          padding: 1rem 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Formação dos Squads</h1>
+        <p>Grupos sorteados para o projeto</p>
+      </header>
+
+      <main class="squads-grid">
+        <div class="squad-card card-alpha">
+          <div class="squad-header">
+            <div>
+              <span class="squad-title">Squad Alpha</span>
+              <span class="system-name"
+                >Sistema de Gerenciamento de <br />Usuários e Perfis</span
+              >
+            </div>
+
+            <span class="badge"> 4 <i class="fas fa-users"></i> </span>
+          </div>
+
+          <div class="squad-body">
+            <ul class="member-list">
+              <li class="member-item">Adriel Alves Ferreira de Souza</li>
+              <li class="member-item">Anna Clara Souza Ludwig</li>
+              <li class="member-item">Eduardo Nienkotter Marcelino</li>
+              <li class="member-item">Leonardo Victor Müller de Morais</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="squad-card card-beta">
+          <div class="squad-header">
+            <div>
+              <span class="squad-title">Squad Beta</span>
+              <span class="system-name"
+                >Sistema de Agendamento de <br />Consultas Médicas</span
+              >
+            </div>
+
+            <span class="badge"> 4 <i class="fas fa-users"></i> </span>
+          </div>
+          <div class="squad-body">
+            <ul class="member-list">
+              <li class="member-item">André Gustavo Secco Netto</li>
+              <li class="member-item">Hudson Odésio Da Rosa</li>
+              <li class="member-item">Leonardo Pereira Cabral Cunha</li>
+              <li class="member-item">Samuel Morais do Nascimento</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="squad-card card-charlie">
+          <div class="squad-header">
+            <div>
+              <span class="squad-title">Squad Charlie</span>
+              <span class="system-name"
+                >Sistema de Controle de <br />Estoque e Inventário</span
+              >
+            </div>
+
+            <span class="badge"> 4 <i class="fas fa-users"></i> </span>
+          </div>
+          <div class="squad-body">
+            <ul class="member-list">
+              <li class="member-item">Ana Carolina Medina Kormann</li>
+              <li class="member-item">Laura Abreu de Oliveira</li>
+              <li class="member-item">Pedro Pedro Henrique de Brito Caraça</li>
+              <li class="member-item">Paulo Florindo Machado</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="squad-card card-delta">
+          <div class="squad-header">
+            <div>
+              <span class="squad-title">Squad Delta</span>
+              <span class="system-name"
+                >Sistema de Gestão <br />Financeira Pessoal</span
+              >
+            </div>
+
+            <span class="badge"> 3 <i class="fas fa-users"></i> </span>
+          </div>
+          <div class="squad-body">
+            <ul class="member-list">
+              <li class="member-item">Lucas de Alencar Melo Fonseca</li>
+              <li class="member-item">Luiza Scarparo Landim</li>
+              <li class="member-item">Santiago Alejandro Vallée Moreno</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="squad-card card-echo">
+          <div class="squad-header">
+            <div>
+              <span class="squad-title">Squad Echo</span>
+              <span class="system-name"
+                >Sistema de Biblioteca <br />Digital e Acervo</span
+              >
+            </div>
+
+            <span class="badge"> 3 <i class="fas fa-users"></i> </span>
+          </div>
+          <div class="squad-body">
+            <ul class="member-list">
+              <li class="member-item">Carlos Henrique Ramos</li>
+              <li class="member-item">Érik Crestani Bueno</li>
+              <li class="member-item">Luís Antonio de Morais</li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

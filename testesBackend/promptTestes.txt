@@ -208,3 +208,5 @@ Equipes criam:
 Objetivos do teste.
 Escopo.
 Estratégia. Entrega parcial.
+
+Aula 3 — Testes de API, Coleções e Automação de Contratos (Postman / Bruno)O que ensinar: Consumo de APIs sob a ótica de QA. Status Codes semânticos, isolamento de rotas e manipulação de variáveis de ambiente. Scripts JavaScript internos para automação de testes de contrato (validação de schemas JSON) e performance ($<200\text{ms}$).Desafio Prático: Os Squads estruturam suas collections, criam scripts de validação automatizada para as respostas das requisições e mapeiam os fluxos críticos de ponta a ponta.Aula 4 — Auditoria Cruzada (Peer Review) e Banca de DefesaO que ensinar: Engenharia de qualidade na prática de mercado. Processos de auditoria, reporte técnico de bugs (Issues) e defesa de arquitetura.Desafio Prático (O Caos): Auditoria Cruzada. O Squad Alpha recebe a documentação e as coleções de teste do Squad Beta com a missão de encontrar furos, cenários omitidos ou falhas de validação. No final, cada grupo faz uma defesa técnica do seu projeto e apresenta o relatório de melhorias encontradas no projeto do colega.
