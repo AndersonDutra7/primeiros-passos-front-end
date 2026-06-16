@@ -1556,4 +1556,1135 @@
   </body>
 </html>
 
-      
+            <!-- ══════════════════════════════════════════════════
+     SEÇÃO 02 — COMO CONECTAR JAVASCRIPT
+══════════════════════════════════════════════════ -->
+      <section
+        class="content-section"
+        id="section-conectar"
+        style="background: var(--bg)"
+      >
+        <div
+          class="cover"
+          style="
+            padding: 0;
+            min-height: auto;
+            background: transparent;
+            margin-bottom: 40px;
+            box-shadow: none;
+          "
+        >
+          <div class="cover-text">
+            <div class="section-tag">Seção 02</div>
+            <h2
+              style="
+                font-size: clamp(2.5rem, 4vw, 3.5rem);
+                line-height: 1.1;
+                margin-bottom: 1rem;
+                color: var(--ink);
+                font-family: 'Fraunces', serif;
+              "
+            >
+              Como conectar<br />
+              <span style="color: var(--wood)">JavaScript</span>
+            </h2>
+            <p
+              class="cover-subtitle"
+              style="font-size: 1.1rem; line-height: 1.6"
+            >
+              Antes de escrever uma linha de código, você precisa saber
+              <strong>como o navegador carrega o JavaScript</strong>. A forma
+              como você inclui o <code>&lt;script&gt;</code> na página determina
+              a ordem de execução, o desempenho e até se o código vai funcionar
+              corretamente — ou não.
+            </p>
+          </div>
+          <div class="nc-right">
+            <div class="nc-glow"></div>
+            <img
+              src="https://andersondutra7.github.io/Projetos-WEB/imagensWeb/primeiros-passos-front-end/js03.png"
+              alt="Como conectar JavaScript"
+              onerror="this.style.display='none';"
+              style="
+                width: 640px;
+                height: 700px;
+                object-fit: cover;
+                object-position: center;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+                  0 0 20px rgba(201, 169, 110, 0.2);
+                border: 1px solid rgba(201, 169, 110, 0.3);
+                transition: transform 0.3s ease;
+              "
+            />
+          </div>
+        </div>
+
+        <!-- ── As três formas ── -->
+        <h3 class="subtitle">
+          As <span style="color: var(--wood)">três formas</span> de incluir
+          JavaScript
+        </h3>
+        <p class="text">
+          Existem três maneiras de conectar JavaScript a um documento HTML. Cada
+          uma tem seu caso de uso — mas na prática profissional,
+          <strong>uma delas domina</strong>:
+        </p>
+
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+          "
+        >
+          <div class="msg-card git-gold">
+            <div class="msg-badge">Inline</div>
+            <div class="msg-title">Diretamente no elemento</div>
+            <div class="msg-desc">
+              Código JS escrito dentro de atributos do HTML como
+              <code>onclick="..."</code>. Mistura estrutura e comportamento no
+              mesmo lugar — <strong>evite sempre que possível</strong>.
+              Dificulta manutenção e impede reutilização.
+            </div>
+          </div>
+
+          <div class="msg-card git-blue">
+            <div class="msg-badge">Interno</div>
+            <div class="msg-title">Dentro da tag &lt;script&gt;</div>
+            <div class="msg-desc">
+              Código JS escrito diretamente no HTML, entre tags
+              <code>&lt;script&gt;&lt;/script&gt;</code>. Útil para
+              <strong>scripts pequenos e específicos de uma página</strong>. Não
+              é reutilizável em outros arquivos.
+            </div>
+          </div>
+
+          <div class="msg-card git-green">
+            <div class="msg-badge">Externo ✅</div>
+            <div class="msg-title">Arquivo .js separado</div>
+            <div class="msg-desc">
+              O código fica em um arquivo <code>.js</code> independente,
+              referenciado pelo atributo <code>src</code>. É a
+              <strong>abordagem profissional</strong>: separa responsabilidades,
+              permite cache do navegador e reutilização em múltiplas páginas.
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparação visual: as três formas de incluir JS -->
+        <div
+          style="
+            margin: 32px 2%;
+            background: var(--bg-elevado, #161b22);
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            overflow: hidden;
+          "
+        >
+          <!-- Header do bloco -->
+          <div
+            style="
+              padding: 14px 24px;
+              border-bottom: 1px solid #30363d;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              background: #0d1117;
+            "
+          >
+            <div style="display: flex; gap: 6px">
+              <span
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50%;
+                  background: #f85149;
+                  display: block;
+                "
+              ></span>
+              <span
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50%;
+                  background: #e3b341;
+                  display: block;
+                "
+              ></span>
+              <span
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50%;
+                  background: #3fb950;
+                  display: block;
+                "
+              ></span>
+            </div>
+            <span
+              style="
+                font-size: 0.75rem;
+                color: #8b949e;
+                font-family: 'JetBrains Mono', monospace;
+                letter-spacing: 0.04em;
+              "
+              >comparação visual — as três formas de incluir JS</span
+            >
+          </div>
+
+          <!-- Linha Inline (❌) -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 110px 1fr;
+              align-items: stretch;
+              border-bottom: 1px solid #30363d;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                background: #f8514912;
+                border-right: 1px solid #30363d;
+                padding: 16px 12px;
+              "
+            >
+              <span style="font-size: 1rem">❌</span>
+              <span
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  letter-spacing: 0.12em;
+                  text-transform: uppercase;
+                  color: #f85149;
+                  font-family: 'JetBrains Mono', monospace;
+                  text-align: center;
+                "
+                >Inline</span
+              >
+            </div>
+            <div
+              style="
+                padding: 16px 24px;
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.85rem;
+                line-height: 1.6;
+                display: flex;
+                align-items: center;
+              "
+            >
+              <code>
+                <span style="color: #f85149">&lt;button</span>
+                <span style="color: #79c0ff"> onclick</span
+                ><span style="color: #e6edf3">=</span
+                ><span style="color: #a5d6ff">"alert('oi')"</span>
+                <span style="color: #f85149">&gt;</span
+                ><span style="color: #e6edf3">Clique</span
+                ><span style="color: #f85149">&lt;/button&gt;</span>
+              </code>
+            </div>
+          </div>
+
+          <!-- Linha Interno (🟡) -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 110px 1fr;
+              align-items: stretch;
+              border-bottom: 1px solid #30363d;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                background: #e3b34112;
+                border-right: 1px solid #30363d;
+                padding: 16px 12px;
+              "
+            >
+              <span style="font-size: 1rem">🟡</span>
+              <span
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  letter-spacing: 0.12em;
+                  text-transform: uppercase;
+                  color: #e3b341;
+                  font-family: 'JetBrains Mono', monospace;
+                  text-align: center;
+                "
+                >Interno</span
+              >
+            </div>
+            <div
+              style="
+                padding: 16px 24px;
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.85rem;
+                line-height: 1.6;
+                display: flex;
+                align-items: center;
+              "
+            >
+              <code>
+                <span style="color: #e3b341">&lt;script&gt;</span>
+                <span style="color: #ff7b72"> const </span
+                ><span style="color: #e6edf3">x </span
+                ><span style="color: #ff7b72">=</span
+                ><span style="color: #a5d6ff"> 1</span
+                ><span style="color: #e6edf3">;</span>
+                <span style="color: #e3b341">&lt;/script&gt;</span>
+              </code>
+            </div>
+          </div>
+
+          <!-- Linha Externo (✅) -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 110px 1fr;
+              align-items: stretch;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                background: #c9a96e12;
+                border-right: 1px solid #30363d;
+                padding: 16px 12px;
+              "
+            >
+              <span style="font-size: 1rem">✅</span>
+              <span
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  letter-spacing: 0.12em;
+                  text-transform: uppercase;
+                  color: var(--wood, #c9a96e);
+                  font-family: 'JetBrains Mono', monospace;
+                  text-align: center;
+                "
+                >Externo</span
+              >
+            </div>
+            <div
+              style="
+                padding: 16px 24px;
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.85rem;
+                line-height: 1.6;
+                display: flex;
+                align-items: center;
+              "
+            >
+              <code>
+                <span style="color: var(--wood, #c9a96e)">&lt;script</span>
+                <span style="color: #79c0ff"> src</span
+                ><span style="color: #e6edf3">=</span
+                ><span style="color: #a5d6ff">"script.js"</span>
+                <span style="color: #79c0ff"> defer</span>
+                <span style="color: var(--wood, #c9a96e)"
+                  >&gt;&lt;/script&gt;</span
+                >
+              </code>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Onde posicionar o script ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Onde <span style="color: var(--wood)">posicionar</span> o
+          &lt;script&gt;
+        </h3>
+        <p class="text">
+          A posição do <code>&lt;script&gt;</code> no HTML tem impacto direto na
+          <strong>ordem de carregamento</strong> e na experiência do usuário. O
+          navegador processa o HTML de cima para baixo — e para tudo quando
+          encontra um <code>&lt;script&gt;</code> sem atributos especiais:
+        </p>
+
+        <!-- Diagrama de posicionamento -->
+        <div
+          style="
+            margin: 32px 2%;
+            background: var(--bg-elevado, #161b22);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            overflow: hidden;
+          "
+        >
+          <!-- Head -->
+          <div
+            style="
+              padding: 16px 24px;
+              border-bottom: 1px solid #30363d;
+              display: flex;
+              align-items: center;
+              gap: 12px;
+            "
+          >
+            <div
+              style="
+                font-family: monospace;
+                color: #8b949e;
+                font-size: 0.85rem;
+                min-width: 100px;
+              "
+            >
+              &lt;head&gt;
+            </div>
+            <div
+              style="
+                flex: 1;
+                background: #f8514915;
+                border: 1px dashed #f8514966;
+                border-radius: 6px;
+                padding: 10px 14px;
+                font-size: 0.85rem;
+                color: #f85149;
+              "
+            >
+              ⚠️ <code>&lt;script src="..."&gt;&lt;/script&gt;</code>
+              <span style="color: #8b949e; margin-left: 8px"
+                >— bloqueia o HTML antes de renderizar</span
+              >
+            </div>
+          </div>
+
+          <!-- Body content -->
+          <div
+            style="
+              padding: 16px 24px;
+              border-bottom: 1px solid #30363d;
+              display: flex;
+              align-items: center;
+              gap: 12px;
+            "
+          >
+            <div
+              style="
+                font-family: monospace;
+                color: #8b949e;
+                font-size: 0.85rem;
+                min-width: 100px;
+              "
+            >
+              &lt;body&gt;
+            </div>
+            <div
+              style="
+                flex: 1;
+                background: #161b22;
+                border: 1px solid #30363d;
+                border-radius: 6px;
+                padding: 10px 14px;
+                font-size: 0.85rem;
+                color: #8b949e;
+              "
+            >
+              … conteúdo da página (HTML) …
+            </div>
+          </div>
+
+          <!-- End of body -->
+          <div
+            style="
+              padding: 16px 24px;
+              display: flex;
+              align-items: center;
+              gap: 12px;
+            "
+          >
+            <div
+              style="
+                font-family: monospace;
+                color: #8b949e;
+                font-size: 0.85rem;
+                min-width: 100px;
+              "
+            >
+              &lt;/body&gt;
+            </div>
+            <div
+              style="
+                flex: 1;
+                background: #3fb95015;
+                border: 1px dashed #3fb95066;
+                border-radius: 6px;
+                padding: 10px 14px;
+                font-size: 0.85rem;
+                color: #3fb950;
+              "
+            >
+              ✅ <code>&lt;script src="..."&gt;&lt;/script&gt;</code>
+              <span style="color: #8b949e; margin-left: 8px"
+                >— HTML já carregou, DOM disponível</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-tip">
+          <span class="alert-icon">💡</span>
+          <span>
+            Colocar o <code>&lt;script&gt;</code> antes do
+            <code>&lt;/body&gt;</code> era a solução clássica para garantir que
+            o DOM estivesse pronto. Hoje, os atributos <code>defer</code> e
+            <code>async</code> permitem manter o script no
+            <code>&lt;head&gt;</code>
+            <strong>sem bloquear o carregamento</strong>
+            — e com controle total sobre a ordem de execução.
+          </span>
+        </div>
+
+        <!-- ── defer e async ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          <span style="color: var(--wood)">defer</span> e
+          <span style="color: var(--wood)">async</span> — o carregamento
+          inteligente
+        </h3>
+        <p class="text">
+          Esses dois atributos mudam <strong>como e quando</strong> o script é
+          baixado e executado em relação ao parsing do HTML. Entender a
+          diferença é fundamental para escrever páginas performáticas:
+        </p>
+
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+          "
+        >
+          <div class="msg-card git-green">
+            <div class="msg-badge">defer ✅ recomendado</div>
+            <div class="msg-title">Baixa em paralelo, executa depois</div>
+            <div class="msg-desc">
+              O script é <strong>baixado em paralelo</strong> com o parsing do
+              HTML, mas só executa depois que o documento inteiro foi lido. A
+              <strong>ordem entre múltiplos scripts é preservada</strong>. Use
+              sempre que o script precisar acessar o DOM ou depender de outro
+              script.
+            </div>
+          </div>
+
+          <div class="msg-card git-gold">
+            <div class="msg-badge">async — use com cuidado</div>
+            <div class="msg-title">
+              Baixa em paralelo, executa imediatamente
+            </div>
+            <div class="msg-desc">
+              O script é baixado em paralelo, mas executa
+              <strong>assim que termina o download</strong> — interrompendo o
+              HTML se necessário. A <strong>ordem não é garantida</strong>.
+              Ideal apenas para scripts totalmente independentes, como analytics
+              e tracking.
+            </div>
+          </div>
+        </div>
+
+        <!-- Diagrama visual defer vs async -->
+        <div
+          style="
+            margin: 8px 2% 32px;
+            background: var(--bg-elevado, #161b22);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+          "
+        >
+          <div
+            style="
+              font-size: 0.75rem;
+              font-weight: 700;
+              letter-spacing: 0.08em;
+              color: #8b949e;
+              text-transform: uppercase;
+              margin-bottom: 20px;
+            "
+          >
+            Linha do tempo de carregamento
+          </div>
+
+          <!-- Normal (blocking) -->
+          <div style="margin-bottom: 20px">
+            <div
+              style="
+                font-size: 0.8rem;
+                color: #f85149;
+                font-weight: 600;
+                margin-bottom: 6px;
+              "
+            >
+              sem atributo — bloqueante
+            </div>
+            <div
+              style="display: flex; gap: 4px; align-items: center; height: 28px"
+            >
+              <div
+                style="
+                  flex: 2;
+                  background: #30363d;
+                  border-radius: 4px;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.75rem;
+                  color: #8b949e;
+                "
+              >
+                HTML parse
+              </div>
+              <div
+                style="
+                  width: 8px;
+                  height: 100%;
+                  background: #f85149;
+                  border-radius: 2px;
+                "
+              ></div>
+              <div
+                style="
+                  flex: 1;
+                  background: #f8514930;
+                  border-radius: 4px;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.75rem;
+                  color: #f85149;
+                "
+              >
+                ⏸ download
+              </div>
+              <div
+                style="
+                  flex: 0.5;
+                  background: #f8514950;
+                  border-radius: 4px;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.75rem;
+                  color: #f85149;
+                "
+              >
+                exec
+              </div>
+              <div
+                style="
+                  flex: 1;
+                  background: #30363d;
+                  border-radius: 4px;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.75rem;
+                  color: #8b949e;
+                "
+              >
+                HTML resume
+              </div>
+            </div>
+          </div>
+
+          <!-- defer -->
+          <div style="margin-bottom: 20px">
+            <div
+              style="
+                font-size: 0.8rem;
+                color: #3fb950;
+                font-weight: 600;
+                margin-bottom: 6px;
+              "
+            >
+              defer — baixa em paralelo, executa no fim
+            </div>
+            <div
+              style="display: flex; gap: 4px; align-items: center; height: 28px"
+            >
+              <div
+                style="
+                  flex: 3;
+                  background: #30363d;
+                  border-radius: 4px;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.75rem;
+                  color: #8b949e;
+                "
+              >
+                HTML parse (contínuo)
+              </div>
+              <div
+                style="
+                  flex: 0.5;
+                  background: #3fb95050;
+                  border-radius: 4px;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.75rem;
+                  color: #3fb950;
+                "
+              >
+                exec
+              </div>
+            </div>
+            <div
+              style="
+                margin-top: 4px;
+                display: flex;
+                gap: 4px;
+                align-items: center;
+                height: 16px;
+              "
+            >
+              <div style="width: 2px; background: transparent"></div>
+              <div
+                style="
+                  flex: 2;
+                  background: #3fb95020;
+                  border-radius: 4px;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  padding: 0 8px;
+                  font-size: 0.7rem;
+                  color: #3fb950;
+                "
+              >
+                ⬇ download em paralelo
+              </div>
+            </div>
+          </div>
+
+          <!-- async -->
+          <div>
+            <div
+              style="
+                font-size: 0.8rem;
+                color: var(--wood, #c9a96e);
+                font-weight: 600;
+                margin-bottom: 6px;
+              "
+            >
+              async — baixa em paralelo, executa imediatamente ao terminar
+            </div>
+            <div
+              style="display: flex; gap: 4px; align-items: center; height: 28px"
+            >
+              <div
+                style="
+                  flex: 1.5;
+                  background: #30363d;
+                  border-radius: 4px;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.75rem;
+                  color: #8b949e;
+                "
+              >
+                HTML parse
+              </div>
+              <div
+                style="
+                  width: 8px;
+                  height: 100%;
+                  background: var(--wood, #c9a96e);
+                  border-radius: 2px;
+                  opacity: 0.6;
+                "
+              ></div>
+              <div
+                style="
+                  flex: 0.5;
+                  background: #c9a96e50;
+                  border-radius: 4px;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.75rem;
+                  color: var(--wood, #c9a96e);
+                "
+              >
+                exec
+              </div>
+              <div
+                style="
+                  flex: 1;
+                  background: #30363d;
+                  border-radius: 4px;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.75rem;
+                  color: #8b949e;
+                "
+              >
+                HTML resume
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Tabela comparativa ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Comparativo <span style="color: var(--wood)">completo</span>
+        </h3>
+        <p class="text">
+          A tabela abaixo resume o comportamento de cada forma de incluir um
+          script — da mais simples à mais recomendada para produção:
+        </p>
+
+        <div style="padding: 0 2%; overflow-x: auto; margin-bottom: 24px">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Forma</th>
+                <th>Download</th>
+                <th>Execução</th>
+                <th>Acessa DOM?</th>
+                <th>Ordem garantida?</th>
+                <th>Quando usar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>&lt;script&gt;</code> no &lt;head&gt;</td>
+                <td>Bloqueia HTML</td>
+                <td>Imediata</td>
+                <td>❌ DOM incompleto</td>
+                <td>✅ Sim</td>
+                <td>Evitar</td>
+              </tr>
+              <tr>
+                <td><code>&lt;script&gt;</code> no &lt;/body&gt;</td>
+                <td>Após HTML</td>
+                <td>Sequencial</td>
+                <td>✅ Sim</td>
+                <td>✅ Sim</td>
+                <td>Legado / simples</td>
+              </tr>
+              <tr>
+                <td><code>defer</code></td>
+                <td>Paralelo</td>
+                <td>Após HTML pronto</td>
+                <td>✅ Sim</td>
+                <td>✅ Sim</td>
+                <td><strong>✅ Padrão recomendado</strong></td>
+              </tr>
+              <tr>
+                <td><code>async</code></td>
+                <td>Paralelo</td>
+                <td>Imediata (ao terminar)</td>
+                <td>⚠️ Pode não estar pronto</td>
+                <td>❌ Não</td>
+                <td>Analytics, scripts independentes</td>
+              </tr>
+              <tr>
+                <td>Inline <code>&lt;script&gt;</code></td>
+                <td>Sem download</td>
+                <td>Imediata (bloqueia)</td>
+                <td>⚠️ Depende da posição</td>
+                <td>✅ Sim</td>
+                <td>Configurações mínimas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ── Acordeão: exemplos de código ── -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">🔗</span>
+              <span class="acc-title"
+                >Exemplos — todas as formas de incluir JavaScript</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >html — as três formas de incluir JavaScript</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">&lt;!-- ❌ 1. Inline — evitar --&gt;</span>
+<span class="c-val">&lt;button</span> <span class="c-prop">onclick</span>=<span class="c-val">"alert('Evite isso!')"</span><span class="c-val">&gt;</span>Clique<span class="c-val">&lt;/button&gt;</span>
+
+<span class="c-comment">&lt;!-- 🟡 2. Interno — para scripts pequenos e únicos --&gt;</span>
+<span class="c-val">&lt;script&gt;</span>
+  <span class="c-sel">const</span> titulo = document.<span class="c-prop">querySelector</span>(<span class="c-val">'h1'</span>);
+  titulo.<span class="c-prop">textContent</span> = <span class="c-val">'Olá, JavaScript!'</span>;
+<span class="c-val">&lt;/script&gt;</span>
+
+<span class="c-comment">&lt;!-- ✅ 3. Externo com defer — padrão recomendado --&gt;</span>
+<span class="c-val">&lt;script</span> <span class="c-prop">src</span>=<span class="c-val">"script.js"</span> <span class="c-prop">defer</span><span class="c-val">&gt;&lt;/script&gt;</span>
+
+<span class="c-comment">&lt;!-- Múltiplos scripts com defer: ordem garantida --&gt;</span>
+<span class="c-val">&lt;script</span> <span class="c-prop">src</span>=<span class="c-val">"utils.js"</span>   <span class="c-prop">defer</span><span class="c-val">&gt;&lt;/script&gt;</span>  <span class="c-comment">&lt;!-- executa 1º --&gt;</span>
+<span class="c-val">&lt;script</span> <span class="c-prop">src</span>=<span class="c-val">"app.js"</span>     <span class="c-prop">defer</span><span class="c-val">&gt;&lt;/script&gt;</span>  <span class="c-comment">&lt;!-- executa 2º --&gt;</span>
+<span class="c-val">&lt;script</span> <span class="c-prop">src</span>=<span class="c-val">"main.js"</span>    <span class="c-prop">defer</span><span class="c-val">&gt;&lt;/script&gt;</span>  <span class="c-comment">&lt;!-- executa 3º --&gt;</span>
+
+<span class="c-comment">&lt;!-- async: para scripts totalmente independentes --&gt;</span>
+<span class="c-val">&lt;script</span> <span class="c-prop">src</span>=<span class="c-val">"analytics.js"</span> <span class="c-prop">async</span><span class="c-val">&gt;&lt;/script&gt;</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Estrutura de arquivos ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Estrutura de
+          <span style="color: var(--wood)">arquivos</span> recomendada
+        </h3>
+        <p class="text">
+          Com scripts externos, a organização dos arquivos passa a importar. Uma
+          estrutura clara facilita manutenção e escalabilidade do projeto:
+        </p>
+
+        <!-- Componente: árvore de arquivos -->
+        <div
+          style="
+            margin: 24px 2%;
+            background: var(--bg-elevado, #161b22);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            line-height: 2;
+          "
+        >
+          <div style="color: #8b949e; margin-bottom: 4px">📁 meu-projeto/</div>
+          <div style="padding-left: 20px; color: #8b949e">
+            ├── 📄 <span style="color: #e6edf3">index.html</span>
+          </div>
+          <div style="padding-left: 20px; color: #8b949e">├── 📁 css/</div>
+          <div style="padding-left: 40px; color: #8b949e">
+            │ └── 📄 <span style="color: #58a6ff">style.css</span>
+          </div>
+          <div style="padding-left: 20px; color: #8b949e">└── 📁 js/</div>
+          <div style="padding-left: 40px; color: #8b949e">
+            ├── 📄 <span style="color: var(--wood, #c9a96e)">utils.js</span>
+            <span style="color: #30363d">← funções auxiliares</span>
+          </div>
+          <div style="padding-left: 40px; color: #8b949e">
+            ├── 📄
+            <span style="color: var(--wood, #c9a96e)">components.js</span>
+            <span style="color: #30363d">← componentes de UI</span>
+          </div>
+          <div style="padding-left: 40px; color: #8b949e">
+            └── 📄 <span style="color: var(--wood, #c9a96e)">main.js</span>
+            <span style="color: #30363d"
+              >← ponto de entrada ← carregado por último</span
+            >
+          </div>
+        </div>
+
+        <!-- ── Acordeão: HTML completo com boas práticas ── -->
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">📐</span>
+              <span class="acc-title"
+                >Exemplo completo — HTML com scripts externos e defer</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >index.html — estrutura completa com scripts externos</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-val">&lt;!DOCTYPE html&gt;</span>
+<span class="c-val">&lt;html</span> <span class="c-prop">lang</span>=<span class="c-val">"pt-BR"</span><span class="c-val">&gt;</span>
+<span class="c-val">&lt;head&gt;</span>
+  <span class="c-val">&lt;meta</span> <span class="c-prop">charset</span>=<span class="c-val">"UTF-8"</span><span class="c-val">&gt;</span>
+  <span class="c-val">&lt;meta</span> <span class="c-prop">name</span>=<span class="c-val">"viewport"</span> <span class="c-prop">content</span>=<span class="c-val">"width=device-width, initial-scale=1.0"</span><span class="c-val">&gt;</span>
+  <span class="c-val">&lt;title&gt;</span>Meu Projeto<span class="c-val">&lt;/title&gt;</span>
+
+  <span class="c-comment">&lt;!-- CSS: sem defer, carrega normalmente --&gt;</span>
+  <span class="c-val">&lt;link</span> <span class="c-prop">rel</span>=<span class="c-val">"stylesheet"</span> <span class="c-prop">href</span>=<span class="c-val">"css/style.css"</span><span class="c-val">&gt;</span>
+
+  <span class="c-comment">&lt;!-- JS com defer: baixa em paralelo, executa na ordem --&gt;</span>
+  <span class="c-val">&lt;script</span> <span class="c-prop">src</span>=<span class="c-val">"js/utils.js"</span>      <span class="c-prop">defer</span><span class="c-val">&gt;&lt;/script&gt;</span>
+  <span class="c-val">&lt;script</span> <span class="c-prop">src</span>=<span class="c-val">"js/components.js"</span> <span class="c-prop">defer</span><span class="c-val">&gt;&lt;/script&gt;</span>
+  <span class="c-val">&lt;script</span> <span class="c-prop">src</span>=<span class="c-val">"js/main.js"</span>       <span class="c-prop">defer</span><span class="c-val">&gt;&lt;/script&gt;</span>
+
+  <span class="c-comment">&lt;!-- Analytics: independente, pode usar async --&gt;</span>
+  <span class="c-val">&lt;script</span> <span class="c-prop">src</span>=<span class="c-val">"js/analytics.js"</span>  <span class="c-prop">async</span><span class="c-val">&gt;&lt;/script&gt;</span>
+<span class="c-val">&lt;/head&gt;</span>
+<span class="c-val">&lt;body&gt;</span>
+
+  <span class="c-val">&lt;h1&gt;</span>Olá, mundo!<span class="c-val">&lt;/h1&gt;</span>
+  <span class="c-val">&lt;button</span> <span class="c-prop">id</span>=<span class="c-val">"btn"</span><span class="c-val">&gt;</span>Clique aqui<span class="c-val">&lt;/button&gt;</span>
+
+<span class="c-val">&lt;/body&gt;</span>
+<span class="c-val">&lt;/html&gt;</span></pre>
+                </div>
+              </div>
+
+              <div class="alert alert-tip" style="margin-top: 24px">
+                <span class="alert-icon">💡</span>
+                <span>
+                  Com <code>defer</code>, os scripts ficam no
+                  <code>&lt;head&gt;</code> mas o HTML não é bloqueado. O
+                  navegador baixa todos os arquivos <code>.js</code> em paralelo
+                  enquanto lê o HTML, e só executa cada script — na ordem
+                  declarada — após o documento estar completamente parseado. É o
+                  <strong>melhor dos dois mundos</strong>.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Performance ── -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          Impacto na <span style="color: var(--wood)">performance</span>
+        </h3>
+        <p class="text">
+          A forma como você carrega JavaScript afeta diretamente o tempo que o
+          usuário espera para ver e interagir com a página. As métricas do
+          navegador mais impactadas são:
+        </p>
+
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+          "
+        >
+          <div class="msg-card git-gold">
+            <div class="msg-badge">FCP — First Contentful Paint</div>
+            <div class="msg-title">Tempo até o primeiro conteúdo</div>
+            <div class="msg-desc">
+              Scripts bloqueantes no <code>&lt;head&gt;</code> atrasam o FCP — o
+              navegador para de renderizar até terminar de baixar e executar o
+              JS. Com <code>defer</code>, o HTML renderiza normalmente e o FCP
+              melhora de forma significativa.
+            </div>
+          </div>
+
+          <div class="msg-card git-blue">
+            <div class="msg-badge">TTI — Time to Interactive</div>
+            <div class="msg-title">Tempo até a página responder</div>
+            <div class="msg-desc">
+              O TTI mede quando a página está pronta para interação.
+              <code>defer</code> garante que o JS executa só quando o DOM está
+              pronto, evitando erros de elemento não encontrado e tornando a
+              <strong>inicialização mais previsível</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 0 2%; overflow-x: auto; margin-bottom: 24px">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Prática</th>
+                <th>Impacto</th>
+                <th>Recomendação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Script bloqueante no &lt;head&gt;</td>
+                <td>Atrasa renderização inteira</td>
+                <td>❌ Evitar</td>
+              </tr>
+              <tr>
+                <td>Script no final do &lt;body&gt;</td>
+                <td>HTML renderiza antes, mas download é tardio</td>
+                <td>🟡 Aceitável</td>
+              </tr>
+              <tr>
+                <td><code>defer</code> no &lt;head&gt;</td>
+                <td>Download paralelo + execução ordenada após HTML</td>
+                <td>✅ Padrão recomendado</td>
+              </tr>
+              <tr>
+                <td><code>async</code> para scripts independentes</td>
+                <td>Download paralelo + execução não bloqueante</td>
+                <td>✅ Para analytics e afins</td>
+              </tr>
+              <tr>
+                <td>Dividir em múltiplos arquivos pequenos</td>
+                <td>Cache granular + downloads paralelos</td>
+                <td>✅ Em produção com bundler</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="alert alert-tip">
+          <span class="alert-icon">🚀</span>
+          <span>
+            A regra de ouro: use
+            <code>&lt;script src="..." defer&gt;&lt;/script&gt;</code> no
+            <code>&lt;head&gt;</code> para todos os scripts da sua aplicação.
+            Reserve <code>async</code> apenas para scripts que
+            <strong
+              >não dependem do DOM e não dependem de outros scripts</strong
+            >
+            — como pixels de rastreamento e ferramentas de analytics.
+          </span>
+        </div>
+      </section>

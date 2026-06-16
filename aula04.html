@@ -2569,15 +2569,18 @@
           </table>
         </div>
 
-        <!-- ── O papel do JavaScript ── -->
+        <!-- ── O Ecossistema Navegador ── -->
         <h3 class="subtitle" style="margin-top: 40px">
-          O <span style="color: var(--wood)">papel</span> do JavaScript
+          O Ecossistema do Navegador:
+          <span style="color: var(--wood)">A Dinâmica do Front-end</span>
         </h3>
         <p class="text">
-          No front-end, JavaScript é responsável por tudo que
-          <strong>muda e reage</strong>
-          na página. Sem ele, os sites seriam documentos estáticos — como livros
-          digitais. Com ele, tornam-se aplicações:
+          No ambiente do navegador, o JavaScript atua como a engrenagem viva da
+          interface, sendo o único responsável por tudo que muda, responde e
+          reage na tela em tempo real. Sem ele, a web seria composta apenas por
+          documentos estruturais estáticos — semelhantes a livros digitais
+          fixos. Com a sua execução, essas páginas se transformam em aplicações
+          interativas e altamente responsivas:
         </p>
 
         <div
@@ -2697,6 +2700,292 @@ botao.<span class="c-prop">addEventListener</span>(<span class="c-val">'click'</
                   <strong>modelo mental correto</strong>
                   para pensar em desenvolvimento web.
                 </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ecosistema de Terminal -->
+        <h3 class="subtitle" style="margin-top: 40px">
+          O Ecossistema de Terminal:
+          <span style="color: var(--wood)">Node.js & readline-sync</span>
+        </h3>
+        <p class="text">
+          Quando deslocamos o JavaScript do navegador para o ambiente de
+          servidor ou terminal (Back-end), precisamos de um interpretador local.
+          O <strong>Node.js</strong> cumpre esse papel, permitindo executar
+          arquivos <code>.js</code> diretamente no sistema operacional e ler
+          entradas do usuário pelo teclado de forma nativa.
+        </p>
+
+        <div
+          class="msg-grid"
+          style="
+            margin: 24px 2%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+          "
+        >
+          <div class="msg-card git-blue">
+            <div class="msg-badge">Interpretador</div>
+            <div class="msg-title">⚙️ Node.js Core</div>
+            <div class="msg-desc">
+              Utiliza o motor de processamento V8 para rodar lógica de
+              programação pura, scripts automatizados e arquitetura de
+              servidores de forma extremamente veloz,
+              <strong>sem depender de nenhuma tag HTML ou navegador</strong>.
+            </div>
+          </div>
+
+          <div class="msg-card git-gold">
+            <div class="msg-badge">Gerenciador</div>
+            <div class="msg-title">📦 npm init & packages</div>
+            <div class="msg-desc">
+              O assistente oficial do Node.js. O comando
+              <code>npm init -y</code> cria o manifesto
+              <code>package.json</code>, preparando seu diretório local para
+              instalar, mapear e gerenciar todas as bibliotecas externas da
+              comunidade.
+            </div>
+          </div>
+
+          <div class="msg-card git-green">
+            <div class="msg-badge">Captura ✅</div>
+            <div class="msg-title">📥 readline-sync</div>
+            <div class="msg-desc">
+              Como ambientes de terminal não possuem caixas de texto ou inputs
+              gráficos, instalamos a biblioteca <code>readline-sync</code>. Ela
+              realiza a <strong>leitura de dados via teclado</strong>, pausando
+              o script até que o aluno envie uma resposta.
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin: 32px 2%;
+            background: var(--bg-elevado, #161b22);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            overflow: hidden;
+          "
+        >
+          <div
+            style="
+              padding: 16px 24px;
+              border-bottom: 1px solid #30363d;
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              background: #0d1117;
+            "
+          >
+            <div style="display: flex; gap: 6px">
+              <span
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50%;
+                  background: #f85149;
+                  display: block;
+                "
+              ></span>
+              <span
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50%;
+                  background: #e3b341;
+                  display: block;
+                "
+              ></span>
+              <span
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50%;
+                  background: #3fb950;
+                  display: block;
+                "
+              ></span>
+            </div>
+            <span
+              style="
+                font-size: 0.75rem;
+                color: #8b949e;
+                font-family: 'JetBrains Mono', monospace;
+                letter-spacing: 0.04em;
+              "
+            >
+              comparação de execução — ciclo back-end de terminal
+            </span>
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 110px 1fr;
+              align-items: stretch;
+              border-bottom: 1px solid #30363d;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                background: #e3b34112;
+                border-right: 1px solid #30363d;
+                padding: 16px 12px;
+              "
+            >
+              <span style="font-size: 1rem">🛠️</span>
+              <span
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  letter-spacing: 0.12em;
+                  text-transform: uppercase;
+                  color: #e3b341;
+                  font-family: 'JetBrains Mono', monospace;
+                  text-align: center;
+                "
+                >Setup</span
+              >
+            </div>
+            <div
+              style="
+                padding: 16px 24px;
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.85rem;
+                line-height: 1.6;
+                display: flex;
+                align-items: center;
+              "
+            >
+              <code>
+                <span style="color: #e3b341">npm init -y</span>
+                <span style="color: #8b949e; margin: 0 12px">&amp;&amp;</span>
+                <span style="color: var(--wood, #c9a96e)"
+                  >npm install readline-sync</span
+                >
+              </code>
+            </div>
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 110px 1fr;
+              align-items: stretch;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                background: #3fb95012;
+                border-right: 1px solid #30363d;
+                padding: 16px 12px;
+              "
+            >
+              <span style="font-size: 1rem">🚀</span>
+              <span
+                style="
+                  font-size: 0.7rem;
+                  font-weight: 800;
+                  letter-spacing: 0.12em;
+                  text-transform: uppercase;
+                  color: #3fb950;
+                  font-family: 'JetBrains Mono', monospace;
+                  text-align: center;
+                "
+                >Rodar</span
+              >
+            </div>
+            <div
+              style="
+                padding: 16px 24px;
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.85rem;
+                line-height: 1.6;
+                display: flex;
+                align-items: center;
+              "
+            >
+              <code>
+                <span style="color: #3fb950">node</span>
+                <span style="color: #a5d6ff"> script.js</span>
+                <span style="color: #8b949e; margin-left: 16px"
+                  >— Dispara o interpretador para executar sua lógica
+                  local</span
+                >
+              </code>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-tip">
+          <span class="alert-icon">💡</span>
+          <span>
+            <strong>Fluxo de Trabalho:</strong> Adotaremos esta arquitetura
+            baseada em Node.js e terminal para sedimentar de forma pura
+            estruturas condicionais, laços de repetição e vetores. Isolar a
+            lógica nesse ecossistema evita distrações com a estilização visual
+            do CSS ou manipulações complexas de árvores do DOM, deixando o foco
+            100% focado no algoritmo.
+          </span>
+        </div>
+
+        <div class="acc-item" style="margin: 32px 2%">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <div class="acc-header-left">
+              <span class="acc-emoji">📦</span>
+              <span class="acc-title"
+                >Exemplos Práticos — Configuração de Ambiente e Entrada com
+                Readline</span
+              >
+            </div>
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <div class="code-block-dots">
+                    <span class="dot-red"></span><span class="dot-yellow"></span
+                    ><span class="dot-green"></span>
+                  </div>
+                  <span class="code-block-label"
+                    >javascript — implementando o readline-sync</span
+                  >
+                  <button class="code-block-copy" onclick="copyCode(this)">
+                    Copiar
+                  </button>
+                </div>
+                <div class="code-block-body">
+                  <pre><span class="c-comment">// ✅ Importa a dependência instalada via npm</span>
+<span class="c-sel">const</span> readline = <span class="c-prop">require</span>(<span class="c-val">'readline-sync'</span>);
+
+<span class="c-comment">// 📥 Captura dados textuais (String) da entrada do usuário</span>
+<span class="c-sel">const</span> nomeAluno = readline.<span class="c-prop">question</span>(<span class="c-val">'Digite o nome do estudante: '</span>);
+
+<span class="c-comment">// 🔢 Captura e converte automaticamente a entrada para ponto flutuante/inteiro</span>
+<span class="c-sel">const</span> nota1 = readline.<span class="c-prop">questionFloat</span>(<span class="c-val">'Digite a primeira nota: '</span>);
+<span class="c-sel">const</span> nota2 = readline.<span class="c-prop">questionFloat</span>(<span class="c-val">'Digite a segunda nota: '</span>);
+
+<span class="c-comment">// ⚙️ Processamento da lógica de programação pura</span>
+<span class="c-sel">const</span> mediaFinal = (nota1 + nota2) / <span class="c-val">2</span>;
+
+<span class="c-comment">// 🚀 Exibe o resultado de volta na saída padrão do terminal</span>
+console.<span class="c-prop">log</span>(<span class="c-val">`Estudante: ${nomeAluno} | Média obtida: ${mediaFinal}`</span>);</pre>
+                </div>
               </div>
             </div>
           </div>
@@ -3021,7 +3310,7 @@ botao.<span class="c-prop">addEventListener</span>(<span class="c-val">'click'</
               "
             >
               Como conectar<br />
-              <span style="color: var(--wood)">JavaScript</span>
+              <span style="color: var(--wood)">JavaScript</span> <br />com HTML
             </h2>
             <p
               class="cover-subtitle"
